@@ -1,0 +1,85 @@
+@viewport {
+    width: devide-width;
+    user-scalable: no;
+}
+
+body {
+    margin:  0;
+    padding: 0;
+    background-color: #111;
+    color: #cecece;
+}
+
+footer {
+    z-index: 99;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 92%;
+    margin: 0 auto 0 auto;
+    padding: 1.5pt 4% 0 4%;
+    font-family: monospace;
+}
+
+footer a {
+    display: block;
+    text-align:center;
+    font-size: 0.75rem;
+    margin: 0.2rem auto 0 auto;
+    padding: 0.25rem 0 0.2rem 0;
+    text-decoration: none;
+    height: 1em;
+    overflow: hidden;
+}
+
+a, a:visited{
+    color: #b8b8b8;
+}
+
+#content_wrapper {
+    margin: 0 0 1.3rem 0;
+    padding: 0;
+    position: absolute;
+    height: calc(100% - 1.5rem);
+    width:  100%;
+}
+
+article {
+    position: relative;
+    width: 77%;
+    margin: 0 auto 0 auto;
+    padding: 0.8rem 2% 0.8rem 2%;
+}
+
+h1 {
+    font-family: STXiHei, "华文细黑",
+                 "Microsoft YaHei", "微软雅黑", 
+                 Helvetica, sans-serif;
+    left: 0; 
+    top:  0;
+    margin:  0 auto 0 auto;
+    padding: 1rem 0 0.6rem 0;
+    font-size: 2rem;
+    font-weight: normal;
+    display: block;
+    text-align: center;
+    top: 50%;
+}
+h1.error {
+    color: #ff726e;
+}
+
+hr{
+   border-color: #777; 
+}
+
+/* style override for mobile/portriat device */
+@media all and (max-width: 120ch) {
+    article {
+        width: 94%;
+        padding: 0.5rem 3% 0.8rem 3%;
+        border-width: 0;
+		font-size: 1.2rem;
+    }
+}
+

@@ -1,0 +1,25 @@
+{
+  "name": "myweb",
+  "version": "0.1.0",
+  "description": "My Website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@wacky6.vicp.cc:2233/git/website"
+  },
+  "keywords": [
+    "personal",
+    "website"
+  ],
+  "author": "wacky6",
+  "license": "CC-BY-NC-ND-4.0",
+  "dependencies": {
+    "koa": "^0.21.0",
+    "koa-compress": "^1.0.8",
+    "koa-static": "^1.4.9",
+    "koa-swig": "^2.0.0"
+  }
+}
