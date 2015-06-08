@@ -42,12 +42,19 @@ app.use(function *error500(next){
 });
 
 app.use(function *(next){
-    if (this.path=='/')
-        yield this.render('index');
-    else
-        yield next;
+    switch (this.path) {
+        case '/': 
+        case '/index.html':
+            yield this.render('index');
+            break;
+        case '/about':
+            yield this.render('about');
+            break;
+        default:
+            yield next;
+    }
 });
 
-app.use(serve(join(__dirname, "www")));
+app.use(serve(join(__dirname, "www"), {maxage: conf.cache?24*60*60*1000:0}));
 
 app.listen(conf.port);

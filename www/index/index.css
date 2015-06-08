@@ -77,8 +77,11 @@ img.bg {
     height: auto;
     opacity: 0;
     z-index: 0;
-    -webkit-animation-delay: 1s;
-            animation-delay: 1s;
+    transition: opacity 1s;
+    opacity: 0;
+}
+img.bg.shown {
+    opacity: 1;
 }
 
 @-webkit-keyframes fadein {
@@ -99,14 +102,13 @@ img.bg {
     animation-fill-mode: forwards;
 }
 
-
 @media all and (max-width: 120ch) {
     div.menu {
-        height: calc(40pt + 6rem + 4rem);
+        height: auto;
         background-color: rgba(0,0,0, 0.3);
     }
     div.menu:hover{
-        height: calc(40pt + 6rem + 4rem);
+        height: auto;
     }
     div.menu ul.nav {
         opacity: 1;

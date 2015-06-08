@@ -3,7 +3,8 @@
 {%- block head -%}
 <title>Aries @ std-aries</title>
 <link rel="stylesheet" href="/index/index.css">
-{%- endblock -%}
+<script src="/index/index.js"></script>
+{% endblock -%}
 
 {%- block body -%}
 <div class="menu fadein tcenter">
@@ -14,5 +15,5 @@
 <li><a href="/about">About</a></li>
 </ul>
 </div>
-<img class="bg fadein tcenter" src="/index/bg1.jpg"></img>
+<img id="bg" class="bg tcenter" src="/index/bg1.jpg"></img>
 {%- endblock -%}
