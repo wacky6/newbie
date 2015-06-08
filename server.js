@@ -5,6 +5,7 @@ var kswig    = require("koa-swig");
 var join     = require("path").join;
 var serve    = require("koa-static");
 var compress = require("koa-compress");
+var conf     = require("./conf.js");
 
 var app = koa();
 app.context.render = kswig({
@@ -31,7 +32,7 @@ app.use(function *error404(next){
             this.body = "error 404";
     }
 });
-app.use(function *error500)(next){
+app.use(function *error500(next){
     try {
         yield next;
     }catch (err) {
@@ -49,4 +50,4 @@ app.use(function *(next){
 
 app.use(serve(join(__dirname, "www")));
 
-app.listen(1300);
+app.listen(conf.port);
