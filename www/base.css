@@ -19,6 +19,7 @@ footer {
     margin: 0 auto 0 auto;
     padding: 1.5pt 4% 0 4%;
     font-family: monospace;
+    background-color: #000;
 }
 
 footer a {
@@ -30,6 +31,7 @@ footer a {
     text-decoration: none;
     height: 1em;
     overflow: hidden;
+    background-color: #222;
 }
 
 a, a:visited{
@@ -38,10 +40,6 @@ a, a:visited{
 
 #content_wrapper {
     margin: 0 0 1.3rem 0;
-    padding: 0;
-    position: absolute;
-    height: calc(100% - 1.5rem);
-    width:  100%;
 }
 
 article {

@@ -1,5 +1,10 @@
 #content_wrapper{
     overflow: hidden;
+    padding: 0;
+    position: absolute;
+    height: calc(100% - 1.5rem);
+    width:  100%;
+
 }
 
 .tcenter {
@@ -11,48 +16,52 @@
             transform: translate(-50%, -50%);
 }
 
-div.menu {
+.menu {
     width: 90%;
     z-index: 1;
     overflow: hidden;
-    transition: background-color 1s, height 1s;
-    height: calc(2rem + 3rem);
+    transition: background-color 1s, height 1s, opacity 1s;
     padding: 2rem 5% 2rem 5%;
-}
-div.menu:hover {
     background-color: rgba(0,0,0,0.5);
-    height: calc(2rem + 3rem + 4rem); /* keep in sync with media query's */
 }
-div.menu ul.nav {
-    transition: opacity 1s;
+.menu.t-fadein-start {
     opacity: 0;
+}
+.menu.t-before-expand {
+    background-color: rgba(0,0,0,0);
+    height: calc(2rem + 3rem);
+}
+.menu nav {
+    transition: opacity 1s;
+    opacity: 1;
     display: block;
     margin: 2rem auto 0 auto;
     padding: 0;
-    font-size: 1.5rem;
     text-align: center;
+    
 }
-div.menu:hover ul {
-    opacity: 1;
+.menu.t-before-expand .nav {
+    opacity: 0;
 }
-div.menu ul.nav li {
+.menu nav li {
     display: inline-block;
     margin:  0 1ch;
     padding: 0.5ex 0;
     transition: background-color 1s;
     background-color: rgba(0,0,0, 0.3);
 }
-div.menu ul.nav li:hover {
+.menu nav li:hover {
     background-color: rgba(0,0,0, 0.7);
 }
-div.menu ul.nav li a{
+.menu nav li a{
+    margin: 0;
     padding: 0.5ex 3.5ch;
     color: #d0d0d0;
     transition: color 1s;
     font-size: 1.4rem;
     font-family: "Lucida Sans Unicode", Verdana, "Microsoft YaHei", "微软雅黑", Arial;
 }
-div.menu ul.nav li:hover a {
+.menu nav li:hover a {
     color: #ececec;
 }
 
@@ -84,41 +93,13 @@ img.bg.shown {
     opacity: 1;
 }
 
-@-webkit-keyframes fadein {
-    from  {opacity: 0;}
-    to    {opacity: 1;}
-}
-@keyframes fadein {
-    from  {opacity: 0;}
-    to    {opacity: 1;}
-}
-
-.fadein {
-    -webkit-animation-name: fadein;
-    -webkit-animation-duration: 1.5s;
-    -webkit-animation-fill-mode: forwards;
-    animation-name: fadein;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
-}
-
 @media all and (max-width: 120ch) {
-    div.menu {
-        height: auto;
-        background-color: rgba(0,0,0, 0.3);
-    }
-    div.menu:hover{
-        height: auto;
-    }
-    div.menu ul.nav {
-        opacity: 1;
-    }
-    div.menu ul.nav li {
+    .menu nav li {
         display: block;
         margin: 0 auto;
         width: 11ch;
     }
-    div.menu ul.nav li a {
+    .menu nav li a {
         text-align:center;
     }
     img.bg {
