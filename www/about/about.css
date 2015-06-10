@@ -35,13 +35,14 @@ pre > .reality {
     position: relative;
     display: block;
     width: 100%;
+    font-family: serif;
 }
 .overlay > * {
     transition: opacity 1s;
     width: 100%;
     margin: 0;
     padding: 0.2rem 2ch;
-    font-size: 1rem;
+    font-size: 1.2rem;
     display: block;
 }
 .overlay .top {
@@ -65,7 +66,7 @@ pre > .reality {
     content: " ...";
 }
 .g_dtl[expanded]:not(:focus) {
-    height: 1.4rem!important;
+    height: 1.6rem!important;
 }
 .g_dtl {
     display: block;
@@ -120,14 +121,17 @@ article {
     display: block;
     font-family: monospace;
     font-size: 120%;
+    white-space: normal;
 }
 .quote > strong {
     color: #fff;
 }
+.monospace {
+    font-family: monospace;
+}
 
 .float-container {
     display: table;
-    margin:  0.5ex 4ch;
 }
 .float-container > *{
     float: left;
@@ -153,7 +157,7 @@ article {
 
 @media all and (max-width: 120ch) {
     section > :not(h3) {
-        padding: 0 0 0 1ch;
+        margin: 0 1ch;
     }
     .g_dtl {
         margin: 0;

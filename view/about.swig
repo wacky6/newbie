@@ -133,9 +133,11 @@ Self-taught Delphi, Lazarus
 </section>
 <section class="etc">
 <h3>Et cetera</h3>
-<pre>
-Contents (JavaScript, Image, Text) of this website can be used under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><strong>CC BY-NC-SA 4.0</strong></a> (Unless stated otherwise)
-</pre>
+<p class="monospace">
+Contents (JavaScript, Image, Text) of this website can be used under 
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><strong>CC BY-NC-SA 4.0</strong></a> 
+(Unless stated otherwise)
+</p>
 </section>
 </article>
 {%- endblock -%}
