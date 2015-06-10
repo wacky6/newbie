@@ -3,13 +3,12 @@ section h3 {
     font-size: 1.4rem;
     font-family: "Lucida Sans Unicode", Verdana, "Microsoft YaHei", "微软雅黑", Arial;
     color: #ffffff;
-    text-decoration: underline;
 }
 section h3::before {
     content: " > ";
 }
 section > :not(h3) {
-    padding: 0 4ch;
+    margin: 0 4ch;
 }
 section.bio{
     font-size:   1.2rem;
@@ -19,39 +18,42 @@ section {
     margin: 1rem auto;
     transition: all 1s;
     color: #cbcbcb;
+    left:    0;
 }
 section.t-fadein-start {
     opacity: 0;
     left:    3ch;
 }
+pre > .reality {
+    text-decoration: line-through;
+    color: #bad;
+}
 
-h4 {
-    margin: 0 auto;
-    padding: 0.3rem;
-    font-size: 1rem;
-}
-h4.bot::after {
-    content: " ...";
-}
 .overlay {
     margin: 0;
+    padding: 0;
     position: relative;
     display: block;
-    background-color: rgba(23, 23, 23, 0.5);
-    padding: 0 1ch;
+    width: 100%;
+}
+.overlay > * {
+    transition: opacity 1s;
+    width: 100%;
+    margin: 0;
+    padding: 0.2rem 2ch;
+    font-size: 1rem;
+    display: block;
 }
 .overlay .top {
-    position: absolute;
-    top: 0;
-    transition: opacity 1s;
     opacity: 0;
     z-index: 1;
 }
 .overlay .bot {
-    transition: opacity 1s;
+    position: absolute;
+    top:  0;
     opacity: 1;
-    color: #777;
-    background: transparent;
+    color: #888;
+    z-index: 0;
 }
 .overlay:hover .top {
     opacity: 1;
@@ -59,55 +61,110 @@ h4.bot::after {
 .overlay:hover .bot {
     opacity: 0;
 }
-.grp_detail[expanded]:not(:focus) {
-    height: 1.6rem!important;
+.overlay h4.bot::after {
+    content: " ...";
 }
-.grp_detail {
+.g_dtl[expanded]:not(:focus) {
+    height: 1.4rem!important;
+}
+.g_dtl {
     display: block;
     overflow: hidden;
-    transition: height 0.6s, background-position 0.6s;
+    transition: height 0.6s;
     position: relative;
-    box-shadow: inset 0 0 3rem 0.5rem #171717;
+    box-shadow: inset 0 0 3rem 0.5rem #222;
     background-size: cover;
-    background-position: 0 0;
-    background-clip: content-box;
+    background-position: center;
     padding: 0;
-    margin: 0 4ch;
+    margin: 0 2ch;
 }
-.grp_detail:focus {
-    background-position: 0 -2rem;
+.g_dtl > * {
+    background-color: rgba(32,32,32,0.6);
 }
-.grp_detail:focus .overlay .top {
-    color: #cbcbcb;
+.g_dtl:focus .overlay .top {
+    color: #dedede;
     opacity: 1;
 }
-.grp_detail:focus .overlay .bot {
-    color: #aeaeae;
+.g_dtl:focus .overlay .bot {
     opacity: 0;
 }
-.grp_detail pre {
+.g_dtl pre {
+    transition: opacity 1s;
     opacity: 0;
-    transition: opacity 0.6s;
-    background-color: rgba(23,23,23,0.5);
     margin: 0;
-    padding: 2ex 4ch;
+    padding: 0.5ex 0 1ex 2ch;
     line-height: 133%;
+    color: #dedede;
 }
-.grp_detail:focus pre {
+.g_dtl:focus pre {
     opacity: 1;
-}
-.round {
-    border-radius: 1rem;
 }
 article {
-    background-color: #171717;
+    background-color: #222;
 }
 
+.quote:before {
+    content: open-quote;
+    margin: 0 0.5ch;
+    font-size: 200%;
+    line-height: 50%;
+    position: relative;
+    top: 0.4ex;
+    color: #c0e9ff;
+}
+.quote:after  {
+    content: '';
+}
+.quote {
+    background-color: #333;
+    display: block;
+    font-family: monospace;
+    font-size: 120%;
+}
+.quote > strong {
+    color: #fff;
+}
+
+.float-container {
+    display: table;
+    margin:  0.5ex 4ch;
+}
 .float-container > *{
     float: left;
+    margin: 0.5ex 1ex;
 }
 .float-container > a {
     display: block;
-    width: 30pt;
-    height: 30pt;
+    width: 64pt;
+    height: 64pt;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
+.float-container > a > span {
+    position: absolute;
+    bottom: 0;
+    margin: 0.2ex 0 0 0;
+    width: 100%;
+    background-color: rgba(0,0,0, 0.8);
+    text-align: center;
+}
+
+@media all and (max-width: 120ch) {
+    section > :not(h3) {
+        padding: 0 0 0 1ch;
+    }
+    .g_dtl {
+        margin: 0;
+    }
+    .g_dtl pre {
+        padding: 0.5ex 0 1ex 1ch;
+    }
+    .g_dtl:focus .overlay {
+        background-color: rgba(0,0,0,0.6);
+    }
+    pre{
+        overflow-x: scroll;
+    }
+} 

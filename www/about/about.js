@@ -11,11 +11,12 @@ function mkArray(coll) {
     return arr;
 }
 
-function hookGrpDetailHeight(grpNode) {
-    var grp = grpNode.getElementsByClassName("grp_detail");
+function injectGrpDetailHeight(grpNode) {
+    var grp = grpNode.getElementsByClassName("g_dtl");
     mkArray(grp).forEach(function(e){
-        injectHeight(e);
-        e.style.height = e.getAttribute("expanded");
+        injectHeight(e, function(node, height){
+            node.style.height = height;
+        });
     });
 }
 
@@ -39,6 +40,6 @@ function gradualFadeInSection(grpNode) {
  *   background image used in sec_edu does not affact text's height;
  */
 window.addEventListener('DOMContentLoaded', function(ev){
-    hookGrpDetailHeight(Id("sec_edu"), "t-height");  
+    injectGrpDetailHeight(Id("sec_edu"), "t-height");  
     gradualFadeInSection(document.body.getElementsByTagName("article")[0]);
 });

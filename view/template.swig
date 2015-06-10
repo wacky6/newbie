@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+<meta name="author" content="Jiewei Qian, wacky6, Aries" />
+<meta name="handheldfriendly" />
 <link rel="stylesheet" href="/base.css">
 {%- block head  -%}
 {%- endblock -%}

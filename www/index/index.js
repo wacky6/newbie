@@ -21,12 +21,9 @@ window.addEventListener("load", function(ev) {
 window.addEventListener("DOMContentLoaded", function(ev) {
     tContentLoaded = new Date().getTime();
     var menu = Id("menu_wrap");
-    injectHeight(menu);
-    // inject hover height to CSS
-    document.styleSheets[0].insertRule(
-        "div.menu {height: "+menu.getAttribute("expanded")+";}",
-        document.styleSheets[0].length
-    );
+    injectHeight(menu, function(node, height){
+        node.style.height = height;
+    });
     transitionAnimation(menu, "t-fadein-start");
     transitionAnimation(menu, "t-before-expand", 900);
 });

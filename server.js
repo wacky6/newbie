@@ -36,6 +36,7 @@ app.use(function *error500(next){
     try {
         yield next;
     }catch (err) {
+        console.log(err);
         this.status = err.status || 500;
         this.render('500');
     }

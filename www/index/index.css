@@ -29,7 +29,7 @@
 }
 .menu.t-before-expand {
     background-color: rgba(0,0,0,0);
-    height: calc(2rem + 3rem);
+    height: calc(2rem + 3rem) !important;
 }
 .menu nav {
     transition: opacity 1s;
@@ -38,30 +38,23 @@
     margin: 2rem auto 0 auto;
     padding: 0;
     text-align: center;
-    
 }
 .menu.t-before-expand .nav {
     opacity: 0;
 }
-.menu nav li {
+.menu nav a{
     display: inline-block;
     margin:  0 1ch;
-    padding: 0.5ex 0;
-    transition: background-color 1s;
-    background-color: rgba(0,0,0, 0.3);
-}
-.menu nav li:hover {
-    background-color: rgba(0,0,0, 0.7);
-}
-.menu nav li a{
-    margin: 0;
-    padding: 0.5ex 3.5ch;
+    padding: 0.5ex 2ch;
+    min-width: 6ch;
     color: #d0d0d0;
-    transition: color 1s;
     font-size: 1.4rem;
     font-family: "Lucida Sans Unicode", Verdana, "Microsoft YaHei", "微软雅黑", Arial;
+    transition: color 1s, background-color 1s;
+    background-color: rgba(0,0,0, 0.3);
 }
-.menu nav li:hover a {
+.menu nav a:hover {
+    background-color: rgba(0,0,0, 0.7);
     color: #ececec;
 }
 
@@ -84,7 +77,6 @@ img.bg {
     margin: 0; padding: 0;
     width:  100%;
     height: auto;
-    opacity: 0;
     z-index: 0;
     transition: opacity 1s;
     opacity: 0;
@@ -94,13 +86,11 @@ img.bg.shown {
 }
 
 @media all and (max-width: 120ch) {
-    .menu nav li {
+    .menu nav a {
         display: block;
         margin: 0 auto;
-        width: 11ch;
-    }
-    .menu nav li a {
-        text-align:center;
+        width:  14ch;
+        padding: 0.5ex 0; 
     }
     img.bg {
         height: 90%;
