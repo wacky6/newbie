@@ -56,6 +56,6 @@ app.use(function *(next){
     }
 });
 
-app.use(serve(join(__dirname, "www"), {maxage: conf.cache?24*60*60*1000:0}));
+app.use(serve(join(__dirname, "www"), {maxage: conf.cache?10*60*1000:0}));
 
 app.listen(conf.port);
