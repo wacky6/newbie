@@ -1,4 +1,4 @@
-{# no-param #}
+{# static, index.html #}
 {%- extends "template.swig" -%}
 
 {%- block head -%}

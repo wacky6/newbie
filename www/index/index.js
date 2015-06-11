@@ -1,4 +1,5 @@
 "use strict";
+(function(){
 
 function Id(id) {
     return document.getElementById(id);
@@ -27,3 +28,5 @@ window.addEventListener("DOMContentLoaded", function(ev) {
     transitionAnimation(menu, "t-fadein-start");
     transitionAnimation(menu, "t-before-expand", 900);
 });
+
+})();
