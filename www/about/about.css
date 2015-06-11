@@ -1,32 +1,9 @@
-section h3 {
-    margin: 0.5rem auto;
-    font-size: 1.4rem;
-    font-family: "Lucida Sans Unicode", Verdana, "Microsoft YaHei", "微软雅黑", Arial;
-    color: #ffffff;
-}
-section h3::before {
-    content: " > ";
-}
-section > :not(h3) {
-    margin: 0 4ch;
-}
 section.bio{
     font-size:   1.2rem;
-}
-section {
-    position: relative;
-    margin: 1rem auto;
-    transition: all 1s;
-    color: #cbcbcb;
-    left:    0;
 }
 section.t-fadein-start {
     opacity: 0;
     left:    3ch;
-}
-pre > .reality {
-    text-decoration: line-through;
-    color: #bad;
 }
 
 .overlay {
@@ -103,65 +80,10 @@ pre > .reality {
 .g_dtl:focus pre {
     opacity: 1;
 }
-article {
-    background-color: #222;
-}
-
-.quote:before {
-    content: open-quote;
-    margin: 0 0.5ch;
-    font-size: 200%;
-    line-height: 50%;
-    position: relative;
-    top: 0.4ex;
-    color: #c0e9ff;
-}
-.quote:after  {
-    content: '';
-}
-.quote {
-    background-color: #333;
-    display: block;
-    font-family: monospace;
-    font-size: 1.2rem;
-    white-space: normal;
-}
-.quote > strong {
-    color: #fff;
-}
-.monospace {
-    font-family: monospace;
-    margin: 1em 4ch;
-}
-
-.float-container {
-    display: table;
-}
-.float-container > *{
-    float: left;
-    margin: 0.5ex 1ex;
-}
-.float-container > a {
-    display: block;
-    width: 64pt;
-    height: 64pt;
-    position: relative;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-.float-container > a > span {
-    position: absolute;
-    bottom: 0;
-    margin: 0.2ex 0 0 0;
-    width: 100%;
-    background-color: rgba(0,0,0, 0.8);
-    text-align: center;
-}
 
 @media all and (max-width: 120ch) {
-    section > :not(h3) {
-        margin: 0 1ch;
+    .overlay .top, .overlay .bot {
+        padding: 0.2rem 1ch;
     }
     .g_dtl {
         margin: 0;
@@ -174,8 +96,5 @@ article {
     }
     pre{
         overflow-x: scroll;
-    }
-    .monospace {
-        margin: 1em 1ch;
     }
 } 
