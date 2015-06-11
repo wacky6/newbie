@@ -4,7 +4,6 @@
     position: absolute;
     height: calc(100% - 1.5rem);
     width:  100%;
-
 }
 
 .tcenter {
@@ -23,13 +22,14 @@
     transition: background-color 1s, height 1s, opacity 1s;
     padding: 2rem 5% 2rem 5%;
     background-color: rgba(0,0,0,0.5);
+    font-family: cursive;
 }
 .menu.t-fadein-start {
     opacity: 0;
 }
 .menu.t-before-expand {
     background-color: rgba(0,0,0,0);
-    height: calc(2rem + 3rem) !important;
+    height: calc(2rem + 5.4em) !important;
 }
 .menu nav {
     transition: opacity 1s;
@@ -48,7 +48,7 @@
     padding: 0.5ex 2ch;
     min-width: 6ch;
     color: #d0d0d0;
-    font-size: 1.4rem;
+    font-size: 1.4em;
     font-family: "Lucida Sans Unicode", Verdana, "Microsoft YaHei", "微软雅黑", Arial;
     transition: color 1s, background-color 1s;
     background-color: rgba(0,0,0, 0.3);
@@ -58,10 +58,13 @@
     color: #ececec;
 }
 
+header{
+    font-family: inherit;
+}
 h1 {
     width: 90%;
     padding: 0;
-    font-size: 2.7rem;
+    font-size: 2.7em;
     color: #ffffff;
     margin: 1rem auto;
     font-family: inherit;
