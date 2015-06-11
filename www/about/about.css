@@ -131,6 +131,7 @@ article {
 }
 .monospace {
     font-family: monospace;
+    margin: 1em 0;
 }
 
 .float-container {
