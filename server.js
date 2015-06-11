@@ -50,9 +50,11 @@ app.use(function *(next){
         case '/index.html':
             yield this.render('index');
             break;
-        case '/about':
+        case '/about/':
             yield this.render('about');
             break;
+        case '/play-healthy/':
+            yield this.render('play-healthy');
         default:
             yield next;
     }
