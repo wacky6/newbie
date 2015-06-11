@@ -149,7 +149,7 @@ article {
 }
 .monospace {
     font-family: monospace;
-    margin: 1em 0;
+    margin: 1em 4ch;
 }
 
 .float-container {
@@ -195,5 +195,8 @@ article {
     }
     pre{
         overflow-x: scroll;
+    }
+    .monospace {
+        margin: 1em 1ch;
     }
 } 
