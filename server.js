@@ -42,6 +42,8 @@ app.use(function *error500(next){
     }
 });
 
+app.use(serve(join(__dirname, "www"), {maxage: conf.cache?10*60*1000:0}));
+
 app.use(function *(next){
     switch (this.path) {
         case '/': 
@@ -56,6 +58,5 @@ app.use(function *(next){
     }
 });
 
-app.use(serve(join(__dirname, "www"), {maxage: conf.cache?10*60*1000:0}));
 
 app.listen(conf.port);

@@ -1,5 +1,5 @@
 "use strict";
-
+(function() {
 /* equiv: window.getComputedStyle(node).height
  * can be used to force refresh element's computed style
  */
@@ -54,3 +54,5 @@ window.addEventListener('resize', function(){
     if (resizeTimer) clearTimeout(resizeTimer)
     resizeTimer = setTimeout(reInject, resizeThrottleMs);
 });
+
+})();
