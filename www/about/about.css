@@ -18,11 +18,11 @@ section {
     margin: 1rem auto;
     transition: all 1s;
     color: #cbcbcb;
-    left:    0;
 }
 section.t-fadein-start {
     opacity: 0;
-    left:    3ch;
+    -webkit-transform: translate(3ch, 0);
+            transform: translate(3ch, 0);
 }
 pre > .reality {
     text-decoration: line-through;
@@ -97,7 +97,7 @@ pre > .reality {
 }
 .g_dtl:focus .overlay .top {
     -webkit-filter: opacity(1);
-            filter: opacity(1);;
+            filter: opacity(1);
 }
 .g_dtl:focus .overlay .bot {
     -webkit-filter: opacity(0);
