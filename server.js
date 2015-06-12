@@ -17,6 +17,15 @@ app.context.render = kswig({
 });
 
 app.use(compress());
+app.use(function *error500(next){
+    try {
+        yield next;
+    }catch (err) {
+        console.log(err);
+        this.status = err.status || 500;
+        yield this.render('500');
+    }
+});
 app.use(function *error404(next){
     yield next;
     if (this.status!=404) return;
@@ -32,15 +41,6 @@ app.use(function *error404(next){
             this.body = "error 404";
     }
 });
-app.use(function *error500(next){
-    try {
-        yield next;
-    }catch (err) {
-        console.log(err);
-        this.status = err.status || 500;
-        this.render('500');
-    }
-});
 
 app.use(serve(join(__dirname, "www"), {maxage: conf.cache?10*60*1000:0}));
 
@@ -50,7 +50,7 @@ app.use(function *(next){
         case '/index.html':
             yield this.render('index');
             break;
-        case '/about':
+        case '/about/':
             yield this.render('about');
             break;
         default:

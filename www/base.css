@@ -47,6 +47,7 @@ article {
     width: 77%;
     margin: 0 auto 0 auto;
     padding: 0.8rem 2% 0.8rem 2%;
+    background-color: #222;
 }
 
 h1 {
@@ -54,19 +55,150 @@ h1 {
                  "Microsoft YaHei", "微软雅黑", 
                  Helvetica, sans-serif;
     left: 0; 
-    margin:  0 auto 0 auto;
-    padding: 1rem 0 0.6rem 0;
+    margin:  1rem auto 0.6rem auto;
     font-size: 2rem;
     font-weight: normal;
     display: block;
     text-align: center;
+    color: #eee;
 }
 h1.error {
     color: #ff726e;
 }
-
+h1~h2 {
+    margin: -0.3rem auto;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    font-weight: lighter;
+    left: 50%;
+    text-align: right;
+    padding-right: 8ch;
+    color: #ccc;
+}
+section {
+    position: relative;
+    margin: 1rem auto;
+    transition: all 1s;
+    color: #cbcbcb;
+}
+section > :not(h3) {
+    margin: 0 4ch;
+}
+section h3::before {
+    content: " > ";
+}
+section h3 {
+    margin: 0.5rem auto;
+    font-size: 1.4rem;
+    font-family: "Lucida Sans Unicode", Verdana, "Microsoft YaHei", "微软雅黑", Arial;
+    color: #ffffff;
+}
+.reality {
+    text-decoration: line-through;
+    color: #bad;
+}
 hr{
    border-color: #777; 
+}
+
+.float-container {
+    display: table;
+}
+.float-container > *{
+    float: left;
+    margin: 0.5ex 1ex;
+}
+.float-container > a {
+    display: block;
+    width: 64pt;
+    height: 64pt;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.float-container > a > span {
+    position: absolute;
+    bottom: 0;
+    margin: 0.2ex 0 0 0;
+    width: 100%;
+    background-color: rgba(0,0,0, 0.8);
+    text-align: center;
+}
+
+.quote:before {
+    content: '"';
+    margin: 0 0.5ch;
+    font-size: 200%;
+    line-height: 50%;
+    position: relative;
+    top: 0.4ex;
+    color: #c0e9ff;
+}
+.quote:after  {
+    content: '';
+}
+.quote {
+    background-color: #333;
+    display: block;
+    font-family: monospace;
+    font-size: 1.2rem;
+    white-space: normal;
+}
+.quote > strong {
+    color: #fff;
+}
+.monospace {
+    font-family: monospace;
+    margin: 1em 4ch;
+}
+
+/* nav bar for normal pages */
+nav.side {
+    position: fixed;
+    top:  40%;
+    -webkit-transform: translate(-6.6ch, -50%);
+            transform: translate(-6.6ch, -50%);
+    background-color: #333;
+    border-radius: 0 0.5em 0.5em 0;
+    padding: 0.8ex 0.5ch 0.8ex 0;
+    font-size: 1.8rem;
+    font-family: monospace;
+    -webkit-transition: transform 0.5s, -webkit-transform 0.5s;
+            transition: transform 0.5s, -webkit-transform 0.5s;
+    -webkit-filter: drop-shadow(0.3ch 0.3rem 2rem #000);
+            filter: drop-shadow(0.3ch 0.3rem 2rem #000);
+    z-index:99;
+}
+nav.side:hover {
+    background-color: #333;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+}
+nav.side a {
+    width: 8ch;
+    text-align:right;
+    display: block;
+    text-decoration: none;
+    margin: 0.3ex 0;
+    padding: 0 0 0 0.5ch;
+    transition: background-color 0.5s;
+    font-family: inherit;
+}
+nav.side a:hover {
+    background-color: #111;
+}
+nav.side a:after {
+    padding: 0 0.5ch;
+}
+nav.side a.back:after {
+    content: "<";
+}
+nav.side a.index:after {
+    content: "/";
+}
+nav.side a.about:after {
+    content: "?";
 }
 
 /* style override for mobile/portriat device */
@@ -76,6 +208,30 @@ hr{
         padding: 0.5rem 3% 0.8rem 3%;
         border-width: 0;
 		font-size: 1.2rem;
+    }
+    section > :not(h3) {
+        margin: 0 1ch;
+    }
+    .monospace {
+        margin: 1em 1ch;
+    }
+    h1~h2{
+        padding-right: 1ch;
+    }
+    nav.side {
+        font-size: 3rem;
+        top: 0;
+        -webkit-transform: translate(-6.6ch, 0);
+                transform: translate(-6.6ch, 0);
+        border-radius: 0 0 0.5em 0;
+        padding: 0 0.25em 0 0;
+    }
+    nav.side:hover{
+        -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+    }
+    nav.side a:not(:first-child) {
+        display: none;
     }
 }
 

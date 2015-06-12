@@ -12,7 +12,7 @@
 BASE=`pwd`
 JS_MINIFY=${BASE}/$(find node_modules/ -path "*/bin/minify.js")
 CSS_MINIFY=${BASE}/$(find node_modules/ -path "*/bin/minify.js")
-SWIG_RENDER=${BASE}/$(find node_modules/ -path "*/bin/swig.js")
+SWIG_RENDER=${BASE}/"node_modules/swig/bin/swig.js"
 
 # minify css in www/ directory
 function minifyCSS() {
@@ -43,7 +43,7 @@ function minifyJS() {
 # render .swig with static comment
 function renderSWIG() {
     (cd view ;
-        PATTERN='{# static, (.+) #}'
+        PATTERN='\{# static, (.+) #\}'
         for i in `find . -name "*.swig"`
         do
             HEADER=`head -1 $i`

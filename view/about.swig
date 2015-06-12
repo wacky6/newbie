@@ -4,7 +4,7 @@
 {%- block head -%}
 <meta name="description" content="About Jiewei Qian, used ID includes: wacky6, std::weak" />
 <meta name="keywords" content="Jiewei Qian, wacky6, std::weak, about, contact, who" />
-<title>About me</title>
+<title>About me @ std-aries</title>
 <link rel="stylesheet" href="/about/about.css">
 <script src="/inject-height.js"></script>
 <script src="/transition-animation.js"></script>
@@ -16,6 +16,7 @@
 </noscript>
 {%- endblock -%}
 {%- block body -%}
+{%- include "nav.swig" -%}
 <article>
 <header>
 <h1>About Me</h1>
