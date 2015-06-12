@@ -1,8 +1,4 @@
 section {
-    -webkit-transition: 
-                transform 1s, -webkit-transform 1s, 
-                filter 1s, -webkit-filter 1s,
-                height 1s;
     transition: transform 1s, -webkit-transform 1s, 
                 filter 1s, -webkit-filter 1s,
                 height 1s;
