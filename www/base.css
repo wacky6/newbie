@@ -78,7 +78,6 @@ h1~h2 {
 section {
     position: relative;
     margin: 1rem auto;
-    transition: all 1s;
     color: #cbcbcb;
 }
 section > :not(h3) {

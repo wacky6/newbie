@@ -1,9 +1,20 @@
+section {
+    -webkit-transition: 
+                transform 1s, -webkit-transform 1s, 
+                filter 1s, -webkit-filter 1s,
+                height 1s;
+    transition: transform 1s, -webkit-transform 1s, 
+                filter 1s, -webkit-filter 1s,
+                height 1s;
+}
 section.bio{
     font-size:   1.2rem;
 }
 section.t-fadein-start {
-    opacity: 0;
-    left:    3ch;
+    -webkit-transform: translate(3ch, 0);
+            transform: translate(3ch, 0);
+    -webkit-filter: opacity(0);
+            filter: opacity(0);
 }
 
 .overlay {
