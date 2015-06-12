@@ -152,6 +152,55 @@ hr{
     font-family: monospace;
     margin: 1em 4ch;
 }
+
+/* nav bar for normal pages */
+nav.side {
+    position: fixed;
+    top:  40%;
+    -webkit-transform: translate(-6.6ch, -50%);
+            transform: translate(-6.6ch, -50%);
+    background-color: #333;
+    border-radius: 0 0.5em 0.5em 0;
+    padding: 0.8ex 0.5ch 0.8ex 0;
+    font-size: 1.8rem;
+    font-family: monospace;
+    -webkit-transition: transform 0.5s, -webkit-transform 0.5s;
+            transition: transform 0.5s, -webkit-transform 0.5s;
+    -webkit-filter: drop-shadow(0.3ch 0.3rem 2rem #000);
+            filter: drop-shadow(0.3ch 0.3rem 2rem #000);
+    z-index:99;
+}
+nav.side:hover {
+    background-color: #333;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+}
+nav.side a {
+    width: 8ch;
+    text-align:right;
+    display: block;
+    text-decoration: none;
+    margin: 0.3ex 0;
+    padding: 0 0 0 0.5ch;
+    transition: background-color 0.5s;
+    font-family: inherit;
+}
+nav.side a:hover {
+    background-color: #111;
+}
+nav.side a:after {
+    padding: 0 0.5ch;
+}
+nav.side a.back:after {
+    content: "<";
+}
+nav.side a.index:after {
+    content: "/";
+}
+nav.side a.about:after {
+    content: "?";
+}
+
 /* style override for mobile/portriat device */
 @media all and (max-width: 120ch) {
     article {
@@ -168,6 +217,21 @@ hr{
     }
     h1~h2{
         padding-right: 1ch;
+    }
+    nav.side {
+        font-size: 3rem;
+        top: 0;
+        -webkit-transform: translate(-6.6ch, 0);
+                transform: translate(-6.6ch, 0);
+        border-radius: 0 0 0.5em 0;
+        padding: 0 0.25em 0 0;
+    }
+    nav.side:hover{
+        -webkit-transform: translate(0, 0);
+                transform: translate(0, 0);
+    }
+    nav.side a:not(:first-child) {
+        display: none;
     }
 }
 

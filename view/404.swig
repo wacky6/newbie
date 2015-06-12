@@ -1,6 +1,7 @@
 {%- extends "template.swig" -%}
 
 {%- block body -%}
+{%- include "nav.swig" -%}
 <article>
 <h1 class="error">Oops. Girlfriend not found.</h1>
 <pre>
