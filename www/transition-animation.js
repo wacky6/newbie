@@ -1,5 +1,5 @@
 "use strict";
-
+(function() {
 /* after [delay] ms, remove startClassName from node,
    and node will appears to be animating using transition
    only startClassName is used in case script is disabled,
@@ -13,7 +13,7 @@
    startClassName: className
    delay: ms, delay
 */
-function transitionAnimation(node, startClassName, delay) {
+window.transitionAnimation = function(node, startClassName, delay) {
     if (!node) return;
     delay = delay || 0;
     var t = node.style.transition;
@@ -25,5 +25,7 @@ function transitionAnimation(node, startClassName, delay) {
         node.className = node.className.replace(" "+startClassName, "");
     }, delay);
 }
+
+})();
 
 

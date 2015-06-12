@@ -1,10 +1,10 @@
-{# no-param #}
+{# static, about/index.html #}
 {%- extends "template.swig" -%}
 
 {%- block head -%}
 <meta name="description" content="About Jiewei Qian, used ID includes: wacky6, std::weak" />
 <meta name="keywords" content="Jiewei Qian, wacky6, std::weak, about, contact, who" />
-<title>About me</title>
+<title>About me @ std-aries</title>
 <link rel="stylesheet" href="/about/about.css">
 <script src="/inject-height.js"></script>
 <script src="/transition-animation.js"></script>
@@ -16,6 +16,7 @@
 </noscript>
 {%- endblock -%}
 {%- block body -%}
+{%- include "nav.swig" -%}
 <article>
 <header>
 <h1>About Me</h1>
@@ -117,7 +118,7 @@ Self-taught Delphi, Lazarus
 </section>
 <section class="site">
 <h3>About this site</h3>
-<pre class="quote">You are reading this site thanks to many <strong>open-source</strong> projects</pre>
+<pre class="quote">You are reading this site thanks to many great <strong>open-source</strong> projects</pre>
 {%- macro href_icon(title, href, iconUrl) -%}
 <a href="{{href}}" style="background-image: url('{{iconUrl}}');">
 {%- if title -%}
@@ -144,6 +145,14 @@ Self-taught Delphi, Lazarus
 Contents (JavaScript, Image, Text) of this website can be used under 
 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><strong>CC BY-NC-SA 4.0</strong></a> 
 (Unless stated otherwise)
+</p>
+<p class="monospace">
+JavaScript & CSS are minified, original(development) version is served by adding ".full." to filename <br/>
+(eg: index.js -> index.full.js) You are welcomed to make contribution to this site.
+</p>
+<p class="monospace">
+You Can Help to Make Internet a Better Place. Read More on 
+<a title="How to play healthy with computers." href="/play-healthy">Play Healthy!</a>
 </p>
 </section>
 </article>

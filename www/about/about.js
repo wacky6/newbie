@@ -1,3 +1,5 @@
+"use strict";
+(function() {
 function Id(id) {
     return document.getElementById(id);
 }
@@ -43,3 +45,5 @@ window.addEventListener('DOMContentLoaded', function(ev){
     injectGrpDetailHeight(Id("sec_edu"), "t-height");  
     gradualFadeInSection(document.body.getElementsByTagName("article")[0]);
 });
+
+})();
