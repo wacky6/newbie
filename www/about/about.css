@@ -3,8 +3,7 @@ section.bio{
 }
 section.t-fadein-start {
     opacity: 0;
-    -webkit-transform: translate(3ch, 0);
-            transform: translate(3ch, 0);
+    left:    3ch;
 }
 
 .overlay {
@@ -101,9 +100,6 @@ section.t-fadein-start {
 }
 
 @media all and (max-width: 120ch) {
-    .overlay .top, .overlay .bot {
-        padding: 0.2rem 1ch;
-    }
     .overlay .top, .overlay .bot {
         padding: 0.2rem 1ch;
     }

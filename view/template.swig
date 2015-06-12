@@ -15,7 +15,7 @@
 {%- endblock -%}
 </div>
 <footer class="copyright">
-  <a href="https://github.com/wacky6">jwQ, Aries, (C) 2014-2015, All rights reserved</a>
+  <a href="https://github.com/wacky6">jwQ, Aries, (C) 2014-2015, CC BY-NC-SA-4.0</a>
 </footer>
 </body>
 </html>

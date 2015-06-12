@@ -17,6 +17,15 @@ app.context.render = kswig({
 });
 
 app.use(compress());
+app.use(function *error500(next){
+    try {
+        yield next;
+    }catch (err) {
+        console.log(err);
+        this.status = err.status || 500;
+        yield this.render('500');
+    }
+});
 app.use(function *error404(next){
     yield next;
     if (this.status!=404) return;
@@ -30,15 +39,6 @@ app.use(function *error404(next){
             break;
         default:
             this.body = "error 404";
-    }
-});
-app.use(function *error500(next){
-    try {
-        yield next;
-    }catch (err) {
-        console.log(err);
-        this.status = err.status || 500;
-        this.render('500');
     }
 });
 
