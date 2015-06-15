@@ -80,25 +80,103 @@ section {
     margin: 1rem auto;
     transition: all 1s;
     color: #cbcbcb;
+    font-family: serif;
 }
 section > :not(h3) {
-    margin: 0 4ch;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 section h3::before {
     content: " > ";
 }
 section h3 {
-    margin: 0.5rem auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     font-size: 1.4rem;
     font-family: "Lucida Sans Unicode", Verdana, "Microsoft YaHei", "微软雅黑", Arial;
     color: #ffffff;
+}
+section div > div {
+    margin-left: 2rem;
+}
+section p {
+    line-height: 133%;
+    font-size: 1.1rem;
+    margin-top: 0.5ex;
+    margin-bottom: 0.5ex;
+}
+section p+ul{
+    margin-top: -0.3ex;
+}
+section pre {
+    margin-bottom: 1ex;
+}
+section .indent {
+    margin-left: 1rem;
+}
+section .inline-box {
+    background-color: #333;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    color: #eee;
+    overflow: scroll;
+}
+section .op{
+    color: #00eeff;
+    font-family: monospace;
+}
+section .red {
+    color: #ff4444;
+}
+section .blue {
+    color: #22aaff;
+}
+section ul{
+    list-style: none;
+    overflow: scroll;
+    margin-bottom: 0.5rem;
+}
+section ul.inline-box{
+    padding-left: 0.3rem; padding-right: 0.3rem;
+}
+section h4 {
+    font-family: sans-serif;
+    font-size: 1.3rem;
+    padding: 0.5ex auto;
+    margin: 1ex 0 0.5ex 0;
+    color: #eee;
+}
+section h4+p {
+    margin-top: -0.3ex;
+}
+section h5{
+    margin-top: 0.5ex;
+    margin-bottom: 0.5ex;
+    font-size: inherit;
+    font-weight: normal;
+}
+section li > h5::before {
+    content: "+ ";
+    color: #00eeff;
+}
+section li h5~* {
+    margin-left: 1rem;
+}
+section h5+* {
+    margin-top: -0.3ex;
+}
+.inherit-font {
+    font:inherit;
 }
 .reality {
     text-decoration: line-through;
     color: #bad;
 }
+.nowrap {
+    white-space: nowrap;
+}
 hr{
-   border-color: #777; 
+    border-color: #777; 
 }
 
 .float-container {
@@ -143,6 +221,8 @@ hr{
     display: block;
     font-family: monospace;
     font-size: 1.2rem;
+    padding: 0.1em 0;
+    line-height: 133%;
     white-space: normal;
 }
 .quote > strong {
@@ -150,7 +230,6 @@ hr{
 }
 .monospace {
     font-family: monospace;
-    margin: 1em 4ch;
 }
 
 /* nav bar for normal pages */
@@ -204,16 +283,20 @@ nav.side a.about:after {
 /* style override for mobile/portriat device */
 @media all and (max-width: 120ch) {
     article {
-        width: 94%;
-        padding: 0.5rem 3% 0.8rem 3%;
+        width: 97%;
+        padding: 0.5rem 1.5% 0.8rem 1.5%;
         border-width: 0;
 		font-size: 1.2rem;
+        overflow-x: scroll;
     }
     section > :not(h3) {
-        margin: 0 1ch;
+        margin: 0 0.2rem 0 0.2rem;
     }
     .monospace {
         margin: 1em 1ch;
+    }
+    .quote::before {
+        margin: 0 0.1ch;
     }
     h1~h2{
         padding-right: 1ch;
@@ -232,6 +315,9 @@ nav.side a.about:after {
     }
     nav.side a:not(:first-child) {
         display: none;
+    }
+    section .indent {
+        margin-left: 0rem;
     }
 }
 

@@ -42,8 +42,12 @@ Born & grow up in <strong>Nanjing, China</strong>
   <h4 class="top">{{top}}</h4>
 </div>
 {%- endmacro -%}
+{% macro bgimg(url -%}
+<div class="bg" style="background-image: url('{{url}}');" > </div>
+{%- endmacro -%}
 
-<div class="g_dtl" tabindex="0" style="background-image: url('/about/edu3.jpg')">
+<div class="g_dtl" tabindex="0">
+{{ bgimg("/about/edu3.jpg") -}}
 {{ overlay("University", "Nanjing University of Post and Telecommunication") -}}
 <pre>
 Entered NJUPT @ 2013, partially a College-Entrance-Exam failure
@@ -59,7 +63,8 @@ Begin to enjoy more Anime!
 </pre>
 </div>
 
-<div class="g_dtl" tabindex="1" style="background-image: url('/about/edu4.jpg')">
+<div class="g_dtl" tabindex="1">
+{{ bgimg("/about/edu4.jpg") -}}
 {{ overlay("As Exchange Student", "Nanjing University, 2014-2015 1st Semester") -}}
 <pre>
 <strong style="color:#55ff41;">A splendid journey.</strong>
@@ -76,7 +81,8 @@ During this time:
 </pre>
 </div>
 
-<div class="g_dtl" tabindex="2" style="background-image: url('/about/edu2.jpg')">
+<div class="g_dtl" tabindex="2">
+{{ bgimg("/about/edu2.jpg") -}}
 {{ overlay("High School", "High School Affiliated to Nanjing Normal University") -}}
 <pre>
 <strong style="color:#fffc00;">Most Wonderful and Amazing 3 Years as a Student. Best of All time.</strong>
@@ -97,7 +103,8 @@ Troubleshoot/fix many computer related issues for classmates & teachers
 </pre>
 </div>
 
-<div class="g_dtl" tabindex="3" style="background-image: url('/about/edu1.jpg')">
+<div class="g_dtl" tabindex="3">
+{{ bgimg("/about/edu1.jpg") -}}
 {{ overlay("Secondary School", "Nanjing Shuren International School") -}}
 <pre>
 Originally a private school, turned public in 2013. 
