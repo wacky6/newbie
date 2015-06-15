@@ -2,8 +2,14 @@ section.bio{
     font-size:   1.2rem;
 }
 section.t-fadein-start {
-    opacity: 0;
-    left:    3ch;
+    -webkit-filter: opacity(0);
+            filter: opacity(0);
+    -webkit-transform: translate(3ch, 0);
+            transform: translate(3ch, 0);
+}
+section {
+    -webkit-transition: -webkit-transform 1s, -webkit-filter 1s, filter 1s;
+            transition: transform 1s, -webkit-filter 1s, filter 1s;
 }
 
 .overlay {
@@ -15,31 +21,36 @@ section.t-fadein-start {
     font-family: inherit;
 }
 .overlay > * {
-    transition: opacity 1s;
     width: 100%;
     margin: 0;
     padding: 0.2rem 2ch;
     font-size: 1.2rem;
     display: block;
     font-family: inherit;
+    -webkit-transition: filter 1s, -webkit-filter 1s;
+            transition: filter 1s, -webkit-filter 1s;
 }
 .overlay .top {
     position: relative;
-    opacity: 0;
+    -webkit-filter: opacity(0);
+            filter: opacity(0);
     z-index: 1;
 }
 .overlay .bot {
     position: absolute;
     top:  0;
-    opacity: 1;
+    -webkit-filter: opacity(1);
+            filter: opacity(1);
     color: #888;
     z-index: 0;
 }
 .overlay:hover .top {
-    opacity: 1;
+    -webkit-filter: opacity(1);
+            filter: opacity(1);
 }
 .overlay:hover .bot {
-    opacity: 0;
+    -webkit-filter: opacity(0);
+            filter: opacity(0);
 }
 .overlay h4.bot::after {
     content: " ...";
@@ -64,21 +75,26 @@ section.t-fadein-start {
 }
 .g_dtl:focus .overlay .top {
     color: #dedede;
-    opacity: 1;
+    -webkit-filter: opacity(1);
+            filter: opacity(1);
 }
 .g_dtl:focus .overlay .bot {
-    opacity: 0;
+    -webkit-filter: opacity(0);
+            filter: opacity(0);
 }
 .g_dtl pre {
-    transition: opacity 1s;
-    opacity: 0;
+    -webkit-transition: filter 1s, -webkit-filter 1s;
+            transition: filter 1s, -webkit-filter 1s;
+    -webkit-filter: opacity(0);
+            filter: opacity(0);
     margin: 0;
     padding: 0.5ex 0 1ex 2ch;
     line-height: 133%;
     color: #dedede;
 }
 .g_dtl:focus pre {
-    opacity: 1;
+    -webkit-filter: opacity(1);
+            filter: opacity(1);
 }
 
 @media all and (max-width: 120ch) {
