@@ -7,10 +7,14 @@ section.bio{
     font-size:   1.2rem;
 }
 section.t-fadein-start {
-    -webkit-transform: translate(3ch, 0);
-            transform: translate(3ch, 0);
     -webkit-filter: opacity(0);
             filter: opacity(0);
+    -webkit-transform: translate(3ch, 0);
+            transform: translate(3ch, 0);
+}
+section {
+    -webkit-transition: -webkit-transform 1s, -webkit-filter 1s, filter 1s;
+            transition: transform 1s, -webkit-filter 1s, filter 1s;
 }
 
 .overlay {
@@ -18,12 +22,15 @@ section.t-fadein-start {
     position: relative;
     font-family: inherit;
 }
-.overlay .top, .overlay .bot {
-    transition: filter 1s, -webkit-filter 1s;
+.overlay > * {
+    width: 100%;
+    margin: 0;
     padding: 0.2rem 2ch;
     margin:  0;
     font-size: 1.2rem;
     font-family: inherit;
+    -webkit-transition: filter 1s, -webkit-filter 1s;
+            transition: filter 1s, -webkit-filter 1s;
 }
 .overlay .top {
     position: relative;
@@ -61,8 +68,6 @@ section.t-fadein-start {
     padding: 0;
     margin: 0 2ch;
     font-family: serif;
-    /* removed due to poor performance */
-    transition: none;
 }
 .g_dtl > .bg {
     margin: 0; padding:0;
@@ -81,6 +86,7 @@ section.t-fadein-start {
    z-index: 1;
 }
 .g_dtl:focus .overlay .top {
+    color: #dedede;
     -webkit-filter: opacity(1);
             filter: opacity(1);
 }
@@ -93,11 +99,12 @@ section.t-fadein-start {
             filter: brightness(0.5);
 }
 .g_dtl pre {
-    transition: filter 0.8s, -webkit-filter 0.8s;
+    -webkit-transition: filter 0.8s, -webkit-filter 0.8s;
+            transition: filter 0.8s, -webkit-filter 0.8s;
     -webkit-filter: opacity(0.1);
             filter: opacity(0.1);
-    margin: 0.5ex 0 1ex 2ch;
-    padding: 0;
+    margin: 0;
+    padding: 0.5ex 0 1ex 2ch;
     line-height: 133%;
     color: #dedede;
     position: relative;
@@ -111,14 +118,12 @@ section.t-fadein-start {
     .overlay .top, .overlay .bot {
         padding: 0.2rem 1ch;
     }
-    .overlay .top, .overlay .bot {
-        padding: 0.2rem 1ch;
-    }
     .g_dtl {
         margin: 0;
     }
     .g_dtl pre {
         margin: 0.5ex 0 1ex 1ch;
+        padding: 0.5ex 0 1ex 0;
     }
     .g_dtl:focus .overlay {
         background-color: rgba(0,0,0,0.6);

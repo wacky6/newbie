@@ -156,14 +156,15 @@ hr{
 nav.side {
     position: fixed;
     top:  40%;
-    -webkit-transform: translate(-6.6ch, -50%);
-            transform: translate(-6.6ch, -50%);
     background-color: #333;
     border-radius: 0 0.5em 0.5em 0;
     padding: 0.8ex 0.5ch 0.8ex 0;
     font-size: 1.8rem;
     font-family: monospace;
-    transition: transform 0.5s, -webkit-transform 0.5s;
+    -webkit-transition: -webkit-transform 0.5s;
+            transition: transform 0.5s;
+    -webkit-transform: translate(-6.6ch, -50%);
+            transform: translate(-6.6ch, -50%);
     -webkit-filter: drop-shadow(0.3ch 0.3rem 2rem #000);
             filter: drop-shadow(0.3ch 0.3rem 2rem #000);
     z-index:99;
