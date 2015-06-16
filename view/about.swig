@@ -7,7 +7,7 @@
 <title>About me @ std-aries</title>
 <link rel="stylesheet" href="/about/about.css">
 <script src="/inject-height.js"></script>
-<script src="/transition-animation.js"></script>
+<script src="/gradual-fadein.js"></script>
 <script src="/about/about.js"></script>
 <noscript>
   <style>
@@ -109,7 +109,7 @@ Troubleshoot/fix many computer related issues for classmates & teachers
 <pre>
 Originally a private school, turned public in 2013. 
 Official name now is: High School Affiliated to Nanjing Normal University Shuren Campus.
-This is where I first learn to code. (Pascal)
+This is where I first learn to code seriously. (Pascal) (I've learnt BASIC at age of 10)
 Self-taught Delphi, Lazarus
 <strong>      -- the beginning of everything I am today.</strong>
 </pre>
