@@ -1,18 +1,14 @@
 "use strict";
 (function(){
 
-function Id(id) {
-    return document.getElementById(id);
-}
-
 var tContentLoaded;
 var tLoaded;
 var bgDelayMs = 900;
 
 window.addEventListener("load", function(ev) {
     function fadeInBg(){
-        getComputedHeight(Id("bg"));
-        Id("bg").className += " shown";
+        Id("bg").className += " fadein";
+        Id("bg").style.visibility='';
     }
     tLoaded = new Date().getTime();
     var delay = bgDelayMs - (tLoaded-tContentLoaded);
@@ -21,12 +17,12 @@ window.addEventListener("load", function(ev) {
 
 window.addEventListener("DOMContentLoaded", function(ev) {
     tContentLoaded = new Date().getTime();
-    var menu = Id("menu_wrap");
-    injectHeight(menu, function(node, height){
+    injectHeight(Id("menu_wrap"), function(node, height){
         node.style.height = height;
+        /* animate after height is injected */
+        Id("menu_wrap").className += ' fadein';
     });
-    transitionAnimation(menu, "t-fadein-start");
-    transitionAnimation(menu, "t-before-expand", 900);
+    Id("bg").style.visibility="hidden";
 });
 
 })();

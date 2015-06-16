@@ -8,7 +8,6 @@
 <title>Aries @ std-aries</title>
 <link rel="stylesheet" href="/index/index.css">
 <script src="/inject-height.js"></script>
-<script src="/transition-animation.js"></script>
 <script src="/index/index.js"></script>
 <noscript>
 <style> img#bg {opacity:1!important;}</style>

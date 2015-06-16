@@ -6,40 +6,59 @@
     width:  100%;
 }
 
-.tcenter {
-    position: absolute;
-    top:  50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-       -moz-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+@-webkit-keyframes menu_height {
+    from { height: calc(4rem + 5.4em); }
+    to   { }
+}
+@keyframes menu_height {
+    from { height: calc(4rem + 5.4em); }
+    to   { }
+}
+@-webkit-keyframes fadein{
+    from {opacity: 0;}
+    to   {opacity: 1;}
+}
+@keyframes fadein{
+    from {opacity: 0;}
+    to   {opacity: 1;}
+}
+.menu.fadein {
+    -webkit-animation-name: fadein, menu_height;
+    -webkit-animation-duration: 0.6s, 0.6s;
+    -webkit-animation-delay: 0s, 0.6s;
+    -webkit-animation-fill-mode: both, both;
+    -webkit-animation-timing-function: ease, ease;
+    animation-name: fadein, menu_height;
+    animation-duration: 0.6s, 0.6s;
+    animation-delay: 0s, 0.6s;
+    animation-fill-mode: both;
+    animation-timing-function: ease, ease;
+}
+.bg.fadein {
+    -webkit-animation-name: fadein;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    animation-name: fadein;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
 }
 
 .menu {
     width: 90%;
     z-index: 1;
     overflow: hidden;
-    /* use opacity here, because filter gives negative performance improvement */
-    -webkit-transition: background-color 1s, height 1s, opacity 1s;
-            transition: background-color 1s, height 1s, opacity 1s;
     padding: 2rem 5% 2rem 5%;
     background-color: rgba(0,0,0,0.5);
     font-family: cursive;
     position: fixed!important; /* override tcenter's position */
-    opacity: 1;
-}
-.menu.t-fadein-start {
-    opacity: 0;
-}
-.menu.t-before-expand {
-    background-color: rgba(0,0,0,0);
-    height: calc(2rem + 5.4em) !important;
 }
 .menu nav {
     display: block;
     margin: 2rem auto 0 auto;
     padding: 0;
     text-align: center;
+    -webkit-animation: fadein 1s ease 0.6s normal both;
+            animation: fadein 1s ease 0.6s normal both;
 }
 .menu nav a{
     display: inline-block;
@@ -82,14 +101,6 @@ img.bg {
     width:  100%;
     height: auto;
     z-index: 0;
-    -webkit-transition: filter 1s, -webkit-filter 1s;
-            transition: filter 1s, -webkit-filter 1s;
-    -webkit-filter: opacity(0);
-            filter: opacity(0);
-}
-img.bg.shown {
-    -webkit-filter: opacity(1);
-            filter: opacity(1);
 }
 
 @media all and (max-width: 120ch) {

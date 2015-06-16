@@ -6,26 +6,11 @@ function Id(id) {
 
 var gradualFadeInInterval = 500;
 
-function mkArray(coll) {
-    var arr = [];
-    for (var i=0; i!=coll.length; ++i)
-        arr.push(coll.item(i));
-    return arr;
-}
-
 function injectGrpDetailHeight(grpNode) {
-    var grp = grpNode.getElementsByClassName("g_dtl");
-    mkArray(grp).forEach(function(e){
+    Class("g_dtl", grpNode).forEach(function(e){
         injectHeight(e, function(node, height){
             node.style.height = height;
         });
-    });
-}
-
-function gradualFadeInSection(grpNode) {
-    var grp = grpNode.getElementsByTagName("section");
-    mkArray(grp).forEach(function(e,i){
-        transitionAnimation(e, "t-fadein-start", gradualFadeInInterval*i);
     });
 }
 
@@ -43,7 +28,7 @@ function gradualFadeInSection(grpNode) {
  */
 window.addEventListener('DOMContentLoaded', function(ev){
     injectGrpDetailHeight(Id("sec_edu"), "t-height");  
-    gradualFadeInSection(document.body.getElementsByTagName("article")[0]);
+    injectGradualFadeInDelay(Tag("section"), 500);
 });
 
 })();
