@@ -7,7 +7,6 @@
 <link rel="alternate" href="/cn/" hreflang="zh-CN" />
 <title>Aries @ std-aries</title>
 <link rel="stylesheet" href="/index/index.css">
-<script src="/inject-height.js"></script>
 <script src="/index/index.js"></script>
 <noscript>
 <style> img#bg {opacity:1!important;}</style>
@@ -15,7 +14,7 @@
 {% endblock -%}
 
 {%- block body -%}
-<div id="menu_wrap" class="menu tcenter">
+<div id="menu_wrap" class="menu tcenter fadein">
 <header>
 <h1 class="edged">Hey!<br />jwQ is here.</h1>
 </header>

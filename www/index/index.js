@@ -17,11 +17,6 @@ window.addEventListener("load", function(ev) {
 
 window.addEventListener("DOMContentLoaded", function(ev) {
     tContentLoaded = new Date().getTime();
-    injectHeight(Id("menu_wrap"), function(node, height){
-        node.style.height = height;
-        /* animate after height is injected */
-        Id("menu_wrap").className += ' fadein';
-    });
     Id("bg").style.visibility="hidden";
 });
 
