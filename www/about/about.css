@@ -1,22 +1,26 @@
-section {
-    transition: transform 1s, -webkit-transform 1s, 
-                filter 1s, -webkit-filter 1s,
-                height 1s;
+
+@-webkit-keyframes section_fadein {
+    from {opacity: 0; -webkit-transform: translate(2rem,0);}
+    to   {opacity: 1; -webkit-transform: translate(0, 0);}
 }
+@keyframes section_fadein{
+    from {opacity: 0; transform: translate(2rem, 0);}
+    to   {opacity: 1; transform: translate(0, 0);}
+}
+section {
+    -webkit-animation-name: section_fadein;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-timing-function: ease;
+    animation-name: section_fadein;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+}
+
 section.bio{
     font-size:   1.2rem;
 }
-section.t-fadein-start {
-    -webkit-filter: opacity(0);
-            filter: opacity(0);
-    -webkit-transform: translate(3ch, 0);
-            transform: translate(3ch, 0);
-}
-section {
-    -webkit-transition: -webkit-transform 1s, -webkit-filter 1s, filter 1s;
-            transition: transform 1s, -webkit-filter 1s, filter 1s;
-}
-
 .overlay {
     margin: 0; padding: 0;
     position: relative;

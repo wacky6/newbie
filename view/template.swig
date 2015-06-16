@@ -6,6 +6,7 @@
 <meta name="author" content="Jiewei Qian, wacky6, Aries" />
 <meta name="handheldfriendly" />
 <link rel="stylesheet" href="/base.css">
+<script src="/common.js"></script>
 {%- block head  -%}
 {%- endblock -%}
 </head>
