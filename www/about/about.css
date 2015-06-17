@@ -133,6 +133,6 @@ section.bio{
         background-color: rgba(0,0,0,0.6);
     }
     pre{
-        overflow-x: scroll;
+        overflow-x: auto;
     }
 }
