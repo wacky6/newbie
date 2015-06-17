@@ -6,8 +6,6 @@
 <meta name="keywords" content="Jiewei Qian, wacky6, std::weak, about, contact, who" />
 <title>About me @ std-aries</title>
 <link rel="stylesheet" href="/about/about.css">
-<script src="/inject-height.js"></script>
-<script src="/gradual-fadein.js"></script>
 <script src="/about/about.js"></script>
 <noscript>
   <style>

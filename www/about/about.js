@@ -27,7 +27,7 @@ function injectGrpDetailHeight(grpNode) {
  *   background image used in sec_edu does not affact text's height;
  */
 window.addEventListener('DOMContentLoaded', function(ev){
-    injectGrpDetailHeight(Id("sec_edu"), "t-height");  
+    injectGrpDetailHeight(Id("sec_edu"));  
     injectGradualFadeInDelay(Tag("section"), 500);
 });
 
