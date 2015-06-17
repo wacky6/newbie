@@ -232,6 +232,7 @@ hr{
     padding: 0.1em 0;
     line-height: 133%;
     white-space: normal;
+    overflow-y: hidden;
 }
 .quote > strong {
     color: #fff;
