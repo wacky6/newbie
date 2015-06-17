@@ -38,7 +38,6 @@ Here lists some popular ones, go & have a try!
 </section>
 <section class="hardware">
 <h3>Laptop vs. Serious Hardware</h3>
-<div>
 <p>In short term, you want to buy computer from one of there catagories: <br />
 <span class="inline-box indent"><strong>Laptop, Macintosh, Pro-grade Desktop</strong></span> <br />
 Don't ever consider other types, those mostly won't meed your demand. :D <br /> 
@@ -55,6 +54,7 @@ mid desktop
 pro desktop
 </pre>
 </p>
+<div>
 <h4>Laptop: </h4>
 <p>
 There are as many sh**ty laptops as decent ones. So choose with care! <br />
@@ -130,6 +130,8 @@ Thinkpad X, T Series (true IMB legacy, decent keyboard with funny red-dot pointe
 Retina MacBook Pro 13/15 inch (best industry design, sexy aluminum body, spectacular screen)
 Clevo / TerransForce / MSI G Series (serious gaming machine)
 </pre>
+</div>
+<div>
 <h4>Macintosh:</h4>
 <h5>What you get from a Mac:</h5>
 <ul class="indent inherit-font inline-box">
@@ -153,6 +155,8 @@ Buy Retina 15 if you want to hava a powerhouse or code REALLY SERIOUSLY
 Buy MacBook (12inch, Release in 2015) if you want to show off $$$
 Choose at least 256G of storage
 </pre>
+</div>
+<div>
 <h4>Desktop:</h4>
 <p>Short answer: <strong>Don't buy one, Assemble one!</strong><br/> 
 The reasons behind this:

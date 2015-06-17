@@ -127,7 +127,7 @@ section .inline-box {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     color: #eee;
-    overflow: scroll;
+    overflow-x: auto;
 }
 section .op{
     color: #00eeff;
@@ -141,7 +141,7 @@ section .blue {
 }
 section ul{
     list-style: none;
-    overflow: scroll;
+    overflow-x: auto;
     margin-bottom: 0.5rem;
 }
 section ul.inline-box{
@@ -295,7 +295,7 @@ nav.side a.about:after {
         padding: 0.5rem 1.5% 0.8rem 1.5%;
         border-width: 0;
 		font-size: 1.2rem;
-        overflow-x: scroll;
+        overflow-x: auto;
     }
     section > :not(h3) {
         margin: 0 0.2rem 0 0.2rem;
