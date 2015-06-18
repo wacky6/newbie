@@ -2,7 +2,30 @@
     width: devide-width;
     user-scalable: no;
 }
-
+@-webkit-keyframes fadein{
+    from {opacity: 0;}
+    to   {opacity: 1;}
+}
+@keyframes fadein{
+    from {opacity: 0;}
+    to   {opacity: 1;}
+}
+@-webkit-keyframes slidein {
+    from {-webkit-transform: translate(2rem,0);}
+    to   {-webkit-transform: translate(0, 0);}
+}
+@keyframes slidein{
+    from {transform: translate(2rem, 0);}
+    to   {transform: translate(0, 0);}
+}
+@-webkit-keyframes expand {
+    from {-webkit-transform: scaleX(0);}
+    to   {-webkit-transform: scaleX(1);}
+}
+@keyframes expand {
+    from {transform: scaleX(0);}
+    to   {transform: scaleX(1);}
+}
 .tcenter {
     position: absolute;
     top:  50%;

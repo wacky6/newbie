@@ -1,23 +1,9 @@
-
-@-webkit-keyframes section_fadein {
-    from {opacity: 0; -webkit-transform: translate(2rem,0);}
-    to   {opacity: 1; -webkit-transform: translate(0, 0);}
-}
-@keyframes section_fadein{
-    from {opacity: 0; transform: translate(2rem, 0);}
-    to   {opacity: 1; transform: translate(0, 0);}
-}
 section {
-    -webkit-animation-name: section_fadein;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    -webkit-animation-timing-function: ease;
-    animation-name: section_fadein;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    animation-timing-function: ease;
+    -webkit-animation: fadein  1s ease 0s normal both,
+                       slidein 1s ease 0s normal both;
+            animation: fadein  1s ease 0s normal both,
+                       slidein 1s ease 0s normal both;
 }
-
 section.bio{
     font-size:   1.2rem;
 }
@@ -33,31 +19,27 @@ section.bio{
     margin:  0;
     font-size: 1.2rem;
     font-family: inherit;
-    -webkit-transition: filter 1s, -webkit-filter 1s;
-            transition: filter 1s, -webkit-filter 1s;
+    -webkit-transition: opacity 1s;
+            transition: opacity 1s;
 }
 .overlay .top {
     position: relative;
-    -webkit-filter: opacity(0);
-            filter: opacity(0);
+    opacity: 0;
     z-index: 1;
     color: #fff;
 }
 .overlay .bot {
     position: absolute;
     top:  0;
-    -webkit-filter: opacity(1);
-            filter: opacity(1);
+    opacity: 1;
     z-index: 0;
     color: #ccc;
 }
 .overlay:hover .top {
-    -webkit-filter: opacity(1);
-            filter: opacity(1);
+    opacity: 1;
 }
 .overlay:hover .bot {
-    -webkit-filter: opacity(0);
-            filter: opacity(0);
+    opacity: 0;
 }
 .overlay h4.bot::after {
     content: " ...";
@@ -91,22 +73,19 @@ section.bio{
 }
 .g_dtl:focus .overlay .top {
     color: #dedede;
-    -webkit-filter: opacity(1);
-            filter: opacity(1);
+    opacity: 1;
 }
 .g_dtl:focus .overlay .bot {
-    -webkit-filter: opacity(0);
-            filter: opacity(0);
+    opacity: 0;
 }
 .g_dtl:focus > .bg {
     -webkit-filter: brightness(0.5);
             filter: brightness(0.5);
 }
 .g_dtl pre {
-    -webkit-transition: filter 0.8s, -webkit-filter 0.8s;
-            transition: filter 0.8s, -webkit-filter 0.8s;
-    -webkit-filter: opacity(0.1);
-            filter: opacity(0.1);
+    -webkit-transition: opacity 0.8s;
+            transition: opacity 0.8s;
+    opacity: 0.1;
     margin: 0;
     padding: 0.5ex 0 1ex 2ch;
     line-height: 133%;
@@ -114,8 +93,7 @@ section.bio{
     position: relative;
 }
 .g_dtl:focus pre {
-    -webkit-filter: opacity(1);
-            filter: opacity(1);
+    opacity: 1;
 }
 
 @media all and (max-width: 120ch) {

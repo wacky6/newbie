@@ -150,7 +150,7 @@ JavaScript & CSS are minified, original(development) version is served by adding
 </p>
 <p class="monospace">
 You Can Help to Make Internet a Better Place. Read More on 
-<a title="How to play healthy with computers." href="/play-healthy">Play Healthy!</a>
+<a title="How to play healthy with computers." href="/play-healthy/">Play Healthy!</a>
 </p>
 </section>
 </article>
