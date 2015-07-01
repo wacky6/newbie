@@ -7,8 +7,8 @@ var bgDelayMs = 900;
 
 window.addEventListener("load", function(ev) {
     function fadeInBg(){
-        Id("bg").className += " fadein";
-        Id("bg").style.visibility='';
+        $("#bg").classList.add("fadein");
+        $("#bg").style.visibility='';
     }
     tLoaded = new Date().getTime();
     var delay = bgDelayMs - (tLoaded-tContentLoaded);
@@ -17,7 +17,7 @@ window.addEventListener("load", function(ev) {
 
 window.addEventListener("DOMContentLoaded", function(ev) {
     tContentLoaded = new Date().getTime();
-    Id("bg").style.visibility="hidden";
+    $("#bg").style.visibility="hidden";
 });
 
 })();

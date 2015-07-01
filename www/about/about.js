@@ -1,15 +1,12 @@
 "use strict";
 (function() {
-function Id(id) {
-    return document.getElementById(id);
-}
 
 var gradualFadeInInterval = 500;
 
-function injectGrpDetailHeight(grpNode) {
-    Class("g_dtl", grpNode).forEach(function(e){
-        injectHeight(e, function(node, height){
-            node.style.height = height;
+function injectGrpDetailHeight(grp) {
+    forEachIn($$(".g_dtl", grp), function(e){
+        injectHeight(e, function(e, height){
+            e.style.height = height;
         });
     });
 }
@@ -26,9 +23,9 @@ function injectGrpDetailHeight(grpNode) {
  *   
  *   background image used in sec_edu does not affact text's height;
  */
-window.addEventListener('DOMContentLoaded', function(ev){
-    injectGrpDetailHeight(Id("sec_edu"));  
-    injectGradualFadeInDelay(Tag("section"), 500);
+window.addEventListener('DOMContentLoaded', function(){
+    injectGrpDetailHeight($("#sec_edu"));  
+    injectGradualFadeInDelay($$("section"), 500);
 });
 
 })();
