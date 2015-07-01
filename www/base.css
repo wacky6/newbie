@@ -2,25 +2,13 @@
     width: devide-width;
     user-scalable: no;
 }
-@-webkit-keyframes fadein{
-    from {opacity: 0;}
-    to   {opacity: 1;}
-}
 @keyframes fadein{
     from {opacity: 0;}
     to   {opacity: 1;}
 }
-@-webkit-keyframes slidein {
-    from {-webkit-transform: translate(2rem,0);}
-    to   {-webkit-transform: translate(0, 0);}
-}
 @keyframes slidein{
     from {transform: translate(2rem, 0);}
     to   {transform: translate(0, 0);}
-}
-@-webkit-keyframes expand {
-    from {-webkit-transform: scaleX(0);}
-    to   {-webkit-transform: scaleX(1);}
 }
 @keyframes expand {
     from {transform: scaleX(0);}
@@ -30,9 +18,7 @@
     position: absolute;
     top:  50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-       -moz-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 body {
@@ -273,18 +259,14 @@ nav.side {
     padding: 0.8ex 0.5ch 0.8ex 0;
     font-size: 1.8rem;
     font-family: monospace;
-    -webkit-transition: -webkit-transform 0.5s;
-            transition: transform 0.5s;
-    -webkit-transform: translate(-6.6ch, -50%);
-            transform: translate(-6.6ch, -50%);
-    -webkit-filter: drop-shadow(0.3ch 0.3rem 2rem #000);
-            filter: drop-shadow(0.3ch 0.3rem 2rem #000);
+    transition: transform 0.5s;
+    transform: translate(-6.6ch, -50%);
+    filter: drop-shadow(0.3ch 0.3rem 2rem #000);
     z-index:99;
 }
 nav.side:hover {
     background-color: #333;
-    -webkit-transform: translate(0, -50%);
-            transform: translate(0, -50%);
+    transform: translate(0, -50%);
 }
 nav.side a {
     width: 8ch;
@@ -336,14 +318,12 @@ nav.side a.about:after {
     nav.side {
         font-size: 3rem;
         top: 0;
-        -webkit-transform: translate(-6.6ch, 0);
-                transform: translate(-6.6ch, 0);
+        transform: translate(-6.6ch, 0);
         border-radius: 0 0 0.5em 0;
         padding: 0 0.25em 0 0;
     }
     nav.side:hover{
-        -webkit-transform: translate(0, 0);
-                transform: translate(0, 0);
+        transform: translate(0, 0);
     }
     nav.side a:not(:first-child) {
         display: none;

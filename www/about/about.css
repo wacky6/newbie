@@ -1,8 +1,6 @@
 section {
-    -webkit-animation: fadein  1s ease 0s normal both,
-                       slidein 1s ease 0s normal both;
-            animation: fadein  1s ease 0s normal both,
-                       slidein 1s ease 0s normal both;
+    animation: fadein  1s ease 0s normal both,
+               slidein 1s ease 0s normal both;
 }
 section.bio{
     font-size:   1.2rem;
@@ -19,8 +17,7 @@ section.bio{
     margin:  0;
     font-size: 1.2rem;
     font-family: inherit;
-    -webkit-transition: opacity 1s;
-            transition: opacity 1s;
+    transition: opacity 1s;
 }
 .overlay .top {
     position: relative;
@@ -64,9 +61,8 @@ section.bio{
     box-shadow: inset 0 0 1.5rem 1pt #222;
     background-position: center;
     background-size: cover;
-    transition: filter 0.8s, -webkit-filter 0.8s;
-    -webkit-filter: brightness(0.3);
-            filter: brightness(0.3);
+    transition: filter 0.8s;
+    filter: brightness(0.3);
 }
 .g_dtl > * {
    z-index: 1;
@@ -79,12 +75,10 @@ section.bio{
     opacity: 0;
 }
 .g_dtl:focus > .bg {
-    -webkit-filter: brightness(0.5);
-            filter: brightness(0.5);
+    filter: brightness(0.5);
 }
 .g_dtl pre {
-    -webkit-transition: opacity 0.8s;
-            transition: opacity 0.8s;
+    transition: opacity 0.8s;
     opacity: 0.1;
     margin: 0;
     padding: 0.5ex 0 1ex 2ch;
