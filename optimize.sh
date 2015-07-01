@@ -13,19 +13,7 @@ BASE=`pwd`
 JS_MINIFY=${BASE}/$(find node_modules/ -path "*/bin/minify.js")
 CSS_MINIFY=${BASE}/$(find node_modules/ -path "*/bin/minify.js")
 SWIG_RENDER=${BASE}/"node_modules/swig/bin/swig.js"
-
-# minify css in www/ directory
-function minifyCSS() {
-    (cd www ;
-        for i in `find . -name "*.css" -not -name "*.full.*"` 
-        do
-            echo "Minify: $i";
-            BACKF=$(dirname $i)/$(basename $i .js).full.css
-            cp $i $BACKF
-            "$CSS_MINIFY" "$BACKF" > "$i"
-        done;
-    )
-}
+POSTCSS=${BASE}/$(find node_modules/ -path "*/bin/postcss")
 
 # minify js in www/ directory
 function minifyJS() {
@@ -60,7 +48,24 @@ function renderSWIG() {
 }
 
 
+# run autoprefixer, minify css
+function processCSS() {
+    (cd www ;
+        for i in `find . -name "*.css"`
+        do
+            echo "autoprefix, minify $i"
+            sed -i.src -e '' "$i"
+            TMPF=$i.tmp.css
+            "$POSTCSS" --use autoprefixer \
+                       --autoprefixer.browsers="> 5%, last 2 versions" \
+                       "$i.src" -o "$TMPF"
+            "$CSS_MINIFY" "$TMPF" > $i
+            rm -f "$TMPF"
+        done
+    )
+}
+
 ## run optimization
-minifyCSS;
 minifyJS;
 renderSWIG;
+processCSS;
