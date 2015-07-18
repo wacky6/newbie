@@ -60,138 +60,11 @@ a, a:visited{
     margin: 0 0 1.3rem 0;
 }
 
-article {
-    position: relative;
-    width: 77%;
-    margin: 0 auto 0 auto;
-    padding: 0.8rem 2% 0.8rem 2%;
-    background-color: #222;
-}
-
-h1 {
-    font-family: STXiHei, "华文细黑",
-                 "Microsoft YaHei", "微软雅黑", 
-                 Helvetica, sans-serif;
-    left: 0; 
-    margin:  1rem auto 0.6rem auto;
-    font-size: 2rem;
-    font-weight: normal;
-    display: block;
-    text-align: center;
-    color: #eee;
-}
-h1.error {
-    color: #ff726e;
-}
-h1~h2 {
-    margin: -0.3rem auto;
-    font-size: 1.2rem;
-    font-family: sans-serif;
-    font-weight: lighter;
-    left: 50%;
-    text-align: right;
-    padding-right: 8ch;
-    color: #ccc;
-}
-section {
-    position: relative;
-    margin: 1rem auto;
-    color: #cbcbcb;
-    font-family: serif;
-}
-section > :not(h3) {
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-section h3::before {
-    content: " > ";
-}
-section h3 {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    font-size: 1.4rem;
-    font-family: "Lucida Sans Unicode", Verdana, "Microsoft YaHei", "微软雅黑", Arial;
-    color: #ffffff;
-}
-section div > div {
-    margin-left: 2rem;
-}
-section p {
-    line-height: 133%;
-    font-size: 1.1rem;
-    margin-top: 0.5ex;
-    margin-bottom: 0.5ex;
-}
-section p+ul{
-    margin-top: -0.3ex;
-}
-section pre {
-    margin-bottom: 1ex;
-}
-section .indent {
-    margin-left: 1rem;
-}
-section .inline-box {
-    background-color: #333;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    color: #eee;
-    overflow-x: auto;
-}
-section .op{
-    color: #00eeff;
-    font-family: monospace;
-}
-section .red {
-    color: #ff4444;
-}
-section .blue {
-    color: #22aaff;
-}
-section ul{
-    list-style: none;
-    overflow-x: auto;
-    margin-bottom: 0.5rem;
-}
-section ul.inline-box{
-    padding-left: 0.3rem; padding-right: 0.3rem;
-}
-section h4 {
-    font-family: sans-serif;
-    font-size: 1.3rem;
-    padding: 0.5ex auto;
-    margin: 1ex 0 0.5ex 0;
-    color: #eee;
-}
-section h4+p {
-    margin-top: -0.3ex;
-}
-section h5{
-    margin-top: 0.5ex;
-    margin-bottom: 0.5ex;
-    font-size: inherit;
-    font-weight: normal;
-}
-section li > h5::before {
-    content: "+ ";
-    color: #00eeff;
-}
-section li h5~* {
-    margin-left: 1rem;
-}
-section h5+* {
-    margin-top: -0.3ex;
-}
-.inherit-font {
-    font:inherit;
-}
 .reality {
     text-decoration: line-through;
     color: #bad;
 }
-.nowrap {
-    white-space: nowrap;
-}
+
 hr{
     border-color: #777; 
 }
@@ -219,35 +92,6 @@ hr{
     width: 100%;
     background-color: rgba(0,0,0, 0.8);
     text-align: center;
-}
-
-.quote:before {
-    content: '"';
-    margin: 0 0.5ch;
-    font-size: 200%;
-    line-height: 50%;
-    position: relative;
-    top: 0.4ex;
-    color: #c0e9ff;
-}
-.quote:after  {
-    content: '';
-}
-.quote {
-    background-color: #333;
-    display: block;
-    font-family: monospace;
-    font-size: 1.2rem;
-    padding: 0.1em 0;
-    line-height: 133%;
-    white-space: normal;
-    overflow-y: hidden;
-}
-.quote > strong {
-    color: #fff;
-}
-.monospace {
-    font-family: monospace;
 }
 
 /* nav bar for normal pages */
@@ -295,26 +139,7 @@ nav.side a.about:after {
 }
 
 /* style override for mobile/portriat device */
-@media all and (max-width: 120ch) {
-    article {
-        width: 97%;
-        padding: 0.5rem 1.5% 0.8rem 1.5%;
-        border-width: 0;
-		font-size: 1.2rem;
-        overflow-x: auto;
-    }
-    section > :not(h3) {
-        margin: 0 0.2rem 0 0.2rem;
-    }
-    .monospace {
-        margin: 1em 1ch;
-    }
-    .quote::before {
-        margin: 0 0.1ch;
-    }
-    h1~h2{
-        padding-right: 1ch;
-    }
+@media (max-width: 7in) {
     nav.side {
         font-size: 3rem;
         top: 0;
@@ -328,8 +153,11 @@ nav.side a.about:after {
     nav.side a:not(:first-child) {
         display: none;
     }
-    section .indent {
-        margin-left: 0rem;
+}
+
+@media not screen {
+    nav.side {
+        display: none;
     }
 }
 

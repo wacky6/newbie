@@ -1,9 +1,19 @@
-section {
+article section {
     animation: fadein  1s ease 0s normal both,
                slidein 1s ease 0s normal both;
+    border: none;
 }
-section.bio{
+article section.bio{
     font-size:   1.2rem;
+}
+article strong {
+    color: inherit;
+}
+article pre {
+    background: none;
+}
+article a, article a:visited {
+    color: inherit;
 }
 .overlay {
     margin: 0; padding: 0;
@@ -23,7 +33,7 @@ section.bio{
     position: relative;
     opacity: 0;
     z-index: 1;
-    color: #fff;
+    color: #dedede;
 }
 .overlay .bot {
     position: absolute;
@@ -68,7 +78,6 @@ section.bio{
    z-index: 1;
 }
 .g_dtl:focus .overlay .top {
-    color: #dedede;
     opacity: 1;
 }
 .g_dtl:focus .overlay .bot {
@@ -82,7 +91,7 @@ section.bio{
     opacity: 0.1;
     margin: 0;
     padding: 0.5ex 0 1ex 2ch;
-    line-height: 133%;
+    line-height: 1.33
     color: #dedede;
     position: relative;
 }
@@ -100,6 +109,10 @@ section.bio{
     .g_dtl pre {
         margin: 0.5ex 0 1ex 1ch;
         padding: 0.5ex 0 1ex 0;
+        transition: none;
+    }
+    .g_dtl > .bg {
+        box-shadow: none;
     }
     .g_dtl:focus .overlay {
         background-color: rgba(0,0,0,0.6);
