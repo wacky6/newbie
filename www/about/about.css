@@ -91,7 +91,7 @@ article a, article a:visited {
     opacity: 0.1;
     margin: 0;
     padding: 0.5ex 0 1ex 2ch;
-    line-height: 1.33
+    line-height: 1.33;
     color: #dedede;
     position: relative;
 }
