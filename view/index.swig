@@ -24,7 +24,6 @@
 {%- endmacro -%}
 {{- nav_ent("Blog", "http://blog.std-aries.xyz", "Hexo Blog") -}}
 {{- nav_ent("Gallery", "http://gallery.std-aries.xyz", "Gallery @ Lofter") -}}
-{{- nav_ent("PNS",  "https://wacky6.vicp.cc:27140", "Personal Network Storage") -}}
 {{- nav_ent("Play Healthy", "/play-healthy/", "How to Play Healthy with Computers") -}}
 {{- nav_ent("About", "/about/", "About Me, About this Site") -}}
 </nav>
