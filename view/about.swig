@@ -22,15 +22,15 @@
 </header>
 <section class="bio">
 <h2>Simple Facts</h2>
-<pre>
-1995.4 born <strong style="color:#84dcff">@Aries</strong>, now a college student
-Sometime <strong style="color:#dd94ff">{Perfectionist, Paranoid}</strong>
-<strong style="color:#71ff96">Gadget Lover</strong>
-Ocassionally shoot photos, <strong style="color:#05c0ff">PS addictive</strong>
-<strong style="color:#ffd605">Single</strong>, and <strong style="color:#ff261c">can't</strong> find girlfirends
-<strong style="color:#39ffb7">Game</strong>, <strong style="color:#f4b8ff">Anime</strong>, <strong style="color:#88acff">Technology</strong> (Partial OTAKU)
-Born & grow up in <strong>Nanjing, China</strong>
-</pre>
+<p>
+1995.4 born <strong style="color:#84dcff">@Aries</strong>, now a college student <br />
+Sometime <strong style="color:#dd94ff">{Perfectionist, Paranoid}</strong> <br />
+<strong style="color:#71ff96">Gadget Lover</strong> <br />
+Ocassionally shoot photos, <strong style="color:#05c0ff">PS addictive</strong> <br />
+<strong style="color:#ffd605">Single</strong>, and <strong style="color:#ff261c">can't</strong> find girlfirend <br />
+<strong style="color:#39ffb7">Game</strong>, <strong style="color:#f4b8ff">Anime</strong>, <strong style="color:#88acff">Technology</strong> (Partial OTAKU) <br />
+Born & grow up in <strong>Nanjing, China</strong> <br />
+</p>
 </section>
 <section class="edu" id="sec_edu">
 <h2>Education & Experience</h2>

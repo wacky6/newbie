@@ -37,7 +37,7 @@
     min-width: 6ch;
     color: #d0d0d0;
     font-size: 1.4em;
-    font-family: "Lucida Sans Unicode", Verdana, "Microsoft YaHei", "微软雅黑", Arial;
+    font-family: STHeiTi, "Microsoft YaHei", "微软雅黑", Arial;
     transition: color 1s, background-color 1s;
     background-color: rgba(0,0,0, 0.3);
 }
