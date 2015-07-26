@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="/article.css">
 {%- endblock -%}
 
-{%- block body %-}
+{%- block body -%}
 {%- include "nav.swig" -%}
 <article>
 <h1 class="error">Boom! Brain Exploded!</h1>
