@@ -18,6 +18,8 @@
   "license": "CC-BY-NC-ND-4.0",
   "dependencies": {
     "autoprefixer": "^5.2.0",
+    "bfm": "git://github.com/wacky6/bfm.git",
+    "co-fs": "^1.2.0",
     "koa": "^0.21.0",
     "koa-compress": "^1.0.8",
     "koa-static": "^1.4.9",

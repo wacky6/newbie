@@ -4,5 +4,6 @@ node_modules/
 *.swp
 conf.js
 *.full.*
-www/index.html
-www/about/index.html
+*.css.src
+
+www/blog

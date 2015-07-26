@@ -4,6 +4,6 @@
 <a class="back"  href="javascript: history.back()">Back</a>
 <a class="index" href="/">Index</a>
 <a class="about" href="/about/">About</a>
-{%- block nav_btn -%}
+{% block nav_btn -%}
 {%- endblock -%}
 </nav>

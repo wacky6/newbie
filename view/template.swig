@@ -3,12 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no" />
-<meta name="author" content="Jiewei Qian, wacky6, Aries" />
+<meta name="author" content="{{author|default('Jiewei Qian, wacky6, Aries')}}" />
+{%- block meta -%}
+{%- endblock %}
 <meta name="handheldfriendly" />
 <link rel="stylesheet" href="/base.css">
 <script src="/common.js"></script>
 {%- block head  -%}
-{%- endblock -%}
+{%- endblock %}
 </head>
 <body>
 <div id="content_wrapper">

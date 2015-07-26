@@ -2,26 +2,27 @@
 
 var bfm  = require('bfm')
 var swig = require('swig')
+var join = require('path').join
 
-// cache blog template
-var template = fs.readFileSync('./template/blog-article.swig')
+/* src: string, source file */
+function renderBlog(html, meta, callback) {
 
-/* src: string, source file
- * callback: function(html)
- */
-function parseBlog(src, callback) {
-	var _ = bfm(src)
-	var html = _.html
-	var meta = _.meta
+	// HTML meta 
+	var title       = meta.title
+	var description = meta.description || title
+	var keywords    = meta.keywords    || []
+	var author      = meta.author
 
 	// process meta, so it can be directly processed by swig
+	swig.renderFile(join(__dirname, '/view/blog-article.swig'), {
+		article:  html,
+		meta:     meta,
+		title:    title,
+		author:   author,
+		keywords: keywords,
+		description: description
+	}, callback)
 
-	swig.render(template, src, {
-		article: html,
-		meta:    meta
-	})
-
-	callback(html)
 }
 
-module.export = praseBlog
+module.exports = renderBlog
