@@ -3,6 +3,6 @@ module.exports =  {
     httpsPort: 1433,    // for test, use 443 in production
     cache:  true,
     // optional
-    sslKey: './ssl.key',
-    sslCrt: './ssl.crt'
+    sslKey: __dirname + '/ssl.key',
+    sslCrt: __dirname + '/ssl.crt'
 }
