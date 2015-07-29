@@ -1,11 +1,12 @@
 "use strict";
 
-var koa      = require("koa");
-var kswig    = require("koa-swig");
-var join     = require("path").join;
-var serve    = require("koa-static");
-var compress = require("koa-compress");
-var conf     = require("./conf.js");
+var koa      = require("koa")
+var kswig    = require("koa-swig")
+var join     = require("path").join
+var serve    = require("koa-static")
+var compress = require("koa-compress")
+var forcessl = require("koa-force-ssl")
+var conf     = require("./conf.js")
 
 var app = koa();
 app.context.render = kswig({
@@ -15,6 +16,10 @@ app.context.render = kswig({
     ext:   "swig",
     locals: {}
 });
+
+if (conf.sslKey && conf.sslCrt) {
+    app.use(forcessl(conf.httpsPort || 443))
+}
 
 app.use(compress());
 app.use(function *error500(next){
@@ -60,5 +65,15 @@ app.use(function *(next){
     }
 });
 
+
+require('http').createServer(app.callback()).listen(conf.httpPort || 80)
+if (conf.sslKey && conf.sslCrt) {
+    var fs = require('fs')
+    var opts = {
+        key:  fs.readFileSync(conf.sslKey),
+        cert: fs.readFileSync(conf.sslCrt)
+    }
+    require('https').createServer(opts, app.callback()).listen(conf.httpsPort || 443)
+}
 
 app.listen(conf.port);

@@ -6,3 +6,5 @@ conf.js
 *.full.*
 www/index.html
 www/about/index.html
+*.crt
+*.key
