@@ -6,4 +6,10 @@ conf.js
 *.full.*
 *.css.src
 
+*.crt
+*.key
+
+
 www/blog
+www/index.html
+www/about/index.html

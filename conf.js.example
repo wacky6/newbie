@@ -1,5 +1,11 @@
 module.exports =  {
-    port: 1300,
-	cache: true,
+<<<<<<< HEAD
 	blogMarkdownDir : './Blog'
+    httpPort:  1300,    // for test, use 80  in production
+    httpsPort: 1433,    // for test, use 443 in production
+    cache:  true,
+    // optional
+    sslKey: './ssl.key',
+    sslCrt: './ssl.crt'
+>>>>>>> master
 }

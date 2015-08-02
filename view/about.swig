@@ -140,8 +140,12 @@ Self-taught Delphi, Lazarus
 </section>
 <section class="etc">
 <h2>Et cetera</h2>
-<p>
-Contents (image, text, etc.) can be used under 
+<p>HTTPS also available, goto <a href="https://std-aries.xyz/">https://std-aries.xyz/</a><br>
+It uses a free certificate from StartCom, you may need to manually trust it<br />
+HTTPS may be enforced as soon as I acquire a commercial certificate. <br>
+You are welcomed to sponsor one.
+</p>
+<p>Contents (image, text, etc.) can be used under 
 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><strong>CC BY-NC-SA 4.0</strong></a> 
 (Unless stated otherwise)
 </p>

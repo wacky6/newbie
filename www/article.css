@@ -115,9 +115,8 @@ article strong {
 article blockquote {
 
 }
-/* margin collapse after p,pre */
-article p+pre, article pre+p, article p+h5, article pre+h5,
-article p+ul,  article p+ol,  article pre+ul, article pre+ol{
+/* margin collapse after p */
+article p+pre,  article p+h5, article p+ul,  article p+ol {
 	margin-top:     -0.5em;
 }
 article ul, article ol, article pre {

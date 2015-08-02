@@ -22,7 +22,7 @@
 {% macro nav_ent(text, href, desc) -%}
 <a title="{{desc}}" href="{{href}}">{{text}}</a>
 {%- endmacro -%}
-{{- nav_ent("Blog", "http://blog.std-aries.xyz", "Hexo Blog") -}}
+{{- nav_ent("Blog", "/Blog/", "QJW's Blog") -}}
 {{- nav_ent("Gallery", "http://gallery.std-aries.xyz", "Gallery @ Lofter") -}}
 {{- nav_ent("Play Healthy", "/play-healthy/", "How to Play Healthy with Computers") -}}
 {{- nav_ent("About", "/about/", "About Me, About this Site") -}}

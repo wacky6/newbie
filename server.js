@@ -1,11 +1,11 @@
 "use strict";
 
-var koa      = require("koa");
-var kswig    = require("koa-swig");
-var join     = require("path").join;
-var serve    = require("koa-static");
-var compress = require("koa-compress");
-var conf     = require("./conf.js");
+var koa      = require("koa")
+var kswig    = require("koa-swig")
+var join     = require("path").join
+var serve    = require("koa-static")
+var compress = require("koa-compress")
+var conf     = require("./conf.js")
 var blog     = require("./blog")
 
 var app = koa();
@@ -80,5 +80,15 @@ app.use(function *(next){
     }
 });
 
+
+require('http').createServer(app.callback()).listen(conf.httpPort || 80)
+if (conf.sslKey && conf.sslCrt) {
+    var fs = require('fs')
+    var opts = {
+        key:  fs.readFileSync(conf.sslKey),
+        cert: fs.readFileSync(conf.sslCrt)
+    }
+    require('https').createServer(opts, app.callback()).listen(conf.httpsPort || 443)
+}
 
 app.listen(conf.port);
