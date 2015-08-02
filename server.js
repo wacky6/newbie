@@ -6,7 +6,6 @@ var join     = require("path").join
 var serve    = require("koa-static")
 var compress = require("koa-compress")
 var conf     = require("./conf.js")
-var blog     = require("./blog")
 
 var app = koa();
 app.context.render = kswig({
@@ -53,11 +52,6 @@ app.use(function *error404(next){
 });
 
 app.use(serve(join(__dirname, "www"), {maxage: conf.cache?10*60*1000:0}))
-
-app.use(function *(next){
-    if (this.path.indexOf('/Blog/')==0) yield blog
-    else yield next
-})
 
 app.use(function *(next){
     switch (this.path) {

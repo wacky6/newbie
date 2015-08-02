@@ -16,6 +16,11 @@ var wwwBlogDir = join(__dirname, 'www', 'Blog')
 var linkedResourceRegex = /href=".\/(.+?)"|'.\/(.+?)'/g
 var h1Regex = /<h1(?:(?:\s+\w+(?:\s*=\s*(?:".*?"|'.*?'|[^'">\s]+))?)+\s*|\s*)>(.+?)<\/h1>/
 
+swig.setFilter('dateFormat', function(d){
+	var d = new Date(parseInt(d))
+	return ''+d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()
+})
+
 function mkdirPSync(path) {
 	try {
 		fs.mkdirSync(path)

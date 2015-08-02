@@ -120,7 +120,7 @@ article p+pre,  article p+h5, article p+ul,  article p+ol {
 	margin-top:     -0.5em;
 }
 article ul, article ol, article pre {
-	margin-bottom:  -0.5em;
+	margin-right:   1rem;
 	list-style:     none;
 	padding-top:    0.1ex;
 	padding-bottom: 0.3ex;
@@ -158,6 +158,12 @@ article h2+*, article h3+*, article h4+*, article h5+* {
     	line-height:   1.5;
     	padding-left:  2ch;
     	padding-right: 2ch;
+    }
+    article h5 {
+    	margin-right: 0.3rem;
+    }
+    article ul, article ol, article pre {
+    	margin-right: 0.3rem;
     }
     article h2, article h3, article h4{
 		margin-top:    2rem;
