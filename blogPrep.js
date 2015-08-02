@@ -11,7 +11,7 @@ var extname  = require('path').extname
 var blogRender = require('./blogRender')
 
 var baseDir    = join(__dirname, require('./conf').blogMarkdownDir)
-var wwwBlogDir = join(__dirname, 'www', 'blog')
+var wwwBlogDir = join(__dirname, 'www', 'Blog')
 
 var linkedResourceRegex = /href=".\/(.+?)"|'.\/(.+?)'/g
 var h1Regex = /<h1(?:(?:\s+\w+(?:\s*=\s*(?:".*?"|'.*?'|[^'">\s]+))?)+\s*|\s*)>(.+?)<\/h1>/

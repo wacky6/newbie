@@ -8,12 +8,11 @@ var conf = require('./conf.js')
 var fs   = require('co-fs')
 var join = require('path').join
 var normalize = require('path').normalize
-//var blogRender = require('./blogRender')
+var blogRender = require('./blogRender')
 
 var baseDir = join(__dirname, conf.blogMarkdownDir)
 
 function *blogIndex(next) {
-	var articles = yield fs.readFile('blogCache.json')
 	this.status = 200
 	yield this.render('blog-index', {articles: articles})
 }

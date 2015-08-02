@@ -9,7 +9,6 @@ conf.js
 *.crt
 *.key
 
-
-www/blog
+www/Blog
 www/index.html
 www/about/index.html

@@ -24,7 +24,7 @@
 {%- endmacro -%}
 {{- nav_ent("Blog", "/Blog/", "QJW's Blog") -}}
 {{- nav_ent("Gallery", "http://gallery.std-aries.xyz", "Gallery @ Lofter") -}}
-{{- nav_ent("Play Healthy", "/play-healthy/", "How to Play Healthy with Computers") -}}
+{{- nav_ent("Play Healthy", "/Blog/play-healthy/", "How to Play Healthy with Computers") -}}
 {{- nav_ent("About", "/about/", "About Me, About this Site") -}}
 </nav>
 </div>

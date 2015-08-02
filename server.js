@@ -52,34 +52,25 @@ app.use(function *error404(next){
     throw e
 });
 
-app.use(serve(join(__dirname, "www"), {maxage: conf.cache?10*60*1000:0}));
+app.use(serve(join(__dirname, "www"), {maxage: conf.cache?10*60*1000:0}))
 
 app.use(function *(next){
-    const pathPrefix = '/blog/'
-    if (this.path.indexOf(pathPrefix)==0) {
-        this.path = this.path.substr(pathPrefix.length-1)
-        yield blog
-    }else{
-        yield next
-    }
+    if (this.path.indexOf('/Blog/')==0) yield blog
+    else yield next
 })
 
 app.use(function *(next){
     switch (this.path) {
         case '/': 
         case '/index.html':
-            yield this.render('index');
-            break;
+            yield this.render('index')
+            break
         case '/about/':
-            yield this.render('about');
-            break;
-        case '/play-healthy/':
-            yield this.render('play-healthy');
+            yield this.render('about')
         default:
             yield next;
     }
-});
-
+})
 
 require('http').createServer(app.callback()).listen(conf.httpPort || 80)
 if (conf.sslKey && conf.sslCrt) {
