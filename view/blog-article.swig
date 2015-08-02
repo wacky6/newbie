@@ -8,7 +8,7 @@
 
 {%- block head %}
 <link rel="stylesheet" href="/article.css">
-<link rel="stylesheet" href="/hljs-css/railcasts.css">
+<link rel="stylesheet" href="/hljs-css/railscasts.css">
 {% endblock -%}
 
 {%- block body -%}

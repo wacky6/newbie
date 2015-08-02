@@ -153,11 +153,11 @@ article h2+*, article h3+*, article h4+*, article h5+* {
 }
 
 /* handleld, smaller tablet */
-@media (max-device-width: 7in) {
+@media (max-width: 10in) {
     article {
     	line-height:   1.5;
-    	padding-left:  2ch;
-    	padding-right: 2ch;
+    	padding-left:  1.5rem;
+    	padding-right: 1.5rem;
     }
     article h5 {
     	margin-right: 0.3rem;
@@ -178,4 +178,17 @@ article h2+*, article h3+*, article h4+*, article h5+* {
 	article h3+*, article h4+*, article h5+* {
 		margin-top:    0;
 	}
+	article ul, article ol, article pre, article h5 {
+		left:           0;
+	}
+}
+
+@media (max-width: 7in) {
+	nav.side {
+        display: none;
+    }
+    article  {
+    	padding-left:  1ch;
+    	padding-right: 1ch;
+    }
 }

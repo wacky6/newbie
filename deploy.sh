@@ -14,6 +14,7 @@ JS_MINIFY=${BASE}/$(find node_modules/ -path "*/bin/minify.js")
 CSS_MINIFY=${BASE}/$(find node_modules/ -path "*/bin/minify.js")
 SWIG_RENDER=${BASE}/"node_modules/swig/bin/swig.js"
 POSTCSS=${BASE}/$(find node_modules/ -path "*/bin/postcss")
+BLOG_PREP="${BASE}/blogPrep.js"
 
 # minify js in www/ directory
 function minifyJS() {
@@ -65,7 +66,13 @@ function processCSS() {
     )
 }
 
+# render blog
+function renderBlog() {
+    node blogPrep
+}
+
 ## run optimization
 minifyJS;
 renderSWIG;
 processCSS;
+renderBlog;

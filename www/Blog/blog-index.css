@@ -1,0 +1,102 @@
+/* blog index css */
+h1 {
+	text-align:  center;
+	display:     block;
+	font-size:   2rem;
+	font-family: cursive;
+}
+
+.post-list{
+	list-style:     none;
+	display:        block;
+	padding:        0;
+	max-width:      100ch;
+	margin-left:    auto;
+	margin-right:   auto;
+}
+
+.post-entry{
+	background-color: #333;
+	min-width:  52ch;
+	padding:    0.4em 1em;
+	box-sizing: border-box;
+	position:   relative;
+}
+
+.post-entry.featured {
+	background-color: #733;
+}
+.post-entry.featured a::after{
+	content: " [FEATURED] ";
+	color:   #ff1111;
+}
+
+.post-entry a, .post-entry a:visited {
+	text-decoration: none;
+	font-family: inherit;
+	display:     block;
+	color:       inherit;
+}
+
+.post-entry h2 {
+	text-decoration: none;
+	font-family: inherit;
+	font-weight: normal;
+	color:       #fff;
+	margin:      0;
+	padding:     0;
+}
+
+.post-entry p {
+	margin:      1em 0 0.2em 0;
+	text-align:  left;
+	line-height: 1.1;
+	overflow-y:  auto;
+	font-family: serif;
+}
+
+.post-entry .date {
+	position:    absolute;
+	z-index:     0;
+	top:         0.6em;
+	right:       1em;
+	text-align:  right;
+	font-family: monospace;
+	font-size:   1.3em;
+}
+
+@media (max-width: 7in) {
+    .post-entry {
+		min-width: 0%
+    }
+    article  {
+    	padding: 0;
+    }
+    article ul, article ol, article pre {
+    	margin-right: 0;
+    }
+    article h1 {
+    	background-color: #359;
+    	margin:  0 0;
+    	padding: 1ex 0;
+    	color:   #fff;
+    }
+    .post-entry .date {
+    	position:    relative;
+    	left:        0; 
+    	top:         0;
+		text-align:  left;
+		font-family: monospace;
+		font-size:   1em;
+	}
+	.post-entry .date::before {
+		content:     "Authored: ";
+		color:       #aaa;
+	}
+	.post-entry p {
+		margin: 0.4em 0;
+	}
+    ul {
+    	margin:      0 auto;
+    }
+}

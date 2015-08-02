@@ -100,25 +100,36 @@ nav.side {
     top:  40%;
     background-color: #333;
     border-radius: 0 0.5em 0.5em 0;
-    padding: 0.8ex 0.5ch 0.8ex 0;
+    left:    1.2ch;
+    padding: 0.8ex 1.5ch 0.8ex 0.5ch;
     font-size: 1.8rem;
     font-family: 'Courier New', Courier, monospace;
     transition: transform 0.5s;
-    transform: translate(-6.6ch, -50%);
+    transform: translate(-100%, -50%);
     filter: drop-shadow(0.3ch 0.3rem 2rem #000);
     z-index:99;
 }
 nav.side:hover {
     background-color: #333;
-    transform: translate(0, -50%);
+    transform: translate(-1.5ch, -50%);
+}
+nav.side:first-child::before {
+    content: ">";
+    color: #999;
+    position: absolute;
+    padding-right: 0;
+    padding-left:  0.5ch;
+    transform: translate(0, -50%) scale(0.5, 2);
+    top: 50%;
+    right: 0;
+    border-left: 1px solid #111;
 }
 nav.side a {
-    width: 8ch;
     text-align:right;
     display: block;
     text-decoration: none;
     margin: 0.3ex 0;
-    padding: 0 0 0 0.5ch;
+    padding: 0 0.5ch 0 0.5ch;
     transition: background-color 0.5s;
     font-family: inherit;
 }
@@ -128,33 +139,8 @@ nav.side a:hover {
 nav.side a:after {
     padding: 0 0.5ch;
 }
-nav.side a.back:after {
-    content: "<";
-}
-nav.side a.index:after {
-    content: "/";
-}
-nav.side a.about:after {
-    content: "?";
-}
 
 /* style override for mobile/portriat device */
-@media (max-width: 7in) {
-    nav.side {
-        font-size: 3rem;
-        top: 0;
-        transform: translate(-6.6ch, 0);
-        border-radius: 0 0 0.5em 0;
-        padding: 0 0.25em 0 0;
-    }
-    nav.side:hover{
-        transform: translate(0, 0);
-    }
-    nav.side a:not(:first-child) {
-        display: none;
-    }
-}
-
 @media not screen {
     nav.side {
         display: none;

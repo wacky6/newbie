@@ -1,3 +1,5 @@
+#!/usr/bin/env/ node
+
 'use strict'
 
 /* generate blogListing to blog.cache */
@@ -37,7 +39,7 @@ function getMTime(path) {
 	return time
 }
 
-function blogCache() {
+function blogPrep() {
 	
 	var ls  = fs.readdirSync(baseDir).filter(function(fname){
 		return extname(fname)=='.md'
@@ -98,10 +100,10 @@ function blogCache() {
 
 	// sort for blog index
 	json.sort(function(a,b){ 
-		var t
-		if (a.top) t|=2
-		if (b.top) t|=1
-		if (t==0 || t==3) return a.time-b.time
+		var t = 0
+		if (a.meta.top) t+=2
+		if (b.meta.top) t+=1
+		if (t==0 || t==3) return b.time-a.time
 		if (t==1) return 1
 		if (t==2) return -1
 	})
@@ -109,7 +111,7 @@ function blogCache() {
 	// render www/blog index page
 	swig.renderFile(join(__dirname, 'view/blog-index.swig'), {
 		articles: json.filter(function(_){
-			return !_.noindex
+			return !_.meta.noindex
 		}).map(function(_){
 			var r = _.meta
 			r.date = _.date
@@ -126,6 +128,6 @@ function blogCache() {
 
 }
 
-blogCache()
+blogPrep()
 
-module.exports = blogCache
+module.exports = blogPrep
