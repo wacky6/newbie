@@ -5,7 +5,6 @@ var kswig    = require("koa-swig")
 var join     = require("path").join
 var serve    = require("koa-static")
 var compress = require("koa-compress")
-var forcessl = require("koa-force-ssl")
 var conf     = require("./conf.js")
 
 var app = koa();
@@ -16,10 +15,6 @@ app.context.render = kswig({
     ext:   "swig",
     locals: {}
 });
-
-if (conf.sslKey && conf.sslCrt) {
-    app.use(forcessl(conf.httpsPort || 443))
-}
 
 app.use(compress());
 app.use(function *error500(next){
