@@ -15,7 +15,7 @@ var blogRender = require('./blogRender')
 var baseDir    = join(__dirname, require('./conf').blogMarkdownDir)
 var wwwBlogDir = join(__dirname, 'www', 'Blog')
 
-var linkedResourceRegex = /href=".\/(.+?)"|'.\/(.+?)'/g
+var linkedResourceRegex = /(?:href|src)=".\/(.+?)"|'.\/(.+?)'/g
 var h1Regex = /<h1(?:(?:\s+\w+(?:\s*=\s*(?:".*?"|'.*?'|[^'">\s]+))?)+\s*|\s*)>(.+?)<\/h1>/
 
 swig.setFilter('dateFormat', function(d){
@@ -86,12 +86,14 @@ function blogPrep() {
 		while ((m=linkedResourceRegex.exec(_.html))!==null) {
 			var rcName = m[1] || m[2]
 			try {
-				fs.copySync(join(baseDir, rcName))
+				var srcFile = join(baseDir, rcName)
+				var dstFile = join(blogPostDir, rcName)
+				fs.writeFileSync(dstFile, fs.readFileSync(srcFile))
 				console.log('  RC Copy: '+rcName)
 			} catch(e) {
-				var msg = '  Fail to copy linked resource:\n'
-				        + '    '+fname+' -> \n'
-				        + '    '+rcName
+				var msg = '  Fail to copy linked resource:'+e.message+'\n'
+				        + '    '+srcFile+' -> \n'
+				        + '    '+dstFile
 				console.log(msg)
 			}
 		}
