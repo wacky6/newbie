@@ -59,12 +59,12 @@ h1 {
     text-align:  center;
 }
 
-.edged { 
+.edged {
     text-shadow: 1pt   1pt  4pt #000,
                  -1pt  1pt  4pt #000,
                  -1pt -1pt  4pt #000,
                  1pt  -1pt  4pt #000
-                 
+
 }
 
 img.bg {
@@ -79,7 +79,7 @@ img.bg {
         display: block;
         margin: 0 auto;
         width:  14ch;
-        padding: 0.5ex 0; 
+        padding: 0.5ex 0;
     }
     img.bg {
         height: 90%;
