@@ -71,9 +71,9 @@ if (conf.sslKey && conf.sslCrt) {
     var fs = require('fs')
     var opts = {
         key:  fs.readFileSync(conf.sslKey),
-        cert: fs.readFileSync(conf.sslCrt)
+        cert: fs.readFileSync(conf.sslCrt),
+        ca:   conf.sslCA ? fs.readFileSync(conf.sslCA)
     }
     require('https').createServer(opts, app.callback()).listen(conf.httpsPort || 443)
 }
 
-app.listen(conf.port);
