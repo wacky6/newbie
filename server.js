@@ -5,6 +5,8 @@ var kswig    = require("koa-swig")
 var join     = require("path").join
 var serve    = require("koa-static")
 var compress = require("koa-compress")
+var lusca    = require("koa-lusca")
+var forceSSL = require("koa-force-ssl")
 var conf     = require("./conf.js")
 
 var app = koa();
@@ -15,6 +17,17 @@ app.context.render = kswig({
     ext:   "swig",
     locals: {}
 });
+
+if (conf.enforceSecurity && conf.sslKey && conf.sslCrt) {
+    app.use(forceSSL())
+    app.use(lusca({
+        csrf: false,
+        csp:  false,
+        xframe: 'SAMEORIGIN',
+        hsts: {maxAge: 24*60*60*30, includeSubDomains: false},
+        xssProtection: false
+    }))
+}
 
 app.use(compress());
 app.use(function *error500(next){
@@ -72,7 +85,7 @@ if (conf.sslKey && conf.sslCrt) {
     var opts = {
         key:  fs.readFileSync(conf.sslKey),
         cert: fs.readFileSync(conf.sslCrt),
-        ca:   conf.sslCA ? fs.readFileSync(conf.sslCA)
+        ca:   conf.sslCA ? fs.readFileSync(conf.sslCA) : undefined
     }
     require('https').createServer(opts, app.callback()).listen(conf.httpsPort || 443)
 }
