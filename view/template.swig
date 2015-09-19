@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no" />
@@ -9,6 +9,7 @@
 <meta name="handheldfriendly" />
 <link rel="stylesheet" href="/base.css">
 <script src="/common.js"></script>
+<link rel="icon" href="/favicon.png">
 {%- block head  -%}
 {%- endblock %}
 </head>

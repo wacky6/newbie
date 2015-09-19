@@ -56,6 +56,16 @@ a, a:visited{
     color: #b8b8b8;
 }
 
+a.block-link {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px #eee;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: .25em 2ch;
+    border:  1px solid #555;
+}
+
 #content_wrapper {
     margin: 0 0 1.3rem 0;
 }
