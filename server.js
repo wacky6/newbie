@@ -9,6 +9,14 @@ var lusca    = require("koa-lusca")
 var forceSSL = require("koa-force-ssl")
 var conf     = require("./conf.js")
 
+/* for HTTP2, sslKey, sslCrt are mandatory
+ * throw a Error if these fields are not set
+ */
+if (!conf.sslKey || !conf.sslCrt) {
+    throw new Error('SSL Certificate & Key are required for HTTP2')
+    process.exit(2)
+}
+
 var app = koa();
 app.context.render = kswig({
     root: join(__dirname, "view"),
@@ -18,7 +26,7 @@ app.context.render = kswig({
     locals: {}
 });
 
-if (conf.enforceSecurity && conf.sslKey && conf.sslCrt) {
+if (conf.enforceSecurity) {
     app.use(forceSSL())
     app.use(lusca({
         csrf: false,
@@ -79,14 +87,13 @@ app.use(function *(next){
     }
 })
 
-require('http').createServer(app.callback()).listen(conf.httpPort || 80)
-if (conf.sslKey && conf.sslCrt) {
-    var fs = require('fs')
-    var opts = {
-        key:  fs.readFileSync(conf.sslKey),
-        cert: fs.readFileSync(conf.sslCrt),
-        ca:   conf.sslCA ? fs.readFileSync(conf.sslCA) : undefined
-    }
-    require('https').createServer(opts, app.callback()).listen(conf.httpsPort || 443)
+
+var fs = require('fs')
+var opts = {
+    key:  fs.readFileSync(conf.sslKey),
+    cert: fs.readFileSync(conf.sslCrt),
+    ca:   conf.sslCA ? fs.readFileSync(conf.sslCA) : undefined
 }
+require('spdy').createServer(opts, app.callback()).listen(conf.httpsPort || 443)
+
 

@@ -147,9 +147,10 @@ No framework, Proudly! <br>
 <section class="etc">
 <h2>Et cetera</h2>
 <p>
-HTTPS/HSTS is now <b style="color:red">enforced</b>, using a free certificate from StartCom<br>
-You are welcomed to sponsor a commercial one
+HTTPS/HSTS is now <b style="color:red">required</b>, with a free certificate from StartCom<br>
+You are welcomed to sponsor a commercial one.
 </p>
+<p>Uses HTTP2 by default, feel free to experiment with it! :D</p>
 <p>Pure IPv6 site is also available: <a href="https://v6.std-aries.xyz/">https://v6.std-aries.xyz/</a></p>
 <p>
 Site does <b style="color:red">NOT</b> support: <code>'IE&lt;11, OEM, terminal, App embedded browsers'</code> <br>
