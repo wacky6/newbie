@@ -24,7 +24,7 @@ app.context.render = kswig({
     cache: false,
     ext:   "swig",
     locals: {}
-});
+})
 
 if (conf.enforceSecurity) {
     app.use(forceSSL())
@@ -38,7 +38,7 @@ if (conf.enforceSecurity) {
 }
 
 app.use(compress());
-app.use(function *error500(next){
+app.use(function *errorHandling(next){
     try {
         yield next
     }catch (err) {
@@ -70,7 +70,7 @@ app.use(function *error404(next){
     var e = new Error('Entity not found')
     e.code = 'ENOENT'
     throw e
-});
+})
 
 app.use(serve(join(__dirname, "www"), {maxage: conf.cache?10*60*1000:0}))
 
@@ -96,4 +96,7 @@ var opts = {
 }
 require('spdy').createServer(opts, app.callback()).listen(conf.httpsPort || 443)
 
-
+// server hi-future for plain text HTTP 1 requests
+var appHttp1 = new koa()
+appHttp1.use(serve(join(__dirname, 'www-hi-future'), {maxage: conf.cache?10*60*1000:0}))
+require('http').createServer(appHttp1.callback()).listen(conf.httpPort || 80)

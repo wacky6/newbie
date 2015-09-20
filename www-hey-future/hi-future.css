@@ -1,0 +1,123 @@
+﻿@viewport {
+    width: devide-width;
+    user-scalable: no;
+}
+
+.tcenter {
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body {
+    margin:  0;
+    padding: 0;
+    background-color: #111;
+    color: #cecece;
+    font-family: 'Avant Garde','Century Gothic','Microsoft YaHei','微软雅黑',STXiHei,'华文细黑', sans-serif;
+    line-height: 1.4;
+}
+
+body > footer {
+    z-index: 99;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 92%;
+    margin: 0 auto 0 auto;
+    padding: 1.5pt 4% 0 4%;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+}
+
+body > footer a {
+    display: block;
+    text-align:center;
+    font-size: 0.75rem;
+    margin: 0.2rem auto 0 auto;
+    padding: 0.25rem 0 0.2rem 0;
+    text-decoration: none;
+    height: 1em;
+    overflow: hidden;
+    background-color: #222;
+}
+
+a, a:visited{
+    color: #b8b8b8;
+}
+
+a.block-link {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px #eee;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: .25em 2ch;
+    border:  1px solid #555;
+}
+
+#content_wrapper {
+    margin: 0 0 1.3rem 0;
+}
+
+hr{
+    border-color: #777; 
+}
+
+.float-container {
+    display: table;
+}
+.float-container > *{
+    float: left;
+    margin: 0.5ex 1ex;
+}
+.float-container > a {
+    display: block;
+    width: 64pt;
+    height: 64pt;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.float-container > a > span {
+    position: absolute;
+    bottom: 0;
+    margin: 0.2ex 0 0 0;
+    width: 100%;
+    background-color: rgba(0,0,0, 0.8);
+    text-align: center;
+}
+
+
+article {
+    max-width: 80ch;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+p.highlight {
+    color: #ff8888;
+}
+
+h1{
+    font-size:  2rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.4rem;
+    color: #eee;
+}
+article footer{
+    text-align: right;
+    margin: 2em 0 1em 0;
+}
+
+.warn {
+    color: red;
+}
+.tip {
+    color: lightblue;
+}
