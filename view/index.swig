@@ -2,9 +2,8 @@
 {%- extends "template.swig" -%}
 
 {%- block head -%}
-<meta name="description" content="Jiewei Qian(wacky6, std::weak)'s Homepage" />
-<meta name="keywords" content="Jiewei Qian, wacky6, std::weak, homepage, index" />
-<link rel="alternate" href="/cn/" hreflang="zh-CN" />
+<meta name="description" content="Jiewei Qian(wacky6, std::weak)'s Homepage">
+<meta name="keywords" content="Jiewei Qian, wacky6, std::weak, homepage, index">
 <title>Aries @ std-aries</title>
 <link rel="stylesheet" href="/index/index.css">
 <script src="/index/index.js"></script>
@@ -14,7 +13,7 @@
 {% endblock -%}
 
 {%- block body -%}
-<div id="menu_wrap" class="menu tcenter fadein">
+<div id="menu_wrap" class="menu fadein">
 <header>
 <h1 class="edged">Hey!<br />jwQ is here.</h1>
 </header>

@@ -13,13 +13,18 @@
 }
 
 .menu {
-    width: 90%;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width:  100%;
+    box-sizing: border-box;
+    justify-content: center;
     overflow: hidden;
-    padding: 2rem 5% 2rem 5%;
-    background-color: rgba(0,0,0,0.5);
+    padding: 0;
+    margin:  0;
+    background-color: rgba(0,0,0,0.4);
     font-family: cursive;
-    position: fixed!important; /* override tcenter's position */
 }
 .menu nav {
     display: block;
@@ -71,7 +76,7 @@ img.bg {
     margin: 0; padding: 0;
     width:  100%;
     height: auto;
-    z-index: 0;
+    z-index: -1;
 }
 
 @media all and (max-width: 120ch) {

@@ -2,8 +2,8 @@
 {%- extends "template.swig" -%}
 
 {%- block head -%}
-<meta name="description" content="About Jiewei Qian, used ID includes: wacky6, std::weak" />
-<meta name="keywords" content="Jiewei Qian, wacky6, std::weak, about, contact, who" />
+<meta name="description" content="About Jiewei Qian, used ID includes: wacky6, std::weak">
+<meta name="keywords" content="Jiewei Qian, wacky6, std::weak, about, contact, who">
 <title>About me @ std-aries</title>
 <link rel="stylesheet" href="/article.css">
 <link rel="stylesheet" href="/about/about.css">
@@ -147,11 +147,10 @@ No framework, Proudly! <br>
 <section class="etc">
 <h2>Et cetera</h2>
 <p>
-HTTPS/HSTS is now <b style="color:red">required</b>, with a free certificate from StartCom<br>
+HSTS is now <b style="color:red">enforced</b>, with a free certificate from StartCom<br>
 You are welcomed to sponsor a commercial one.
 </p>
 <p>Uses HTTP2 by default, feel free to experiment with it! :D</p>
-<p>Pure IPv6 site is also available: <a href="https://v6.std-aries.xyz/">https://v6.std-aries.xyz/</a></p>
 <p>
 Site does <b style="color:red">NOT</b> support: <code>'IE&lt;11, OEM, terminal, App embedded browsers'</code> <br>
 Site SHOULD support: <code>'market &gt; 5%, last 2 versions'</code> <br>

@@ -1,8 +1,8 @@
 {%- extends "template.swig" -%}
 
 {%- block meta %}
-<meta name="description" content="{{description|safe}}" />
-<meta name="keywords" content="{{keywords|join(', ')|safe}}" />
+<meta name="description" content="{{description|safe}}">
+<meta name="keywords" content="{{keywords|join(', ')|safe}}">
 <title>{{title}} @ std-aries</title>
 {% endblock -%}
 
