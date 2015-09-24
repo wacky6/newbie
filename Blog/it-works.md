@@ -1,5 +1,11 @@
 [](~
-	description: Yeah! It Works!!!!!!!
+  description: Yeah! It works!!
+  brief: |
+         Yeah! It Works!!!!!!!
+         And this brief should be toooo long for a single line.
+         So this entry get expanded into at least 3 lines or more
+
+         Here is a extremely / very / sufficiently lengthy, verbose, non-sense, long line that should be wrapped to 2 lines, just for testing purpose, and try to break css....................
 ~)
 
 # Yeah! It works!!!!

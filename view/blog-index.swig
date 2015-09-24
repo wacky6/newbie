@@ -13,7 +13,7 @@
 	<a title="{{m.description|safe}}" href="{{m.href}}">
 	<h2>{{m.title}}</h2>
 	<span class="date">{{m.date|dateFormat}}</span>
-	<p>{{m.brief|escape|replace('[\r\n]+', '<br>')|safe}}</p>
+	<p>{{m.brief|escape|replace('[\r\n]+', '<br>', 'g')|safe}}</p>
 	</a>
 </li>
 {%- endmacro -%}
@@ -22,7 +22,7 @@
 {%- include "nav.swig" -%}
 <article>
 <header>
-	<h1>Blog</h1>
+	<h1>Blog Posts</h1>
 </header>
 <ul class='post-list'>
 {%- for _ in articles %}
