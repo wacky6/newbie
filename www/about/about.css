@@ -21,11 +21,12 @@ article a, article a:visited {
     font-family: inherit;
 }
 .overlay > * {
+    line-height: 1;
+    font-size:   1.2rem;
     width: 100%;
     margin: 0;
     padding: 0.2rem 2ch;
     margin:  0;
-    font-size: 1.2rem;
     font-family: inherit;
     transition: opacity 1s;
 }
@@ -60,7 +61,7 @@ article a, article a:visited {
     position: relative;
     padding: 0;
     margin: 0 2ch;
-    font-family: Courier, sans-serif;
+    font-family: en-sans, cn-sans, sans-serif;
     font-weight: normal;
 }
 .g_dtl > .bg {
