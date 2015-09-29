@@ -113,7 +113,10 @@ article strong {
 	font-weight: bold;
 }
 article blockquote {
-
+	margin:        1em 1ch;
+	padding-left:  1ch;
+	padding-right: 1ch;
+	border-left:   1px solid #777;
 }
 /* margin collapse after p */
 article p+pre,  article p+h5, article p+ul,  article p+ol {

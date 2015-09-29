@@ -55,7 +55,7 @@ Member of <a href="http://www.nuptsacc.com">NUPTSACC</a>
 PM of a STITP project, 'Smart Home Middleware'
 
 Get tired of Microsoft Windows, purchased a Mac 
-Get tired of Android, partially due to blocked Google & rouge Android App Markets in China
+Get tired of Android, partially due to blocked Google &amp; rouge Android App Markets in China
 Published album 'Love in NSFZ(abbr. of my high school)' on Internet, well accepted by alumni. 
 Begin to enjoy more Anime!
     Naruto Series, Fate Stay Night / Fate Zero, Sword Art Online, [and counting...]
@@ -98,7 +98,7 @@ Member of 'NO AUTO Photography Association':
     several photos archived in High School Graduation Memorial
 Meet bilibili, begin to enjoy kichiku videos
 Grow into a healthy person, thanks to Chinese teachers at school
-Troubleshoot/fix many computer related issues for classmates & teachers
+Troubleshoot/fix many computer related issues for classmates &amp; teachers
 </pre>
 </div>
 
@@ -128,7 +128,7 @@ Self-taught Delphi, Lazarus
 <div class="float-container">
 {{ href_icon("node.js", "https://nodejs.org/",
   "node.svg" ) }}
-{{- href_icon("Linux", "http://en.wikipedia.org/wiki/Linux",  
+{{- href_icon("Linux", "https://en.wikipedia.org/wiki/Linux",  
   "linux.png" ) }}
 {{- href_icon("git",   "http://www.git-scm.com/", 
   "git-scm.png" ) }}
@@ -150,7 +150,7 @@ No framework, Proudly! <br>
 HSTS is now <b style="color:red">enforced</b>, with a free certificate from StartCom<br>
 You are welcomed to sponsor a commercial one.
 </p>
-<p>Uses HTTP2 by default, feel free to experiment with it! :D</p>
+<p>http/2 by default, feel free to experiment with it! :D</p>
 <p>
 Site does <b style="color:red">NOT</b> support: <code>'IE&lt;11, OEM, terminal, App embedded browsers'</code> <br>
 Site SHOULD support: <code>'market &gt; 5%, last 2 versions'</code> <br>
