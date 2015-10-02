@@ -18,29 +18,26 @@ article {
 	padding-right:  3ch;
 	background-color: #222;
 	max-width:      110ch;
-	font-family:    'Avant Garde', 'Century Gothic', 
-					STXiHei, '华文细黑', 'Microsoft YaHei', '微软雅黑',
-					sans-serif;
+	font-family:    en-sans, cn-sans, sans-serif;
 	font-size:      1rem;
-	font-weight:    lighter;
 	line-height:    1.33;
 }
 
 article h1 {              /* article title */
-	font-family:   cursive;
+	font-family:   en-sans, cn-sans, sans-serif;
+	font-weight:   bold;
 	letter-spacing:0.2ex; 
 	margin-top:    1ex;
 	margin-bottom: 1ex;
 	margin-left:   auto;
 	margin-right:  auto;
 	font-size:     2.4rem;
-	font-weight:   normal;
 	text-align:    center;
 	color:         #eee;
 }
 article h1.error {
 	color: #ff8888;
-	font-family: 'Courier New', Courier, monospace;
+	font-family: en-monospace, cn-monospace, monospace;
 }
 article h1+h2 {           /* article 2nd title */
 	margin-top:    -1ex;
@@ -155,17 +152,24 @@ article h2+*, article h3+*, article h4+*, article h5+* {
 	margin-top:    0;
 }
 
-article ul li {
+article ul > li {
 	padding-top:    .3em;
 	padding-bottom: .3em;
 	border-bottom:  1px solid #373737;
 }
-article ul li:first-child{
+article ul > li:first-child{
 	padding-top:    .1em;
 }
-article ul li:last-child {
+article ul > li:last-child {
 	padding-bottom: .1em;
 	border-bottom:  0;
+}
+
+article em{
+	font-style:  normal;
+	font-weight: bold;
+	padding-left:  0.2ch;
+	padding-right: 0.2ch;
 }
 
 /* handleld, smaller tablet */
