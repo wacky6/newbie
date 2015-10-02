@@ -15,111 +15,106 @@ article pre {
 article a, article a:visited {
     color: inherit;
 }
-.overlay {
-    margin: 0; padding: 0;
-    position: relative;
-    font-family: inherit;
+
+article section.edu{
+    font-size: 1rem;
 }
-.overlay > * {
-    line-height: 1;
-    font-size:   1.2rem;
-    width: 100%;
-    margin: 0;
-    padding: 0.2rem 2ch;
-    margin:  0;
-    font-family: inherit;
-    transition: opacity 1s;
-}
-.overlay .top {
-    position: relative;
-    opacity: 0;
+
+.detail > :not(.bg) {
     z-index: 1;
-    color: #dedede;
 }
-.overlay .bot {
-    position: absolute;
-    top:  0;
-    opacity: 1;
-    z-index: 0;
-    color: #ccc;
-}
-.overlay:hover .top {
-    opacity: 1;
-}
-.overlay:hover .bot {
-    opacity: 0;
-}
-.overlay h4.bot::after {
-    content: " ...";
-}
-.g_dtl[expanded]:not(:focus) {
-    height: 1.6rem!important;
-}
-.g_dtl {
-    display: block;
-    overflow: hidden;
-    position: relative;
-    padding: 0;
-    margin: 0 2ch;
-    font-family: all-sans, en-sans, cn-sans, sans-serif;
-    font-weight: normal;
-}
-.g_dtl > .bg {
+.detail > .bg {
     margin: 0; padding:0;
-    z-index: 0;
+    z-index: -1;
     display: block;
     position: absolute;
+    top: 0; left: 0;
     width: 100%; height: 100%;
-    box-shadow: inset 0 0 1.5rem 1pt #222;
+    box-shadow: inset 0 0 1.5rem .3rem #222;
     background-position: center;
     background-size: cover;
     transition: filter 0.8s;
-    filter: brightness(0.3);
+    filter: brightness(0.4);
 }
-.g_dtl > * {
-   z-index: 1;
-}
-.g_dtl:focus .overlay .top {
-    opacity: 1;
-}
-.g_dtl:focus .overlay .bot {
-    opacity: 0;
-}
-.g_dtl:focus > .bg {
-    filter: brightness(0.5);
-}
-.g_dtl pre {
-    transition: opacity 0.8s;
-    opacity: 0.1;
-    margin: 0;
-    padding: 0.5ex 0 1ex 2ch;
-    line-height: 1.33;
-    color: #dedede;
+.detail {
     position: relative;
+    padding: 1ex 2ch;
 }
-.g_dtl:focus pre {
-    opacity: 1;
+.detail h3{
+    margin-top:    0;
+    margin-bottom: .5ex;
+}
+.detail h5{
+    color: #fff;
+}
+.detail p+h5{
+    margin-top: 0;
+}
+.detail p{
+    margin-top:    1ex;
+    margin-bottom: 1ex;
+}
+.detail ul h4{
+    margin-top:    .5ex;
+    margin-bottom: 0;
+    color:         #e0e0e0;
+}
+.detail ul li {
+    padding-top:    0.1em !important;
+    padding-bottom: 0.1em !important;
+    border-bottom:  none;
+}
+.detail ul li > *{
+    margin-left:   0;  /* override article's heading based indent */
+}
+.detail h5, .detail ul, .detail ol {
+    padding-left:  0;
+    padding-right: 0;
+    background-color: rgba(0,0,0,0);
+    left: 0;
+}
+.detail ul li p{
+    margin-top:    .3ex;
+    margin-bottom: .3ex;
+}
+.detail ul li h4+*{
+    margin-top:    0;
+}
+.detail ul li p:last-child {
+    margin-bottom: 0;
+}
+article h3 {
+    color: #ffffff;
 }
 
-@media all and (max-width: 120ch) {
-    .overlay .top, .overlay .bot {
-        padding: 0.2rem 1ch;
+.block-link-container {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.block-link-container a.block-link {
+    display: inline-block;
+    margin-top:    .5em;
+    margin-bottom: 0;
+    margin-left:   1ex;
+    margin-right:  1ex;
+}
+
+@media (max-width: 10in) {
+    .detail {
+        padding: 1ex 1ch;
     }
-    .g_dtl {
-        margin: 0;
+}
+@media (max-width: 7in) {
+    .detail {
+        padding: 1ex 0;
     }
-    .g_dtl pre {
-        margin: 0.5ex 0 1ex 1ch;
-        padding: 0.5ex 0 1ex 0;
-        transition: none;
+    .detail > .bg {
+        margin-left:  -1ch;
+        margin-right: -1ch;
+        width: 100vw;
     }
-    .g_dtl > .bg {
-        box-shadow: none;
-    }
-    .g_dtl:focus .overlay {
-        background-color: rgba(0,0,0,0.6);
-    }
-    pre{
-        overflow-x: auto;
+    .block-link-container a.block-link {
+        text-align: center;
+        display: block;
     }
 }

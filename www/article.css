@@ -79,11 +79,6 @@ article h3 {
 	font-size:     1.3em;
 	color:         #d8d8d8;
 }
-article h3::before {
-	content: "*";
-	padding-right: 0.5ch;
-	color: #777;
-}
 article h4 {
 	font-size:     1.1em;
 }

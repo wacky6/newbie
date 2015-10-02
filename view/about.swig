@@ -8,11 +8,6 @@
 <link rel="stylesheet" href="/article.css">
 <link rel="stylesheet" href="/about/about.css">
 <script src="/about/about.js"></script>
-<noscript>
-  <style>
-    div.g_dtl {height: auto;}
-  </style>
-</noscript>
 {%- endblock -%}
 {%- block body -%}
 {%- include "nav.swig" -%}
@@ -35,83 +30,99 @@ Made in <strong style="color:#84dcff">Nanjing, PRC</strong> <br>
 <section class="edu" id="sec_edu">
 <h2>Education &amp; Experience</h2>
 
-{% macro overlay(bot, top) -%}
-<div class="overlay">
-  <h4 class="bot">{{bot}}</h4>
-  <h4 class="top">{{top}}</h4>
-</div>
-{%- endmacro -%}
 {% macro bgimg(url -%}
 <div class="bg" style="background-image: url('{{url}}');" > </div>
 {%- endmacro -%}
 
-<div class="g_dtl" tabindex="0">
+<div class="detail">
 {{ bgimg("/about/edu3.jpg") -}}
-{{ overlay("University", "Nanjing University of Post and Telecommunication") -}}
-<pre>
-Entered NJUPT @ 2013, partially a College-Entrance-Exam failure
-Computer &amp; Software College, Software Engineering
-Member of <a href="http://www.nuptsacc.com">NUPTSACC</a>
-PM of a STITP project, 'Smart Home Middleware'
-
-Get tired of Microsoft Windows, purchased a Mac 
-Get tired of Android, partially due to blocked Google &amp; rouge Android App Markets in China
-Published album 'Love in NSFZ(abbr. of my high school)' on Internet, well accepted by alumni. 
-Begin to enjoy more Anime!
-    Naruto Series, Fate Stay Night / Fate Zero, Sword Art Online, [and counting...]
-</pre>
+<h3 class="current">Nanjing University of Post and Telecommunication</h3>
+<p>
+Entered NJUPT @ 2013, partially due to a College-Entrance-Exam failure
+</p>
+<p>
+Major in <em>Software Engineering</em> <br>
+Member of <a href="http://www.nuptsacc.com">NUPTSACC</a> <br>
+PM of STITP project: <em>Smart Home Middleware</em> <br>
+</p>
+<p>
+Published album <em><a rel="external" href="http://photo.renren.com/photo/335657284/album-929131365/v7" title="Love in NSFZ">Love in NSFZ / 爱在附中</a></em>(requires registration)
+, well accepted by alumni.
+</p>
+<h5>Did some cool stuff:</h5>
+<ul>
+  <li>Deployed Gentoo on Cubietruck, used as server (DDNS)</li>
+  <li>Deployed personal cloud: Media share, Netdisk, Remote Access(SSH, VPN)</li>
+  <li>Host this website on <a rel="external" href="https://www.conoha.jp/referral/?token=RdXdLxPKsfXTCpAfmhm2Usn7IHQ0zGFeCU_Bqa61GExDdPduxDc-72R" title="Conoha.jp">conoha</a></li>
+</ul>
 </div>
 
-<div class="g_dtl" tabindex="1">
+<div class="detail">
 {{ bgimg("/about/edu4.jpg") -}}
-{{ overlay("As Exchange Student", "Nanjing University, 2014-2015 1st Semester") -}}
-<pre>
-<strong style="color:#55ff41;">A splendid journey.</strong>
-Participated in exchange student program, Software Institute, Nanjing University 
-Learned more about SE, team cooperation experience, some projects
-    team: sales managing system, Java, SE Course
-    team: Web Spider (robot), node.js, Data Structure Course, off-class project
-          finds out which webpage is most reached in nju.edu.cn
-    solo: Online Dictionary, Java, Java Course
-During this time:
-    Played with HTML+node.js, Git.
-    Delpoyed SVN on Gentoo-ARM for team development.
-    Begin to use Linux(Fedora) as desktop environment.
-</pre>
+<h3>As Exchange Student, Nanjing University</h3>
+<p>
+Exchange student program: <em>Software Institute, Nanjing University</em>, 2014-2015 1st Semester
+</p>
+<h5>Projects:</h5>
+<ul class="project-list">
+  <li class="team">
+    <h4>Sales Management System</h4>
+    <p>
+    Java, exercise entire workflow of software development<br>
+    Experience with SVN, as a team cooperation tool
+    </p>
+  </li>
+  <li class="team">
+    <h4>Web Spider (robot)</h4>
+    <p>
+    node.js, Data Structure Course, off-class project<br>
+    No framework used, finds out webpage popularity in nju.edu.cn<br>
+    Soon, Spider gets blacklisted, NJU strengthens server filter policy.<br>
+  </li>
+  <li class="solo">
+    <h4>Online Dictionary</h4>
+    <p>Jave programming principles, Spring UI design</p>
+  </li>
+</ul>
 </div>
 
-<div class="g_dtl" tabindex="2">
+<div class="detail">
 {{ bgimg("/about/edu2.jpg") -}}
-{{ overlay("High School", "High School Affiliated to Nanjing Normal University") -}}
-<pre>
-<strong style="color:#fffc00;">Most Wonderful and Amazing 3 Years as a Student. Best of All time.</strong>
-Become more engaged in Coding.
-Self-taught C/C++, wrote some nasty programs under windows:
-    remote control      <strong class="reality">(read: Torjan)</strong>
-    thumbdrive scraper  <strong class="reality">(read: file stoler)</strong>
-    remote monitor      <strong class="reality">(read: hentai)</strong>
-Get tired of Microsoft VS, begin to use MinGW/gcc
-Member of 'NO AUTO Photography Association':
-    play cameras with little buddies (lots of fun)
-    take snapshots <strong class="reality">(blacken little buddies)</strong> during events
-    Canon Photography Contest, China, 2013, Professional Group, Honorable Mention
-    several photos archived in High School Graduation Memorial
-Meet bilibili, begin to enjoy kichiku videos
-Grow into a healthy person, thanks to Chinese teachers at school
+<h3>High School Affiliated to Nanjing Normal University</h3>
+<span style="display:block; color:#fffc00;">Most Wonderful and Amazing Years as a Student. Best of All time.</span>
+<p>
+Become more engaged in Coding, Self-taught C/C++
+</p>
+<h5>Wrote some nasty programs</h5>
+<ul>
+  <li>remote control      <strong class="reality">(read: Torjan)</strong> </li>
+  <li>thumbdrive scraper  <strong class="reality">(read: file stoler)</strong> </li>
+  <li>remote monitor      <strong class="reality">(read: hentai)</strong> </li>
+</ul>
+<h5>As member of 'NO AUTO Photography Association'</h5>
+<ul>
+  <li>Play cameras with little buddies (lots of fun)</li>
+  <li>Take snapshots <strong class="reality">(blacken little buddies)</strong> during events</li>
+  <li>Canon Photography Contest, China, 2013, Professional Group, <em>Honorable Mention</em></li>
+  <li>Several photos archived in Graduation Memorial</li>
+</ul>
+<p>
+Meet bilibili, begin to enjoy kichiku videos<br>
 Troubleshoot/fix many computer related issues for classmates &amp; teachers
-</pre>
+</p>
 </div>
 
-<div class="g_dtl" tabindex="3">
+<div class="detail">
 {{ bgimg("/about/edu1.jpg") -}}
-{{ overlay("Secondary School", "Nanjing Shuren International School") -}}
-<pre>
-Originally a private school, turned public in 2013. 
+<h3>Nanjing Shuren International School</h3>
+<p>
+Originally a private school, turned public in 2013.<br>
 Official name now is: High School Affiliated to Nanjing Normal University Shuren Campus.
-This is where I first learn to code seriously. (Pascal) (I've learnt BASIC at age of 10)
-Self-taught Delphi, Lazarus
-<strong>      -- the beginning of everything I am today.</strong>
-</pre>
+</p>
+<p>
+This is where I first learn to code seriously. (Pascal) (I've learnt BASIC at age of 10)<br>
+Self-taught Delphi, <a rel="external" href="http://lazarus-ide.org/" title="Nostalgic Lazarus">Lazarus</a>
+</p>
 </div>
 
 </section>
@@ -128,9 +139,9 @@ Self-taught Delphi, Lazarus
 <div class="float-container">
 {{ href_icon("node.js", "https://nodejs.org/",
   "node.svg" ) }}
-{{- href_icon("Linux", "https://en.wikipedia.org/wiki/Linux",  
+{{- href_icon("Linux", "https://en.wikipedia.org/wiki/Linux",
   "linux.png" ) }}
-{{- href_icon("git",   "http://www.git-scm.com/", 
+{{- href_icon("git",   "http://www.git-scm.com/",
   "git-scm.png" ) }}
 {{- href_icon("vanilla.js", "http://vanilla-js.com",
   "vanillajs.png") }}
@@ -141,6 +152,11 @@ Self-taught Delphi, Lazarus
 <a href="http://youmightnotneedjquery.com/" title="Why NOT jQuery? You don't need it!" class="block-link">
 No framework, Proudly! <br>
 <b>自豪地</b>不使用框架
+</a>
+
+<a href="https://wellfire.co/learn/why-we-dont-use-wordpress/" title="Why Not Wordpress, just a link placeholder." class="block-link">
+No template, Hand-coded! <br>
+<b>自豪地</b>用手敲代码
 </a>
 
 </section>
@@ -154,7 +170,7 @@ You are welcomed to sponsor a commercial one.
 <p>
 Site does <b style="color:red">NOT</b> support: <code>'IE&lt;11, OEM, terminal, App embedded browsers'</code> <br>
 Site SHOULD support: <code>'market &gt; 5%, last 2 versions'</code> <br>
-If you are certain there's a BUG, send a description to 
+If you are certain there's a BUG, send a description to
 <a href='mailto: webmaster@std-aries.xyz'>webmaster@std-aries.xyz</a>
 </p>
 </section>
