@@ -41,7 +41,7 @@
     min-width: 6ch;
     color: #d0d0d0;
     font-size: 1.4em;
-    font-family: en-sans, cn-sans, sans-serif;
+    font-family: all-sans, en-sans, cn-sans, sans-serif;
     font-weight: bold;
     transition: color 1s, background-color 1s;
     background-color: rgba(0,0,0, 0.3);

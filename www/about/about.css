@@ -61,7 +61,7 @@ article a, article a:visited {
     position: relative;
     padding: 0;
     margin: 0 2ch;
-    font-family: en-sans, cn-sans, sans-serif;
+    font-family: all-sans, en-sans, cn-sans, sans-serif;
     font-weight: normal;
 }
 .g_dtl > .bg {

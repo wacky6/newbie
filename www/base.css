@@ -17,9 +17,10 @@
 
 @font-face {
     font-family: en-sans;
-    src: local("Open Sans"),
+    src: local("Helvetica Neue"),
+         local("Open Sans"),
          url('/OpenSans-Light.ttf');
-    font-weight: 100;
+    font-weight: normal;
     font-style:  normal;
 }
 
@@ -31,6 +32,14 @@
          local("STXiHei"),
          local("华文细黑");
     font-weight: normal;
+    font-style:  normal;
+}
+
+/* Font that includes EN/CN characters, and is built-in */
+@font-face {
+    font-family: all-sans;
+    src: local("PingFang SC"); /* OS X 10.11 font */
+    font-weight: 100;
     font-style:  normal;
 }
 
