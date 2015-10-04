@@ -16,6 +16,7 @@ article {
 	padding-bottom: 1ex;
 	padding-left:   3ch;
 	padding-right:  3ch;
+	overflow-x:     hidden;
 	background-color: #222;
 	max-width:      110ch;
 	font-family:    all-sans, en-sans, cn-sans, sans-serif;

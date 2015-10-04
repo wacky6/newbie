@@ -81,6 +81,7 @@ body {
     padding: 0;
     background-color: #111;
     color: #d7d7d7;
+    overflow-x: hidden;
 }
 
 footer {
