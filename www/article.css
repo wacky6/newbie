@@ -1,5 +1,5 @@
 /* CSS for article */
-/* Goal: 
+/* Goal:
  *    Markdown conversion friendly
  *    Clean and elegant
  *    Handheld, Tablet optimized
@@ -27,7 +27,7 @@ article {
 article h1 {              /* article title */
 	font-family:   all-sans, en-sans, cn-sans, sans-serif;
 	font-weight:   bolder;
-	letter-spacing:0.2ex; 
+	letter-spacing:0.2ex;
 	margin-top:    1ex;
 	margin-bottom: 1ex;
 	margin-left:   auto;
@@ -60,7 +60,7 @@ article a, article a:visited {
 article section {
 	border-top: 1px solid #777;
 }
-article section > h2::after{    /* section title */ 
+article section > h2::after{    /* section title */
 	content: ">";
 	padding-left: 1ch;
 	color:   #555;
@@ -184,7 +184,7 @@ article em{
     	margin-right: 0.3rem;
     }
     article ul, article ol, article pre {
-    	margin-right: 0.3rem;
+    	margin-right: 0.3rem !important;
     }
     article h2, article h3, article h4{
 		margin-top:    2rem;
@@ -195,9 +195,6 @@ article em{
 	}
 	article section h4, article section h4~* {
 		margin-left:   1rem;
-	}
-	article h3+*, article h4+*, article h5+* {
-		margin-top:    0;
 	}
 	article ul, article ol, article pre, article h5 {
 		left:           0;
@@ -212,4 +209,7 @@ article em{
     	padding-left:  1ch;
     	padding-right: 1ch;
     }
+    article section h4, article section h4~* {
+		margin-left:   0.3rem;
+	}
 }
