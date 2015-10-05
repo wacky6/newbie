@@ -3,14 +3,9 @@ node_modules/
 .DS_Store
 *.swp
 conf.js
-*.full.*
-*.css.src
 
 *.cer
 *.crt
 *.key
 
-www/Blog/**/
-www/Blog/**/**
-www/index.html
-www/about/index.html
+www-bin/
