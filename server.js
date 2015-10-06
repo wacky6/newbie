@@ -65,7 +65,7 @@ app.use(function *errorHandling(next){
     }
 })
 app.use(function *error404(next){
-    yield next 
+    yield next
     if (this.status && this.status!=404) return
     var e = new Error('Entity not found')
     e.code = 'ENOENT'
@@ -76,7 +76,7 @@ app.use(serve(join(__dirname, "www"), {maxage: conf.cache?24*60*60*1000:0}))
 
 app.use(function *(next){
     switch (this.path) {
-        case '/': 
+        case '/':
         case '/index.html':
             yield this.render('index')
             break
