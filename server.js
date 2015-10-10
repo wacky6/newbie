@@ -8,7 +8,9 @@ var route    = require("./app-init")
  *
  * route( name || function*, option... )
  *   name:     name of module, pass to require()
- *   function: koa Router GeneratorFunction
+ *   function: koa Router Constructor:         opts => function*(){}
+ *             koa Router GeneratorFunction:   function*(){}
+ *             undefined, null:                [ no router is added, sugar for `if(...) route()` ]
  *
  * Security Policy / HSTS / XFrame configuration in "app-init.js"
  *

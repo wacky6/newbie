@@ -16,11 +16,15 @@ function route(name) {
         routeCtor = require(name)
     if (typeof name === 'function')
         routeCtor = function(){ return name }
+    if (name === undefined || name === null)
+        return
+    if (Object.getPrototypeOf(name) === Object.getPrototypeOf(function*(){}))
+        routerCtor = function(){ return name }
     if (routeCtor === undefined)
         throw new Error('Not supported route declaration: type=' + typeof name)
 
     let args = []
-    if (arguments.length > 0)
+    if (arguments.length > 1)
         args = Array.prototype.slice.call(arguments, 1)
 
     app.use( routeCtor.apply(app, args) )
