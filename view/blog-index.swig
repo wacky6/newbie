@@ -8,15 +8,15 @@
 <link rel="stylesheet" href="blog-index.css">
 {% endblock -%}
 
-{%- macro articleEntry(m) -%}
-<li class="post-entry {% if m.featured %}featured{% endif %}" data-date="{{m.date}}" data-title="{{m.title|safe}}" data-keywords="{{m.keywords|join(', ')|safe}}">
-	<a title="{{m.description|safe}}" href="{{m.href}}">
+{%- macro articleEntry(m) %}
+<li class="post-entry {%- if m.featured %} featured {%- endif -%}" data-date="{{m.date}}" data-title="{{m.title|safe}}" data-keywords="{{m.keywords|join(', ')|safe}}">
+	<a title="{{m.description|safe}}" href="{{m.name}}/">
 	<h2>{{m.title}}</h2>
-	<span class="date">{{m.date|dateFormat}}</span>
+	<span class="date">{{m.dateStr}}</span>
 	<p>{{m.brief|escape|replace('[\r\n]+', '<br>', 'g')|safe}}</p>
 	</a>
 </li>
-{%- endmacro -%}
+{% endmacro -%}
 
 {%- block body -%}
 {%- include "nav.swig" -%}
@@ -25,9 +25,9 @@
 	<h1>Blog Posts</h1>
 </header>
 <ul class='post-list'>
-{%- for _ in articles %}
+{%- for _ in articles -%}
 	{{- articleEntry(_) -}}
-{% endfor -%}
+{% endfor %}
 </ul>
 </article>
-{%- endblock -%}
+{% endblock -%}
