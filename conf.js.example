@@ -1,6 +1,17 @@
 module.exports =  {
-	blogMarkdownDir : './Blog'
+
+	blogMarkdownDir : './Blog',
+
     cache:  true,
-    sslKey: __dirname + '/ssl.key',
-    sslCrt: __dirname + '/ssl.crt'
+
+    /* key, cert, ca are resolved from `__dirname`
+     * multiple key/cert can be specified for SNI
+     * tls object is passed as is to TLS.createServer, except:
+     *   key, cert, ca's file name resolved, and read into Buffer
+     */
+    tls: {
+        key:  [ './key.pem'  ],
+        cert: [ './cert.pem' ],
+        ca:   [ './intermediate.pem', 'client-auth-ca.pem', ...]
+    }
 }
