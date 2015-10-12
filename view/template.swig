@@ -6,7 +6,7 @@
 <meta name="author" content="{{author|default('Jiewei Qian, wacky6, Aries')}}">
 {%- block meta -%}
 {%- endblock %}
-<meta name="handheldfriendly" content="true">
+<meta name="HandheldFriendly" content="true">
 <link rel="stylesheet" href="/base.css">
 <script src="/common.js"></script>
 <link rel="icon" href="/favicon.png">
