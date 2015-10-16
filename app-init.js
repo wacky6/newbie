@@ -1,9 +1,10 @@
 'use strict'
 
 var readFileSync = require("fs").readFileSync
-var resolve      = require('path').resolve
+var resolve      = require("path").resolve
 var koa   = require("koa")
 var conf  = require("./conf")
+var isGenerator = require("is-generator-function")
 
 var app = koa()
 
@@ -11,15 +12,15 @@ var app = koa()
  * `route` is sugar to add router to `app`
  */
 function route(name) {
-    let routeCtor = undefined
+    let routeCtor
+    if (name === undefined || name === null)
+        return
     if (typeof name === 'string')
         routeCtor = require(name)
     if (typeof name === 'function')
         routeCtor = function(){ return name }
-    if (name === undefined || name === null)
-        return
-    if (Object.getPrototypeOf(name) === Object.getPrototypeOf(function*(){}))
-        routerCtor = function(){ return name }
+    if (isGenerator(name))
+        routeCtor = function(){ return name }
     if (routeCtor === undefined)
         throw new Error('Not supported route declaration: type=' + typeof name)
 
@@ -41,7 +42,7 @@ route( 'koa-lusca', {
 /* initialize TLS certificate, key */
 function mapContent(obj, prop) {
 	if (obj[prop] === undefined) return undefined
-	if ( ! obj[prop] instanceof Array ) obj[prop]=[ obj[prop] ]
+	if ( ! (obj[prop] instanceof Array) ) obj[prop]=[ obj[prop] ]
 	obj[prop] = obj[prop].map( function(name){ return readFileSync(resolve(__dirname, name)) } )
 	return obj[prop]
 }

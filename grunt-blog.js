@@ -60,15 +60,15 @@ module.exports = function blog(){
 
     // update bloglist if needed
     var stringified = JSON.stringify(strip(blogList), null, '  ')
-    var trivial = grunt.file.read(bloglist)!==stringified
-    if (!grunt.file.exists(bloglist) || trivial) {
+    var writeBloglist = grunt.file.exists(bloglist) ? grunt.file.read(bloglist)!==stringified : true;
+    if (writeBloglist) {
         grunt.file.write(bloglist, stringified)
         grunt.log.writeln(chalk.green('bloglist updated: '+bloglist))
     }else{
         grunt.log.writeln(chalk.green('bloglist skipped: trivial change'))
     }
 
-    if (!srcMode || !trivial) renderIndex(bloglist)
+    if (!srcMode || writeBloglist) renderIndex(bloglist)
 }
 
 /* file: path to markdown
@@ -122,11 +122,11 @@ function copyLinkedResource(entry) {
 
     let count=0, copied=0
     for (let src of Object.keys(cpMap)) {
-        ++count
+        count++
         if ( ! compareFile(src, cpMap[src])) {
             grunt.log.writeln(`  ${src} => ${cpMap[src]}`)
             grunt.file.copy(src, cpMap[src])
-            ++copied
+            copied++
         }
     }
 
@@ -178,7 +178,7 @@ function isBlogResouece(rc_url) {
  */
 function compareFile(src, dest) {
     if (!grunt.file.exists(src)) throw 'Source file does not exist'
-    if (!grunt.file.exists(dest)) return true
+    if (!grunt.file.exists(dest)) return false
     var bSrc  = grunt.file.read(src,  {encoding: null})
     var bDest = grunt.file.read(dest, {encoding: null})
     return Buffer.compare(bSrc, bDest) === 0

@@ -1,5 +1,7 @@
 'use strict'
 
+/*jshint -W040 */   // supress warning: possible strict violation
+
 function* routeMainPage(next){
 
     switch (this.path) {

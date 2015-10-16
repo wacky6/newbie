@@ -9,7 +9,7 @@ var chalk    = require('chalk')
 
 function exposeProperty(obj, props) {
     let ret = {}
-    for (let i=1; i!=arguments.length; ++i)
+    for (let i=1; i!==arguments.length; ++i)
         ret[arguments[i]] = obj[arguments[i]]
     return ret
 }

@@ -1,4 +1,4 @@
-/* common functions 
+/* common functions
  * Id(id):            getElementById,          return Element
  * Tag(tag):          getElementsByTagName,    return Array
  * Class(className):  getElementsByClassName,  return Array
@@ -66,13 +66,13 @@
     function reInject() {
         injectTable.forEach(function(e, i){
             try      { injectHeight(e[0], e[1], false) }
-            catch(e) { injectTable[i]=undefined }
+            catch(x) { injectTable[i]=undefined }
         });
         // remove failed elements, assume they no longer exist
         injectTable = injectTable.filter(function(e){return e});
     }
 
-    var resizeTimer = undefined;
+    var resizeTimer;
     window.addEventListener('resize', function(){
         // throttle resize event, so we don't inject height too often
         if (resizeTimer) clearTimeout(resizeTimer)
