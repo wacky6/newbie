@@ -6,7 +6,6 @@ var extname  = require('path').extname
 var dirname  = require('path').dirname
 var bfm      = require('bfm')
 var swig     = require('swig')
-var co       = require('co')
 var chalk    = require('chalk')
 var statSync = require('fs').statSync
 var strip    = require('./stripBloglist')

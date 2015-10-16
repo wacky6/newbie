@@ -17,9 +17,7 @@
   "author": "wacky6",
   "license": "CC-BY-NC-ND-4.0",
   "dependencies": {
-    "autoprefixer": "^5.2.0",
     "bfm": "git://github.com/wacky6/bfm.git",
-    "co-fs": "^1.2.0",
     "is-generator-function": "^1.0.3",
     "koa": "^0.21.0",
     "koa-compress": "^1.0.8",
@@ -27,14 +25,12 @@
     "koa-lusca": "^2.1.0",
     "koa-static": "^1.4.9",
     "koa-swig": "^2.0.0",
-    "postcss-cli": "^1.3.1",
     "spdy": "^2.0.5",
     "swig": "^1.4.2"
   },
   "devDependencies": {
     "autoprefixer": "^5.2.0",
     "chalk": "^1.1.1",
-    "co": "^4.6.0",
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.11.3",
     "grunt-contrib-watch": "^0.6.1",
