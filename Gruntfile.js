@@ -3,6 +3,7 @@
 var wwwBin   = 'www-bin/'
 var blogBin  = wwwBin+'Blog/'
 var blogList = blogBin+'list.json'
+var relative = require('path').relative
 
 module.exports = function(grunt){
 
@@ -30,11 +31,14 @@ module.exports = function(grunt){
     },
     jshint: {
       web: {
-        files: [{ expand:true, cwd: 'www/', src: 'www/**/*.js' }],
+        files: [{ expand:true, cwd: 'www/', src: '**/*.js' }],
         options: {
-          asi:    true,
-          strict: true,
-          es5:    true
+          asi:     true,
+          browser: true,
+          globalstrict: true,
+          predef:  [ "$", "$$",
+                     'injectHeight', 'injectGradualFadeInDelay',
+                     'forEachIn', 'getComputedHeight' ]
         }
       },
       node: {
@@ -86,18 +90,15 @@ module.exports = function(grunt){
     }
   })
 
-  grunt.registerTask('dir-init', 'Initialize directories', function(){ grunt.file.mkdir(www_bin)})
   grunt.loadNpmTasks('grunt-postcss')
   grunt.loadNpmTasks('grunt-contrib-jshint')
   grunt.registerTask('blog', require('./grunt-blog') )
   grunt.registerTask('views', require('./grunt-views') )
 
   grunt.registerTask('deploy', 'Deploy to server', [
-     'dir-init',
      'postcss',
      'views',
      'blog',
-     'strip',
      'jshint'
    ])
 
@@ -112,7 +113,9 @@ module.exports = function(grunt){
       grunt.config.set('jshint.web.src', path)
     break
     case 'css':
+      grunt.config.set('postcss.all.files', undefined)
       grunt.config.set('postcss.all.src', path)
+      grunt.config.set('postcss.all.dest', wwwBin+relative('www/', path))
     break
     case 'blog':
       grunt.config.set('blog.src', path)
