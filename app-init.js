@@ -16,9 +16,9 @@ function route(name) {
     if (name === undefined || name === null)
         return
     if (typeof name === 'string')
-        routeCtor = require(name)
+        name = require(name)
     if (typeof name === 'function')
-        routeCtor = function(){ return name }
+        routeCtor = name
     if (isGenerator(name))
         routeCtor = function(){ return name }
     if (routeCtor === undefined)
@@ -31,13 +31,12 @@ function route(name) {
     app.use( routeCtor.apply(app, args) )
 }
 
-route( 'koa-lusca', {
-    csrf: false,
-    csp:  false,
-    xframe: 'SAMEORIGIN',
-    hsts: {maxAge: 24*60*60*30, includeSubDomains: false},
-    xssProtection: false
-} )
+/* sugar for app.use() */
+function appUse(router) {
+    if (router === undefined)
+        return
+    app.use(router)
+}
 
 /* initialize TLS certificate, key */
 function mapContent(obj, prop) {
@@ -52,6 +51,7 @@ mapContent(tlsOpts, 'key')
 mapContent(tlsOpts, 'cert')
 
 module.exports = route
+module.exports.use = appUse
 module.exports.app = app
 module.exports.tls = tlsOpts
 module.exports.tls.extend = function(obj) { return Object.assign({}, tlsOpts, obj) }
