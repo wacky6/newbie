@@ -132,7 +132,7 @@ a.block-link {
 }
 
 hr{
-    border-color: #777; 
+    border-color: #777;
 }
 
 .float-container {
@@ -170,14 +170,15 @@ nav.side {
     padding: 0.8ex 1.5ch 0.8ex 0.5ch;
     font-size: 1.8rem;
     font-family: en-monospace, cn-monospace, monospace;
-    transition: transform 0.5s;
+    transition: transform 0.5s, box-shadow 0.5s;
     transform: translate(-100%, -50%);
-    filter: drop-shadow(0.3ch 0.3rem 2rem #000);
+    box-shadow: .3rem .3rem 1rem .1rem rgba(0,0,0,0.5);
     z-index:99;
 }
 nav.side:hover {
     background-color: #333;
     transform: translate(-1.5ch, -50%);
+    box-shadow: .3rem .3rem 2rem .5rem rgba(0,0,0,1);
 }
 nav.side:first-child::before {
     content: ">";
@@ -212,4 +213,3 @@ nav.side a:after {
         display: none;
     }
 }
-
