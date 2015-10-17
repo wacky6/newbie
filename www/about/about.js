@@ -3,14 +3,6 @@
 
 var gradualFadeInInterval = 500;
 
-function injectGrpDetailHeight(grp) {
-    forEachIn($$(".g_dtl", grp), function(e){
-        injectHeight(e, function(e, height){
-            e.style.height = height;
-        });
-    });
-}
-
 /* NOTE:
  *   in Webkit/Firefox/IE, or HTML5 compliant browser
  *     execution of external script is blocked by CSS
@@ -24,7 +16,6 @@ function injectGrpDetailHeight(grp) {
  *   background image used in sec_edu does not affact text's height;
  */
 window.addEventListener('DOMContentLoaded', function(){
-    injectGrpDetailHeight($("#sec_edu"));
     injectGradualFadeInDelay($$("section"), 500);
 });
 
