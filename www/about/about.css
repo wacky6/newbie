@@ -1,3 +1,6 @@
+article {
+    font-weight: 100; /* mostly english, ok to use thin font */
+}
 article section {
     animation: fadein  1s ease 0s normal both,
                slidein 1s ease 0s normal both;
@@ -104,7 +107,7 @@ article h3 {
         padding: 1ex 1ch;
     }
 }
-@media (max-width: 7in) {
+@media (max-width: 7in), handleld and (orientation: portrait) {
     .detail {
         padding: 1ex 0;
     }

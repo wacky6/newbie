@@ -30,6 +30,8 @@
     margin: 2rem auto 0 auto;
     padding: 0;
     text-align: center;
+    font-family: all-sans, en-sans, cn-sans, sans-serif;
+    font-weight: 100; /* mostly english, ok to use thin font */
     transform-origin: 50% 0;
     animation: fadein 1s ease 0.8s normal both,
                expand 0.6s ease 0.8s normal both;
@@ -41,8 +43,7 @@
     min-width: 6ch;
     color: #d0d0d0;
     font-size: 1.4em;
-    font-family: all-sans, en-sans, cn-sans, sans-serif;
-    font-weight: bold;
+    font-weight: bolder;
     transition: color 1s, background-color 1s;
     background-color: rgba(0,0,0, 0.3);
 }
@@ -79,7 +80,7 @@ img.bg {
     z-index: -1;
 }
 
-@media all and (max-width: 120ch) {
+@media (max-width: 120ch), (max-width: 10in), handheld and (orientation: portrait) {
     .menu nav a {
         display: block;
         margin: 0 auto;

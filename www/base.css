@@ -20,7 +20,7 @@
     src: local("Helvetica Neue"),
          local("Open Sans"),
          url('/OpenSans-Light.ttf');
-    font-weight: normal;
+    font-weight: 100;
     font-style:  normal;
 }
 
@@ -31,7 +31,7 @@
          local("微软雅黑"),
          local("STXiHei"),
          local("华文细黑");
-    font-weight: normal;
+    font-weight: 100;
     font-style:  normal;
 }
 
@@ -52,7 +52,6 @@
     font-family: cn-monospace;
     src: "SimSun", "宋体", monospace;
 }
-
 
 /* TODO: someone suggest a cursive font? */
 @font-face {
@@ -207,7 +206,6 @@ nav.side a:after {
     padding: 0 0.5ch;
 }
 
-/* style override for mobile/portriat device */
 @media not screen {
     nav.side {
         display: none;
