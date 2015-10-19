@@ -7,7 +7,6 @@
 <title>About me @ std-aries</title>
 <link rel="stylesheet" href="/article.css">
 <link rel="stylesheet" href="/about/about.css">
-<script src="/about/about.js"></script>
 {%- endblock -%}
 {%- block body -%}
 {%- include "nav.swig" -%}
@@ -175,4 +174,15 @@ If you are certain there's a BUG, send a description to
 </p>
 </section>
 </article>
+<script>
+var gradualFadeInInterval = 500;
+function injectGradualFadeInDelay(elements, interval) {
+    forEachIn(elements, function(e,i){
+        var ms = i*interval+"ms";
+        e.style['-webkit-animation-delay'] = ms;
+        e.style['animation-delay']         = ms;
+    });
+}
+window.addEventListener('DOMContentLoaded', injectGradualFadeInDelay.call(undefined, $$("section"), 500));
+</script>
 {%- endblock -%}

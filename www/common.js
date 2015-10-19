@@ -79,14 +79,3 @@
         resizeTimer = setTimeout(reInject, resizeThrottleMs);
     });
 })();
-
-/* Gradual Fadein CSS-Animation delay injection */
-(function(){
-    window.injectGradualFadeInDelay = function(elements, interval) {
-        forEachIn(elements, function(e,i){
-            var ms = i*interval+"ms";
-            e.style['-webkit-animation-delay'] = ms;
-            e.style['animation-delay']         = ms;
-        });
-    }
-})();
