@@ -1,6 +1,7 @@
 [](~
   description: Yeah! It works!!
   date:        2015-07-25
+  norobot:     true
   brief: |
          Yeah! It Works!!!!!!!
          And this brief should be toooo long for a single line.
