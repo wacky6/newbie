@@ -1,6 +1,9 @@
 {%- extends "template.swig" -%}
 
 {%- block meta %}
+{% if norobot -%}
+<meta name="robots" content="noindex, nofollow">
+{%- endif -%}
 <meta name="description" content="{{description|safe}}">
 <meta name="keywords" content="{{keywords|join(', ')|safe}}">
 <title>{{title}} @ std-aries</title>

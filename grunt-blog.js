@@ -100,6 +100,7 @@ function renderArticle(file) {
         description: _.meta.description || '',
         featured:    _.meta.featued,
         noindex:     _.meta.noindex,
+        norobot:     _.meta.norobot,
         top:         _.meta.top,
         brief:       _.meta.brief || _.meta.description || title,
         dateStr:     grunt.template.date(_.date, 'yyyy-mm-dd')
