@@ -2,8 +2,8 @@
 {%- extends "template.swig" -%}
 
 {%- block head -%}
-<meta name="description" content="About Jiewei Qian, used ID includes: wacky6, std::weak">
-<meta name="keywords" content="Jiewei Qian, wacky6, std::weak, about, contact, who">
+<meta name="description" content="About Jiewei Qian; Now a student at NJUPT; used ID includes: wacky6, std::weak">
+<meta name="keywords" content="Jiewei Qian, wacky6, about, who, biography">
 <title>About me @ std-aries</title>
 <link rel="stylesheet" href="/article.css">
 <link rel="stylesheet" href="/about/about.css">
@@ -37,11 +37,12 @@ Made in <strong style="color:#84dcff">Nanjing, PRC</strong> <br>
 {{ bgimg("/about/edu3.jpg") -}}
 <h3 class="current">Nanjing University of Post and Telecommunication</h3>
 <p>
-Entered NJUPT @ 2013, partially due to a College-Entrance-Exam failure
+Entered NJUPT @ 2013, partially due to a College-Entrance-Exam failure<br>
+Website: <a rel="external" href="http://www.njupt.edu.cn/">NJUPT</a>
 </p>
 <p>
 Major in <em>Software Engineering</em> <br>
-Member of <a href="http://www.nuptsacc.com">NUPTSACC</a> <br>
+Member of <a rel="external" href="http://www.nuptsacc.com">NUPTSACC</a> <br>
 PM of STITP project: <em>Smart Home Middleware</em> <br>
 </p>
 <p>
@@ -90,6 +91,10 @@ Exchange student program: <em>Software Institute, Nanjing University</em>, 2014-
 <h3>High School Affiliated to Nanjing Normal University</h3>
 <span style="display:block; color:#fffc00;">Most Wonderful and Amazing Years as a Student. Best of All time.</span>
 <p>
+One of the top high schools in Nanjing, dates back to 1902.<br/>
+Website: <a rel="external" href="http://www.nsfz.net/">南京师范大学附属中学</a>
+</p>
+<p>
 Become more engaged in Coding, Self-taught C/C++
 </p>
 <h5>Wrote some nasty programs</h5>
@@ -115,6 +120,7 @@ Troubleshoot/fix many computer related issues for classmates &amp; teachers
 {{ bgimg("/about/edu1.jpg") -}}
 <h3>Nanjing Shuren International School</h3>
 <p>
+Website: <a rel="external" href="http://www.nsfzsr.com/">南师附中树人学校</a> <br>
 Originally a private school, turned public in 2013.<br>
 Official name now is: High School Affiliated to Nanjing Normal University Shuren Campus.
 </p>
@@ -148,12 +154,12 @@ Self-taught Delphi, <a rel="external" href="http://lazarus-ide.org/" title="Nost
   "MDN_promo.png") }}
 </div>
 
-<a href="http://youmightnotneedjquery.com/" title="Why NOT jQuery? You don't need it!" class="block-link">
+<a rel="external" href="http://youmightnotneedjquery.com/" title="Why NOT jQuery? You don't need it!" class="block-link">
 No framework, Proudly! <br>
 <b>自豪地</b>不使用框架
 </a>
 
-<a href="https://wellfire.co/learn/why-we-dont-use-wordpress/" title="Why Not Wordpress, just a link placeholder." class="block-link">
+<a rel="external" href="https://wellfire.co/learn/why-we-dont-use-wordpress/" title="Why Not Wordpress, just a link placeholder." class="block-link">
 No template, Hand-coded! <br>
 <b>自豪地</b>用手敲代码
 </a>

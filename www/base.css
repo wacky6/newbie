@@ -38,7 +38,7 @@
 /* Font that includes EN/CN characters, and is built-in */
 @font-face {
     font-family: all-sans;
-    src: local("PingFang SC"); /* OS X 10.11 font */
+    src: local("PingFang-SC-ExtraLight"); /* OS X 10.11 font */
     font-weight: 100;
     font-style:  normal;
 }

@@ -27,5 +27,5 @@
 {{- nav_ent("About", "/about/", "About Me, About this Site") -}}
 </nav>
 </div>
-<img id="bg" class="bg tcenter" src="/index/bg1.jpg"></img>
+<img id="bg" class="bg tcenter" alt="Silhouette of myself. Shot by my friend." src="/index/bg1.jpg"></img>
 {%- endblock -%}

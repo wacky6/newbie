@@ -37,7 +37,7 @@ article section.edu{
     background-position: center;
     background-size: cover;
     transition: filter 0.8s;
-    filter: brightness(0.4);
+    filter: brightness(0.27);
 }
 .detail {
     position: relative;

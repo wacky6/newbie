@@ -2,7 +2,7 @@
 
 <nav class="side">
 <a class="back"  href="javascript: history.back()">Back</a>
-<a class="index" href="/">Index</a>
+<a class="index" rel="index" href="/">Index</a>
 <a class="about" href="/about/">About</a>
 {%- block nav_btn -%}
 {%- endblock -%}
