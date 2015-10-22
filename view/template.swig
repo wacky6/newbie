@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no">
-<meta name="author" content="{{author|default('Jiewei Qian, wacky6, Aries')}}">
+<meta name="author" content="{{author|default('Jiewei Qian, wacky6')}}">
 {%- block meta -%}
 {%- endblock %}
 <meta name="HandheldFriendly" content="true">

@@ -2,8 +2,8 @@
 {%- extends "template.swig" -%}
 
 {%- block head -%}
-<meta name="description" content="Jiewei Qian(wacky6, std::weak)'s Homepage">
-<meta name="keywords" content="Jiewei Qian, wacky6, std::weak, homepage, index">
+<meta name="description" content="Jiewei Qian(wacky6)'s Homepage">
+<meta name="keywords" content="Jiewei Qian, wacky6, homepage, index">
 <title>Aries @ std-aries</title>
 <link rel="stylesheet" href="/index/index.css">
 <script src="/index/index.js"></script>

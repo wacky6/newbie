@@ -3,10 +3,47 @@
 
 {%- block head -%}
 <meta name="description" content="About Jiewei Qian; Now a student at NJUPT; used ID includes: wacky6, std::weak">
-<meta name="keywords" content="Jiewei Qian, wacky6, about, who, biography">
+<meta name="keywords" content="Jiewei Qian, wacky6, about, biography">
 <title>About me @ std-aries</title>
 <link rel="stylesheet" href="/article.css">
 <link rel="stylesheet" href="/about/about.css">
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "name": "Jiewei Qian",
+  "gender": "Male",
+  "birthDate": "1995-04-18",
+  "birthPlace": {
+    "@type": "City",
+    "name": "Nanjing"
+  },
+  "jobTitle": "Student",
+  "email": "mailto:wacky6@qq.com",
+  "url": "https://std-aries.xyz/",
+  "nationality": {
+    "@type": "Country",
+    "name":  "China"
+  },
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name":  "Nanjing University of Posts and Telecommunications",
+    "alternateName": "南京邮电大学",
+    "sameAs": "http://www.njupt.edu.cn/"
+  },
+  "memberOf": {
+    "@type": "Organization",
+    "name":  "NJUPT Science Association of Computer College",
+    "sameAs": "http://www.nuptsacc.com"
+  },
+  "alumniOf": {
+    "@type": "HighSchool",
+    "name":  "High School Affiliated to Nanjing Normal University",
+    "alternateName": "南京师范大学附属中学",
+    "sameAs": "http://www.nsfz.net/"
+  }
+}
+</script>
 {%- endblock -%}
 {%- block body -%}
 {%- include "nav.swig" -%}
@@ -35,14 +72,14 @@ Made in <strong style="color:#84dcff">Nanjing, PRC</strong> <br>
 
 <div class="detail">
 {{ bgimg("/about/edu3.jpg") -}}
-<h3 class="current">Nanjing University of Post and Telecommunication</h3>
+<h3 class="current">Nanjing University of Posts and Telecommunications</h3>
 <p>
 Entered NJUPT @ 2013, partially due to a College-Entrance-Exam failure<br>
-Website: <a rel="external" href="http://www.njupt.edu.cn/">NJUPT</a>
+Website: <a rel="external" title="Nanjing University of Posts and Telecommunications" href="http://www.njupt.edu.cn/">NJUPT</a>
 </p>
 <p>
 Major in <em>Software Engineering</em> <br>
-Member of <a rel="external" href="http://www.nuptsacc.com">NUPTSACC</a> <br>
+Member of <a rel="external" title="NJUPT Science Association of Computer College" href="http://www.nuptsacc.com">NUPTSACC</a> <br>
 PM of STITP project: <em>Smart Home Middleware</em> <br>
 </p>
 <p>
@@ -51,9 +88,9 @@ Published album <em><a rel="external" href="http://photo.renren.com/photo/335657
 </p>
 <h5>Did some cool stuff:</h5>
 <ul>
-  <li>Deployed Gentoo on Cubietruck, used as server (DDNS)</li>
+  <li>Deployed Gentoo on <a rel="external" title="Cubietruck is a Chinese made ARMv7 SBC" href="http://linux-sunxi.org/Cubietech_Cubietruck">Cubietruck</a>, used as server (DDNS)</li>
   <li>Deployed personal cloud: Media share, Netdisk, Remote Access(SSH, VPN)</li>
-  <li>Host this website on <a rel="external" href="https://www.conoha.jp/referral/?token=RdXdLxPKsfXTCpAfmhm2Usn7IHQ0zGFeCU_Bqa61GExDdPduxDc-72R" title="Conoha.jp">conoha</a></li>
+  <li>Host this website on <a rel="external" title="Conoha VPS" href="https://www.conoha.jp/referral/?token=RdXdLxPKsfXTCpAfmhm2Usn7IHQ0zGFeCU_Bqa61GExDdPduxDc-72R" title="Conoha.jp">conoha</a></li>
 </ul>
 </div>
 
