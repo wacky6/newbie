@@ -1,7 +1,5 @@
 module.exports =  {
 
-	blogMarkdownDir : './Blog',
-
     cache:  true,
 
     /* key, cert, ca are resolved from `__dirname`
