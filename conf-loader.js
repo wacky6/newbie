@@ -70,6 +70,8 @@ function parseSNI(sni) {
     // return TLS options that will be passed to TLS.createServer
     return function SNICallback(servername, cb){
         let decl = secCtx.find( (decl)=>servername.match(decl[0]) )
+        if (decl===undefined)
+            console.log(chalk.yellow('warn: ')+'no match for SNI '+servername)
         cb(null, decl ? decl[1] : undefined)
     }
 }
