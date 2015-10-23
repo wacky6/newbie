@@ -37,8 +37,8 @@ module.exports = function(grunt){
           browser: true,
           globalstrict: true,
           predef:  [ "$", "$$",
-                     'injectHeight', 'injectGradualFadeInDelay',
-                     'forEachIn', 'getComputedHeight' ]
+                     "injectHeight", "injectGradualFadeInDelay",
+                     "forEachIn", "getComputedHeight" ]
         }
       },
       node: {
@@ -96,11 +96,11 @@ module.exports = function(grunt){
   grunt.registerTask('views', require('./grunt-views') )
 
   grunt.registerTask('deploy', 'Deploy to server', [
-     'postcss',
-     'views',
-     'blog',
-     'jshint'
-   ])
+    'postcss',
+    'views',
+    'blog',
+    'jshint'
+  ])
 
 
   grunt.loadNpmTasks('grunt-contrib-watch')
