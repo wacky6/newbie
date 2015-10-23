@@ -3,7 +3,7 @@
 var readFileSync = require("fs").readFileSync
 var resolve      = require("path").resolve
 var koa   = require("koa")
-var conf  = require("./conf")
+var conf  = require("./conf-loader")
 var isGenerator = require("is-generator-function")
 
 var app = koa()
@@ -38,20 +38,8 @@ function appUse(router) {
     app.use(router)
 }
 
-/* initialize TLS certificate, key */
-function mapContent(obj, prop) {
-	if (obj[prop] === undefined) return undefined
-	if ( ! (obj[prop] instanceof Array) ) obj[prop]=[ obj[prop] ]
-	obj[prop] = obj[prop].map( function(name){ return readFileSync(resolve(__dirname, name)) } )
-	return obj[prop]
-}
-var tlsOpts = Object.assign({}, conf.tls)
-mapContent(tlsOpts, 'ca')
-mapContent(tlsOpts, 'key')
-mapContent(tlsOpts, 'cert')
-
 module.exports = route
 module.exports.use = appUse
 module.exports.app = app
-module.exports.tls = tlsOpts
-module.exports.tls.extend = function(obj) { return Object.assign({}, tlsOpts, obj) }
+module.exports.tls = conf.tls
+module.exports.tls.extend = function(obj) { return Object.assign({}, conf.tls, obj) }

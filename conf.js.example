@@ -2,16 +2,45 @@ module.exports =  {
 
 	blogMarkdownDir : './Blog',
 
+    /* enable/disable koa-static cache, koa-swig cache */
     cache:  true,
 
-    /* key, cert, ca are resolved from `__dirname`
-     * multiple key/cert can be specified for SNI
-     * tls object is passed as is to TLS.createServer, except:
-     *   key, cert, ca's file name resolved, and read into Buffer
+
+    /* TLS/SNI configuration
+     *
+     * key, cert, ca are resolved from `__dirname`
+     *
+     * tls Object will be passed as is to tls.createServer
+     * except:
+     *   key, cert, ca:  read into Buffer
+     *   SNICallback  :  parsed from sni Object
+     *
+     * sni Object: {
+     *    servername: {   // one or more
+     *        ca,   // optional
+     *        key,
+     *        cert,
+     *    }
+     * }
+     *
+     * servername can be a string or a RegExp
+     * string servername provides limited globing feature:
+     *   '*.localhost'      :   match localhost's all subdomain, but not 'localhost'
+     *   'a.xyz, b.xyz'     :   match 'a.xyz' and 'b.xyz'
+     *   '*.a.xyz, *.b.xyz' :   equiv '*.a.xyz' and '*.b.xyz'
      */
     tls: {
-        key:  [ './key.pem'  ],
-        cert: [ './cert.pem' ],
-        ca:   [ './intermediate.pem', 'client-auth-ca.pem', ...]
+        key:  'key.pem',
+        cert: 'cert.pem',
+        ca:   [ './intermediate.pem' ],
+        /* tls Options supported in nodejs */
+    },
+    sni: {
+       'localhost': {
+           key:  'localhost.key',
+           cert: 'localhost.cer',
+           ca:   [ './intermediate/pem' ]
+       },
+       ...
     }
 }
