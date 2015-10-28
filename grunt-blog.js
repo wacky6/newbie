@@ -177,7 +177,10 @@ function isBlogResouece(rc_url) {
  *        false:  different content
  */
 function compareFile(src, dest) {
-    if (!grunt.file.exists(src)) throw 'Source file does not exist'
+    if (!grunt.file.exists(src)) {
+        grunt.log.writeln(chalk.yellow("  warn: ")+`${basename(src)} not found!`)
+        return true
+    }
     if (!grunt.file.exists(dest)) return false
     var bSrc  = grunt.file.read(src,  {encoding: null})
     var bDest = grunt.file.read(dest, {encoding: null})
