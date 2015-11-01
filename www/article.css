@@ -18,10 +18,10 @@ article {
 	padding-right:  3ch;
 	overflow-x:     hidden;
 	background-color: #222;
-	max-width:      110ch;
+	max-width:      90ch;
 	font-family:    all-sans, en-sans, cn-sans, sans-serif;
 	font-size:      1rem;
-	line-height:    1.33;
+	line-height:    1.5;
 }
 
 article h1 {              /* article title */
@@ -53,13 +53,16 @@ article h1+h2 {           /* article 2nd title */
 article a, article a:visited {
 	color: #a0e0ff;
 }
+article p a {
+    white-space: pre;
+}
 article section {
 	border-top: 1px solid #777;
 }
 
 /* article headings */
 article h2, article h3, article h4{
-	margin-top:    1rem;
+	margin-top:    2rem;
 	margin-bottom: 0.5ex;
 }
 article h2 {
@@ -159,10 +162,18 @@ article em{
 	padding-right: 0.2ch;
 }
 
+article table {
+    border-collapse: collapse;
+}
+article table td, article table th {
+    margin: 0;
+    padding: 0.2ex 1ch;
+    border: 1px solid #333;
+}
+
 /* handleld, smaller tablet */
 @media (max-width: 10in) {
     article {
-    	line-height:   1.5;
     	padding-left:  1.5rem;
     	padding-right: 1.5rem;
     }
