@@ -27,6 +27,7 @@ route.use( require('koa-lusca').xframe("SAMEORIGIN") )
 route.use( require('koa-lusca').hsts({maxAge: 24*60*60*30, includeSubDomains: false}) )
 
 // Application Routers
+route( './route-powered-by' )
 route( 'koa-compress'  )
 route( './route-error' )
 route( 'koa-static', join(__dirname, 'www-bin'), {maxage: conf.cache ? 24*60*60*1000 : 0})
