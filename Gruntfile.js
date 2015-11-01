@@ -47,7 +47,8 @@ module.exports = function(grunt){
           asi:    true,
           node:   true,
           eqeqeq: true,
-          esnext: true
+          esnext: true,
+          laxbreak: true
         }
       }
     },
@@ -94,8 +95,10 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-jshint')
   grunt.registerTask('blog', require('./grunt-blog') )
   grunt.registerTask('views', require('./grunt-views') )
+  grunt.registerTask('clean', ()=>grunt.file.delete(wwwBin) )
 
   grunt.registerTask('deploy', 'Deploy to server', [
+    'clean',
     'postcss',
     'views',
     'blog',
