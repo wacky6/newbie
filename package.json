@@ -25,7 +25,7 @@
     "koa-lusca": "^2.1.0",
     "koa-static": "^1.4.9",
     "koa-swig": "^2.0.0",
-    "spdy": "^2.0.5",
+    "spdy": "^3.0.0",
     "swig": "^1.4.2"
   },
   "devDependencies": {
