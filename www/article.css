@@ -72,15 +72,16 @@ article h2, article h3, article h4 {
 }
 
 article h2 {
-	font-size:     1.8rem;
-	color:         #eee;
+	font-size:     1.6rem;
+	color:         #fff;
 }
 article h3 {
 	font-size:     1.4rem;
-	color:         #d8d8d8;
+	color:         #eee;
 }
 article h4 {
-	font-size:     1.2rem;
+    color:         #eee;
+	font-size:     1.2em;
 }
 article p, article pre {
 	margin-top:    1em;
