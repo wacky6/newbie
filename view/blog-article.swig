@@ -7,6 +7,11 @@
 <meta name="description" content="{{description|safe}}">
 <meta name="keywords" content="{{keywords|join(', ')|safe}}">
 <title>{{title}} @ std-aries</title>
+{%- for _ in articleCss%}
+    <style> /* Article Embedded */
+        {{_|safe}}
+    </style>
+{% endfor %}
 {% endblock -%}
 
 {%- block head %}

@@ -13,6 +13,7 @@ var articleSort = require('./articleSort')
 
 var linkedResourceRegex = /(?:href|src)=".\/(.+?)"|'.\/(.+?)'/g
 var h1Regex = /<h1(?:(?:\s+\w+(?:\s*=\s*(?:".*?"|'.*?'|[^'">\s]+))?)+\s*|\s*)>(.+?)<\/h1>/
+var embedStyleRegex = /<style>([^]+?)<\/style>/g
 
 var opts, outputDir, articleTemplate, indexTemplate, bloglist, srcMode, fileSrc;
 var blogList = []
@@ -85,6 +86,10 @@ function renderArticle(file) {
 
     var title = _.meta.title || (h1Regex.exec(_.html) || ['',''])[1]
     var mtime = getMTime(file)
+    var m, articleCss = []  // markdown embedded css, bubble them to <head>
+    while (m=embedStyleRegex.exec(_.html))
+        articleCss.push(m[1])
+    _.html = _.html.replace(embedStyleRegex, '')
 
     var entry = {
         src:         file,
@@ -103,7 +108,8 @@ function renderArticle(file) {
         norobot:     _.meta.norobot,
         top:         _.meta.top,
         brief:       _.meta.brief || _.meta.description || title,
-        dateStr:     grunt.template.date(_.date, 'yyyy-mm-dd')
+        dateStr:     grunt.template.date(_.date, 'yyyy-mm-dd'),
+        articleCss:  articleCss
     }
 
     var result = swig.renderFile(articleTemplate, entry)
