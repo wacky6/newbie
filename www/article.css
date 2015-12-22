@@ -60,21 +60,27 @@ article section {
 	border-top: 1px solid #777;
 }
 
-/* article headings */
-article h2, article h3, article h4{
-	margin-top:    2rem;
-	margin-bottom: 0.5ex;
+article img {
+    max-width: 85%;
+    display:   block;
+    margin:    0 auto;
 }
+
+article h2, article h3, article h4 {
+    margin-top:    2em;
+    margin-bottom: .5em;
+}
+
 article h2 {
-	font-size:     1.6em;
+	font-size:     1.8rem;
 	color:         #eee;
 }
 article h3 {
-	font-size:     1.3em;
+	font-size:     1.4rem;
 	color:         #d8d8d8;
 }
 article h4 {
-	font-size:     1.1em;
+	font-size:     1.2rem;
 }
 article p, article pre {
 	margin-top:    1em;
@@ -83,7 +89,7 @@ article p, article pre {
 /* ul, ol caption */
 article h5 {
 	font-weight:    normal;
-	font-size:      1em;
+	font-size:      1rem;
 	margin-top:     1ex;
 	margin-bottom:  0;
 	margin-right:   1rem;
@@ -96,13 +102,16 @@ article h5 {
 	background-color: #3d3d3d;
 }
 article strong {
-	color: red;
 	font-weight: bolder;
 }
+article em {
+    text-decoration: underline;
+    font-weight: normal;
+}
 article blockquote {
-	margin:        1em 1ch;
-	padding-left:  1ch;
-	padding-right: 1ch;
+	margin:        1em 2ch;
+	padding-left:  2ch;
+	padding-right: 2ch;
 	border-left:   1px solid #777;
 }
 /* margin collapse after p */
@@ -184,8 +193,7 @@ article table td, article table th {
     	margin-right: 0.3rem !important;
     }
     article h2, article h3, article h4{
-		margin-top:    2rem;
-		margin-bottom: 0.5ex;
+		margin-top:    3rem;
 	}
 	article section > :not(h2) {
 		margin-left:   0;
