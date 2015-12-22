@@ -7,16 +7,16 @@
 <meta name="description" content="{{description|safe}}">
 <meta name="keywords" content="{{keywords|join(', ')|safe}}">
 <title>{{title}} @ std-aries</title>
-{%- for _ in articleCss%}
-    <style> /* Article Embedded */
-        {{_|safe}}
-    </style>
-{% endfor %}
 {% endblock -%}
 
 {%- block head %}
 <link rel="stylesheet" href="/article.css">
 <link rel="stylesheet" href="/hljs-css/railscasts.css">
+{%- for _ in articleCss%}
+    <style> /* Article Embedded */
+        {{_|safe}}
+    </style>
+{% endfor %}
 {% endblock -%}
 
 {%- block body -%}
