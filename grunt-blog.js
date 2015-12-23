@@ -87,7 +87,7 @@ function renderArticle(file) {
     var title = _.meta.title || (h1Regex.exec(_.html) || ['',''])[1]
     var mtime = getMTime(file)
     var m, articleCss = []  // markdown embedded css, bubble them to <head>
-    while (m=embedStyleRegex.exec(_.html))
+    while (!!(m=embedStyleRegex.exec(_.html)))
         articleCss.push(m[1])
     _.html = _.html.replace(embedStyleRegex, '')
 
