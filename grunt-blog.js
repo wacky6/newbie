@@ -140,7 +140,11 @@ function copyLinkedResource(entry) {
 }
 
 function renderIndex() {
-    var articles = blogList.filter( _ => !_.noindex ).sort( articleSort )
+    var articles = blogList.filter( _ => !_.noindex )
+                           .sort( articleSort )
+    // add dateStr
+    articles.forEach( $=>$.dateStr=grunt.template.date(new Date($.date), 'yyyy-mm-dd') )
+
     var html = swig.renderFile(indexTemplate, { articles: articles })
     grunt.file.write(outputDir+'index.html', html)
 
