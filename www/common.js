@@ -88,8 +88,8 @@
         // try to read article specific information ??
         var q = {
             url:       location.href,
-            showcount: '1',   /*是否显示分享总数,显示：'1'，不显示：'0' */
-            desc:      '',    /*默认分享理由(可选)*/
+            showcount: '1',             /*是否显示分享总数,显示：'1'，不显示：'0' */
+            desc:      '@个人站',        /*默认分享理由(可选)*/
             summary:   $('meta[name=description]').content || ' ',   /*分享摘要(可选)*/
             title:     document.title,                               /*分享标题(可选)*/
             site:      'blog@'+(location.hostname||'std-aries.xyz'), /*分享来源 如：腾讯网(可选)*/
