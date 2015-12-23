@@ -54,13 +54,14 @@
 <section class="bio">
 <h2>Simple Facts</h2>
 <p>
-1995.4 born <strong style="color:#84dcff">@Aries</strong>, now a college student <br>
+My name is <span style="text-decoration: underline">Jiewei Qian</span>. <br>
+1995.4 born <strong style="color:#84dcff">@Aries</strong>, a college student @NJUPT<br>
 Sometime <strong style="color:#dd94ff">{Perfectionist, Paranoid}</strong> <br>
 <strong style="color:#71ff96">Gadget Lover</strong> <br>
 Ocassionally shoot photos, <strong style="color:#05c0ff">PS addictive</strong> <br>
 <strong style="color:#ffd605">Single</strong>, and <strong style="color:#ff261c">can't</strong> find girlfirend <br>
 <strong style="color:#39ffb7">Game</strong>, <strong style="color:#f4b8ff">Anime</strong>, <strong style="color:#88acff">Technology</strong> (Partial OTAKU) <br>
-Made in <strong style="color:#84dcff">Nanjing, PRC</strong> <br>
+Made in <strong style="color:#84dcff">Nanjing, China</strong> <br>
 </p>
 </section>
 <section class="edu" id="sec_edu">
@@ -136,14 +137,14 @@ Become more engaged in Coding, Self-taught C/C++
 </p>
 <h5>Wrote some nasty programs</h5>
 <ul>
-  <li>remote control      <strong class="reality">(read: Torjan)</strong> </li>
-  <li>thumbdrive scraper  <strong class="reality">(read: file stoler)</strong> </li>
-  <li>remote monitor      <strong class="reality">(read: hentai)</strong> </li>
+  <li>remote control      <del class="reality">(read: Torjan)</del> </li>
+  <li>thumbdrive scraper  <del class="reality">(read: file stoler)</del> </li>
+  <li>remote monitor      <del class="reality">(read: hentai)</del> </li>
 </ul>
 <h5>As member of 'NO AUTO Photography Association'</h5>
 <ul>
   <li>Play cameras with little buddies (lots of fun)</li>
-  <li>Take snapshots <strong class="reality">(blacken little buddies)</strong> during events</li>
+  <li>Take snapshots <del class="reality">(blacken little buddies)</del> during events</li>
   <li>Canon Photography Contest, China, 2013, Professional Group, <em>Honorable Mention</em></li>
   <li>Several photos archived in Graduation Memorial</li>
 </ul>
@@ -170,6 +171,10 @@ Self-taught Delphi, <a rel="external" href="http://lazarus-ide.org/" title="Nost
 </section>
 <section class="site">
 <h2>About this site</h2>
+<p>This site is a playground of new Web technologies & designs.<br>
+I do not guarantee everything looks and behaves all the same across browsers.<br/>
+However, latest <a rel="external" href="https://www.google.com/chrome/" title="Google Chrome">Chrome</a> is guaranteed to enjoy all flavors.
+</p>
 <p>You are reading this site thanks to many great <strong>open-source</strong> projects</p>
 {%- macro href_icon(title, href, iconUrl) -%}
 <a href="{{href}}" style="background-image: url('{{iconUrl}}');">
