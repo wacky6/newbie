@@ -78,4 +78,37 @@
         if (resizeTimer) clearTimeout(resizeTimer)
         resizeTimer = setTimeout(reInject, resizeThrottleMs);
     });
+
+    /* Prepend Q-Zone Share link
+     * This is meant to be used by webmaster to share this page,
+     * If you are kind enough to help me spread my homepage, call this function in console
+     * then click the prepended <a> right before <article>
+     */
+    window.prependQZoneShareLink = function() {
+        // try to read article specific information ??
+        var q = {
+            url:       location.href,
+            showcount: '1',   /*是否显示分享总数,显示：'1'，不显示：'0' */
+            desc:      '',    /*默认分享理由(可选)*/
+            summary:   $('meta[name=description]').content || ' ',   /*分享摘要(可选)*/
+            title:     document.title,                               /*分享标题(可选)*/
+            site:      'blog@'+(location.hostname||'std-aries.xyz'), /*分享来源 如：腾讯网(可选)*/
+            pics:      $('img').src,                                 /*分享图片的路径(可选)*/
+            style:     '203',
+            width:     98,
+            height:    22
+        };
+        var s = [];
+        for(var i in q)
+            s.push(i + '=' + encodeURIComponent(q[i]||''));
+        var a = document.createElement('a')
+        a.href      = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?'+s.join('&')
+        a.target    = '_blank'
+        a.innerHTML = 'Share to QZone'
+        a.className = 'webmaster-internal'
+        $('article').parentNode.insertBefore(a, $('article'))
+        var pre = document.createElement('pre')
+        pre.innerHTML = JSON.stringify(q,null,'  ')
+        $('article').parentNode.insertBefore(pre, $('article'))
+    }
 })();
