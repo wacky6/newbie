@@ -2,7 +2,7 @@
 {%- extends "template.swig" -%}
 
 {%- block head -%}
-<meta name="description" content="Jiewei Qian(wacky6)'s Homepage">
+<meta name="description" content="Jiewei Qian: college student. Tech-savvy, Anime Game Otaku; Infant Developer;">
 <meta name="keywords" content="Jiewei Qian, wacky6, homepage, index">
 <title>Aries @ std-aries</title>
 <link rel="stylesheet" href="/index/index.css">
