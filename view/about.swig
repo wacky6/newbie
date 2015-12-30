@@ -2,8 +2,8 @@
 {%- extends "template.swig" -%}
 
 {%- block head -%}
-<meta name="description" content="About Jiewei Qian; Now a student at NJUPT; used ID includes: wacky6, std::weak">
-<meta name="keywords" content="Jiewei Qian, wacky6, about, biography">
+<meta name="description" content="Jiewei Qian, student at NJUPT; A Tech-savvy, Anime Game Otaku; used ID includes: wacky6, std::weak">
+<meta name="keywords" content="Jiewei Qian, wacky6, about">
 <title>About me @ std-aries</title>
 <link rel="stylesheet" href="/article.css">
 <link rel="stylesheet" href="/about/about.css">
@@ -13,7 +13,7 @@
   "@type": "AboutPage",
   "breadcrumb": "关于",
   "dateCreated":  "2015-07-10",
-  "dateModified": "2015-12-30",
+  "dateModified": "2015-12-31",
   "license":      "https://creativecommons.org/licenses/by-nc-nd/4.0/",
   "mainEntity":{
     "@type": "Person",
@@ -126,7 +126,7 @@ Exchange student program: <em>Software Institute, Nanjing University</em>, 2014-
   </li>
   <li class="solo">
     <h4>Online Dictionary</h4>
-    <p>Jave programming principles, Spring UI design</p>
+    <p>Jave programming principles, Swing UI design</p>
   </li>
 </ul>
 </div>
