@@ -57,17 +57,17 @@ var TAG_COLORS = {
 	"伪后宫":  "rgb(255, 203, 246);",
 	"超能力":  "rgb(135, 251, 197);",
 	"美食":    "rgb(255, 153, 66);",
-	"热血":    "rgb(255, 91, 91)"
+	"热血":    "rgb(255, 91, 91);"
 }
 var DEF_BG_COLOR = "#d8d8d8"
 var DEF_FG_COLOR = "#000"
 var DEFAULT_COLOR  = DEF_BG_COLOR + ';' + DEF_FG_COLOR;
 document.addEventListener('DOMContentLoaded', function(){
-	forEachIn($$('ul li'), function(li){
+	$$('ul li').forEach(function(li){
 		if (li.children.length!==0) return
 		var color = TAG_COLORS[li.innerText || li.innerHTML] || DEFAULT_COLOR
-		var bg = color.split(';')[0].trim() || DEF_BG_COLOR
-		var fg = color.split(';')[1].trim() || DEF_FG_COLOR
+		var bg = color.split(';')[0] || DEF_BG_COLOR
+		var fg = color.split(';')[1] || DEF_FG_COLOR
 		li.style.color = fg
 		li.style.backgroundColor = bg
 	})
