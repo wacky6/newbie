@@ -107,6 +107,31 @@ document.addEventListener('DOMContentLoaded', function(){
 * 伪后宫
 * 重制
 
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+	  "@type":  "Review",
+	  "author": {
+	    "@type":  "Person",
+	    "name":   "Jiewei Qian",
+	    "sameAs": "/about/"
+	  },
+	  "itemReviewed":    {
+	    "@type":    "CreativeWork",
+	    "genre":    "Anime",
+	    "name":     "Fate Stay Night / Unlimited Blade Works",
+	    "sameAs":   "https://en.wikipedia.org/wiki/Fate/stay_night:_Unlimited_Blade_Works"
+	  },
+	  "reviewBody": "无可挑剔的画风和场景细节，呆萌Saber和傲娇凛",
+	  "reviewRating": {
+	    "@type":       "Rating",
+	    "bestRating":  5,
+	    "worstRating": 0,
+	    "ratingValue": "4.5"
+	  }
+  }
+</script>
+
 |     |      |                                       |
 |-----|------|---------------------------------------|
 | 画风 |**5+**| 经费已爆炸；全程加特技；无可挑剔的细节      |    
@@ -128,6 +153,32 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 * 治愈
 * 萌萌哒
 
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+	  "@type":   "Review",
+	  "author": {
+	    "@type":  "Person",
+	    "name":   "Jiewei Qian",
+	    "sameAs": "/about/"
+	  },
+	  "itemReviewed":    {
+	    "@type":    "CreativeWork",
+	    "genre":    "Anime",
+	    "name":     "干物妹！うまるちゃん",
+	    "alternateName": "干物妹！小埋",
+	    "sameAs":   "https://ja.wikipedia.org/wiki/干物妹!うまるちゃん"
+	  },
+	  "reviewBody": "来看暖系治愈吧！",
+	  "reviewRating": {
+	    "@type":       "Rating",
+	    "bestRating":  5,
+	    "worstRating": 0,
+	    "ratingValue": "4.2"
+	  }
+}
+</script>
+
 |     |      |                             |
 |-----|------|-----------------------------|
 | 画风 |**3** | 中规中矩的日系画风             |    
@@ -148,6 +199,32 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 * 科幻
 * 超能力
 * 真爱
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+	  "@type":   "Review",
+	  "author": {
+	    "@type":  "Person",
+	    "name":   "Jiewei Qian",
+	    "sameAs": "/about/"
+	  },
+	  "itemReviewed":    {
+	    "@type":    "CreativeWork",
+	    "genre":    "Anime",
+	    "name":     "Charlotte",
+	    "alternateName": "夏洛特",
+	    "sameAs":   "https://ja.wikipedia.org/wiki/Charlotte"
+	  },
+	  "reviewBody": "难得的佳作。虽然有缺陷，但仍是不错的治愈番",
+	  "reviewRating": {
+	    "@type":       "Rating",
+	    "bestRating":  5,
+	    "worstRating": 0,
+	    "ratingValue": "4.3"
+	  }
+}
+</script>
 
 |     |      |                                       |
 |-----|------|---------------------------------------|
@@ -171,6 +248,32 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 * 真爱
 * 人生
 * 日常
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+	  "@type":   "Review",
+	  "author": {
+	    "@type":  "Person",
+	    "name":   "Jiewei Qian",
+	    "sameAs": "/about/"
+	  },
+	  "itemReviewed":    {
+	    "@type":    "CreativeWork",
+	    "genre":    "Anime",
+	    "name":     "四月は君の嘘",
+	    "alternateName": "四月是你的谎言",
+	    "sameAs":   "https://ja.wikipedia.org/wiki/四月は君の嘘"
+	  },
+	  "reviewBody": "此生无悔入二次元。真爱治愈系成长番，强力推荐",
+	  "reviewRating": {
+	    "@type":       "Rating",
+	    "bestRating":  5,
+	    "worstRating": 0,
+	    "ratingValue": "4.8"
+	  }
+}
+</script>
 
 |     |      |                                        |
 |-----|------|----------------------------------------|
@@ -199,6 +302,32 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 * 悬疑
 * 推理
 
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+	  "@type":   "Review",
+	  "author": {
+	    "@type":  "Person",
+	    "name":   "Jiewei Qian",
+	    "sameAs": "/about/"
+	  },
+	  "itemReviewed":    {
+	    "@type":    "CreativeWork",
+	    "genre":    "Anime",
+	    "name":     "櫻子さんの足下には死体が埋まっている",
+	    "alternateName": "樱子小姐的脚下埋着尸体",
+	    "sameAs":   "https://ja.wikipedia.org/wiki/櫻子さんの足下には死体が埋まっている"
+	  },
+	  "reviewBody": "尚可，第二季或许更精彩",
+	  "reviewRating": {
+	    "@type":       "Rating",
+	    "bestRating":  5,
+	    "worstRating": 0,
+	    "ratingValue": "3.6"
+	  }
+}
+</script>
+
 |     |      |                                       |
 |-----|------|---------------------------------------|
 | 画风 |**4** | 整体中规中矩，樱子小姐变身过场真酷炫        |    
@@ -218,6 +347,32 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 ## 落第骑士英雄谭
 * 奇幻
 * 后宫
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+	  "@type":   "Review",
+	  "author": {
+	    "@type":  "Person",
+	    "name":   "Jiewei Qian",
+	    "sameAs": "/about/"
+	  },
+	  "itemReviewed":    {
+	    "@type":    "CreativeWork",
+	    "genre":    "Anime",
+	    "name":     "落第騎士の英雄譚",
+	    "alternateName": "落第骑士英雄谭",
+	    "sameAs":   "https://ja.wikipedia.org/wiki/落第騎士の英雄譚"
+	  },
+	  "reviewBody": "值得期待第二季",
+	  "reviewRating": {
+	    "@type":       "Rating",
+	    "bestRating":  5,
+	    "worstRating": 0,
+	    "ratingValue": "4"
+	  }
+}
+</script>
 
 |     |      |                                       |
 |-----|------|---------------------------------------|
@@ -240,6 +395,32 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 * 后宫
 * 热血
 
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+	  "@type":   "Review",
+	  "author": {
+	    "@type":  "Person",
+	    "name":   "Jiewei Qian",
+	    "sameAs": "/about/"
+	  },
+	  "itemReviewed":    {
+	    "@type":    "CreativeWork",
+	    "genre":    "Anime",
+	    "name":     "食戟のソーマ",
+	    "alternateName": "食戟之灵",
+	    "sameAs":   "https://ja.wikipedia.org/wiki/食戟のソーマ"
+	  },
+	  "reviewBody": "看起来十分爽快的后宫番，非常期待第二季",
+	  "reviewRating": {
+	    "@type":       "Rating",
+	    "bestRating":  5,
+	    "worstRating": 0,
+	    "ratingValue": "4.2"
+	  }
+}
+</script>
+
 |     |      |                                        |
 |-----|------|----------------------------------------|
 | 画风 |**4** | 与众不同的游戏风格奇幻色调                 |    
@@ -259,6 +440,32 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 * 智商
 * 奇幻
 * 后宫
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+	  "@type":   "Review",
+	  "author": {
+	    "@type":  "Person",
+	    "name":   "Jiewei Qian",
+	    "sameAs": "/about/"
+	  },
+	  "itemReviewed":    {
+	    "@type":    "CreativeWork",
+	    "genre":    "Anime",
+	    "name":     "ノーゲーム・ノーライフ",
+	    "alternateName": "游戏人生",
+	    "sameAs":   "https://ja.wikipedia.org/wiki/ノーゲーム・ノーライフ"
+	  },
+	  "reviewBody": "值得期待第二季",
+	  "reviewRating": {
+	    "@type":       "Rating",
+	    "bestRating":  5,
+	    "worstRating": 0,
+	    "ratingValue": "4.1"
+	  }
+}
+</script>
 
 |     |      |                                        |
 |-----|------|----------------------------------------|
@@ -282,6 +489,32 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 * 真爱
 * 伪后宫
 * 虚拟世界
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+	  "@type":   "Review",
+	  "author": {
+	    "@type":  "Person",
+	    "name":   "Jiewei Qian",
+	    "sameAs": "/about/"
+	  },
+	  "itemReviewed":    {
+	    "@type":    "CreativeWork",
+	    "genre":    "Anime",
+	    "name":     "ソードアート・オンライン",
+	    "alternateName": "刀剑神域",
+	    "sameAs":   "https://ja.wikipedia.org/wiki/ソードアート・オンライン"
+	  },
+	  "reviewBody": "非常赞的世界观设定，后续剧情应该很精彩",
+	  "reviewRating": {
+	    "@type":       "Rating",
+	    "bestRating":  5,
+	    "worstRating": 0,
+	    "ratingValue": "4.7"
+	  }
+}
+</script>
 
 |     |      |                                        |
 |-----|------|----------------------------------------|
