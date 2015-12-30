@@ -15,10 +15,7 @@
         return (element||document).querySelector(selector)
     }
     window.$$ = function(selector, element) {
-        return (element||document).querySelectorAll(selector)
-    }
-    window.forEachIn = function (elems, callback) {
-        Array.prototype.forEach.call(elems, callback)
+        return Array.prototype.slice.call((element||document).querySelectorAll(selector))
     }
 })();
 

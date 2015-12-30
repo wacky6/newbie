@@ -224,13 +224,13 @@ If you are certain there's a BUG, send a description to
 </article>
 <script>
 var gradualFadeInInterval = 500;
-function injectGradualFadeInDelay(elements, interval) {
-    forEachIn(elements, function(e,i){
-        var ms = i*interval+"ms";
+function injectGradualFadeInDelay() {
+    $$('section').forEach(function(e,i){
+        var ms = i*gradualFadeInInterval+"ms";
         e.style['-webkit-animation-delay'] = ms;
         e.style['animation-delay']         = ms;
     });
 }
-window.addEventListener('DOMContentLoaded', injectGradualFadeInDelay.call(undefined, $$("section"), 500));
+window.addEventListener('DOMContentLoaded', injectGradualFadeInDelay);
 </script>
 {%- endblock -%}
