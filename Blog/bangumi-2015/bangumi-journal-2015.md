@@ -6,7 +6,7 @@
         完结推荐：(4.8/5) 四月是你的谎言
         补番推荐：(4.5/5) 刀剑神域1/2
     keywords:    动漫，番剧, 评价, bangumi, review，ACG
-    date:        2015-12-25
+    date:        2015-12-31
 ~)
 
 <script type="application/ld+json">
