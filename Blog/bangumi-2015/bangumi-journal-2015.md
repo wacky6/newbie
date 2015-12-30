@@ -1,5 +1,5 @@
 [](~
-    title:       2015补番日志
+    title:       2015番剧日志
     description: Review of bangumi that I watched in 2015
     brief:   |
         补番日志，评价与推荐
@@ -9,8 +9,30 @@
     date:        2015-12-25
 ~)
 
-<style>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "breadcrumb": "博客 > 评论 > 动漫",
+    "relatedLink": "../your-love-in-april/",
+    "mainEntity":  {
+		  "@type":         "Blog",
+		  "dateCreated":   "2015-12-25",
+		  "dateModified":  "2015-12-31",
+		  "name":          "2015番剧日志",
+		  "inLanguage":    "zh-CN",
+		  "keywords":      "番剧, 推荐, OST",
+		  "author": {
+		    "@type":  "Person",
+		    "name":   "Jiewei Qian",
+		    "sameAs": "/about/"
+		  },
+		  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+	  }
+}
+</script>
 
+<style>
 article {
     line-height: 1.67; /* chinese article */
     font-family: PingFang-SC, sans-serif;
