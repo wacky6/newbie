@@ -10,37 +10,44 @@
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
-  "@type": "Person",
-  "name": "Jiewei Qian",
-  "gender": "Male",
-  "birthDate": "1995-04-18",
-  "birthPlace": {
-    "@type": "City",
-    "name": "Nanjing"
-  },
-  "jobTitle": "Student",
-  "email": "mailto:wacky6@qq.com",
-  "url": "https://std-aries.xyz/",
-  "nationality": {
-    "@type": "Country",
-    "name":  "China"
-  },
-  "affiliation": {
-    "@type": "CollegeOrUniversity",
-    "name":  "Nanjing University of Posts and Telecommunications",
-    "alternateName": "南京邮电大学",
-    "sameAs": "http://www.njupt.edu.cn/"
-  },
-  "memberOf": {
-    "@type": "Organization",
-    "name":  "NJUPT Science Association of Computer College",
-    "sameAs": "http://www.nuptsacc.com"
-  },
-  "alumniOf": {
-    "@type": "HighSchool",
-    "name":  "High School Affiliated to Nanjing Normal University",
-    "alternateName": "南京师范大学附属中学",
-    "sameAs": "http://www.nsfz.net/"
+  "@type": "AboutPage",
+  "breadcrumb": "关于",
+  "dateCreated":  "2015-07-10",
+  "dateModified": "2015-12-30",
+  "license":      "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+  "mainEntity":{
+    "@type": "Person",
+    "name": "Jiewei Qian",
+    "gender": "Male",
+    "birthDate": "1995-04-18",
+    "birthPlace": {
+      "@type": "City",
+      "name": "Nanjing"
+    },
+    "jobTitle": "Student",
+    "email": "mailto:wacky6@qq.com",
+    "url": "https://std-aries.xyz/",
+    "nationality": {
+      "@type": "Country",
+      "name":  "China"
+    },
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name":  "Nanjing University of Posts and Telecommunications",
+      "alternateName": "南京邮电大学",
+      "sameAs": "http://www.njupt.edu.cn/"
+    },
+    "memberOf": {
+      "@type": "Organization",
+      "name":  "NJUPT Science Association of Computer College",
+      "sameAs": "http://www.nuptsacc.com"
+    },
+    "alumniOf": {
+      "@type": "HighSchool",
+      "name":  "High School Affiliated to Nanjing Normal University",
+      "alternateName": "南京师范大学附属中学",
+      "sameAs": "http://www.nsfz.net/"
+    }
   }
 }
 </script>

@@ -24,6 +24,7 @@
 	  "name":          "四月是你最深情的告白",
 	  "image":         "./kousei-kaori-2.jpg",
 	  "inLanguage":    "zh-CN",
+      "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 	  "author": {
 	    "@type":  "Person",
 	    "name":   "Jiewei Qian",
@@ -273,4 +274,3 @@ EP11的最后，薰以感伤的语气，背对公生说出了这句话。这里�
 
 ## Afterword
 我的青春果然被狗吃了。
-
