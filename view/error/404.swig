@@ -2,6 +2,7 @@
 
 {%- block head -%}
 <title>Oops. Error 404</title>
+<meta name="robots" content="noindex, nofollow, noodp, narchive">
 <link rel="stylesheet" href="/article.css">
 {%- endblock -%}
 

@@ -2,26 +2,36 @@
 
 /*jshint -W040 */   // supress warning: possible strict violation
 
-var join = require("path").join
+var join = require('path').join
+var winston = require('winston')
 
 function* routeError(next) {
 
-	try{
-		yield next
-	}catch(e) {
-		console.log(e)
-	}
+    try{
+        yield next
+    }catch(e) {
+        winston.warn('Router throws an Error: ', e)
+        this.status = 500
+    }
 
-	if (this.status>=200 && this.status<300) return
-	if (!this.status) this.status=500
+    if (this.status>=200 && this.status<300) return
+    if (!this.status) this.status=404
+    this.response.status = this.status
+
+    winston.warn('HTTP Error '+this.status+': ', {
+        url:     this.url,
+        remote:  this.req.socket.remoteAddress,
+        ua:      this.headers['user-agent'],
+        time:    (new Date()).toISOString(),
+    })
 
     switch(this.accepts('html','json')) {
         case 'html':
-        	try{
-            	yield this.renderErrorPage( ''+this.status )
+            try{
+                yield this.renderErrorPage( ''+this.status )
             }catch(e){
-            	console.log(`Error page: ${this.status} not provided`)
-            	yield this.renderErrorPage('500')
+                winston.warn(`Error page: ${this.status} not provided`)
+                yield this.renderErrorPage('500')
             }
             break
         case 'json':
@@ -34,7 +44,7 @@ function* routeError(next) {
 }
 
 module.exports = function(){
-	var kswig = require("koa-swig")
+    var kswig = require("koa-swig")
     this.context.renderErrorPage = kswig({
         root: join(__dirname, "view/error"),
         autoescape: true,
@@ -42,5 +52,5 @@ module.exports = function(){
         ext:   "swig",
         locals: {}
     })
-	return routeError
+    return routeError
 }

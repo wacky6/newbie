@@ -26,7 +26,8 @@
     "koa-static": "^1.4.9",
     "koa-swig": "^2.0.0",
     "spdy": "^3.0.0",
-    "swig": "^1.4.2"
+    "swig": "^1.4.2",
+    "winston": "^2.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^5.2.0",

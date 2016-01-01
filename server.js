@@ -24,15 +24,15 @@ var route    = require("./app-init")
 
 // Security Related Headers
 route.use( require('koa-lusca').xframe("SAMEORIGIN") )
-route.use( require('koa-lusca').hsts({maxAge: 24*60*60*30, includeSubDomains: false}) )
+route.use( require('koa-lusca').hsts({maxAge: 24*60*60*180, includeSubDomains: false}) )
 
 // Application Routers
+let maxAge = conf.cache ? 24*60*60*1000 : 0
 route( './route-powered-by' )
 route( 'koa-compress'  )
 route( './route-error' )
-route( 'koa-static', join(__dirname, 'www-bin'), {maxage: conf.cache ? 24*60*60*1000 : 0})
-route( 'koa-static', join(__dirname, 'www'), {maxage: conf.cache ? 24*60*60*1000 : 0})
-route( './route-dev'   )
+route( 'koa-static', join(__dirname, 'www-bin'), {maxage: maxAge})
+route( 'koa-static', join(__dirname, 'www'), {maxage: maxAge})
 
 
 
