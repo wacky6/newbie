@@ -62,6 +62,18 @@ article strong {
 	font-weight: bolder;
 	text-decoration: none;
 }
+@media (max-width: 10in) {
+    article img {
+        max-width: 90%;
+    }
+}
+@media (max-width: 7in), handheld and (orientation: portrait) {
+    article img {
+        max-width: calc(100%);
+        width:     100%;
+        box-sizing: border-box;
+    }
+}
 </style>
 
 <script>
@@ -549,10 +561,9 @@ SAO最有趣的地方在于故事设定是可企及的未来（没有架空设�
 | Charlotte    | How-Low-Hello | 発熱デイズ / 发热时光 |
 | Charlotte    | How-Low-Hello | Not be found       |
 | Charlotte    | 熊木杏里       | 君の文字             |
-| 四月是你的谎言 | Goose House | 光るなら                 | 
+| 四月是你的谎言 | Goose House | 光るなら                 |
 | 四月是你的谎言 | 7!!         | オレンジ（Acoustic Ver.） |
 | 四月是你的谎言 | wacci       | キラメキ                 |
 | 刀剑神域      | Lisa        | Corssing Field    |
 | 刀剑神域      | 藍井エイル    | INNOCENCE         |
 | 刀剑神域      | 春奈るな     | Overfly            |
-
