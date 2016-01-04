@@ -2,8 +2,8 @@
 
 {%- block head %}
 <meta name="description" content="List of qjw's blog posts">
-<meta name="keywords" content="blog, Jiewei Qian, wacky6,">
-<title>Blogs @ std-aries</title>
+<meta name="keywords" content="blog, Jiewei Qian, wacky6">
+<title>Blogs | Jw.Q</title>
 <link rel="stylesheet" href="/article.css">
 <link rel="stylesheet" href="blog-index.css">
 {% endblock -%}

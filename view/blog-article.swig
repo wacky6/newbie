@@ -6,7 +6,7 @@
 {%- endif -%}
 <meta name="description" content="{{description|safe}}">
 <meta name="keywords" content="{{keywords|join(', ')|safe}}">
-<title>{{title}} @ std-aries</title>
+<title>{{title}} | Jw.Q</title>
 {% endblock -%}
 
 {%- block head %}

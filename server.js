@@ -31,6 +31,11 @@ let maxAge = conf.cache ? 24*60*60*1000 : 0
 route( './route-powered-by' )
 route( 'koa-compress'  )
 route( './route-error' )
+
+// Canonicalization redirects
+route( './url-redirect', /^\/about\//, '/About/', 'Canonicalization')
+
+// Static content
 route( 'koa-static', join(__dirname, 'www-bin'), {maxage: maxAge})
 route( 'koa-static', join(__dirname, 'www'), {maxage: maxAge})
 

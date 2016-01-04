@@ -14,7 +14,7 @@ function* routeError(next) {
         this.status = 500
     }
 
-    if (this.status>=200 && this.status<300) return
+    if (this.status>=200 && this.status<400) return
     if (!this.status) this.status=404
     this.response.status = this.status
 

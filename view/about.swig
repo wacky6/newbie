@@ -1,12 +1,12 @@
-{# static, about/index.html #}
+{# static, About/index.html #}
 {%- extends "template.swig" -%}
 
 {%- block head -%}
-<meta name="description" content="Jiewei Qian, student at NJUPT; A Tech-savvy, Anime Game Otaku; used ID includes: wacky6, std::weak">
-<meta name="keywords" content="Jiewei Qian, wacky6, about">
-<title>About me @ std-aries</title>
+<meta name="description" content="Jiewei Qian, student at NJUPT; Tech-savvy, Anime &amp; Game Otaku; used ID includes: wacky6, std::weak">
+<meta name="keywords" content="Jiewei Qian, wacky6, about, 关于">
+<title>About | Jw.Q</title>
 <link rel="stylesheet" href="/article.css">
-<link rel="stylesheet" href="/about/about.css">
+<link rel="stylesheet" href="./about.css">
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -18,6 +18,7 @@
   "mainEntity":{
     "@type": "Person",
     "name": "Jiewei Qian",
+    "alternateName": "钱颉伟",
     "gender": "Male",
     "birthDate": "1995-04-18",
     "birthPlace": {
@@ -40,6 +41,7 @@
     "memberOf": {
       "@type": "Organization",
       "name":  "NJUPT Science Association of Computer College",
+      "alternativeName": "南京邮电大学 计算机软件学院科协",
       "sameAs": "http://www.nuptsacc.com"
     },
     "alumniOf": {
@@ -79,7 +81,7 @@ Made in <strong style="color:#84dcff">Nanjing, China</strong> <br>
 {%- endmacro -%}
 
 <div class="detail">
-{{ bgimg("/about/edu3.jpg") -}}
+{{ bgimg("./edu3.jpg") -}}
 <h3 class="current">Nanjing University of Posts and Telecommunications</h3>
 <p>
 Entered NJUPT @ 2013, partially due to a College-Entrance-Exam failure<br>
@@ -103,7 +105,7 @@ Published album <em><a rel="external" href="http://photo.renren.com/photo/335657
 </div>
 
 <div class="detail">
-{{ bgimg("/about/edu4.jpg") -}}
+{{ bgimg("./edu4.jpg") -}}
 <h3>As Exchange Student, Nanjing University</h3>
 <p>
 Exchange student program: <em>Software Institute, Nanjing University</em>, 2014-2015 1st Semester
@@ -132,7 +134,7 @@ Exchange student program: <em>Software Institute, Nanjing University</em>, 2014-
 </div>
 
 <div class="detail">
-{{ bgimg("/about/edu2.jpg") -}}
+{{ bgimg("./edu2.jpg") -}}
 <h3>High School Affiliated to Nanjing Normal University</h3>
 <span style="display:block; color:#fffc00;">Most Wonderful and Amazing Years as a Student. Best of All time.</span>
 <p>
@@ -162,7 +164,7 @@ Troubleshoot/fix many computer related issues for classmates &amp; teachers
 </div>
 
 <div class="detail">
-{{ bgimg("/about/edu1.jpg") -}}
+{{ bgimg("./edu1.jpg") -}}
 <h3>Nanjing Shuren International School</h3>
 <p>
 Website: <a rel="external" href="http://www.nsfzsr.com/">南师附中树人学校</a> <br>
