@@ -35,7 +35,7 @@
 <style>
 article {
     line-height: 1.67; /* chinese article */
-    font-family: PingFang-SC, sans-serif;
+    font-family: all-sans, cn-sans, en-sans, sans-serif;
     font-weight: 100;
 }
 /* we use ul to add tags to bangumi */
