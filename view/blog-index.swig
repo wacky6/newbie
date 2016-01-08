@@ -22,7 +22,6 @@
 {% endmacro -%}
 
 {%- block body -%}
-{%- include "nav.swig" -%}
 <article>
 <header>
 	<h1>Blog Posts</h1>

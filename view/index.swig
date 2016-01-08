@@ -15,6 +15,9 @@
 </noscript>
 {% endblock -%}
 
+{%- block nav -%}
+{%- endblock %}
+
 {%- block body -%}
 <div id="menu_wrap" class="menu fadein">
 <header>

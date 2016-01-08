@@ -58,7 +58,6 @@
 </script>
 {%- endblock -%}
 {%- block body -%}
-{%- include "nav.swig" -%}
 <article>
 <header>
 <h1>About Me</h1>

@@ -11,10 +11,17 @@
 <script src="/bliss.min.js"></script>
 <script src="/common.js"></script>
 <link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="/font-icons.css">
 {% block head  -%}
 {%- endblock %}
 </head>
 <body>
+{% block nav -%}
+  {%- include "nav.swig" -%}
+  <div class="banner">
+      <span>{{banner|default("Jw.Q")}}</span>
+  </div>
+{%- endblock -%}
 <div id="content_wrapper">
 {% block body -%}
 {%- endblock -%}

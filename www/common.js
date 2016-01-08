@@ -15,12 +15,76 @@ window.urlencode = urlencode
  */
 window.prependQZoneShareLink = prependQZoneShareLink
 
+window.isChildOf = isChildOf
+
+Node.prototype.getComputed = Node_getComputed
+
+document.addEventListener('DOMContentLoaded', function(){
+    /* pop out nav when clicked
+     * retract nav when clicked other elements */
+    var nav  = $('nav.side')
+    var wrap = $('#content_wrapper')
+    var body = $('body')
+    if (!nav) return;
+    function setNav(enabled) {
+        var fn = enabled ? 'add' : 'remove'
+        body.classList[fn]('mobile-no-scroll')
+        nav.classList[fn]('active')
+        wrap.classList[fn]('overlay')
+    }
+    if ( !! nav ) {
+        nav._.events({
+            click: function(ev){
+                if ( isChildOf(ev.target, nav) )
+                    setNav(true)
+            }
+        })
+        wrap._.events({
+            click: function(ev){
+                if ( isChildOf(ev.target, wrap) )
+                    setNav(false)
+            }
+        })
+    }
+    body.addEventListener('touchstart', function(ev){
+        if ( isChildOf(ev.target, nav) && !nav.classList.contains('active') ) {
+            nav.dispatchEvent(new MouseEvent('click'))
+            if (ev.cancelable)
+                ev.preventDefault()
+        }
+    })
+    body.addEventListener('touchmove', function(ev){
+        if (body.classList.contains('mobile-no-scroll'))
+            ev.preventDefault()
+    })
+    body.addEventListener('touchend', function(ev){
+        if ( !isChildOf(ev.target, nav) && nav.classList.contains('active') ) {
+            wrap.dispatchEvent(new MouseEvent('click'))
+            if (ev.cancelable)
+                ev.preventDefault()
+        }
+    })
+})
+
+function isChildOf(el, parent) {
+    el     = $(el)
+    parent = $(parent)
+    if ( el===null || parent===null )
+        return false
+    while (el!==parent && el.parentNode)
+        el = el.parentNode
+    return el===parent
+}
 
 function urlencode(obj){
     var arr = []
     for (var key in obj)
         arr.push(key+'='+encodeURIComponent(obj[key]||''))
     return arr.join('&')
+}
+
+function Node_getComputed(prop) {
+    return window.getComputedStyle(this).getPropertyValue(prop)
 }
 
 function prependQZoneShareLink() {
@@ -55,6 +119,5 @@ function prependQZoneShareLink() {
         $('article')
     )
 }
-
 
 })();
