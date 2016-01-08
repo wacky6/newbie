@@ -31,14 +31,12 @@ module.exports = function(grunt){
     },
     jshint: {
       web: {
-        files: [{ expand:true, cwd: 'www/', src: '**/*.js' }],
+        files: [{ expand:true, cwd: 'www/', src: ['**/*.js', '!bliss.min.js'] }],
         options: {
           asi:     true,
           browser: true,
           globalstrict: true,
-          predef:  [ "$", "$$",
-                     "injectHeight", "injectGradualFadeInDelay",
-                     "forEachIn", "getComputedHeight" ]
+          predef:  [ "$", "$$" ]
         }
       },
       node: {
