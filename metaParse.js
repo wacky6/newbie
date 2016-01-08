@@ -26,7 +26,7 @@ function metaParse(meta, hint) {
         if (typeof meta.keywords === 'string')
             meta.keywords = meta.keywords.split(/\s*,\s*/)
         if ( ! (meta.keywords instanceof Array))
-            warn('keywords: can not normalize '+blue(keywords)+' to Array: '+meta.keywords)
+            warn('keywords: can not normalize '+blue('keywords')+' to Array: '+meta.keywords)
 
         // complain about mistakes, such as "，"
         let complaints = {
