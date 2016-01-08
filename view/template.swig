@@ -8,6 +8,7 @@
 {%- endblock %}
 <meta name="HandheldFriendly" content="true">
 <link rel="stylesheet" href="/base.css">
+<script src="/bliss.min.js"></script>
 <script src="/common.js"></script>
 <link rel="icon" href="/favicon.png">
 {% block head  -%}
