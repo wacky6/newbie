@@ -1,8 +1,11 @@
 [](~
     title:       2015番剧日志
-    description: Review of bangumi that I watched in 2015
+    description: |
+        2015年我看过的动漫，评价、OST推荐；
+        新番推荐：四月是你的谎言，Fate/Stay Night UBW，Charlotte，食戟之灵；
+        补番推荐：刀剑神域；
     brief:   |
-        补番日志，评价与推荐
+        补番日志，评价与OST推荐
         完结推荐：(4.8/5) 四月是你的谎言
         补番推荐：(4.5/5) 刀剑神域1/2
     keywords:    动漫, 番剧, 评价, bangumi, review, ACG
