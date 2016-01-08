@@ -24,7 +24,7 @@
 	  "name":          "四月是你最深情的告白",
 	  "image":         "./kousei-kaori-2.jpg",
 	  "inLanguage":    "zh-CN",
-      "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+	  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 	  "author": {
 	    "@type":  "Person",
 	    "name":   "Jiewei Qian",
@@ -37,6 +37,7 @@
 	    "sameAs":   "https://ja.wikipedia.org/wiki/%E5%9B%9B%E6%9C%88%E3%81%AF%E5%90%9B%E3%81%AE%E5%98%98",
 	    "alternateName":  "四月是你的谎言"
 	  },
+	  "name":       "此生无悔入二次元",
 	  "reviewBody": "真爱治愈系成长番，强力推荐",
 	  "reviewRating": {
 	    "@type":       "Rating",

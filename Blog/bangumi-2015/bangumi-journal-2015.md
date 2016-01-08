@@ -25,7 +25,7 @@
 		  "author": {
 		    "@type":  "Person",
 		    "name":   "Jiewei Qian",
-		    "sameAs": "/about/"
+		    "sameAs": "/About/"
 		  },
 		  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 	  }
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	  "author": {
 	    "@type":  "Person",
 	    "name":   "Jiewei Qian",
-	    "sameAs": "/about/"
+	    "sameAs": "/About/"
 	  },
 	  "itemReviewed":    {
 	    "@type":    "CreativeWork",
@@ -134,7 +134,8 @@ document.addEventListener('DOMContentLoaded', function(){
 	    "name":     "Fate Stay Night / Unlimited Blade Works",
 	    "sameAs":   "https://en.wikipedia.org/wiki/Fate/stay_night:_Unlimited_Blade_Works"
 	  },
-	  "reviewBody": "无可挑剔的画风和场景细节，呆萌Saber和傲娇凛",
+	  "name":       "画面酷炫，制作精良",
+	  "reviewBody": "无可挑剔的画风和场景细节，呆萌Saber和傲娇凛。剧情遵循原作发展。",
 	  "reviewRating": {
 	    "@type":       "Rating",
 	    "bestRating":  5,
@@ -172,7 +173,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	  "author": {
 	    "@type":  "Person",
 	    "name":   "Jiewei Qian",
-	    "sameAs": "/about/"
+	    "sameAs": "/About/"
 	  },
 	  "itemReviewed":    {
 	    "@type":    "CreativeWork",
@@ -181,7 +182,8 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	    "alternateName": "干物妹！小埋",
 	    "sameAs":   "https://ja.wikipedia.org/wiki/干物妹!うまるちゃん"
 	  },
-	  "reviewBody": "来看暖系治愈吧！",
+	  "name":       "适合娱乐、消遣",
+	  "reviewBody": "来看暖系治愈吧！喜欢萌物的不可错过。",
 	  "reviewRating": {
 	    "@type":       "Rating",
 	    "bestRating":  5,
@@ -219,7 +221,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	  "author": {
 	    "@type":  "Person",
 	    "name":   "Jiewei Qian",
-	    "sameAs": "/about/"
+	    "sameAs": "/About/"
 	  },
 	  "itemReviewed":    {
 	    "@type":    "CreativeWork",
@@ -228,6 +230,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	    "alternateName": "夏洛特",
 	    "sameAs":   "https://ja.wikipedia.org/wiki/Charlotte"
 	  },
+	  "name":       "不错的作品",
 	  "reviewBody": "难得的佳作。虽然有缺陷，但仍是不错的治愈番",
 	  "reviewRating": {
 	    "@type":       "Rating",
@@ -268,7 +271,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	  "author": {
 	    "@type":  "Person",
 	    "name":   "Jiewei Qian",
-	    "sameAs": "/about/"
+	    "sameAs": "/About/"
 	  },
 	  "itemReviewed":    {
 	    "@type":    "CreativeWork",
@@ -277,6 +280,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	    "alternateName": "四月是你的谎言",
 	    "sameAs":   "https://ja.wikipedia.org/wiki/四月は君の嘘"
 	  },
+	  "name":       "此生无悔入二次元",
 	  "reviewBody": "此生无悔入二次元。真爱治愈系成长番，强力推荐",
 	  "reviewRating": {
 	    "@type":       "Rating",
@@ -321,7 +325,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	  "author": {
 	    "@type":  "Person",
 	    "name":   "Jiewei Qian",
-	    "sameAs": "/about/"
+	    "sameAs": "/About/"
 	  },
 	  "itemReviewed":    {
 	    "@type":    "CreativeWork",
@@ -330,6 +334,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	    "alternateName": "樱子小姐的脚下埋着尸体",
 	    "sameAs":   "https://ja.wikipedia.org/wiki/櫻子さんの足下には死体が埋まっている"
 	  },
+	  "name":       "尚可",
 	  "reviewBody": "尚可，第二季或许更精彩",
 	  "reviewRating": {
 	    "@type":       "Rating",
@@ -367,7 +372,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	  "author": {
 	    "@type":  "Person",
 	    "name":   "Jiewei Qian",
-	    "sameAs": "/about/"
+	    "sameAs": "/About/"
 	  },
 	  "itemReviewed":    {
 	    "@type":    "CreativeWork",
@@ -376,6 +381,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	    "alternateName": "落第骑士英雄谭",
 	    "sameAs":   "https://ja.wikipedia.org/wiki/落第騎士の英雄譚"
 	  },
+	  "name":       "还行吧，适合消遣",
 	  "reviewBody": "值得期待第二季",
 	  "reviewRating": {
 	    "@type":       "Rating",
@@ -414,7 +420,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	  "author": {
 	    "@type":  "Person",
 	    "name":   "Jiewei Qian",
-	    "sameAs": "/about/"
+	    "sameAs": "/About/"
 	  },
 	  "itemReviewed":    {
 	    "@type":    "CreativeWork",
@@ -423,6 +429,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	    "alternateName": "食戟之灵",
 	    "sameAs":   "https://ja.wikipedia.org/wiki/食戟のソーマ"
 	  },
+	  "name":       "令人上瘾",
 	  "reviewBody": "看起来十分爽快的后宫番，非常期待第二季",
 	  "reviewRating": {
 	    "@type":       "Rating",
@@ -460,7 +467,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	  "author": {
 	    "@type":  "Person",
 	    "name":   "Jiewei Qian",
-	    "sameAs": "/about/"
+	    "sameAs": "/About/"
 	  },
 	  "itemReviewed":    {
 	    "@type":    "CreativeWork",
@@ -469,6 +476,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	    "alternateName": "游戏人生",
 	    "sameAs":   "https://ja.wikipedia.org/wiki/ノーゲーム・ノーライフ"
 	  },
+	  "name":       "期待第二季",
 	  "reviewBody": "值得期待第二季",
 	  "reviewRating": {
 	    "@type":       "Rating",
@@ -509,7 +517,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	  "author": {
 	    "@type":  "Person",
 	    "name":   "Jiewei Qian",
-	    "sameAs": "/about/"
+	    "sameAs": "/About/"
 	  },
 	  "itemReviewed":    {
 	    "@type":    "CreativeWork",
@@ -518,7 +526,8 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 	    "alternateName": "刀剑神域",
 	    "sameAs":   "https://ja.wikipedia.org/wiki/ソードアート・オンライン"
 	  },
-	  "reviewBody": "非常赞的世界观设定，后续剧情应该很精彩",
+	  "name":       "非常棒的设定，制作精良",
+	  "reviewBody": "非常棒的世界观设定，后续剧情应该很精彩",
 	  "reviewRating": {
 	    "@type":       "Rating",
 	    "bestRating":  5,
