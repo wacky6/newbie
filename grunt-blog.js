@@ -9,6 +9,7 @@ var swig     = require('swig')
 var chalk    = require('chalk')
 var statSync = require('fs').statSync
 var strip    = require('./stripBloglist')
+var metaParse   = require('./metaParse')
 var articleSort = require('./articleSort')
 
 var linkedResourceRegex = /(?:href|src)=".\/(.+?)"|'.\/(.+?)'/g
@@ -84,6 +85,9 @@ function renderArticle(file) {
         return null
     }
 
+    // parse metadata, complain about mistakes
+    _.meta = metaParse(_.meta, basename(file))
+
     var title = _.meta.title || (h1Regex.exec(_.html) || ['',''])[1]
     var mtime = getMTime(file)
     var m, articleCss = []  // markdown embedded css, bubble them to <head>
@@ -101,7 +105,7 @@ function renderArticle(file) {
         date:        new Date(_.meta.date || mtime).getTime(),
         article:     _.html,
         author:      _.meta.author,
-        keywords:    _.meta.keywords || [],
+        keywords:    _.meta.keywords || '',
         description: _.meta.description || '',
         featured:    _.meta.featued,
         noindex:     _.meta.noindex,
