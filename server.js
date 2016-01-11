@@ -23,8 +23,11 @@ var route    = require("./app-init")
  */
 
 // Security Related Headers
-route.use( require('koa-lusca').xframe("SAMEORIGIN") )
-route.use( require('koa-lusca').hsts({maxAge: 24*60*60*180, includeSubDomains: false}) )
+let helmet = require('koa-helmet')
+route.use( helmet.xssFilter() )
+route.use( helmet.frameguard('SAMEORIGIN') )
+route.use( helmet.hsts({ force:true, maxAge: 181*24*60*60*1000 }) )
+route.use( helmet.noSniff() )
 
 // Application Routers
 let maxAge = conf.cache ? 24*60*60*1000 : 0

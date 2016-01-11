@@ -22,7 +22,7 @@
     "koa": "^0.21.0",
     "koa-compress": "^1.0.8",
     "koa-force-ssl": "0.0.5",
-    "koa-lusca": "^2.1.0",
+    "koa-helmet": "^1.0.0",
     "koa-static": "^1.4.9",
     "koa-swig": "^2.0.0",
     "spdy": "^3.0.0",
