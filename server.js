@@ -60,6 +60,12 @@ require('spdy').createServer(
 
 /* uncomment following lines to redirect HTTP to HTTPS */
 require('koa')()
-.use( require('koa-lusca').xframe("SAMEORIGIN") )
+.use( helmet.xssFilter() )
+.use( helmet.frameguard() )
+.use( helmet.noSniff() )
+.use( helmet.csp({   // no resources should present on 301 redirection
+    directives: { defaultSrc: ["'none'"] },
+    setAllHeaders: false
+}) )
 .use( require('koa-force-ssl')(conf.httpsPort || 443) )
 .listen(conf.httpPort || 80)
