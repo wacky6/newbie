@@ -181,10 +181,9 @@ Self-taught Delphi, <a rel="external" href="http://lazarus-ide.org/" title="Nost
 <section class="site">
 <h2>About this site</h2>
 <p>This site is a playground of new Web technologies & designs.<br>
-I do not guarantee everything looks and behaves all the same across browsers.<br/>
-However, latest <a rel="external" href="https://www.google.com/chrome/" title="Google Chrome">Chrome</a> is guaranteed to enjoy all flavors.
+Only latest <a rel="external" href="https://www.google.com/chrome/" title="Google Chrome">Chrome</a> is guaranteed to enjoy it.
 </p>
-<p>You are reading this site thanks to many great <strong>open-source</strong> projects</p>
+<p>Proudly using these great <strong>open-source</strong> projects:</p>
 {%- macro href_icon(title, href, iconUrl) -%}
 <a href="{{href}}" style="background-image: url('{{iconUrl}}');">
 {%- if title -%}
@@ -205,24 +204,29 @@ However, latest <a rel="external" href="https://www.google.com/chrome/" title="G
   "MDN_promo.png") }}
 </div>
 
+<div class="block-link-container">
+<a rel="external" href="https://github.com/wacky6/bfm" title="Flavorful Markdown" class="block-link">
+Flavorful Markdown <br>
+更具风味的Markdown
+</a>
+
 <a rel="external" href="http://youmightnotneedjquery.com/" title="Why NOT jQuery? You don't need it!" class="block-link">
 No framework, Proudly! <br>
 <b>自豪地</b>不使用框架
 </a>
 
-<a rel="external" href="https://wellfire.co/learn/why-we-dont-use-wordpress/" title="Why Not Wordpress, just a link placeholder." class="block-link">
+<a rel="external" href="https://wellfire.co/learn/why-we-dont-use-wordpress/" title="Why Not Wordpress" class="block-link">
 No template, Hand-coded! <br>
 <b>自豪地</b>用手敲代码
 </a>
+</div>
 
 </section>
 <section class="etc">
 <h2>Et cetera</h2>
 <p>
-HSTS is now <b style="color:red">enforced</b>, with a free certificate from StartCom<br>
-You are welcomed to sponsor a commercial one.
+HSTS is <b style="color:red">enforced</b>, http/2 by default. Feel free to experiment with them.
 </p>
-<p>http/2 by default, feel free to experiment with it! :D</p>
 <p>
 Site does <b style="color:red">NOT</b> support: <code>'IE&lt;11, OEM, terminal, App embedded browsers'</code> <br>
 Site SHOULD support: <code>'market &gt; 5%, last 2 versions'</code> <br>
