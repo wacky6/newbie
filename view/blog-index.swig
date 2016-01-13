@@ -1,9 +1,12 @@
 {%- extends "template.swig" -%}
 
-{%- block head %}
+{%- block meta %}
 <meta name="description" content="List of qjw's blog posts">
 <meta name="keywords" content="blog, Jiewei Qian, wacky6">
 <title>Blogs | Jw.Q</title>
+{% endblock -%}
+
+{%- block head %}
 <link rel="stylesheet" href="/article.css">
 <link rel="stylesheet" href="blog-index.css">
 {% endblock -%}

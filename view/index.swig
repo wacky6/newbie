@@ -1,14 +1,17 @@
 {# static, index.html #}
 {%- extends "template.swig" -%}
 
-{%- block head -%}
+{%- block meta %}
 <meta name="description" content="Jiewei Qian: college student. Tech-savvy, Anime Game Otaku; Infant Developer;">
 <meta name="keywords" content="Jiewei Qian, wacky6, homepage, 主页">
 <title>Jiewei Qian: Tech-savvy, Anime &amp; Game Otaku</title>
+{% endblock -%}
+
+{%- block head %}
 <link rel="stylesheet" href="/index/index.css">
 <script src="/index/index.js"></script>
 <noscript>
-<style> img#bg {opacity:1!important;}</style>
+    <style> img#bg {opacity:1!important;} </style>
 </noscript>
 {% endblock -%}
 

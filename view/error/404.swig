@@ -1,10 +1,13 @@
 {%- extends "../template.swig" -%}
 
-{%- block head -%}
-<title>Oops. Error 404</title>
+{%- block meta %}
 <meta name="robots" content="noindex, nofollow, noodp, narchive">
+<title>Oops. Error 404</title>
+{% endblock -%}
+
+{%- block head %}
 <link rel="stylesheet" href="/article.css">
-{%- endblock -%}
+{% endblock -%}
 
 {%- block body -%}
 {%- include "../nav.swig" -%}

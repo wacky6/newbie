@@ -1,10 +1,13 @@
 {# static, About/index.html #}
 {%- extends "template.swig" -%}
 
-{%- block head -%}
+{%- block meta %}
 <meta name="description" content="Jiewei Qian, student at NJUPT; Tech-savvy, Anime &amp; Game Otaku; used ID includes: wacky6, std::weak">
 <meta name="keywords" content="Jiewei Qian, wacky6, about, 关于">
 <title>About | Jw.Q</title>
+{% endblock -%}
+
+{%- block head %}
 <link rel="stylesheet" href="/article.css">
 <link rel="stylesheet" href="./about.css">
 <script type="application/ld+json">
