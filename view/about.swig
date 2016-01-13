@@ -183,8 +183,8 @@ Self-taught Delphi, <a rel="external" href="http://lazarus-ide.org/" title="Nost
 </section>
 <section class="site">
 <h2>About this site</h2>
-<p>This site is a playground of new Web technologies & designs.<br>
-Only latest <a rel="external" href="https://www.google.com/chrome/" title="Google Chrome">Chrome</a> is guaranteed to enjoy it.
+<p>This site is a playground of new Web technologies &amp; designs. <br>
+   Use latest <a rel="external" href="https://www.google.com/chrome/" title="Google Chrome">Chrome</a> to enjoy it.
 </p>
 <p>Proudly using these great <strong>open-source</strong> projects:</p>
 {%- macro href_icon(title, href, iconUrl) -%}
