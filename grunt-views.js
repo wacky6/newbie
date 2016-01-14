@@ -1,9 +1,7 @@
 'use strict'
 
 var grunt = require('grunt')
-var swig  = require('swig')
-
-swig.setDefaults({cache: false})
+var swig  = require('./swig-loader')
 
 var regexStaticDirective = /\{# static, (.+) #\}/i
 
