@@ -1,8 +1,8 @@
 [](~
     title:       2015番剧日志
     description: |
-        2015年我看过的动漫，评价、OST推荐；
-        新番推荐：四月是你的谎言，Fate/Stay Night UBW，Charlotte，食戟之灵；
+        2015年看过的动漫，评价、OST推荐；
+        新番推荐：四月是你的谎言，Fate/Stay Night UBW，食戟之灵；
         补番推荐：刀剑神域；
     brief:   |
         补番日志，评价与OST推荐
