@@ -279,6 +279,7 @@ nav .valign {
         display: table;
         box-sizing: border-box;
         width:   100%;
+        font-family: sans-serif;
         background-color: #111;
         border-top:    .50em solid #111;
         border-bottom: .13em solid hsl(43, 76%, 87%);  /* FSN Saber, Hair color */
