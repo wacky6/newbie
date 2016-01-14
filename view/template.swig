@@ -22,5 +22,15 @@
 <footer class="copyright">
   <a href="https://github.com/wacky6">jwQ, (C) 2014-2016, CC BY-NC-SA-4.0</a>
 </footer>
+{%- if google_analytics %}
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-72435418-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+{% endif -%}
 </body>
 </html>
