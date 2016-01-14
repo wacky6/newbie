@@ -20,7 +20,6 @@
 {% endblock -%}
 
 {%- block body -%}
-{%- include "nav.swig" %}
 <article>
 {{ article|safe }}
 </article>

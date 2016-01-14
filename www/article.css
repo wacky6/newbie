@@ -182,7 +182,7 @@ article table td, article table th {
 }
 
 /* handleld, smaller tablet */
-@media (max-width: 10in) {
+@media (max-width: 9.5in) {
     article {
     	padding-left:  1.5rem;
     	padding-right: 1.5rem;
@@ -207,10 +207,7 @@ article table td, article table th {
 	}
 }
 
-@media (max-width: 7in), handheld and (orientation: portrait) {
-	nav.side {
-        display: none;
-    }
+@media (max-width: 6in) {
     article  {
     	padding-left:  1ch;
     	padding-right: 1ch;
