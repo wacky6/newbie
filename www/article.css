@@ -21,8 +21,6 @@ article {
 	max-width:      90ch;
 	font-size:      1rem;
 	line-height:    1.5;
-    font-family:    sans-thin, sans-serif;
-    /*letter-spacing: 0.05ch;*/
 }
 
 article h1 {              /* article title */
@@ -45,7 +43,7 @@ article h1+h2 {           /* article 2nd title */
 	margin-left:   auto;
 	margin-right:  auto;
 	font-size:     1.4rem;
-	font-weight:   lighter;
+    font-weight:   normal;
 	color:         #ccc;
 	text-align:    right;
 }
@@ -184,7 +182,6 @@ article table td, article table th {
 /* handleld, smaller tablet */
 @media (max-width: 9.5in) {
     article {
-        font-family: sans, sans-serif;
     	padding-left:  1.5rem;
     	padding-right: 1.5rem;
     }

@@ -23,13 +23,14 @@
          local("Microsoft YaHei"),
          local("微软雅黑"),
          local("STXiHei");
-    font-weight: 200;
+    font-weight: 300;
     font-style:  normal;
 }
 
 @font-face {
     font-family: sans-thin;
-    src: local("PingFang SC"),
+    src: local("PingFang SC Light"),
+         local("PingFang SC"),
          local("Hiragino Sans GB"),
          local("华文细黑"),
          local("Microsoft YaHei"),
@@ -58,7 +59,8 @@
 }
 
 html {
-    font-family: sans, sans-serif;
+    font-family: sans-thin, sans-serif;
+    font-weight: 100;
 }
 
 .tcenter {
@@ -174,6 +176,8 @@ nav.side {
     box-shadow: 0 0 2rem 0 #000;
     height:  3rem;
     cursor:  pointer;
+    font-family: sans, sans-serif;
+    font-weight: 300;
 }
 nav.side .hint {
     color: #aaa;
@@ -323,6 +327,13 @@ nav .valign {
     width:       100%;
     text-align:  center;
     font-size:   2rem;
+}
+
+@media (max-width: 9.5in) {
+    html {
+        font-family: sans;
+        font-weight: 300;
+    }
 }
 
 @media not screen {
