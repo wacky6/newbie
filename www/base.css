@@ -331,7 +331,7 @@ nav .valign {
 
 @media (max-width: 9.5in) {
     html {
-        font-family: sans;
+        font-family: sans, sans-serif;
         font-weight: 300;
     }
 }
