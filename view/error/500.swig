@@ -10,7 +10,6 @@
 {% endblock -%}
 
 {%- block body -%}
-{%- include "../nav.swig" -%}
 <article>
 <h1 class="error">Boom! Brain Exploded!</h1>
 <p style="white-space: pre;">
