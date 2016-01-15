@@ -7,54 +7,54 @@
  */
 
 article {
-	position:       relative;
-	margin-top:     0;
-	margin-bottom:  0;
-	margin-left:    auto;
-	margin-right:   auto;
-	padding-top:    1ex;
-	padding-bottom: 1ex;
-	padding-left:   3ch;
-	padding-right:  3ch;
-	overflow-x:     hidden;
-	background-color: #222;
-	max-width:      90ch;
-	font-size:      1rem;
-	line-height:    1.5;
+    position:       relative;
+    margin-top:     0;
+    margin-bottom:  0;
+    margin-left:    auto;
+    margin-right:   auto;
+    padding-top:    1ex;
+    padding-bottom: 1ex;
+    padding-left:   3ch;
+    padding-right:  3ch;
+    overflow-x:     hidden;
+    background-color: #222;
+    max-width:      90ch;
+    font-size:      1rem;
+    line-height:    1.5;
 }
 
 article h1 {              /* article title */
-	font-weight:   bolder;
-	letter-spacing:0.2ex;
-	margin-top:    1ex;
-	margin-bottom: 1ex;
-	margin-left:   auto;
-	margin-right:  auto;
-	font-size:     2.4rem;
-	text-align:    center;
-	color:         #eee;
+    font-weight:   bolder;
+    letter-spacing:0.2ex;
+    margin-top:    1ex;
+    margin-bottom: 1ex;
+    margin-left:   auto;
+    margin-right:  auto;
+    font-size:     2.4rem;
+    text-align:    center;
+    color:         #eee;
 }
 article h1.error {
-	color: #ff8888;
+    color: #ff8888;
 }
 article h1+h2 {           /* article 2nd title */
-	margin-top:    -1ex;
-	margin-bottom: 1ex;
-	margin-left:   auto;
-	margin-right:  auto;
-	font-size:     1.4rem;
+    margin-top:    -1ex;
+    margin-bottom: 1ex;
+    margin-left:   auto;
+    margin-right:  auto;
+    font-size:     1.4rem;
     font-weight:   normal;
-	color:         #ccc;
-	text-align:    right;
+    color:         #ccc;
+    text-align:    right;
 }
 article a, article a:visited {
-	color: #a0e0ff;
+    color: #a0e0ff;
 }
 article p a {
     white-space: pre;
 }
 article section {
-	border-top: 1px solid #777;
+    border-top: 1px solid #777;
 }
 
 article img {
@@ -70,104 +70,104 @@ article h2, article h3, article h4 {
 }
 
 article h2 {
-	font-size:     1.6rem;
-	color:         #fff;
+    font-size:     1.6rem;
+    color:         #fff;
 }
 article h3 {
-	font-size:     1.4rem;
-	color:         #eee;
+    font-size:     1.4rem;
+    color:         #eee;
 }
 article h4 {
     color:         #eee;
-	font-size:     1.2em;
+    font-size:     1.2em;
 }
 article p, article pre {
-	margin-top:    1em;
-	margin-bottom: 1em;
+    margin-top:    1em;
+    margin-bottom: 1em;
 }
 /* ul, ol caption */
 article h5 {
-	font-weight:    normal;
-	font-size:      1rem;
-	margin-top:     1ex;
-	margin-bottom:  0;
-	margin-right:   1rem;
-	padding-left:   0.5rem;
-	padding-right:  0.5rem;
-	padding-top:    0.2ex;
-	padding-bottom: 0;
-	position:       relative;
-	left:           0.5rem;
-	background-color: #3d3d3d;
+    font-weight:    normal;
+    font-size:      1rem;
+    margin-top:     1ex;
+    margin-bottom:  0;
+    margin-right:   1rem;
+    padding-left:   0.5rem;
+    padding-right:  0.5rem;
+    padding-top:    0.2ex;
+    padding-bottom: 0;
+    position:       relative;
+    left:           0.5rem;
+    background-color: #3d3d3d;
 }
 article strong {
-	font-weight: bolder;
+    font-weight: bolder;
 }
 article em {
     text-decoration: underline;
     font-weight: normal;
 }
 article blockquote {
-	margin:        1em 2ch;
-	padding-left:  2ch;
-	padding-right: 2ch;
-	border-left:   1px solid #777;
+    margin:        1em 2ch;
+    padding-left:  2ch;
+    padding-right: 2ch;
+    border-left:   1px solid #777;
 }
 /* margin collapse after p */
 article p+pre,  article p+h5, article p+ul,  article p+ol {
-	margin-top:     -0.5em;
+    margin-top:     -0.5em;
 }
 article ul, article ol, article pre {
-	margin-right:   1rem;
-	list-style:     none;
-	padding-top:    0.1ex;
-	padding-bottom: 0.3ex;
-	padding-left:   0.5rem;
-	padding-right:  0.5rem;
-	position:       relative;
-	left:           0.5rem;
-	background-color: #2c2c2c;
+    margin-right:   1rem;
+    list-style:     none;
+    padding-top:    0.1ex;
+    padding-bottom: 0.3ex;
+    padding-left:   0.5rem;
+    padding-right:  0.5rem;
+    position:       relative;
+    left:           0.5rem;
+    background-color: #2c2c2c;
 }
 /* heading based, h5, ul, ol, pre margin right */
 article h2~h5, article h2~ul, article h2~ol, article h2~pre {
-	margin-right:   1.5rem;
+    margin-right:   1.5rem;
 }
 article h3~h5, article h3~ul, article h3~ol, article h3~pre {
-	margin-right:   2.5rem;
+    margin-right:   2.5rem;
 }
 article h4~h5, article h4~ul, article h4~ol, article h3~pre {
-	margin-right:   3.5rem;
+    margin-right:   3.5rem;
 }
 /* heading based indent */
 article section > :not(h2) {
-	margin-left:   1rem;
+    margin-left:   1rem;
 }
 article section h4, article section h4~* {
-	margin-left:   2rem;
+    margin-left:   2rem;
 }
 /* margin collapse for element immediately after a heading */
 article h2+*, article h3+*, article h4+*, article h5+* {
-	margin-top:    0;
+    margin-top:    0;
 }
 
 article ul > li {
-	padding-top:    .3em;
-	padding-bottom: .3em;
-	border-bottom:  1px solid #373737;
+    padding-top:    .3em;
+    padding-bottom: .3em;
+    border-bottom:  1px solid #373737;
 }
 article ul > li:first-child{
-	padding-top:    .1em;
+    padding-top:    .1em;
 }
 article ul > li:last-child {
-	padding-bottom: .1em;
-	border-bottom:  0;
+    padding-bottom: .1em;
+    border-bottom:  0;
 }
 
 article em{
-	font-style:  normal;
-	font-weight: bolder;
-	padding-left:  0.2ch;
-	padding-right: 0.2ch;
+    font-style:  normal;
+    font-weight: bolder;
+    padding-left:  0.2ch;
+    padding-right: 0.2ch;
 }
 
 article table {
@@ -182,35 +182,35 @@ article table td, article table th {
 /* handleld, smaller tablet */
 @media (max-width: 9.5in) {
     article {
-    	padding-left:  1.5rem;
-    	padding-right: 1.5rem;
+        padding-left:  1.5rem;
+        padding-right: 1.5rem;
     }
     article h5 {
-    	margin-right: 0.3rem;
+        margin-right: 0.3rem;
     }
     article ul, article ol, article pre {
-    	margin-right: 0.3rem !important;
+        margin-right: 0.3rem !important;
     }
     article h2, article h3, article h4{
-		margin-top:    3rem;
-	}
-	article section > :not(h2) {
-		margin-left:   0;
-	}
-	article section h4, article section h4~* {
-		margin-left:   1rem;
-	}
-	article ul, article ol, article pre, article h5 {
-		left:           0;
-	}
+        margin-top:    3rem;
+    }
+    article section > :not(h2) {
+        margin-left:   0;
+    }
+    article section h4, article section h4~* {
+        margin-left:   1rem;
+    }
+    article ul, article ol, article pre, article h5 {
+        left:           0;
+    }
 }
 
 @media (max-width: 6in) {
     article  {
-    	padding-left:  1ch;
-    	padding-right: 1ch;
+        padding-left:  1ch;
+        padding-right: 1ch;
     }
     article section h4, article section h4~* {
-		margin-left:   0.3rem;
-	}
+        margin-left:   0.3rem;
+    }
 }
