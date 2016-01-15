@@ -19,6 +19,10 @@
     font-family: sans;
     src: local("PingFang SC"),
          local("Hiragino Sans GB"),
+         local("WenQuanYi Micro Hei"),
+         local("文泉驿微米黑"),
+         local("WenQuanYi Zen Hei"),
+         local("文泉驿正黑"),
          local("SimSun"),
          local("宋体"),
          local("华文细黑");
@@ -31,6 +35,10 @@
     src: local("PingFang SC Light"),
          local("PingFang SC"),
          local("Hiragino Sans GB"),
+         local("WenQuanYi Micro Hei"),
+         local("文泉驿微米黑"),
+         local("WenQuanYi Zen Hei"),
+         local("文泉驿正黑"),
          local("SimSun"),
          local("宋体"),
          local("华文细黑");
