@@ -16,29 +16,25 @@
 }
 
 @font-face {
-    font-family: en-sans;
-    src: local("Helvetica Neue"),
-         local("Open Sans"),
-         url('/OpenSans-Light.ttf');
-    font-weight: 100;
-    font-style:  normal;
-}
-
-@font-face {
-    font-family: cn-sans;
-    src: local("Hiragino Sans GB"),
+    font-family: sans;
+    src: local("PingFang SC"),
+         local("Hiragino Sans GB"),
+         local("华文细黑"),
          local("Microsoft YaHei"),
          local("微软雅黑"),
-         local("STXiHei"),
-         local("华文细黑");
-    font-weight: 100;
+         local("STXiHei");
+    font-weight: 200;
     font-style:  normal;
 }
 
-/* Font that includes EN/CN characters, and is built-in */
 @font-face {
-    font-family: all-sans;
-    src: local("PingFang-SC-Light"); /* OS X 10.11 font */
+    font-family: sans-thin;
+    src: local("PingFang SC"),
+         local("Hiragino Sans GB"),
+         local("华文细黑"),
+         local("Microsoft YaHei"),
+         local("微软雅黑"),
+         local("STXiHei");
     font-weight: 100;
     font-style:  normal;
 }
@@ -53,7 +49,6 @@
     src: "SimSun", "宋体", monospace;
 }
 
-/* TODO: someone suggest a cursive font? */
 @font-face {
     font-family: en-cursive;
     src: local("Sofia"),
@@ -62,10 +57,8 @@
     font-style:  normal;
 }
 
-/* TODO: someone suggest a list of cursive fonts installed on most computer? */
-@font-face {
-    font-family: cn-cursive;
-    src: cursive;
+html {
+    font-family: sans, sans-serif;
 }
 
 .tcenter {
@@ -159,6 +152,10 @@ hr{
     text-align: center;
 }
 
+strong, b {
+    font-weight: bolder;
+}
+
 div.banner {
     display: none;
 }
@@ -219,7 +216,6 @@ nav.side a {
     text-decoration: none;
     padding: 0.5ex 1ch 0.5ex 0.5ch;
     transition: background-color 0.5s;
-    font-family: sans-serif;
 }
 nav.side a span {
     vertical-align: middle;
@@ -279,7 +275,6 @@ nav .valign {
         display: table;
         box-sizing: border-box;
         width:   100%;
-        font-family: sans-serif;
         background-color: #111;
         border-top:    .50em solid #111;
         border-bottom: .13em solid hsl(43, 76%, 87%);  /* FSN Saber, Hair color */
@@ -327,7 +322,6 @@ nav .valign {
     display:     block;
     width:       100%;
     text-align:  center;
-    font-family: sans-serif;
     font-size:   2rem;
 }
 

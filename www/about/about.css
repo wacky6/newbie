@@ -1,7 +1,3 @@
-article {
-    font-weight: 100; /* mostly english, ok to use thin font */
-    line-height: 1.33;
-}
 article section {
     animation: fadein  1s ease 0s normal both,
                slidein 1s ease 0s normal both;
