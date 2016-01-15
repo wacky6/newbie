@@ -19,10 +19,9 @@
     font-family: sans;
     src: local("PingFang SC"),
          local("Hiragino Sans GB"),
-         local("华文细黑"),
-         local("Microsoft YaHei"),
-         local("微软雅黑"),
-         local("STXiHei");
+         local("SimSun"),
+         local("宋体"),
+         local("华文细黑");
     font-weight: 300;
     font-style:  normal;
 }
@@ -32,10 +31,9 @@
     src: local("PingFang SC Light"),
          local("PingFang SC"),
          local("Hiragino Sans GB"),
-         local("华文细黑"),
-         local("Microsoft YaHei"),
-         local("微软雅黑"),
-         local("STXiHei");
+         local("SimSun"),
+         local("宋体"),
+         local("华文细黑");
     font-weight: 100;
     font-style:  normal;
 }
