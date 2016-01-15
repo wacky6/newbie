@@ -19,13 +19,13 @@ article {
 	overflow-x:     hidden;
 	background-color: #222;
 	max-width:      90ch;
-	font-family:    all-sans, en-sans, cn-sans, sans-serif;
 	font-size:      1rem;
 	line-height:    1.5;
+    font-family:    sans-thin, sans-serif;
+    /*letter-spacing: 0.05ch;*/
 }
 
 article h1 {              /* article title */
-	font-family:   all-sans, en-sans, cn-sans, sans-serif;
 	font-weight:   bolder;
 	letter-spacing:0.2ex;
 	margin-top:    1ex;
@@ -38,7 +38,6 @@ article h1 {              /* article title */
 }
 article h1.error {
 	color: #ff8888;
-	font-family: en-monospace, cn-monospace, monospace;
 }
 article h1+h2 {           /* article 2nd title */
 	margin-top:    -1ex;
@@ -67,6 +66,7 @@ article img {
 }
 
 article h2, article h3, article h4 {
+    font-weight:   bolder;
     margin-top:    2em;
     margin-bottom: .5em;
 }
@@ -184,6 +184,7 @@ article table td, article table th {
 /* handleld, smaller tablet */
 @media (max-width: 9.5in) {
     article {
+        font-family: sans, sans-serif;
     	padding-left:  1.5rem;
     	padding-right: 1.5rem;
     }
