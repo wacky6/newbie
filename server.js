@@ -25,7 +25,7 @@ var route    = require("./app-init")
 // Security Related Headers
 let helmet = require('koa-helmet')
 route.use( helmet.xssFilter() )
-route.use( helmet.frameguard('SAMEORIGIN') )
+route.use( helmet.frameguard('deny') )
 route.use( helmet.hsts({ force:true, maxAge: 181*24*60*60*1000 }) )
 route.use( helmet.noSniff() )
 
@@ -61,7 +61,7 @@ require('spdy').createServer(
 /* uncomment following lines to redirect HTTP to HTTPS */
 require('koa')()
 .use( helmet.xssFilter() )
-.use( helmet.frameguard() )
+.use( helmet.frameguard('deny') )
 .use( helmet.noSniff() )
 .use( helmet.csp({   // no resources should present on 301 redirection
     directives: { defaultSrc: ["'none'"] },
