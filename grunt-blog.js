@@ -1,202 +1,126 @@
 'use strict'
 
-var grunt    = require('grunt')
-var basename = require('path').basename
-var extname  = require('path').extname
-var dirname  = require('path').dirname
-var bfm      = require('bfm')
-var swig     = require('./swig-loader')
-var chalk    = require('chalk')
-var statSync = require('fs').statSync
-var strip    = require('./stripBloglist')
-var metaParse   = require('./metaParse')
-var articleSort = require('./articleSort')
+require('date-format-lite')
+const grunt = require('grunt')
+const read  = grunt.file.read
+const write = grunt.file.write
+const exists = grunt.file.exists
+const config = grunt.config.get
+const readJSON = grunt.file.readJSON
 
-var linkedResourceRegex = /(?:href|src)=".\/(.+?)"|'.\/(.+?)'/g
-var h1Regex = /<h1(?:(?:\s+\w+(?:\s*=\s*(?:".*?"|'.*?'|[^'">\s]+))?)+\s*|\s*)>(.+?)<\/h1>/
-var embedStyleRegex = /<style>([^]+?)<\/style>/g
+const join     = require('path').join
+const basename = require('path').basename
+const extname  = require('path').extname
+const dirname  = require('path').dirname
 
-var opts, outputDir, articleTemplate, indexTemplate, bloglist, srcMode, fileSrc;
-var blogList = []
+const swig = require('./swig-loader')
+const flavorMd = require('flavor-marked').process
+
+const updateFile    = require('./lib/updateFile')
+const strip         = require('./lib/blog/stripBloglist')
+const metaParse     = require('./lib/blog/meta-parse')
+const articleSort   = require('./lib/blog/articleSort')
+const processBubble = require('./lib/blog/bubble-proc')
+
+const chalk  = require('chalk')
+const red    = chalk.red
+const blue   = chalk.blue
+const green  = chalk.green
+const yellow = chalk.yellow
+
+const INFO = (str) => grunt.log.writeln(''+green('info')+': '+str)
+const WARN = (str) => grunt.log.writeln(''+yellow('warn')+': '+str)
+
+let outputDir, articleTemplate, indexTemplate, bloglist, files
 
 module.exports = function blog(){
-    // load configuration
-    opts = grunt.config.get('blog')
-    checkConfig(opts, 'outputDir', 'articleTemplate', 'indexTemplate', 'bloglist')
-    outputDir = opts.outputDir
-    bloglist  = opts.bloglist
-    articleTemplate = opts.articleTemplate
-    indexTemplate   = opts.indexTemplate
+    loadConfig()
 
-    srcMode = grunt.config.get('blog.src')
-    if ( srcMode && !grunt.file.exists(bloglist) ) {
-        grunt.log.writeln(chalk.yellow('bloglist does not exist, perform full generation!'))
-        srcMode = false
-    }
+    let blogList = exists(bloglist) ? readJSON(bloglist) : []
 
-    fileSrc  = srcMode ? [srcMode] : grunt.file.expand(opts.files)
-    blogList = srcMode ? grunt.file.readJSON(bloglist)  : []
-
-    var src = fileSrc.filter( (path) => {
-        if (grunt.file.exists(path)) return true
-        grunt.log.writeln(chalk.yellow(`markdown not found: ${path}`))
-        return false
+    files.forEach( (path) => {
+        let entry = processArticle(path)
+        let index = blogList.findIndex( indexed => indexed.name===entry.name )
+        if (index===-1) blogList.push(entry)
+        else            blogList[index]=entry
     })
 
-    // render blogpost, copy linked resources
-    src.forEach( file => {
-        grunt.log.writeln(`process:  ${file}`)
-
-        var entry = renderArticle(file)
-        if (entry===null) return
-
-        copyLinkedResource(entry)
-
-        var index = blogList.findIndex( entry => entry.name===stripFilename(file) )
-        if (index!==-1) blogList[index] = entry
-        else            blogList.push(entry)
-    })
-
-    grunt.log.writeln('')
-
-    // update bloglist if needed
-    var stringified = JSON.stringify(strip(blogList), null, '  ')
-    var writeBloglist = grunt.file.exists(bloglist) ? grunt.file.read(bloglist)!==stringified : true;
-    if (writeBloglist) {
-        grunt.file.write(bloglist, stringified)
-        grunt.log.writeln(chalk.green('bloglist updated: '+bloglist))
-    }else{
-        grunt.log.writeln(chalk.green('bloglist skipped: trivial change'))
+    // update bloglist, blog-index, if necessary
+    let strBlogList = JSON.stringify(strip(blogList), null, '  ')
+    let updateIndex = !exists(bloglist) || read(bloglist)!==strBlogList
+    if (updateIndex) {
+        write(bloglist, strBlogList)
+        renderIndex(blogList)
     }
-
-    if (!srcMode || writeBloglist) renderIndex(bloglist)
 }
 
 /* file: path to markdown
  * return: on success, blogEntry Object
  *         on failure, null
  */
-function renderArticle(file) {
-    var dest    = outputDir + stripFilename(file) + '/index.html'
-    var content = grunt.file.read(file)
-    var _ = bfm(content)
-    if (!_) {  // TODO:: change bfm to synchroized call, and throw on error
-        grunt.log.writeln(chalk.red('  fail!'))
-        return null
-    }
+function processArticle(file) {
+    let content = read(file)
+    let _ = flavorMd(content)
+    let html    = _.html,
+        bubbles = _.bubbles.map(processBubble),
+        meta    = metaParse(_.meta, file, _.html)
 
-    // parse metadata, complain about mistakes
-    _.meta = metaParse(_.meta, basename(file))
+    let dest = outputDir + meta.name + '/index.html'
+    let entry = Object.assign({}, meta, {
+        src:  file,
+        dest: dest,
+        html: html,
+        bubbles: bubbles
+    })
 
-    var title = _.meta.title || (h1Regex.exec(_.html) || ['',''])[1]
-    var mtime = getMTime(file)
-    var m, articleCss = []  // markdown embedded css, bubble them to <head>
-    while (!!(m=embedStyleRegex.exec(_.html)))
-        articleCss.push(m[1])
-    _.html = _.html.replace(embedStyleRegex, '')
+    write(dest, swig.renderFile(articleTemplate, entry))
 
-    var entry = {
-        src:         file,
-        dest:        dest,
-        title:       title,
-        name:        stripFilename(file),
-        mtime:       mtime.getTime(),
-        resources:   getLinkedResources(_.html),
-        date:        new Date(_.meta.date || mtime).getTime(),
-        article:     _.html,
-        author:      _.meta.author,
-        keywords:    _.meta.keywords || '',
-        description: _.meta.description || '',
-        featured:    _.meta.featued,
-        noindex:     _.meta.noindex,
-        norobot:     _.meta.norobot,
-        top:         _.meta.top,
-        brief:       _.meta.brief || _.meta.description || title,
-        dateStr:     grunt.template.date(_.date, 'yyyy-mm-dd'),
-        articleCss:  articleCss
-    }
-
-    var result = swig.renderFile(articleTemplate, entry)
-    grunt.file.write(dest, result)
+    // process linked resources, print errors
+    entry.resources.map( $ => ({
+            rcFile: basename($.path),
+            result:   updateFile(join(dirname(dest), $.path), join(dirname(file), $.path))
+        })
+    ).filter( $ => $.result===undefined )
+     .forEach( rcFile => WARN(basename(file)+': '+blue('resource')+': '+red('NOENT')+' '+rcFile ) )
 
     return entry
 }
 
-function copyLinkedResource(entry) {
-    var dirSrc  = dirname(entry.src)
-    var dirDest = dirname(entry.dest)
-    var resources = entry.resources
-    var cpMap = {}
-    resources.filter( isBlogResouece )
-             .forEach( rc => cpMap[dirSrc+'/'+rc]=dirDest+'/'+rc )
-
-    let count=0, copied=0
-    for (let src of Object.keys(cpMap)) {
-        count++
-        if ( ! compareFile(src, cpMap[src])) {
-            grunt.log.writeln(`  ${src} => ${cpMap[src]}`)
-            grunt.file.copy(src, cpMap[src])
-            copied++
-        }
-    }
-
-    grunt.log.writeln(`  resource update/total = ${chalk.green(copied)}/${chalk.blue(count)}`)
-}
-
-function renderIndex() {
-    var articles = blogList.filter( _ => !_.noindex )
+function renderIndex(blogList) {
+    let articles = blogList.filter( _ => _.index )
                            .sort( articleSort )
-    // add dateStr
-    articles.forEach( $=>$.dateStr=grunt.template.date(new Date($.date), 'yyyy-mm-dd') )
+                           .map( _ => {    // add date strings
+                               _.ctimeStr = new Date(_.ctime).format('YYYY-MM-DD')
+                               _.mtimeStr = new Date(_.mtime).format('YYYY-MM-DD')
+                               return _
+                           } )
 
-    var html = swig.renderFile(indexTemplate, { articles: articles })
-    grunt.file.write(outputDir+'index.html', html)
+    write(
+        outputDir+'index.html',
+        swig.renderFile(indexTemplate, {
+            articles: articles
+        })
+    )
 
-    grunt.log.writeln(chalk.green(`indexed ${articles.length} posts`))
+    INFO(green('indexed '+articles.length+' posts'))
 }
 
 function checkConfig(opts, args) {
-    for (let i=1; i!==arguments.length; ++i) {
-        if ( !opts[arguments[i]] ) {
+    for (let i=1; i!==arguments.length; ++i)
+        if ( !opts[arguments[i]] )
             grunt.fatal(`${arguments[i]} not set`)
-            return false
-        }
-    }
-    return true
+    return opts
 }
 
-function getMTime(path) {
-    return statSync(path).mtime
-}
-
-function stripFilename(path) {
-    var name = basename(path)
-    return name.substr(0, name.length - extname(name).length)
-}
-
-function getLinkedResources(html) {
-    var m, r=[]
-    while ((m=linkedResourceRegex.exec(html))!==null) {
-        var rcName = m[1] || m[2]
-        r.push(rcName)
-    }
-    return r
-}
-
-function isBlogResouece(rc_url) {
-    return rc_url[0] !== '.' && rc_url.indexOf('//')===-1
-}
-
-/* return true:   same content
- *        false:  different content
- */
-function compareFile(src, dest) {
-    if (!grunt.file.exists(src)) {
-        grunt.log.writeln(chalk.yellow("  warn: ")+`${basename(src)} not found!`)
-        return true
-    }
-    if (!grunt.file.exists(dest)) return false
-    var bSrc  = grunt.file.read(src,  {encoding: null})
-    var bDest = grunt.file.read(dest, {encoding: null})
-    return Buffer.compare(bSrc, bDest) === 0
+function loadConfig() {
+    const opts = checkConfig(
+        config('blog'),
+        'outputDir', 'articleTemplate', 'indexTemplate', 'bloglist'
+    )
+    outputDir       = opts.outputDir
+    articleTemplate = opts.articleTemplate
+    indexTemplate   = opts.indexTemplate
+    bloglist        = opts.bloglist
+    files           = grunt.file.expand(opts.src || opts.files)
+    return opts
 }

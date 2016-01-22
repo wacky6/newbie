@@ -15,7 +15,7 @@
 <li class="post-entry {%- if m.featured %} featured {%- endif -%}" data-date="{{m.date}}" data-title="{{m.title|safe}}" data-keywords="{{m.keywords|join(', ')|safe}}">
 	<a title="{{m.description|safe}}" href="{{m.name}}/">
 	<h2>{{m.title}}</h2>
-	<span class="date">{{m.dateStr}}</span>
+	<span class="date">{{m.ctimeStr}}</span>
 	<p>{{m.brief|escape|replace('[\r\n]+', '<br>', 'g')|safe}}</p>
 	</a>
 </li>

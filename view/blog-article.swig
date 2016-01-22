@@ -1,7 +1,7 @@
 {%- extends "template.swig" -%}
 
 {%- block meta %}
-{% if norobot -%}
+{% if !robots -%}
 <meta name="robots" content="noindex, nofollow">
 {%- endif -%}
 <meta name="description" content="{{description|safe}}">
@@ -12,15 +12,14 @@
 {%- block head %}
 <link rel="stylesheet" href="/article.css">
 <link rel="stylesheet" href="/hljs-css/railscasts.css">
-{%- for _ in articleCss%}
-    <style> /* Article Embedded */
-        {{_|safe}}
-    </style>
+{%- for _ in bubbles%}
+<!--Embedded-->
+{{_|safe}}
 {% endfor %}
 {% endblock -%}
 
 {%- block body -%}
 <article>
-{{ article|safe }}
+{{ html|safe }}
 </article>
 {% endblock －%}

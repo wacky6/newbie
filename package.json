@@ -17,7 +17,14 @@
   "author": "wacky6",
   "license": "CC-BY-NC-ND-4.0",
   "dependencies": {
-    "bfm": "git://github.com/wacky6/bfm.git",
+    "autoprefixer": "^5.2.0",
+    "chalk": "^1.1.1",
+    "date-format-lite": "^0.7.4",
+    "flavor-marked": "^0.4.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-postcss": "^0.6.0",
     "is-generator-function": "^1.0.3",
     "koa": "^0.21.0",
     "koa-compress": "^1.0.8",
@@ -25,14 +32,10 @@
     "koa-helmet": "^1.0.0",
     "koa-static": "^1.4.9",
     "koa-swig": "^2.0.0",
+    "pipe-through": "^1.0.0",
+    "sax": "^1.1.4",
     "spdy": "^3.0.0",
     "swig": "^1.4.2",
-    "winston": "^2.1.1",
-    "autoprefixer": "^5.2.0",
-    "chalk": "^1.1.1",
-    "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.11.3",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-postcss": "^0.6.0"
+    "winston": "^2.1.1"
   }
 }

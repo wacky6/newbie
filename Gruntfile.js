@@ -40,7 +40,7 @@ module.exports = function(grunt){
         }
       },
       node: {
-        files: [{ expand:true, cwd: './', src: '*.js' }],
+        files: {src: ['*.js', 'lib/**/*.js']},
         options: {
           asi:    true,
           node:   true,
