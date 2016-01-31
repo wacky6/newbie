@@ -18,7 +18,11 @@
 <body>
 {% block nav -%}
   {%- include "nav.swig" -%}
+  <div class="menu-hint">
+      <i class="icon-menu"></i>
+  </div>
   <div class="banner">
+      <div class="placeholder"></div>
       <span>{{banner|default("Jw.Q")}}</span>
   </div>
 {%- endblock -%}

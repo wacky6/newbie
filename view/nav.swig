@@ -1,7 +1,6 @@
 {# nav bar for normal page #}
 
 <nav class="side left">
-    <i class="icon-menu hint"></i>
     <div class="valign">
         <a class="index" title="Homepage" rel="index" href="/">
             <i class="icon-home"></i>

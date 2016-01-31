@@ -22,33 +22,29 @@ Node.prototype.getComputed = Node_getComputed
 document.addEventListener('DOMContentLoaded', function(){
     /* pop out nav when clicked
      * retract nav when clicked other elements */
+    var hint = $('.menu-hint')
     var nav  = $('nav.side')
     var wrap = $('#content_wrapper')
     var body = $('body')
-    if (!nav) return;
+    var navActive = false
+    if (!nav || !hint) return;
     function setNav(enabled) {
         var fn = enabled ? 'add' : 'remove'
-        body.classList[fn]('mobile-no-scroll')
-        nav.classList[fn]('active')
-        wrap.classList[fn]('overlay')
+        return function() {
+            body.classList[fn]('mobile-no-scroll')
+            nav.classList[fn]('active')
+            wrap.classList[fn]('overlay')
+            navActive = enabled
+        }
     }
-    if ( !! nav ) {
-        nav._.events({
-            click: function(ev){
-                if ( isChildOf(ev.target, nav) )
-                    setNav(true)
-            }
-        })
-        wrap._.events({
-            click: function(ev){
-                if ( isChildOf(ev.target, wrap) )
-                    setNav(false)
-            }
-        })
+    function inNavOrHint(el) {
+        return isChildOf(el, nav) || isChildOf(el, hint)
     }
+    hint._.events({ click: setNav(true)  })
+    wrap._.events({ click: setNav(false) })
     body.addEventListener('touchstart', function(ev){
-        if ( isChildOf(ev.target, nav) && !nav.classList.contains('active') ) {
-            nav.dispatchEvent(new MouseEvent('click'))
+        if ( inNavOrHint(ev.target) && !navActive ) {
+            setNav(true)()
             if (ev.cancelable)
                 ev.preventDefault()
         }
@@ -58,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function(){
             ev.preventDefault()
     })
     body.addEventListener('touchend', function(ev){
-        if ( !isChildOf(ev.target, nav) && nav.classList.contains('active') ) {
-            wrap.dispatchEvent(new MouseEvent('click'))
+        if ( !inNavOrHint(ev.target) && navActive ) {
+            setNav(false)()
             if (ev.cancelable)
                 ev.preventDefault()
         }

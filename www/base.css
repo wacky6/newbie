@@ -67,6 +67,7 @@
 html {
     font-family: sans-thin, sans-serif;
     font-weight: 100;
+    overflow-x: hidden;
 }
 
 .tcenter {
@@ -168,68 +169,63 @@ div.banner {
     display: none;
 }
 
+.menu-hint {
+    position: fixed;
+    z-index:  1;
+    top:      0;
+    left:     0;
+    display:    inline-block;
+    box-sizing: content-box;;
+    height:     1em;
+    width:      1em;
+    padding:    .15em;
+    border-radius: 0 0 .3em 0;
+    font-size:   2rem;
+    line-height: 1;
+    text-align:  center;
+    cursor: pointer;
+    background-color: #373737;
+}
+
 /* nav / menu bar */
 nav.side {
-    position: fixed;
-    z-index:  3;
-    top:  0;
-    display:inline-block;
-    font-size: 1.4rem;
-    min-width: 20vw;
-    max-width: 85vw;
+    position:  fixed;
+    z-index:   3;
+    top:       0;
+    display:    inline-block;
     box-sizing: border-box;
-    background-color: #333;
-    box-shadow: 0 0 2rem 0 #000;
-    height:  3rem;
-    cursor:  pointer;
+    min-width:  20vw;
+    max-width:  85vw;
+    height:     100%;
+    overflow-x: hidden;
+    font-size:   1.4rem;
     font-family: sans, sans-serif;
     font-weight: 300;
-}
-nav.side .hint {
-    color: #aaa;
-    position: absolute;
-    top:    50%;
-    width:  2.6rem;
-    right:  0;
-    overflow: hidden;
-    transform: translate(0, -55%);
-    opacity: 1;
-    font-size: 2rem;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    color: #dddddd;
-}
-nav.side.active .hint, nav.side.test .hint {
-    visibility: hidden;
-    cursor: default;
-}
-nav.side.active {
-    height: 100vh;
-    cursor: default;
+    box-shadow: 0 0 3rem 0 #000;
+    transition: transform .3s;
+    background-color: #333;
 }
 nav.side.left {
-    left: 2.6rem;
+    left: 0;
     padding-top:    0;
     padding-bottom: 0;
-    padding-right:  2.6rem;
+    padding-right:  1em;
     padding-left:   1ch;
     transform: translate(-100%, 0);
-    border-radius: 0 0 .5rem 0;
 }
 nav.side.active.left {
-    transform: translate(-2.6rem, 0);
+    transform: translate(0, 0);
 }
 nav.side a {
     text-align:left;
     display: block;
     text-decoration: none;
-    padding: 0.5ex 1ch 0.5ex 0.5ch;
+    padding: 0.5ex 1ch 0.5ex .5ch;
     transition: background-color 0.5s;
 }
 nav.side a span {
     vertical-align: middle;
-    margin-left:    0.5ch
+    margin-left:    0.5ch;
 }
 nav.side a:hover {
     background-color: #111;
@@ -239,93 +235,73 @@ nav.side i{
 }
 nav .valign {
     position:relative;
-    top: 1in;
+    top:     4rem;
 }
 #content_wrapper::before {
     content: " ";
-    z-index:  2;
     position: fixed;
-    top:    0;
-    left:   0;
+    z-index:  2;
+    top:      0;
+    left:     0;
     height: 100%;
     width:  100%;
-    display: none;
+    opacity: 0.7;
     background-color: #000;
-}
-#content_wrapper.overlay {
-    filter: blur(2px);
+    display: none;
 }
 #content_wrapper.overlay::before {
     display: block;
-    opacity: 0.4;
 }
 
 @media (max-width: 9.5in) {
-    nav.side:not(.active) {
-        position: absolute;
-        top:  0;
-        left: 0;
-        z-index: auto;
-    }
-    nav.side.left {
-        border-radius: 0;
-    }
-    nav.side.active.left {
-        padding-right: 2rem;
-    }
     nav.side a {
-        margin: 0.3ex 0;
+        margin: 0.2em 0;
     }
     nav .valign {
         position:relative;
-        top: calc(50% - 0.65rem);
+        top: 50%;
         transform: translate(0, -50%);
     }
+    .menu-hint {
+        position: absolute;
+        border-radius: 0;
+    }
     div.banner {
-        display: table;
-        box-sizing: border-box;
-        width:   100%;
+        display:    table;
+        box-sizing: content-box;
+        width:      100%;
+        height:     1em;
+        line-height: 1em;
+        border-top:    .2em solid #000;
+        border-bottom: .1em solid hsl(43, 76%, 87%);  /* FSN Saber, Hair color */
         background-color: #111;
-        border-top:    .50em solid #111;
-        border-bottom: .13em solid hsl(43, 76%, 87%);  /* FSN Saber, Hair color */
+    }
+    div.banner .placeholder {   /* placeholder for menu-hint icon */
+        content: " ";
+        display: table-cell;
+        width:   1.3em;
     }
     div.banner span {
         display: table-cell;
         vertical-align: middle;
         padding-left: 2ch;
+        font-size:    70%;
         color: hsl(219, 100%, 60%);   /* FSN Saber, Armor Color, Lightened */
-        font-size: inherit;
     }
-    /* height-related value, scale by column */
-    div.banner       { height:     .8in; }
-    nav.side         { height:     .8in; }
-    nav.side .hint   { font-size:  .6in; }
-    nav.side a       { font-size:  2rem; }
-    div.banner       { font-size:  1.8rem; }
-    /* width-related value, scale by column */
-    div.banner           { padding-left:  .8in; }
-    nav.side.left        { padding-right: .8in; }
-    nav.side.left        { left:          .8in; }
-    nav.side .hint       { width:         .8in; }
-    nav.side.active.left { transform: translate(-0.8in, 0); }
+    nav.side   { min-width: 30vw;   }
+    nav.side   { font-size: 3.0rem; }
+    .menu-hint { font-size: 3.6rem; }
+    div.banner { font-size: 3.6rem; }
 }
 
 /* device-height is not reliable, equiv to 5in height */
 @media (max-width: 4in) and (orientation: portrait),
        (max-width: 6in) and (orientation: landscape)
 {
-    /* height-related value, scale by column */
-    div.banner       { height:     .5in; }
-    nav.side         { height:     .5in; }
-    nav.side .hint   { font-size:  .35in; }
-    nav.side a       { font-size:  1.6rem; }
-    div.banner       { font-size:  1.4rem; }
-    /* width-related value, scale by column */
-    div.banner           { padding-left:  .5in; }
-    nav.side.left        { padding-right: .5in; }
-    nav.side.left        { left:          .5in; }
-    nav.side .hint       { width:         .5in; }
-    nav.side.active.left { transform: translate(-0.5in, 0); }
+    nav.side   { min-width: 50vw;   }
+    nav.side   { font-size: 1.6rem; }
+    .menu-hint { font-size: 2.4rem; }
+    div.banner { font-size: 2.4rem; }
 }
 
 .webmaster-internal {
