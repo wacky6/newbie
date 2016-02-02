@@ -201,9 +201,11 @@ nav.side {
     font-size:   1.4rem;
     font-family: sans, sans-serif;
     font-weight: 300;
-    box-shadow: 0 0 3rem 0 #000;
     transition: transform .3s;
     background-color: #333;
+}
+nav.side.active {
+    box-shadow: 0 0 3rem 0 #000;
 }
 nav.side.left {
     left: 0;
