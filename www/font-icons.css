@@ -13,14 +13,12 @@
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .2em;
   text-align: center;
   vertical-align: middle;
 
   font-variant: normal;
   text-transform: none;
   line-height: 1em;
-  margin-left: .2em;
 }
 .icon-picture:before { content: '\e800'; } /* '' */
 .icon-menu:before { content: '\e801'; } /* '' */
