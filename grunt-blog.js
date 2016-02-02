@@ -78,7 +78,7 @@ function processArticle(file) {
     // process linked resources, print errors
     entry.resources.map( $ => ({
             rcFile: basename($.path),
-            result:   updateFile(join(dirname(dest), $.path), join(dirname(file), $.path))
+            result: updateFile(join(dirname(dest), $.path), join(dirname(file), $.path))
         })
     ).filter( $ => $.result===undefined )
      .forEach( rcFile => WARN(basename(file)+': '+blue('resource')+': '+red('NOENT')+' '+rcFile ) )

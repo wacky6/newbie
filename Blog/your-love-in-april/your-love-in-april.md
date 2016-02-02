@@ -4,9 +4,9 @@
         四月是你的谎言（四月は君の嘘）：真爱治愈系成长番，评分：4.8/5，强力推荐；
         I met the girl under full-bloomed cherry blossoms. and my fate has begun to change.
     brief: |
-        Rating: 4.8 / 5 -- 此生无悔入二次元
-        Your Lie in April. 四月是你最深情的告白。
+        Your Lie in April / 四月是你的谎言
         校园写实，治愈/泪奔向，成长/人生番，真爱番，友情番
+
         既然她不能在你的生命中停留，那就微笑着挥手道别，带上她的回忆和梦想。然后，心怀感激地向前走；她的生命永远停在了那个冬天，但她让我从今往后的生命如春天一样五彩缤纷。
     keywords: 四月是你的谎言, 治愈, 番剧, ACG, 评论
     tags:     动漫

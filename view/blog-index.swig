@@ -12,12 +12,16 @@
 {% endblock -%}
 
 {%- macro articleEntry(m) %}
-<li class="post-entry {%- if m.featured %} featured {%- endif -%}" data-date="{{m.date}}" data-title="{{m.title|safe}}" data-keywords="{{m.keywords|join(', ')|safe}}">
-	<a title="{{m.description|safe}}" href="{{m.name}}/">
-	<h2>{{m.title}}</h2>
-	<span class="date">{{m.ctimeStr}}</span>
-	<p>{{m.brief|escape|replace('[\r\n]+', '<br>', 'g')|safe}}</p>
-	</a>
+<li class="post-entry" itemscope itemid="{{m.name}}/" itemtype="http://schema.org/Blog">
+  <a href="{{m.name}}/" title="{{m.title}}" {%- if !m.robots -%} nofollow {%- endif %}>
+    <div class="title-line">
+        <h2 itemprop="headline">{{m.title}}</h2>
+        <time class="ctime" itemprop="dateCreated" datetime="{{m.ctime.toISOString()}}">{{m.ctimeStr}}</time>
+    </div>
+    <meta class="tag" content="{{m.tags}}" />
+    <meta class="mtime" itemprop="dateModified" content="{{m.mtime.toISOString()}}" />
+    <div class="brief" itemprop="description">{{m.briefHTML|safe}}</div>
+  </a>
 </li>
 {% endmacro -%}
 
@@ -27,9 +31,13 @@
 	<h1>Blog Posts</h1>
 </header>
 <ul class='post-list'>
-{%- for _ in articles -%}
-	{{- articleEntry(_) -}}
+{%- for $ in articles -%}
+	{{- articleEntry($) -}}
 {% endfor %}
 </ul>
 </article>
+
+<div class="menu">
+
+</div>
 {% endblock -%}
