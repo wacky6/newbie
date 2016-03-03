@@ -20,7 +20,6 @@ module.exports = function() {
         if (!m) return
         var dest = outputDir+m[1]
         grunt.log.writeln(`render static: ${file} => ${m[1]}`)
-        var html = swig.renderFile(file)
-        grunt.file.write(dest, html)
+        grunt.file.write(dest, swig.renderFile(file))
     })
 }

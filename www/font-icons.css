@@ -14,11 +14,14 @@
   text-decoration: inherit;
   width: 1em;
   text-align: center;
-  vertical-align: middle;
+  vertical-align: baseline;
 
   font-variant: normal;
   text-transform: none;
   line-height: 1em;
+
+  margin-left:  .2em;
+  margin-right: .2em;
 }
 .icon-picture:before { content: '\e800'; } /* '' */
 .icon-menu:before { content: '\e801'; } /* '' */

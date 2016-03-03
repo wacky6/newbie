@@ -19,7 +19,7 @@
 {% endblock -%}
 
 {%- block body -%}
-<article>
+<article role="article">
 {{ html|safe }}
 </article>
 {% endblock －%}

@@ -17,6 +17,11 @@ window.prependQZoneShareLink = prependQZoneShareLink
 
 window.isChildOf = isChildOf
 
+window.getHash = getHash
+window.setHash = setHash
+
+window.initDropdown = initDropdown
+
 Node.prototype.getComputed = Node_getComputed
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -114,6 +119,35 @@ function prependQZoneShareLink() {
         }),
         $('article')
     )
+}
+
+function setHash(str, newState) {
+    var method = newState ? 'pushState' : 'replaceState'
+    if (str==='#' || str==='' || str===null || str===undefined)
+        str = location.href.substring(0, location.href.search(/#|$/))
+    window.history[method]({}, document.title, str)
+}
+
+function getHash() {
+    return decodeURIComponent(window.location.hash)
+}
+
+function initDropdown(container) {
+    var toggleHint = $('.toggle-hint', container)
+    function toggleExpandedState() {
+        var state = container.getAttribute('aria-expanded')
+        if (state === 'false')
+            state = 'true'
+        else
+            state = 'false'
+        container.setAttribute('aria-expanded', state)
+        return state==='true' ? true : false
+    }
+    toggleHint._.events({
+        click: function(){
+            toggleExpandedState()
+        }
+    })
 }
 
 })();

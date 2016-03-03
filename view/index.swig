@@ -20,7 +20,7 @@
 
 {%- block body -%}
 <div id="menu_wrap" class="menu fadein">
-<header>
+<header role="banner">
 <h1 class="edged">Hey!<br />Jw.Q is here.</h1>
 </header>
 <nav>

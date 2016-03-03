@@ -5,6 +5,7 @@ let createSecureContext = require('tls').createSecureContext
 let readFileSync = require('fs').readFileSync
 let resolve = require('path').resolve
 let chalk = require('chalk')
+let winston = require('winston')
 
 
 // create base parsedConf

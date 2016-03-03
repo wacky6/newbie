@@ -12,20 +12,25 @@
 <script src="/common.js"></script>
 <link rel="icon" href="/favicon.png">
 <link rel="stylesheet" href="/font-icons.css">
-{% block head  -%}
+{% block head -%}
 {%- endblock %}
 </head>
+
+
 <body>
 {% block nav -%}
-  {%- include "nav.swig" -%}
-  <div class="menu-hint">
-      <i class="icon-menu"></i>
-  </div>
-  <div class="banner">
-      <div class="placeholder"></div>
-      <span>{{banner|default("Jw.Q")}}</span>
-  </div>
+
+{%- include "nav.swig" -%}
+<div class="menu-hint icon-menu" role="button"></div>
+<div class="banner" role="banner">
+    <div class="placeholder"></div>
+    <span>{{banner|default("Jw.Q")}}</span>
+</div>
 {%- endblock -%}
+
+{% block overlay -%}
+{%- endblock %}
+
 <div id="content_wrapper">
 {% block body -%}
 {%- endblock -%}
@@ -33,7 +38,8 @@
 <footer class="copyright">
   <a href="https://github.com/wacky6">jwQ, (C) 2014-2016, CC BY-NC-SA-4.0</a>
 </footer>
-{%- if google_analytics %}
+
+{% if google_analytics -%}
 <!-- Google Analytics -->
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -42,6 +48,9 @@ ga('send', 'pageview');
 </script>
 <script async src='//www.google-analytics.com/analytics.js'></script>
 <!-- End Google Analytics -->
-{% endif -%}
+{%- endif %}
+
 </body>
+
+
 </html>
