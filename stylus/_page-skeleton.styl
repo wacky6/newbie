@@ -1,0 +1,64 @@
+@require "_color-palette.styl"
+@require "_constants.styl"
+
+@viewport
+    width: devide-width
+    user-scalable: no
+
+html
+    font-family: "PingFang SC",
+                 "Hiragino Sans GB",
+                 "WenQuanYi Micro Hei",
+                 "文泉驿微米黑",
+                 "WenQuanYi Zen Hei",
+                 "文泉驿正黑",
+                 "SimSun",
+                 "宋体";
+    font-weight: 300
+    overflow-x: hidden
+    margin:  0
+    padding: 0
+    line-height: $line-height
+    color: $color.grey.lighten-2
+    background-color: $color.black.normal
+
+body
+    margin: 0
+
+footer
+    margin-top: 5em
+    width:    92%
+    padding:  .2em ((100%-@width)/2) 0 ((100%-@width)/2)
+    background-color: $color.grey.darken-4
+    font-family: "Courier New", "宋体", "SimSun", monospace
+    font-weight: 100
+    font-size:   1rem
+
+    .copyright
+        font-size:   .75em
+        line-height: 1
+        padding-top: .2em
+        display:     block
+        text-align:  center
+        text-decoration: none
+        background-color: $color.grey.darken-3
+
+a, a:visited
+    color: inherit
+
+h1
+    color: $color.grey.lighten-5
+h2, h3
+    color: $color.grey.lighten-4
+
+@media print
+    html
+        color: $color.black.normal !important
+        background-color: $color.white.normal !important
+        body
+            header
+                display: none !important
+    h1
+        color: $color.grey.darken-4 !important
+    h2,h3
+        color: $color.grey.darken-3 !important

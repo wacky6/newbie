@@ -1,0 +1,97 @@
+@require "_page-skeleton.styl"
+@require "_nav.styl"
+
+#suki-desu
+    color: $color.blue.lighten-3 !important
+    &:hover, &:active, &[aria-pressed="true"]
+        color: $color.blue.lighten-2 !important
+
+#not-be-found
+    h3
+        font-size: 2rem
+
+// for mobile
+body
+    position: fixed
+    top: 0
+    width: 100%
+    height: "calc( 100% - %s )" % $footer-reserved-height
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: stretch
+    flex-wrap: nowrap
+footer
+    position: fixed
+    z-index:  99
+    bottom:   0
+    left:     0
+    margin-top: 0
+header
+    order: 2
+    .banner
+        font-size: 1.6em
+        margin-bottom: .5em
+        margin-top:    0
+        display: none
+        text-align: center
+    nav
+        max-width: 20ch
+        margin:  0 auto
+        *, *:visited
+            display: block
+            line-height: 2
+            color: $color.grey.lighten-2
+            &:hover
+                color: $color.white.normal
+.carousal
+    position: relative
+    order: 1
+    max-height: 66.67vw
+    flex-grow: 1
+    margin-bottom: 1em
+    .content
+        display: flex
+        justify-content: center
+        align-items: center
+        position: absolute
+        top:    0
+        bottom: 0
+        left:   0
+        right:  0
+        transition: opacity 1s
+        &[aria-hidden="true"]
+            opacity: 0
+        &[aria-hidden="false"]
+            opacity: 1
+        img
+            width:  100%
+            height: auto
+
+@media screen and (min-width: 768px)
+    header
+        .banner
+            display: block
+
+@media screen and (orientation: landscape)
+    body
+        flex-direction: row
+        justify-content: space-around
+        align-items: center
+    header
+        order: 1
+        .banner
+            display: block
+            text-align: left
+        a
+            text-align: left
+    .carousal
+        order: 2
+        max-height: none
+        align-self: stretch
+        .content
+            display: flex
+
+@media screen and (max-height: 720px)
+    header
+        font-size: 1rem

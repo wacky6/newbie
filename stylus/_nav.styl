@@ -1,0 +1,41 @@
+@require "_color-palette.styl"
+
+header
+    font-size: 1.2rem
+    .banner, .banner:visited
+        color:   $color.amber.lighten-3
+        padding: 0
+        &:hover, &:active, &[aria-pressed="true"]
+            color: $color.amber.lighten-4 !important
+            background-color: inherit !important
+    a, a:visited
+        cursor: pointer
+        text-align: center
+        text-decoration: none
+        padding: 0 .5em
+        color: $color.grey.normal
+        &:hover
+            color: $color.grey.lighten-2
+            background-color: $color.grey.darken-4
+        &:active, &[aria-pressed="true"]
+            color: $color.white.normal
+            background-color: $color.grey.darken-4
+
+
+@media screen and (min-width: 768px)
+    header
+        font-size: 1.4rem
+        a
+            padding: 0 1em
+
+@media screen and (orientation: landscape)
+    header
+        padding: 0 2ch
+        a
+            transition: background-color .5s, color .5s
+
+@media screen and (min-width: 1024px)
+    header
+        font-size: 1.5rem
+        a
+            margin: .5em 0

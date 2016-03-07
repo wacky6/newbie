@@ -5,40 +5,53 @@ var blogBin  = wwwBin+'Blog/'
 var blogList = blogBin+'list.json'
 var relative = require('path').relative
 
+var postcss = () => require('poststylus')([
+    require('autoprefixer')({browsers: '> 5%, last 2 versions'})
+])
+
 module.exports = function(grunt){
 
   grunt.initConfig({
     views: {
-      files:     'view/**/*.swig',
+      files:     'view/**/*.tmpl',
       outputDir: wwwBin
     },
     blog: {   // configuration for blog related tasks!
       files:          'Blog/**/*.md',
       bloglist:        blogList,
-      articleTemplate: 'view/blog-article.swig',
-      indexTemplate:   'view/blog-index.swig',
+      articleTemplate: 'view/blog-article.tmpl',
+      indexTemplate:   'view/blog-index.tmpl',
       outputDir:       blogBin
     },
-    postcss: {
-      options: {
-        processors: [
-          require('autoprefixer')({browsers: '> 5%, last 2 versions'})
-        ]
+    stylus: {
+      options: { compress: false, use: [postcss] },
+      index: {
+        files: {[wwwBin+'index.css']: "stylus/index.styl"}
       },
+      base: {
+        files: {[wwwBin+'base.css']:  "stylus/base.styl"}
+      },
+      about: {
+        files: {[wwwBin+'About/about.css']:  "stylus/about.styl"}
+      }
+    },
+    embed: {
       all: {
-        files: [{ expand:true, cwd: 'www/', src: '**/*.css', dest: wwwBin }]
+        options: { threshold: 0 },
+        files: [{ expand:true, cwd: wwwBin, src: ['**/*.html'], dest: wwwBin }]
+      }
+    },
+    babel: {
+      webjs: {
+        options: {
+            sourceMap: true,
+            presets: ['es2015'],
+            plugins:[]
+        },
+        files: [{ expand:true, cwd: 'www/', src: ['**/*.js', '!*.min.js'], dest: wwwBin }]
       }
     },
     jshint: {
-      web: {
-        files: [{ expand:true, cwd: 'www/', src: ['**/*.js', '!bliss.min.js'] }],
-        options: {
-          asi:     true,
-          browser: true,
-          globalstrict: true,
-          predef:  [ "$", "$$" ]
-        }
-      },
       node: {
         files: {src: ['*.js', 'lib/**/*.js']},
         options: {
@@ -51,72 +64,81 @@ module.exports = function(grunt){
       }
     },
     watch: {
-      css: {
-        files: ['www/**/*.css'],
-        tasks: ['postcss'],
-        options: {spawn: false, event: ['added', 'changed']}
+      options: {spawn: false, event: ['added', 'changed']},
+      stylus: {
+        files: ['stylus/{page-skeleton,color-palette,nav}.styl'],
+        tasks: ['stylus']
+      },
+      stylusCommon: {
+          files: ['stylus/_*.styl'],
+          tasks: ['stylus']
+      },
+      stylusIndex: {
+          files: ['stylus/index.styl'],
+          tasks: ['stylus:index']
+      },
+      stylusBase: {
+          files: ['stylus/base.styl'],
+          tasks: ['stylus:base']
+      },
+      stylusAbout: {
+          files: ['stylus/about.styl'],
+          tasks: ['stylus:about']
       },
       node: {
         files: ['*.js'],
-        tasks: ['jshint:node'],
-        options: {spawn: false, event: ['added', 'changed']}
+        tasks: ['jshint:node']
       },
       webjs: {
-        files: ['www/**/*/js'],
-        tasks: ['jshint:web'],
-        options: {spawn: false, event: ['added', 'changed']}
+        files: ['www/**/*.js'],
+        tasks: ['babel:webjs']
       },
       blog: {
         files: ['Blog/**/*.md'],
-        tasks: ['blog'],
-        options: {spawn: false, event: ['added', 'changed']}
+        tasks: ['blog']
       },
       views: {
-        files: ['view/*.swig', '!view/{template, nav}.swig', '!view/{blog-article, blog-index}.swig'],
-        tasks: ['views'],
-        options: {spawn: false, event: ['added', 'changed']}
+        files: ['view/*.tmpl', '!view/{template, nav}.tmpl', '!view/{blog-article, blog-index}.tmpl'],
+        tasks: ['views']
       },
       blog_template: {
-        files: ['view/blog-{article, index}.swig'],
-        tasks: ['blog'],
-        options: {spawn: false, event: ['added', 'changed']}
+        files: ['view/blog-{article, index}.tmpl'],
+        tasks: ['blog']
       },
       template: {
-        files: ['view/{template, nav}.swig'],
-        tasks: ['blog', 'views'],
-        options: {spawn: false, event: ['added', 'changed']}
+        files: ['view/common-*.tmpl', 'view/nav.tmpl'],
+        tasks: ['blog', 'views']
       }
     }
   })
 
   grunt.loadNpmTasks('grunt-postcss')
   grunt.loadNpmTasks('grunt-contrib-jshint')
+  grunt.loadNpmTasks('grunt-contrib-stylus')
+  grunt.loadNpmTasks('grunt-babel')
+  grunt.loadNpmTasks('grunt-embed')
+  grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.registerTask('blog', require('./grunt-blog') )
   grunt.registerTask('views', require('./grunt-views') )
   grunt.registerTask('clean', ()=>grunt.file.delete(wwwBin) )
 
   grunt.registerTask('deploy', 'Deploy to server', [
     'clean',
-    'postcss',
+    'stylus',
+    'babel',
     'views',
     'blog',
     'jshint'
   ])
 
 
-  grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.event.on('watch', function(action, path, target){
     switch (target) {
     case 'node':
       grunt.config.set('jshint.node.src', path)
     break
     case 'webjs':
-      grunt.config.set('jshint.web.src', path)
-    break
-    case 'css':
-      grunt.config.set('postcss.all.files', undefined)
-      grunt.config.set('postcss.all.src', path)
-      grunt.config.set('postcss.all.dest', wwwBin+relative('www/', path))
+      grunt.config.set('babel.dist.src', path)
     break
     case 'blog':
       grunt.config.set('blog.src', path)

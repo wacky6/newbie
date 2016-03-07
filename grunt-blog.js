@@ -47,7 +47,7 @@ module.exports = function blog(){
 
     // update bloglist, blog-index, if necessary
     let strBlogList = JSON.stringify(strip(blogList), null, '  ')
-    let updateIndex = !exists(bloglist) || read(bloglist)!==strBlogList
+    let updateIndex = !exists(bloglist) || read(bloglist)!==strBlogList || config('blog').src===null
     if (updateIndex) {
         write(bloglist, strBlogList)
         renderIndex(blogList)

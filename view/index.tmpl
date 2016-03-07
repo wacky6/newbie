@@ -1,0 +1,45 @@
+{# static, index.html #}
+<!DOCTYPE html>
+<html>
+
+<head>
+{% include "common-meta.tmpl" %}
+<meta name="description" content="Jiewei Qian / wacky6: college student. Tech-savvy, Anime Game Otaku; Infant Developer;">
+<meta name="keywords" content="Jiewei Qian, wacky6, homepage, 主页">
+<title>Jiewei Qian: Tech-savvy, Anime &amp; Game Otaku</title>
+<link rel="icon" href="/favicon.png">
+<link rel="dns-prefetch" href="http://gallery.std-aries.xyz">
+<link rel="prefetch" href="/base.css">
+<link rel="prefetch" href="/font-icons.css">
+<link rel="prefetch" href="/bliss.min.js">
+<link rel="prefetch" href="/common-ng.js">
+<link rel="stylesheet" href="index.css" data-embed>
+</head>
+
+<body>
+
+<header role="main">
+    <h1 class="banner">Jw.Q's</h1>
+    <nav role="navigation">
+        <a title="Blog" href="/Blog/">Blog</a>
+        <a title="My gallery @ Lofter" rel="external" href="http://gallery.std-aries.xyz">Gallery</a>
+        <a title="About me, About this site" href="/About/">Intro.</a>
+        <a id="suki-desu" role="button" aria-pressed="false">❤︎君が好きです</a>
+    </nav>
+</header>
+<div class="carousal" role="complementary">
+    <div class="content" aria-hidden="false">
+        <img alt="Silhouette of me. Photo courtesy of Lingjie Kong." src="/index/bg1.jpg"></img>
+    </div>
+    <div class="content" id="not-be-found" aria-hidden="true">
+        <h3>Not.Be.Found</h3>
+    </div>
+</div>
+
+{% include "copyright-footer.tmpl" %}
+<script src="index.js" data-embed></script>
+{% include "google-analytics.tmpl" %}
+
+</body>
+
+</html>

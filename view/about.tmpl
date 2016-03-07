@@ -1,15 +1,176 @@
 {# static, About/index.html #}
-{%- extends "template.swig" -%}
+<!DOCTYPE html>
+<html>
 
-{%- block meta %}
-<meta name="description" content="Jiewei Qian, student at NJUPT; Tech-savvy, Anime &amp; Game Otaku; used ID includes: wacky6, std::weak">
+<head>
+{% include "common-meta.tmpl" %}
+<meta name="description" content="Jiewei Qian, student at NJUPT; Tech-savvy, Anime &amp; Game Otaku, Infant Developer; used ID includes: wacky6, std::weak">
 <meta name="keywords" content="Jiewei Qian, wacky6, about, 关于">
 <title>About | Jw.Q</title>
-{% endblock -%}
+{% include "common-head.tmpl" %}
+<link rel="stylesheet" href="about.css" data-embed>
+<script>window.setCurrentNavItem('intro')</script>
+</head>
 
-{%- block head %}
-<link rel="stylesheet" href="/article.css">
-<link rel="stylesheet" href="./about.css">
+<body>
+
+{% include "nav.tmpl" %}
+
+<div role="main" class="main">
+<article>
+    <h1>About Me</h1>
+    <section class="bio">
+    <p>
+        My name is <span style="text-decoration: underline; color:#ffcb82;">Jiewei Qian</span>. <br>
+        Born in April 1995, a <span style="color:#84dcff;">college student</span> @NJUPT<br>
+        Sometime a <strong style="color:#dd94ff;">{Perfectionist, Paranoid}</strong> <br>
+        <strong style="color:#71ff96;">Gadget Lover</strong> <br>
+        Ocassionally <span style="color:#ffee58;">shoot photos</span>, <strong style="color:#05c0ff;">PS addictive</strong> <br>
+        <strong style="color:#39ffb7;">Game</strong>, <strong style="color:#f4b8ff;">Anime</strong>, <strong style="color:#88acff">Technology</strong> Otaku<br>
+        Product of <strong style="color:#84dcff;">Nanjing, China</strong> <br>
+        Alias: <strong style="color:#b9f6ca;">std::weak</strong>, <strong style="color:#ccff90;">wacky6</strong> (pre-2013).
+    </p>
+    </section>
+
+    <scetion class="site">
+        <h2>Website</h2>
+        <p>
+            <strong style="color:#ffab40;">Purely for Fun</strong> <br>
+            Learn node.js &amp; Web technology along the way. <br>
+            Outdated stuff are never supported.
+        </p>
+        <p>
+            <strong style="color:#40c4ff;">Concise and Semantically meaningful HTML</strong><br>
+            Frameworks like bootstrap are superb for fast-prototyping, but produce lots of structural "garbage".
+        </p>
+        <p>
+            <strong style="color:#64ffda;">Hand-written</strong><br>
+            Served by a single node.js process.<br>
+            Powered by my <a href="/Blog/it-works/">Newbie Generator</a>. <br>
+            Managed through <code>git push</code>.<br>
+            JS-free responsive design.<br>
+            No database involved.
+        </p>
+    </section>
+
+    <hr>
+
+    <section class="edu">
+        <h2>Education</h2>
+        <ol class="timeline">
+            <li>
+                <div class="location">Nanjing University of Post and Telecommunications</div>
+                <div class="title">Software Engineering</div>
+                <div class="time">
+                    <time datetime="2013-09-01">Sep 1, 2013</time> - <time datetime="2017-06-01">June 1, 2017</time>
+                </div>
+            </li>
+            <li>
+                <div class="location">Nanjing University</div>
+                <div class="title">Exchange Student</div>
+                <div class="time">
+                    <time datetime="2014-09-01">Sep 1, 2014</time> - <time datetime="2015-02-01">Feb 1, 2015</time>
+                </div>
+            </li>
+            <li>
+                <div class="location">High School Affiliated to Nanjing Normal University</div>
+                <div class="title"></div>
+                <div class="time">
+                    <time datetime="2010-09-01">Sep 1, 2010</time> - <time datetime="2013-06-01">June 1, 2013</time>
+                </div>
+            </li>
+        </ol>
+    </sction>
+
+    <section class="work">
+        <h2>Work</h2>
+        <ol class="timeline">
+            <li>
+                <div class="entitiy">Smart Home Middleware (ongoing)</div>
+                <div class="title">Project Manager / Developer</div>
+                <div class="title">Provincial "Internet+" Innovation Project</div>
+                <div class="time">
+                    <time datetime="2015-12-01">Dec, 2015</time> - <time datetime="2016-06-01">Jun, 2016</time>
+                </div>
+                <div class="desc">
+                    Utilize ES6 &amp; Web technologies to control IoT devices in a centralized, secured, configurable way.
+                </div>
+            </li>
+            <li>
+                <div class="entity">Fundamental Computer Knowledge Contest</div>
+                <div class="title">Contest Designer</div>
+                <div class="time">
+                    <time datetime="2015-04-01">2015</time>, NJUPT
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <section class="honor">
+        <h2>Honors</h2>
+        <ol class="timeline">
+            <li>
+                <div class="entity">Bomber-man AI Contest</div>
+                <div class="title">First Prize, Rank 1st</div>
+                <div class="time">
+                    <time datetime="2015-12-01">2015</time>, Play.CN
+                </div>
+            </li>
+            <li>
+                <div class="entity">JSC Capture The Flag</div>
+                <div class="title">Team, Rank 3rd</div>
+                <div class="time">
+                    <time datetime="2015-11-01">2015</time>, China JSC
+                </div>
+            </li>
+            <li>
+                <div class="entity">Collegiate Chinese-English Translation Contest</div>
+                <div class="title">Second Prize</div>
+                <div class="time">
+                    <time datetime="2014-12-01">2014</time>, NJUPT
+                </div>
+            </li>
+            <li>
+                <div class="entity">National Scholarship</div>
+                <div class="time">
+                    <time datetime="2014-11-01">2014</time>, NJUPT
+                </div>
+            </li>
+            <li>
+                <div class="entity">Canon(China) Photography Contest</div>
+                <div class="title">Professional Group, Honorable Mention</div>
+                <div class="time">
+                    <time datetime="2013-12-01">2013</time>
+                </div>
+            </li>
+            <li>
+                <div class="entity">National Olympaid in Informatics in Provinces</div>
+                <div class="title">Second Prize</div>
+                <div class="time">
+                    <time datetime="2012-11-01">2012</time>, China Computer Federation
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <section class="contact">
+        <h2>Find me</h2>
+        <ul class="contact-list">
+            <li class="icon-github-circled"><a title="wacky6 @ github" href="https://github.com/wacky6">wacky6</a></li>
+            <li class="icon-steam"><a title="std::weak @ steam" href="https://github.com/wacky6">std::weak</a></li>
+            <li class="icon-wechat"><a title="std-weak @ wechat">std-weak</a></li>
+            <li class="icon-renren"><a title="Jw.Q @ Renren" href="http://www.renren.com/335657284">Jiewei Qian</a></li>
+            <li class="icon-mail-alt"><a title="wacky6@qq.com" href="mailto: wacky6@qq.com">wacky6@qq.com</a></li>
+        </ul>
+    </section>
+
+</article>
+
+</div>
+
+
+{% include "copyright-footer.tmpl" %}
+{% include "google-analytics.tmpl" %}
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -56,25 +217,18 @@
   }
 }
 </script>
-{%- endblock -%}
+
+</body>
+
+</html>
+
+<!--
 {%- block body -%}
 <article>
 <header>
 <h1>About Me</h1>
 </header>
-<section class="bio">
-<h2>Simple Facts</h2>
-<p>
-My name is <span style="text-decoration: underline">Jiewei Qian</span>. <br>
-1995.4 born <strong style="color:#84dcff">@Aries</strong>, a college student @NJUPT<br>
-Sometime <strong style="color:#dd94ff">{Perfectionist, Paranoid}</strong> <br>
-<strong style="color:#71ff96">Gadget Lover</strong> <br>
-Ocassionally shoot photos, <strong style="color:#05c0ff">PS addictive</strong> <br>
-<strong style="color:#ffd605">Single</strong>, and <strong style="color:#ff261c">can't</strong> find girlfirend <br>
-<strong style="color:#39ffb7">Game</strong>, <strong style="color:#f4b8ff">Anime</strong>, <strong style="color:#88acff">Technology</strong> (Partial OTAKU) <br>
-Made in <strong style="color:#84dcff">Nanjing, China</strong> <br>
-</p>
-</section>
+
 <section class="edu" id="sec_edu">
 <h2>Education &amp; Experience</h2>
 
@@ -249,3 +403,5 @@ function injectGradualFadeInDelay() {
 window.addEventListener('DOMContentLoaded', injectGradualFadeInDelay);
 </script>
 {%- endblock -%}
+
+-->

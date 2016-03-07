@@ -1,0 +1,90 @@
+@require '_color-palette.styl'
+@require "_constants.styl"
+
+$tl-node-radius = .25em
+$tl-node-horz-margin = .25em
+$tl-node-border-width = .25em
+$tl-stem-width = .04em
+
+h2
+    margin: 1.5em 0 .5em 0
+
+strong, b
+    color: $color.white.normal
+
+.timeline
+    margin-top:  0
+    list-style-type: none
+    padding: 0
+    li, .entry
+        position: relative
+        margin:  0 1em
+        border-left: $tl-stem-width solid $color.green.accent-1
+        $vert-padding = .75em
+        padding: $vert-padding 1em
+        &:hover
+            &:before
+                border-radius: 0
+                transform: scale(1.2, 1.2) rotate(45deg)
+        &:before
+            position: absolute
+            top: $vert-padding
+            left: "-%s" % ($tl-node-horz-margin + $tl-node-border-width + $tl-node-radius + $tl-stem-width/2)
+            content: " "
+            width:   $tl-node-radius * 2
+            height:  $tl-node-radius * 2
+            $targ-height = $line-height * 1em
+            $half-height = $tl-node-radius + $tl-node-border-width
+            margin:  (($targ-height - 2*$half-height)/2) $tl-node-horz-margin
+            border-radius: $tl-node-radius + $tl-node-border-width
+            border: $tl-node-border-width solid #000
+            background-color: $color.red.accent-2
+            vertical-align: middle
+            transform: rotate(45deg)
+            transition: transform .5s, border-radius .5s
+        .location, .entity
+            font-size: 1em
+        .title
+            font-size: .8em
+            opacity: .8
+        .desc
+            font-size: .8em
+        .time
+            font-size: .75em
+            opacity: .8
+
+
+.contact-list
+    list-style: none
+    padding: 0
+    font-size: 1.5em
+    li
+        &:before
+            margin-right: .5em
+            opacity: .75
+        a
+            text-decoration: none
+
+@media screen and (min-width: 768px)
+    .timeline
+        li, .entry
+            padding: 1em 1em
+    .contact-list
+        li
+            &:hover
+                color: $color.light-blue.accent-2
+                a, a:visited, &:before
+                    color: inherit
+                    transition: color .5s
+
+@media screen and (min-width: 1024px)
+    .timeline
+        li, .entry
+            padding: 1em 1em
+
+@media print
+    .timeline
+        li, .entry
+            border-left: none
+            &:before
+                display: none
