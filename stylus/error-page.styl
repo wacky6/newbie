@@ -1,0 +1,41 @@
+@require "_constants.styl"
+
+body
+    margin-top: 0
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    min-height: "calc(100vh - %s)" % $footer-reserved-height
+    margin-bottom: $footer-reserved-height
+    footer
+        display: block
+        position: fixed
+        z-index:  99
+        bottom:   0
+        left:     0
+        margin-top: 0
+
+article
+    text-align: center
+    h2
+        margin 1em auto
+    p
+        margin: 1em 0
+    hr
+        margin: 2em 0
+    a
+        text-decoration: none
+
+@media screen and (min-width: $px-tablet)
+    html
+        font-size: 133%
+
+@media screen and (min-width: $px-desktop)
+    html
+        font-size: 167%
+    body
+        .main
+            margin-right: 0
+            flex-grow: initial
+            align-self: initial

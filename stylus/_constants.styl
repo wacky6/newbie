@@ -1,2 +1,32 @@
+@require "_color-palette.styl"
+
 $footer-reserved-height = 1.6rem
 $line-height = 1.67
+$bg-alpha = 0.7
+$text-color = $color.gray.lighten-4
+
+$px-small   = 480px
+$px-medium  = 640px
+$px-tablet  = 768px
+$px-desktop = 1024px
+$px-large   = 1440px
+$px-height-small = 640px
+
+alpha($color, $a)
+    rgba(red($color), green($color), blue($color), $a)
+
+margin-horz($val)
+    margin-left:  $val
+    margin-right: $val
+
+margin-vert($val)
+    margin-top: $val
+    margin-bottom: $val
+
+padding-horz($val)
+    padding-left: $val
+    padding-right: $val
+
+padding-vert($val)
+    padding-top: $val
+    padding-bottom: $val

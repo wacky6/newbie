@@ -50,45 +50,10 @@
 }
 </script>
 
-<style>
-article img {
-    display: block;
-    max-width: 80%;
-    margin: 0 auto;
-}
-@media (max-width: 10in) {
-    article img {
-        max-width: 90%;
-    }
-}
-@media (max-width: 7in), handheld and (orientation: portrait) {
-    article img {
-        max-width: calc(100%);
-        width:     100%;
-        box-sizing: border-box;
-    }
-}
-article {
-    line-height: 1.67; /* chinese article */
-}
-article em {
-    color: inherit;
-    text-decoration: underline;
-    font-weight: inherit;
-}
-article strong {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bolder;
-}
-article blockquote {
-    background-color: #2c2c2c;
-    font-family:      serif;
-}
-</style>
-
 四月是你最深情的告白
 ===
+
+[](< .subtitle >)
 ## 四月は君の嘘 / 四月是你的谎言
 
 ## tl;dr
@@ -101,6 +66,7 @@ article blockquote {
 
 个人评价： **4.8** / 5  --  此生无悔入二次元
 
+[](< .headless .fill>)
 |     |      |                                       |
 |-----|------|---------------------------------------|
 | 画风 |**4** | 主角相关细节非常精细，但次要场景稍简陋      |    

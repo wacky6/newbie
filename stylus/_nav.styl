@@ -9,22 +9,23 @@ header
             color: $color.amber.lighten-4 !important
             background-color: inherit !important
     a, a:visited
+        white-space: nowrap
         cursor: pointer
         text-align: center
         text-decoration: none
         padding: 0 .5em
-        color: $color.grey.normal
+        color: $color.gray.normal
         &:hover
-            color: $color.grey.lighten-2
-            background-color: $color.grey.darken-4
+            color: $color.gray.lighten-2
+            background-color: $color.gray.darken-4
         &:active, &[aria-pressed="true"]
             color: $color.white.normal
-            background-color: $color.grey.darken-4
+            background-color: $color.gray.darken-4
 
 
-@media screen and (min-width: 768px)
+@media screen and (min-width: $px-tablet)
     header
-        font-size: 1.4rem
+        font-size: 1.4em
         a
             padding: 0 1em
 
@@ -34,8 +35,8 @@ header
         a
             transition: background-color .5s, color .5s
 
-@media screen and (min-width: 1024px)
+@media screen and (min-width: $px-desktop)
     header
-        font-size: 1.5rem
+        font-size: 1.6em
         a
             margin: .5em 0

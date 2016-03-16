@@ -6,7 +6,7 @@
         补番推荐：刀剑神域；
     brief:   |
         补番日志，评价与OST推荐
-        
+
         完结推荐：(4.8/5) 四月是你的谎言
         补番推荐：(4.5/5) 刀剑神域1/2
     keywords:    动漫, 番剧, 评价, bangumi, review, ACG
@@ -45,6 +45,7 @@ article {
 article ul {
    display: block;
    background-color: inherit;
+   margin: 1em 0;
 }
 article ul li {
 	display: inline-block;
@@ -55,27 +56,8 @@ article ul li {
 	line-height: 1.3;
 	margin:  0 1ex;
 }
-article em{
-	color: inherit;
-	text-decoration: underline;
-	font-weight: inherit;
-}
 article strong {
 	color: #fff;
-	font-weight: bolder;
-	text-decoration: none;
-}
-@media (max-width: 10in) {
-    article img {
-        max-width: 90%;
-    }
-}
-@media (max-width: 7in), handheld and (orientation: portrait) {
-    article img {
-        max-width: calc(100%);
-        width:     100%;
-        box-sizing: border-box;
-    }
 }
 </style>
 
@@ -118,6 +100,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
 [](< data-section="FSN [UBW]">)
 ## ~~Saber今晚留下来~~：无限剑制 / Fate/Stay Night UBW
+
+[](< .borderless >)
 * 奇幻
 * 伪后宫
 * 重制
@@ -148,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 </script>
 
+[](< .headless >)
 |     |      |                                       |
 |-----|------|---------------------------------------|
 | 画风 |**5+**| 经费已爆炸；全程加特技；无可挑剔的细节      |    
@@ -165,6 +150,8 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 
 [](< data-section="干物妹！小埋">)
 ## 干物妹！小埋 / U.M.R
+
+[](< .borderless >)
 * 日常
 * 治愈
 * 萌萌哒
@@ -196,6 +183,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 }
 </script>
 
+[](< .headless >)
 |     |      |                             |
 |-----|------|-----------------------------|
 | 画风 |**3** | 中规中矩的日系画风             |    
@@ -212,6 +200,8 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 
 [](< data-section="Charlotte">)
 ## 夏洛特 / Charlotte
+
+[](< .borderless >)
 * 治愈
 * 科幻
 * 超能力
@@ -244,6 +234,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 }
 </script>
 
+[](< .headless >)
 |     |      |                                       |
 |-----|------|---------------------------------------|
 | 画风 |**4** | 整体画风精细，但没有什么特别出彩的地方                |    
@@ -262,6 +253,8 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 
 [](< data-section="四月是你的谎言">)
 ## **四月是你的谎言 / Your lie in April**
+
+[](< .borderless >)
 * 治愈
 * 真爱
 * 人生
@@ -294,6 +287,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 }
 </script>
 
+[](< .headless >)
 |     |      |                                        |
 |-----|------|----------------------------------------|
 | 画风 |**4** | 主角相关细节非常精细，但次要场景稍简陋       |    
@@ -318,6 +312,8 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 
 [](< data-section="樱子小姐的脚下埋着尸体">)
 ## 樱子小姐的脚下埋着尸体
+
+[](< .borderless >)
 * 悬疑
 * 推理
 
@@ -348,6 +344,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 }
 </script>
 
+[](< .headless >)
 |     |      |                                       |
 |-----|------|---------------------------------------|
 | 画风 |**4** | 整体中规中矩，樱子小姐变身过场真酷炫        |    
@@ -365,6 +362,8 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 
 [](< data-section="落第骑士英雄谭">)
 ## 落第骑士英雄谭
+
+[](< .borderless >)
 * 奇幻
 * 后宫
 
@@ -395,6 +394,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 }
 </script>
 
+[](< .headless >)
 |     |      |                                       |
 |-----|------|---------------------------------------|
 | 画风 |**4** | 画风不错，细节表现到位                   |    
@@ -412,6 +412,8 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 
 
 ## 食戟之灵 （~~春药之灵~~）
+
+[](< .borderless >)
 * 美食
 * 后宫
 * 热血
@@ -443,6 +445,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 }
 </script>
 
+[](< .headless >)
 |     |      |                                        |
 |-----|------|----------------------------------------|
 | 画风 |**4** | 与众不同的游戏风格奇幻色调                 |    
@@ -459,6 +462,8 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 
 [](< data-section="游戏人生">)
 ## 游戏人生 / No Game No Life
+
+[](< .borderless >)
 * 智商
 * 奇幻
 * 后宫
@@ -490,6 +495,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 }
 </script>
 
+[](< .headless >)
 |     |      |                                        |
 |-----|------|----------------------------------------|
 | 画风 |**5** | 与众不同的游戏风格奇幻色调                 |    
@@ -508,6 +514,8 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 
 [](< data-section="刀剑神域">)
 ## **刀剑神域 / Sword Art Online**
+
+[](< .borderless >)
 * 科幻
 * 真爱
 * 伪后宫
@@ -540,6 +548,7 @@ Fate和UBW线都讲*情侣面对困境*，对圣杯战争深层的东西没有�
 }
 </script>
 
+[](< .headless >)
 |     |      |                                        |
 |-----|------|----------------------------------------|
 | 画风 |**3** | 中规中矩，没有特别出彩的地方               |    
@@ -560,6 +569,7 @@ SAO最有趣的地方在于故事设定是可企及的未来（没有架空设�
 ## OST推荐
 包括番剧OST、衍生专辑曲目
 
+[](< .striped >)
 |     番剧      | Artist | Title                     |
 |--------------|--------|---------------------------|
 | FSN [UBW]    | Aimer    |  Brave Shine            |

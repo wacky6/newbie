@@ -1,19 +1,172 @@
+@require '_constants.styl'
+
+$box-bg-color = $color.gray.darken-4
+$box-border-radius = .25rem
+$box-vert-inner-spacing = .5em
+$box-horz-outer-spacing = 1rem
+$box-horz-inner-spacing = 1rem
+$box-border-color = $color.gray.darken-3
+
+$table-strip-color-even = alpha($color.gray.darken-4, $bg-alpha)
+$table-strip-color-odd  = transparent
+
 article
     max-width: 60ch
-    padding: 1px 1ch
+    padding-horz: 1ch
     h1
         text-align: center
         font-size: 2em
+        margin: 1em auto
+    h2, h3
+        margin: 2em 0 1em 0
+    .subtitle
+        font-size: 1.2em
+        text-align: right
+        margin: -1em 0 0 0
+        opacity: 0.8
+        font-weight: inherit
+    .centered
+        text-align: center
+    em
+        font-style:  normal
+        font-weight: inherit
+        text-decoration: underline
+        color: inherit
     strong
         font-weight: bolder
+    blockquote
+        margin-vert: .5em
+        margin-horz: $box-horz-outer-spacing
+        padding-vert: .5em
+        padding-horz: $box-horz-inner-spacing
+        background-color: alpha($color.gray.darken-3, $bg-alpha)
+        font-family: serif
+        p
+            margin: 0
     hr
-        color: $color.grey.normal
+        color: $color.gray.normal
         margin: 3em auto
+        border-style: solid
+    p
+        margin: (1em*$line-height) 0
+    pre
+        overflow-y: visible
+        overflow-x: auto
+        padding: 1pt
+        margin-vert: 1em
+        margin-horz: 0
+        code
+            padding: $box-vert-inner-spacing ($box-horz-inner-spacing/2)
+            background-color: alpha($box-bg-color, $bg-alpha)
+            border-radius: $box-border-radius
+            border: 1pt solid $box-border-color
+            display: inline-block
+            box-sizing: border-box
+            min-width: 100%
 
-@media screen and (min-width: 768px)
-    article
-        padding: 2em 1em
+    table
+        margin: 0
+        border: 1pt solid $box-border-color
+        border-collapse: collapse
+        border-spacing: 0
+        border-radius: $box-border-radius
+        box-sizing: border-box
+        margin-vert: 1em
+        margin-horz: 0
+        width:  100%
+        thead
+            border-bottom: 2pt solid $box-border-color
+        tr
+            text-align: left
+            border-bottom: 1pt solid $box-border-color
+            th, td
+                padding: .5em
+                vertical-align: middle
+            th
+                font-weight: bolder
+        &.headless, &.no-head
+            thead
+                display: none
+        &.striped
+            thead
+                tr
+                    background-color: $table-strip-color-even
+            tbody
+                tr:nth-child(even)
+                    background-color: $table-strip-color-even
+                tr:nth-child(odd)
+                    background-color: $table-strip-color-odd
 
-@media screen and (min-width: 1024px)
+        &.bordered
+            tr
+                th, td
+                    border: 1pt solid $box-border-color
+        &.borderless
+            border: none
+            tr
+                th, td
+                    border: none
+
+    ul, ol
+        margin: 0
+        border: 1pt solid $box-border-color
+        list-style: none
+        padding: 0
+        background-color: alpha($box-bg-color, $bg-alpha)
+        li
+            padding-vert: ($box-vert-inner-spacing/2)
+            padding-horz: ($box-horz-inner-spacing/2)
+            border-bottom: 1pt solid $box-border-color
+            &:last-child
+                border-bottom: none
+        border-radius: $box-border-radius
+        ul, ol
+            border: none
+            background-color: transparent
+            li
+                border-bottom: none
+        &.borderless
+            border: none
+    img
+        display: block
+        margin-vert: 0
+        margin-horz: auto
+        max-width:  100%
+
+    .secondary
+        font-size: .8em
+        opacity: .8
+
+@media screen and (min-width: $px-tablet)
     article
-        padding: 1px 3em
+        padding-vert: 1em
+        padding-horz: 1em
+        pre
+            code
+                margin-vert: 0
+                margin-horz: $box-horz-outer-spacing
+                padding-vert: $box-vert-inner-spacing
+                padding-horz: $box-horz-inner-spacing
+                min-width: 'calc(100% - %s)' % ($box-horz-inner-spacing + $box-horz-outer-spacing)
+        ul, ol
+            margin-vert: 0
+            margin-horz: $box-horz-outer-spacing
+            li
+                padding-vert: $box-vert-inner-spacing
+                padding-horz: $box-horz-inner-spacing
+            ul, ol
+                margin: 0
+        .panel
+            margin-horz: $box-horz-outer-spacing
+        img
+            max-width: 90%
+
+@media screen and (min-width: $px-desktop)
+    article
+        padding-horz: 2em
+    img
+        max-width: 80%
+
+@media screen and (min-width: $px-large)
+    article
+        max-width: 70ch

@@ -1,0 +1,67 @@
+@require "_color-palette.styl"
+@require "_constants.styl"
+
+$checkbox-horz-margin = .25em
+$checkbox-vert-margin = .25em
+
+.tag-list
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: flex-start
+    *
+        min-width: "calc(50% - %s)" % (2 * $checkbox-horz-margin)
+
+.post-list
+    margin-vert: 1.5em
+
+.post-entry
+    padding-top: 1em
+    padding-bottom: 2em
+    .title
+        a
+            text-decoration: none
+        h2
+            display: block
+            margin:  0
+        time
+            margin-top:  1em
+            letter-spacing: .01em
+    .brief
+        margin-vert: 2em
+        p
+            margin: 1em 0
+            &:first-child
+                margin-top: 0
+            &:last-child
+                margin-bottom: 0
+    .footer
+        .continue-reading
+            display: inline-block
+            opacity: .9
+            text-decoration: none
+            font-size: .8em
+            letter-spacing: 0.1em
+            padding: .25em 1em .25em 0
+
+
+@media screen and (min-width: $px-small)
+    .tag-list
+        *
+            min-width: "calc(33.3% - %s)" % (2 * $checkbox-horz-margin)
+
+@media screen and (min-width: $px-medium)
+    .tag-list
+        *
+            min-width: initial
+
+@media screen and (min-width: $px-tablet)
+    .post-entry
+        .footer .continue-reading
+            transition: color .3s, border-bottom-color .3s
+            &:hover, &:focus
+                    color: $color.light-blue.accent-2
+
+@media screen and (min-width: $px-desktop)
+    article
+        padding-top: 1em

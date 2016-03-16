@@ -10,7 +10,7 @@ function* routeError(next) {
     try{
         yield next
     }catch(e) {
-        winston.warn('Router throws an Error: ', e)
+        winston.warn('Router throws an Error: ', e.message)
         this.status = 500
     }
 
@@ -49,7 +49,7 @@ module.exports = function(){
         root: join(__dirname, "view/error"),
         autoescape: true,
         cache: false,
-        ext:   "swig",
+        ext:   "tmpl",
         locals: {}
     })
     return routeError

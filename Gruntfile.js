@@ -33,6 +33,17 @@ module.exports = function(grunt){
       },
       about: {
         files: {[wwwBin+'About/about.css']:  "stylus/about.styl"}
+      },
+      blogIndex: {
+        files: {[wwwBin+'Blog/blog-index.css']:  "stylus/blog-index.styl"}
+      },
+      errorPage: {
+        files: {[wwwBin+'/error-page.css']:  "stylus/error-page.styl"}
+      }
+    },
+    copy: {
+      css: {
+          files: [{expand: true, cwd: 'stylus/', src: ['**/*.css'], dest: wwwBin}]
       }
     },
     embed: {
@@ -81,9 +92,21 @@ module.exports = function(grunt){
           files: ['stylus/base.styl'],
           tasks: ['stylus:base']
       },
+      stylusBlogIndex: {
+          files: ['stylus/blog-index.styl'],
+          tasks: ['stylus:blogIndex']
+      },
       stylusAbout: {
           files: ['stylus/about.styl'],
           tasks: ['stylus:about']
+      },
+      stylusErrorPage: {
+          files: ['stylus/error-page.styl'],
+          tasks: ['stylus:errorPage']
+      },
+      staticCss: {
+          files: ['stylus/**/*.css'],
+          tasks: ['copy']
       },
       node: {
         files: ['*.js'],
@@ -98,11 +121,11 @@ module.exports = function(grunt){
         tasks: ['blog']
       },
       views: {
-        files: ['view/*.tmpl', '!view/{template, nav}.tmpl', '!view/{blog-article, blog-index}.tmpl'],
+        files: ['view/*.tmpl', '!view/{template,nav}.tmpl', '!view/{blog-article,blog-index}.tmpl'],
         tasks: ['views']
       },
       blog_template: {
-        files: ['view/blog-{article, index}.tmpl'],
+        files: ['view/blog-{article,index}.tmpl'],
         tasks: ['blog']
       },
       template: {
@@ -118,16 +141,23 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-babel')
   grunt.loadNpmTasks('grunt-embed')
   grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.registerTask('blog', require('./grunt-blog') )
   grunt.registerTask('views', require('./grunt-views') )
-  grunt.registerTask('clean', ()=>grunt.file.delete(wwwBin) )
+  grunt.registerTask('clean', ()=>{
+    if (grunt.file.exists(wwwBin))
+      grunt.file.delete(wwwBin)
+    grunt.file.mkdir(wwwBin)
+  })
 
   grunt.registerTask('deploy', 'Deploy to server', [
     'clean',
     'stylus',
+    'copy',
     'babel',
     'views',
     'blog',
+    'embed',
     'jshint'
   ])
 

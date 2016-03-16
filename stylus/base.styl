@@ -2,192 +2,172 @@
 @require "_nav.styl"
 @require "_article.styl"
 
+$header-height = 2.85rem
+
+.dark
+    color: $color.gray.normal
+    background-color: alpha($color.gray.darken-3, $bg-alpha)
+    &:hover, &:focus
+        color: $color.gray.lighten-2
+    &:active, &[aria-checked='true'], &[aria-selected='true']
+        color: $color.white.normal
+        box-shadow: 0 0 2em $color.black.normal
+
 h1,h2,h3
     font-weight: bolder
 
-$header-height = 2.85rem
-
-html
-    body
-        header
-            display: flex
-            flex-direction: row
-            align-items: center
-            justify-content: space-between
-            padding: .25em 1ch .25em 1ch
-            position: fixed
-            z-index: 99
-            left: 0
-            top:  0
-            width: 100%
-            box-sizing: border-box
-            background-color: $color.grey.darken-4
-            box-shadow: 0 .5em 1em #000
-        .main
-            margin-top: $header-height
-            article
-                margin: 0 auto
-
-@media screen and (min-width: 768px)
-    footer
+body
+    margin-top: $header-height
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    min-height: "calc( 100vh - %s)" % @margin-top
+    header
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        padding: .25em 1ch .25em 1ch
         position: fixed
-        z-index:  99
-        bottom:   0
-        left:     0
-        margin-top: 0
+        z-index: 99
+        left: 0
+        top:  0
+        width: 100%
+        box-sizing: border-box
+        background-color: $color.gray.darken-4
+        box-shadow: 0 .5em 1em #000
+    .main
+        article
+            margin: 0 auto
+
+.placeholder
+    visibility: hidden
+    &:after
+        white-space: pre
+        content: " "
+[aria-hidden="true"]
+    display: none
+
+
+.panel
+    margin-vert: 1em
+    margin-horz: 0
+    padding: 1px 0
+    h3
+        margin: 1em auto
+
+.checkbox
+    white-space: nowrap
+    text-decoration: none
+    border: none
+    padding: .25em 1em .25em .7em
+    box-sizing: border-box
+    font-size: inherit
+    line-height: 2
+    cursor: pointer
+    font-family: inherit
+    &:before
+        margin-right: .3em
+        vertical-align: baseline
+        opacity: .2
+    &:hover, &:active
+        &:before
+            opacity: .4
+    &[aria-checked='true'], &[aria-selected='true']
+        &:before
+            opacity: .9
+
+@media screen and (min-width: $px-small)
+    .ctrl:not(.sm)
+        display: none
+
+@media screen and (min-width: $px-tablet)
+    .ctrl:not(.md)
+        display: none
     html
-        background-image: url("/index/bg1.jpg")
+        background-image: url("/bg1.jpg")
         background-position: center
         background-repeat: no-repeat
         background-attachment: fixed
         background-size: cover
-        body
-            display: flex
-            flex-direction: row
-            justify-content: center
-            align-items: stretch
-            $reserved-height = $footer-reserved-height + $header-height
-            min-height: "calc(100vh - %s)" % $reserved-height
-            margin-bottom: $footer-reserved-height
-            .main
-                flex-basis: 100%
-                background-color: rgba(0,0,0,0.8)
+    body
+        display: flex
+        flex-direction: row
+        justify-content: center
+        align-items: stretch
+        $reserved-height = $footer-reserved-height + $header-height
+        min-height: "calc(100vh - %s)" % $reserved-height
+        margin-bottom: $footer-reserved-height
+        .main
+            flex-basis: 100%
+            background-color: rgba(0,0,0,0.8)
+        footer
+            display: block
+            position: fixed
+            z-index:  99
+            bottom:   0
+            left:     0
+            margin-top: 0
+    .checkbox
+        transition: background-color .3s, color .3s
+        &:before
+            transition: opacity .3s
 
-@media screen and (min-width: 1024px)
+@media screen and (min-width: $px-desktop)
+    .ctrl:not(.lg)
+        display: none
     html
-        body
-            display: flex
-            flex-direction: row
-            justify-content: flex-start
-            align-items: flex-start
-            margin: 0 0 $footer-reserved-height 0
-            header
-                order: 1
-                position: initial
-                left: initial
-                top: initial
-                width: initial
-                display: block
-                padding: 1em 2ch
-                background: transparent
-                box-shadow: initial
-                .banner
-                    display: inline-block
-                    text-align: left
-                    font-size: 1.6em
-                    margin-bottom: .5em
-                    margin-top:    0
-                nav
-                    a, a:visited
-                        display: block
-                        min-width: 8ch
-                        color: $color.grey.lighten-2
-                        &:hover
-                            background-color: rgba(0,0,0,0.2)
-                        &:active, &[aria-pressed]
-                            background-color: rgba(0,0,0,0.4)
-            .main
-                order: 2
-                margin-top: 0
-                flex-grow: 1
-                align-self: stretch
-                background: transparent
-                article
-                    background-color: rgba(0,0,0,0.8)
-                    box-shadow: .5em .5em 1em #000
+        letter-spacing: 0.02em
+    body
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: flex-start
+        margin-top: 0
+        margin-bottom: $footer-reserved-height
+        min-height: "calc(100vh - %s)" % $footer-reserved-height
+        header
+            order: 1
+            position: initial
+            left: initial
+            top: initial
+            width: initial
+            display: block
+            padding: 1em 2ch
+            background: transparent
+            box-shadow: initial
+            .banner
+                display: inline-block
+                text-align: left
+                margin-bottom: .5em
+                margin-top:    0
+            nav
+                a, a:visited
+                    display: block
+                    min-width: 8ch
+                    color: $color.gray.lighten-2
+                    &:hover
+                        background-color: rgba(0,0,0,0.2)
+                    &:active, &[aria-pressed]
+                        background-color: rgba(0,0,0,0.4)
+        .main
+            order: 2
+            margin-top: 0
+            flex-grow: 1
+            align-self: stretch
+            background: transparent
+            margin-right: 8ch
+        article
+            background-color: rgba(0,0,0,0.8)
+            box-shadow: .5em .5em 1em #000
+
+@media screen and (min-width: $px-large)
+    html
+        font-size: 130%
 
 @media print
-    html
+    .ctrl
+        display: none !important
+    body
         .main
-            margin-top: 0
-
-// html
-//     background-image: url("/index/bg1.jpg")
-//     background-position: center
-//     background-repeat: no-repeat
-//     background-attachment: fixed
-//     background-size: cover
-//
-// article
-//     background-color: rgba(0,0,0,0.7)
-//
-// body
-//     display: flex
-//     flex-direction: row
-//     justify-content: space-around
-//     align-items: stretch
-//     line-height: $line-height
-//     min-height: "calc( 100vh - %s )" % ($footer-reserved-height)
-//     box-sizing: border-box
-//     .main
-//         order: 2
-//         flex-grow: 1
-//         display: flex
-//         flex-direction: row
-//         align-items: stretch
-//     article
-//         max-width: 60ch
-//         margin: 0 auto
-//         padding: 1ex 4ch
-//         $shadow-extend = .3em
-//         $shadow-blur   = 1em
-//         box-shadow: (- $shadow-extend) 0 $shadow-blur #000, ($shadow-extend) 0 $shadow-blur #000
-//
-// @media (max-width: 800px)
-//     body
-//         flex-direction: column
-//         header
-//             display: flex
-//             flex-direction: row
-//             justify-content: space-between
-//             margin:  0 0 1em 0
-//             padding: 1ex 2ch
-//             background-color: #000
-//             h2
-//                 order: 1
-//                 margin: 0
-//                 flex-basis: auto
-//             nav
-//                 order: 2
-//                 padding: 0
-//                 .wrap
-//                     display: flex
-//                     flex-direction: row
-//                     justify-content: flex-end
-//                     align-items: center
-//                     *
-//                         display: inline-block
-//         .main
-//             order: 2
-//
-// @media (max-width: 720px)
-//     body
-//         .main
-//             article
-//                 padding: 0 2ch
-//
-// @media (max-width: 480px)
-//     body
-//         header
-//             align-items: center
-//             z-index:  10
-//             nav
-//                 height: 2em
-//                 &:hover
-//                 .wrap
-//                     flex-direction: column
-//                     justify-content: flex-start
-//                     align-items: stretch
-//                     padding-left: 1ch
-//                     padding-right: 1ch
-//                     padding-bottom: 1ex
-//                     transition: background-color 0.5s
-//                     *
-//                         display: block
-//                         order: 2
-//                         overflow: hidden
-//                         &[aria-pressed="true"]
-//                             order: 1
-//         .main
-//             article
-//                 padding: 0 1ch
+            padding-top: 0

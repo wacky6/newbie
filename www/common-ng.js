@@ -18,6 +18,7 @@ window.setHash = setHash
  * navId is set in <nav>'s <a nav-id="xxx">  */
 window.setCurrentNavItem = setCurrentNavItem
 
+
 /* el.toggleState(attr) => true/false
  * toggle attribute true/false, * used with aria-{state}
  * if attr does not exist, it is set to 'true'  */

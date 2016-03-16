@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+{% include "common-meta.tmpl" %}
+{% if !robots %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<meta name="description" content="{{description|safe}}">
+<meta name="keywords" content="{{keywords|join(', ')|safe}}">
+<title>{{title}} | Jw.Q</title>
+{% include "common-head.tmpl" %}
+<link rel="stylesheet" href="/hljs-css/railscasts.css">
+<script>window.setCurrentNavItem('blog')</script>
+{%- for _ in bubbles%}
+{{_|safe}}
+{%- endfor %}
+</head>
+
+<body>
+
+{% include "nav.tmpl" %}
+
+<div role="main" class="main">
+<article>
+{{ html|safe }}
+</article>
+</div>
+
+{% include "copyright-footer.tmpl" %}
+{% include "google-analytics.tmpl" %}
+
+</body>
+
+</html>
