@@ -1,25 +1,27 @@
 'use strict'
 
-var grunt = require('grunt')
-var swig  = require('./swig-loader')
+const grunt = require('grunt')
+const swig  = require('./swig-loader')
+const resolve = require('path').resolve
+const rootDir = require('./conf-loader').root
 
-var regexStaticDirective = /\{# static, (.+) #\}/i
+const re_dest_directive = /\{# dest: (.+) #\}/i
 
 module.exports = function() {
-    var opts = grunt.config.get('views')
-    var outputDir = opts.outputDir
+    let opts = grunt.config.get('views')
+    let outputDir = opts.outputDir
 
     if (!outputDir) return grunt.fatal('outputDir not set')
 
-    var srcMode = grunt.config.get('views.src')
-    var src = srcMode ? [srcMode] : grunt.file.expand(opts.files)
+    let srcMode = grunt.config.get('views.src')
+    let src = srcMode ? [srcMode] : grunt.file.expand(opts.files)
 
     src.forEach( file => {
-        var content = grunt.file.read(file)
-        var m = regexStaticDirective.exec(content)
+        let content = grunt.file.read(file)
+        let m = re_dest_directive.exec(content)
         if (!m) return
-        var dest = outputDir+m[1]
-        grunt.log.writeln(`render static: ${file} => ${m[1]}`)
-        grunt.file.write(dest, swig.renderFile(file))
+        let dest = outputDir+m[1]
+        grunt.log.writeln(`render page: ${file} => ${m[1]}`)
+        grunt.file.write(dest, swig.renderFile(resolve(rootDir, file)))
     })
 }

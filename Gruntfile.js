@@ -8,14 +8,14 @@ module.exports = function(grunt){
 
   grunt.initConfig({
     views: {
-      files:     'view/**/*.tmpl',
+      files:     ['view/*.tmpl', '!view/_*.tmpl'],
       outputDir: wwwBin
     },
     blog: {   // configuration for blog related tasks!
       files:          'Blog/**/*.md',
       bloglist:        blogList,
-      articleTemplate: 'view/blog-article.tmpl',
-      indexTemplate:   'view/blog-index.tmpl',
+      articleTemplate: 'view/Blog/_article.tmpl',
+      indexTemplate:   'view/Blog/_index.tmpl',
       outputDir:       blogBin
     },
     stylus: {
@@ -83,15 +83,15 @@ module.exports = function(grunt){
         tasks: ['blog']
       },
       views: {
-        files: ['view/*.tmpl', '!view/{template,nav}.tmpl', '!view/{blog-article,blog-index}.tmpl'],
+        files: ['view/*.tmpl', '!view/_.tmpl'],
         tasks: ['views']
       },
       blog_template: {
-        files: ['view/blog-{article,index}.tmpl'],
+        files: ['view/Blog/_*.tmpl'],
         tasks: ['blog']
       },
       template: {
-        files: ['view/common-*.tmpl', 'view/nav.tmpl'],
+        files: ['view/_*.tmpl'],
         tasks: ['blog', 'views']
       }
     }

@@ -9,6 +9,7 @@ const config = grunt.config.get
 const readJSON = grunt.file.readJSON
 
 const join     = require('path').join
+const resolve  = require('path').resolve
 const basename = require('path').basename
 const extname  = require('path').extname
 const dirname  = require('path').dirname
@@ -30,6 +31,8 @@ const yellow = chalk.yellow
 
 const INFO = (str) => grunt.log.writeln(''+green('info')+': '+str)
 const WARN = (str) => grunt.log.writeln(''+yellow('warn')+': '+str)
+
+const rootDir = require('./conf-loader').root
 
 let outputDir, articleTemplate, indexTemplate, bloglist, files
 
@@ -73,7 +76,7 @@ function processArticle(file) {
         bubbles: bubbles
     })
 
-    write(dest, swig.renderFile(articleTemplate, entry))
+    write(dest, swig.renderFile(resolve(rootDir, articleTemplate), entry))
 
     // process linked resources, print errors
     entry.resources.map( $ => ({
@@ -97,7 +100,7 @@ function renderIndex(blogList) {
 
     write(
         outputDir+'index.html',
-        swig.renderFile(indexTemplate, {
+        swig.renderFile(resolve(rootDir, indexTemplate), {
             articles: articles
         })
     )

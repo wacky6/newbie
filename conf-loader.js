@@ -25,6 +25,9 @@ if (conf.tls)
 if (conf.tls && conf.sni)
     parsedConf.tls.SNICallback = parseSNI(conf.sni)
 
+if (!parsedConf.root)
+    parsedConf.root = __dirname
+
 
 // export parsed configuration
 module.exports = parsedConf

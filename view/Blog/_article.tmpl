@@ -2,12 +2,12 @@
 <html>
 
 <head>
-{% include "common-meta.tmpl" %}
+{% include "_meta.tmpl" %}
 {% if !robots %}<meta name="robots" content="noindex, nofollow">{% endif %}
 <meta name="description" content="{{description|safe}}">
 <meta name="keywords" content="{{keywords|join(', ')|safe}}">
 <title>{{title}} | Jw.Q</title>
-{% include "common-head.tmpl" %}
+{% include "_head.tmpl" %}
 <link rel="stylesheet" href="/hljs-css/railscasts.css">
 <script>window.setCurrentNavItem('blog')</script>
 {%- for _ in bubbles%}
@@ -17,7 +17,7 @@
 
 <body>
 
-{% include "nav.tmpl" %}
+{% include "_nav.tmpl" %}
 
 <div role="main" class="main">
 <article>
@@ -25,8 +25,8 @@
 </article>
 </div>
 
-{% include "copyright-footer.tmpl" %}
-{% include "google-analytics.tmpl" %}
+{% include "_footer.tmpl" %}
+{% include "_google-analytics.tmpl" %}
 
 </body>
 

@@ -2,16 +2,27 @@
 
 /*jshint -W040 */   // supress warning: possible strict violation
 
-var join = require('path').join
-var winston = require('winston')
+const winston = require('winston')
+const conf = require('./conf-loader')
+const swig = require('./swig-loader')
+
+function getErrorPage(code) {
+    return 'error/'+code+'.tmpl'
+}
 
 function* routeError(next) {
+    let params = {   // additional arguments passed to template
+        url: this.url,
+    }
 
     try{
         yield next
     }catch(e) {
         winston.warn('Router throws an Error: ', e.message)
         this.status = 500
+        params.message = e.message
+        if (this.query.debug)
+            params.stack = e.stack
     }
 
     if (this.status>=200 && this.status<400) return
@@ -25,32 +36,16 @@ function* routeError(next) {
         time:    (new Date()).toISOString(),
     })
 
-    switch(this.accepts('html','json')) {
-        case 'html':
-            try{
-                yield this.renderErrorPage( ''+this.status )
-            }catch(e){
-                winston.warn(`Error page: ${this.status} not provided`)
-                yield this.renderErrorPage('500')
-            }
-            break
-        case 'json':
-            yield this.json( {error: this.status} )
-            break
-        default:
-            this.body = `error ${this.status}`
+    if (this.accepts('html') && !this.query.debug) {
+        try {
+            this.response.body = yield swig.coRenderFile( getErrorPage(this.status), params )
+        }catch(e){
+            this.response.body = yield swig.coRenderFile( getErrorPage(500), params )
+        }
+    }else{
+        this.response.body = Object.assign({error: this.response.status}, params)
     }
 
 }
 
-module.exports = function(){
-    var kswig = require("koa-swig")
-    this.context.renderErrorPage = kswig({
-        root: join(__dirname, "view/error"),
-        autoescape: true,
-        cache: false,
-        ext:   "tmpl",
-        locals: {}
-    })
-    return routeError
-}
+module.exports = routeError
