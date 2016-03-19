@@ -3,11 +3,6 @@
 var wwwBin   = 'www-bin/'
 var blogBin  = wwwBin+'Blog/'
 var blogList = blogBin+'list.json'
-var relative = require('path').relative
-
-var postcss = () => require('poststylus')([
-    require('autoprefixer')({browsers: '> 5%, last 2 versions'})
-])
 
 module.exports = function(grunt){
 
@@ -24,22 +19,9 @@ module.exports = function(grunt){
       outputDir:       blogBin
     },
     stylus: {
-      options: { compress: false, use: [postcss] },
-      index: {
-        files: {[wwwBin+'index.css']: "stylus/index.styl"}
-      },
-      base: {
-        files: {[wwwBin+'base.css']:  "stylus/base.styl"}
-      },
-      about: {
-        files: {[wwwBin+'About/about.css']:  "stylus/about.styl"}
-      },
-      blogIndex: {
-        files: {[wwwBin+'Blog/blog-index.css']:  "stylus/blog-index.styl"}
-      },
-      errorPage: {
-        files: {[wwwBin+'/error-page.css']:  "stylus/error-page.styl"}
-      }
+      files:     ['stylus/**/*.styl', '!stylus/**/_*.styl'],
+      includes:  ['stylus/'],
+      outputDir: wwwBin
     },
     copy: {
       css: {
@@ -76,33 +58,13 @@ module.exports = function(grunt){
     },
     watch: {
       options: {spawn: false, event: ['added', 'changed']},
-      stylus: {
-        files: ['stylus/{page-skeleton,color-palette,nav}.styl'],
-        tasks: ['stylus']
-      },
       stylusCommon: {
-          files: ['stylus/_*.styl'],
+          files: ['stylus/**/_*.styl'],
           tasks: ['stylus']
       },
-      stylusIndex: {
-          files: ['stylus/index.styl'],
-          tasks: ['stylus:index']
-      },
-      stylusBase: {
-          files: ['stylus/base.styl'],
-          tasks: ['stylus:base']
-      },
-      stylusBlogIndex: {
-          files: ['stylus/blog-index.styl'],
-          tasks: ['stylus:blogIndex']
-      },
-      stylusAbout: {
-          files: ['stylus/about.styl'],
-          tasks: ['stylus:about']
-      },
-      stylusErrorPage: {
-          files: ['stylus/error-page.styl'],
-          tasks: ['stylus:errorPage']
+      stylus: {
+          files: ['stylus/**/*.styl', '!stylus/**/_*.styl'],
+          tasks: ['stylus']
       },
       staticCss: {
           files: ['stylus/**/*.css'],
@@ -135,15 +97,14 @@ module.exports = function(grunt){
     }
   })
 
-  grunt.loadNpmTasks('grunt-postcss')
   grunt.loadNpmTasks('grunt-contrib-jshint')
-  grunt.loadNpmTasks('grunt-contrib-stylus')
   grunt.loadNpmTasks('grunt-babel')
   grunt.loadNpmTasks('grunt-embed')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.registerTask('blog', require('./grunt-blog') )
   grunt.registerTask('views', require('./grunt-views') )
+  grunt.registerTask('stylus', require('./grunt-stylus') )
   grunt.registerTask('clean', ()=>{
     if (grunt.file.exists(wwwBin))
       grunt.file.delete(wwwBin)
@@ -182,7 +143,13 @@ module.exports = function(grunt){
     break
     case 'views':
       grunt.config.set('views.src', path)
-    break;
+    break
+    case 'stylusCommon':
+      grunt.config.set('stylus.src', null)
+    break
+    case 'stylus':
+      grunt.config.set('stylus.src', path)
+    break
     }
   })
 }
