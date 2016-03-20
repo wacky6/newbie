@@ -24,8 +24,8 @@ module.exports = function(grunt){
       outputDir: wwwBin
     },
     copy: {
-      css: {
-          files: [{expand: true, cwd: 'stylus/', src: ['**/*.css'], dest: wwwBin}]
+      external: {
+          files: [{expand: true, cwd: 'external/', src: ['**/*'], dest: wwwBin}]
       }
     },
     embed: {
@@ -66,8 +66,8 @@ module.exports = function(grunt){
           files: ['stylus/**/*.styl', '!stylus/**/_*.styl'],
           tasks: ['stylus']
       },
-      staticCss: {
-          files: ['stylus/**/*.css'],
+      external: {
+          files: ['external/**/*'],
           tasks: ['copy']
       },
       node: {
@@ -149,6 +149,9 @@ module.exports = function(grunt){
     break
     case 'stylus':
       grunt.config.set('stylus.src', path)
+    break
+    case 'external':
+      grunt.config.set('copy.external.src', path)
     break
     }
   })
