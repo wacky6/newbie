@@ -1,36 +1,45 @@
 'use strict'
 
-let conf = require('./conf')
-let createSecureContext = require('tls').createSecureContext
-let readFileSync = require('fs').readFileSync
-let resolve = require('path').resolve
-let chalk = require('chalk')
-let winston = require('winston')
+const conf = require('./conf')
+    , createSecureContext = require('tls').createSecureContext
+    , readFileSync = require('fs').readFileSync
+    , resolve = require('path').resolve
+    , chalk = require('chalk')
+    , winston = require('winston')
+
+const red    = chalk.red
+    , yellow = chalk.yellow
+
+const DEFAULT_CONF = {
+    stsAge: 181*24*60*60*1000,
+    maxAge: 24*60*60*1000
+}
 
 
 // create base parsedConf
-let parsedConf = Object.assign({}, conf)
-deprecate(conf, 'sslKey', 'sslCrt')  // complain about deprecated stuff
+let parsedConf = Object.assign(DEFAULT_CONF, conf)
+
+// complain about deprecated stuff
+deprecate(conf, 'sslKey', 'sslCrt')
 
 // delete unnecessary fields
-delete parsedConf.tls
 delete parsedConf.sni
 delete parsedConf.sslKey
 delete parsedConf.sslCrt
 
-
-if (conf.tls)
+if (conf.tls) {
     parsedConf.tls = parseTLS(conf.tls)
-
-if (conf.tls && conf.sni)
-    parsedConf.tls.SNICallback = parseSNI(conf.sni)
+    if (conf.sni)
+        parsedConf.tls.SNICallback = parseSNI(conf.sni)
+}
 
 if (!parsedConf.root)
     parsedConf.root = __dirname
 
-
 // export parsed configuration
 module.exports = parsedConf
+
+
 
 
 
@@ -64,7 +73,7 @@ function parseSNI(sni) {
                                   .replace(/\s*\,\s*/g, '|')
                             +')$' )
         if (re===undefined) {
-            console.log(chalk.yellow('error: ')+'unsupported SNI matcher')
+            winston.error(red('unsupported SNI matcher'))
             process.exit(1)
         }
 
@@ -75,7 +84,7 @@ function parseSNI(sni) {
     return function SNICallback(servername, cb){
         let decl = secCtx.find( (decl)=>servername.match(decl[0]) )
         if (decl===undefined)
-            console.log(chalk.yellow('warn: ')+'no match for SNI '+servername)
+            winston.warn(yellow('no match for SNI '+servername))
         cb(null, decl ? decl[1] : undefined)
     }
 }
@@ -110,7 +119,7 @@ function required(obj, _fields) {
     let fields = Array.prototype.slice.call(arguments, 1)
     fields.forEach( field => {
         if (obj[field]===undefined) {
-            console.log(chalk.red('error: ')+`${field} is required!`)
+            winston.error(red(`${field} is required!`))
             process.exit(1)
         }
     })
@@ -124,6 +133,6 @@ function deprecate(obj, _fields) {
     let fields = Array.prototype.slice.call(arguments, 1)
     fields.forEach( field => {
         if (obj[field]!==undefined)
-            console.log(chalk.yellow('warn: ')+`${field} is deprecated!`)
+            winston.warn(yellow(`${field} is deprecated!`))
     })
 }

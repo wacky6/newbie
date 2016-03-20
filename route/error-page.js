@@ -3,8 +3,8 @@
 /*jshint -W040 */   // supress warning: possible strict violation
 
 const winston = require('winston')
-const conf = require('./conf-loader')
-const swig = require('./swig-loader')
+    , conf = require('../conf-loader')
+    , swig = require('../lib/swig-loader')
 
 function getErrorPage(code) {
     return 'error/'+code+'.tmpl'
