@@ -102,9 +102,9 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-embed')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-copy')
-  grunt.registerTask('blog', require('./grunt-blog') )
-  grunt.registerTask('views', require('./grunt-views') )
-  grunt.registerTask('stylus', require('./grunt-stylus') )
+  grunt.registerTask('blog', require('./lib/grunt-blog') )
+  grunt.registerTask('views', require('./lib/grunt-views') )
+  grunt.registerTask('stylus', require('./lib/grunt-stylus') )
   grunt.registerTask('clean', ()=>{
     if (grunt.file.exists(wwwBin))
       grunt.file.delete(wwwBin)
