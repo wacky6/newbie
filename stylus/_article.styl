@@ -114,8 +114,8 @@ article
         padding: 0
         background-color: alpha($box-bg-color, $bg-alpha)
         li
-            padding-vert: ($box-vert-inner-spacing/2)
-            padding-horz: ($box-horz-inner-spacing/2)
+            padding-vert: ($box-vert-inner-spacing*0.75)
+            padding-horz: ($box-horz-inner-spacing*0.75)
             border-bottom: 1pt solid $box-border-color
             &:last-child
                 border-bottom: none
@@ -164,6 +164,9 @@ article
 @media screen and (min-width: $px-desktop)
     article
         padding-horz: 2em
+        ul, ol
+            li
+                padding-horz: ($box-horz-inner-spacing*1.5)
     img
         max-width: 80%
 

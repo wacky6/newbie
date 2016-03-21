@@ -94,7 +94,7 @@ function HTMLElement_attr(key, value) {
     if (value===undefined) {
         return this.getAttribute(key)
     }else{
-        this.setAttribute(value)
+        this.setAttribute(key, value)
         return this
     }
 }
@@ -103,7 +103,7 @@ function setCurrentNavItem(navId) {
     document.addEventListener('DOMContentLoaded', ()=>{
         var el = $(`nav [nav-id="${navId}"]`)
         if (el)
-            el.toggleState('aria-pressed')
+            el.attr('active', 'active')
     })
 }
 

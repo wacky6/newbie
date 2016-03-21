@@ -1,57 +1,50 @@
 [](~
-  description: Yeah! It works!!
-  date:        2015-07-25
-  norobot:     true
+  title:       Newbie Works!
+  description: Introduction to my website generator and repository.
+  mtime:       2016-03-21
+  ctime:       2015-07-25
+  keywords:    introduction, website
+  tags:        其它
   brief: |
-         Yeah! It Works!!!!!!!
-         And this brief should be toooo long for a single line.
-         So this entry get expanded into at least 3 lines or more
+         这是一个手撸的个人站。
+         Powered by node.js.
 
-         Here is a extremely / very / sufficiently lengthy, verbose, non-sense, long line that should be wrapped to 2 lines, just for testing purpose, and try to break css....................
+         这篇日志的创建时间是Newbie原型投入使用的时间。
+         当前为第3次重构的版本。  ╮(╯_╰)╭
 ~)
 
-# Yeah! It works!!!!
+# Newbie Works!
 
-This is a test article and contains nothing meaningful.
+这个手撸的个人站终于达到了可以放出源码的水平了。这篇日志的创建时间是最初版本投入使用的时间。
 
-##### Shintakus Highlight
-```C++
-#include <iostream>
-using namespace std;
+13年底就想自己搭网站了，一直觉得自己的网站应该自己写才对。现成方案虽然好，然而对我这个懒癌晚期没有什么吸引力：不想配nginx/a-patchy、不想用数据库、……
 
-int main() {
-	cout<<"it works!"<<endl;
-	return 0
-}
-```
+14年底，在南大交换，和小伙伴刷爬虫大作业的时候，被node.js妹子勾搭走了，从此入坑JS。随后逛npm，发现不少有趣的库。于是用node撸博客的想法逐渐成型。
 
-##### letsu migz inn wut's do bi don, uzing [bfm](https://github.com/wacky6/bfm)
-[](<
-     @font-family: serif
-     @font-size: 1.5rem
-     @color: red
->)
-* ~~innglud highlight css~~   (Done)
-* revise deploy script
-* refine article css   (inProg)
+严格的来说，Newbie是包括了生成器、网站内容、配置的一个repo。（教科书式的反面教材！）评论功能多半不会有，因为我还没想到一种优雅的、不需要数据库的方案。
 
-##### nested list
-* single doge
-  * no-gay
-  * no-gf-wut-avar
-* code
-  * donki
-  * facing-guugol
-    * mirro.guu.gl
-    * com.ms.binG
-* uuups
 
-des iz qjw'z barsonal webside, carrentuly undar heavi develapment  
-completily pawared by io.js  
-des pagi iz onli meant tuu testo blog funktion, and shuuld not bi taken carefuully
 
-written in puurly-formed ZhavaSklipt, thas shuuld bi buggi  
-u can make des side bettar by feeding qjw witz lollipop, or by donating du qjw
+## 我很懒的噜
+
+首先，配置服务器的git环境：用[post-receive](https://github.com/wacky6/post-receive-skeleton)实现push后自动部署。
+
+然后，在本地开发。通过[grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)实现源文件自动编译，在浏览器直接刷新就可以看到修改效果。
+
+博客内容用[我魔改的markdown](https://github.com/wacky6/flavor-marked)书写，它可以：
+
+* 存储元数据
+* span语法糖
+* [HTML属性mixin](< .mixin @color: rgb(244, 67, 54) >)
+* 提取script、style（然后输出到`<head>`）
+
+最后，在本地测试。一切满意后commit并push到服务器。
+
+
+## Acknowledgement
+About/Intro.的时间轴参考了[Rijnx](http://cv.rijnx.com)的思路，然后魔改。
+
+第三次重构对页面进行大量简化，参考了[全能的逆向学弟](https://wangxiyu191.github.io)的设计。
 
 [](<
     @max-width: 100%

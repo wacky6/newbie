@@ -14,6 +14,16 @@
 <link rel="prefetch" href="/bliss.min.js">
 <link rel="prefetch" href="/common-ng.js">
 <link rel="stylesheet" href="index.css" data-embed>
+<noscript>
+    <h1>&lt;!&gt; Sorry! Please use a modern browser.</h1>
+    <p>
+        This website is not designed for terminal or JavaScript disabled browser.<br>
+        Please use a functional browser, Chromium should work fine.
+    </p>
+    <p>
+        If you continue, you may see broken characters, or the page may not render at all.
+    </p>
+</noscript>
 </head>
 
 <body>
@@ -21,10 +31,10 @@
 <header role="main">
     <h1 class="banner">Jw.Q's</h1>
     <nav role="navigation">
-        <a title="Blog" href="/Blog/">Blog</a>
+        <a title="Blog" href="/blog/">Blog</a>
         <a title="My gallery @ Lofter" rel="external" href="http://gallery.std-aries.xyz">Gallery</a>
-        <a title="About me, About this site" href="/About/">Intro.</a>
-        <a id="suki-desu" role="button" aria-pressed="false">❤︎君が好きです</a>
+        <a title="About me, About this site" href="/about/">Intro.</a>
+        <a id="suki-desu" rel="nofollow" role="button" aria-pressed="false">❤︎君が好きです</a>
     </nav>
 </header>
 <div class="carousal" role="complementary">
@@ -32,7 +42,8 @@
         <img alt="Silhouette of me. Photo courtesy of Lingjie Kong." src="/bg1.jpg"></img>
     </div>
     <div class="content" id="not-be-found" aria-hidden="true">
-        <h3>Not.Be.Found</h3>
+        <!-- write inner HTML in index.js
+             this prevents Google from indexing these text -->
     </div>
 </div>
 

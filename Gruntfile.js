@@ -104,6 +104,19 @@ module.exports = function(grunt){
     grunt.file.mkdir(BUILD)
   })
 
+  grunt.registerTask('init', 'Initialize Development Environment', [
+      'clean',
+      'stylus',
+      'copy',
+      'babel',
+      'page',
+      'blog'
+  ])
+
+  grunt.registerTask('dev', 'Development Environment', [
+      'watch'
+  ])
+
   grunt.registerTask('deploy', 'Deploy to server', [
     'clean',
     'stylus',

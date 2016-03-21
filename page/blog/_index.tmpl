@@ -38,9 +38,9 @@
                     {{m.title}}
                 </a>
             </h2>
-            <time class="ctime secondary" itemprop="dateCreated" datetime="{{m.ctime.toISOString()}}">{{m.ctimeStr}}</time>
+            <time class="ctime secondary" itemprop="dateCreated" datetime="{{m.ctime|ISOString}}">{{m.ctime|date}}</time>
             <meta class="tags" content="{{m.tags}}" />
-            <meta class="mtime" itemprop="dateModified" content="{{m.mtime.toISOString()}}" />
+            <meta class="mtime" itemprop="dateModified" content="{{m.mtime|ISOString}}" />
         </div>
         <div class="brief" itemprop="description">
             {{m.briefHTML|safe}}
