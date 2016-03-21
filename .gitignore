@@ -8,4 +8,4 @@ conf.js
 *.crt
 *.key
 
-www-bin/
+build/

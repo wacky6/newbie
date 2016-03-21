@@ -1,37 +1,42 @@
 
-/* include trailing slash, or you will end up in trouble */
-var wwwBin   = 'www-bin/'
-var blogBin  = wwwBin+'Blog/'
-var blogList = blogBin+'list.json'
+const join = require('path').join
+
+const BUILD = 'build'
+    , BUILD_BLOG = join(BUILD,  'blog')
+
+const PAGE = 'page/'
+    , BLOG = 'blog/'
 
 module.exports = function(grunt){
 
   grunt.initConfig({
-    views: {
-      files:     ['view/*.tmpl', '!view/_*.tmpl'],
-      outputDir: wwwBin
+    page: {
+      files:     [join(PAGE, '*.tmpl'), '!'+join(PAGE, '_*.tmpl')],
+      outputDir: BUILD
     },
     blog: {   // configuration for blog related tasks!
-      files:          'Blog/**/*.md',
-      bloglist:        blogList,
-      articleTemplate: 'view/Blog/_article.tmpl',
-      indexTemplate:   'view/Blog/_index.tmpl',
-      outputDir:       blogBin
+      files:           join(BLOG, '**/*.md'),
+      articleTemplate: join(PAGE, 'blog/_article.tmpl'),
+      indexTemplate:   join(PAGE, 'blog/_index.tmpl'),
+      outputDir:       BUILD_BLOG
     },
     stylus: {
       files:     ['stylus/**/*.styl', '!stylus/**/_*.styl'],
       includes:  ['stylus/'],
-      outputDir: wwwBin
+      outputDir: BUILD
     },
     copy: {
       external: {
-          files: [{expand: true, cwd: 'external/', src: ['**/*'], dest: wwwBin}]
+          files: [{expand: true, cwd: 'external/', src: ['**/*'], dest: BUILD}]
+      },
+      page_resource: {
+          files: [{expand: true, cwd: PAGE, src: ['**/*', '!**/*.tmpl', '!**/*.js'], dest: BUILD}]
       }
     },
     embed: {
       all: {
-        options: { threshold: 0 },
-        files: [{ expand:true, cwd: wwwBin, src: ['**/*.html'], dest: wwwBin }]
+        options: { threshold: 0, deleteEmbeddedFiles: true },
+        files: [{ expand:true, cwd: BUILD, src: ['**/*.html'], dest: BUILD }]
       }
     },
     babel: {
@@ -41,7 +46,7 @@ module.exports = function(grunt){
             presets: ['es2015'],
             plugins:[]
         },
-        files: [{ expand:true, cwd: 'www/', src: ['**/*.js', '!*.min.js'], dest: wwwBin }]
+        files: [{ expand:true, cwd: PAGE, src: ['**/*.js', '!*.min.js'], dest: BUILD }]
       }
     },
     jshint: {
@@ -75,24 +80,24 @@ module.exports = function(grunt){
         tasks: ['jshint:node']
       },
       webjs: {
-        files: ['www/**/*.js'],
+        files: [join(PAGE, '**/*.js')],
         tasks: ['babel:webjs']
       },
       blog: {
-        files: ['Blog/**/*.md'],
+        files: [join(BLOG, '**/*.md')],
         tasks: ['blog']
       },
-      views: {
-        files: ['view/*.tmpl', '!view/_.tmpl'],
-        tasks: ['views']
+      page: {
+        files: [join(PAGE, '*.tmpl'), '!'+join(PAGE, '_*.tmpl')],
+        tasks: ['page']
       },
       blog_template: {
-        files: ['view/Blog/_*.tmpl'],
+        files: [join(PAGE, 'blog/_*.tmpl')],
         tasks: ['blog']
       },
       template: {
-        files: ['view/_*.tmpl'],
-        tasks: ['blog', 'views']
+        files: [join(PAGE, '_*.tmpl')],
+        tasks: ['blog', 'page']
       }
     }
   })
@@ -103,12 +108,12 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.registerTask('blog', require('./lib/grunt-blog') )
-  grunt.registerTask('views', require('./lib/grunt-views') )
+  grunt.registerTask('page', require('./lib/grunt-page') )
   grunt.registerTask('stylus', require('./lib/grunt-stylus') )
   grunt.registerTask('clean', ()=>{
-    if (grunt.file.exists(wwwBin))
-      grunt.file.delete(wwwBin)
-    grunt.file.mkdir(wwwBin)
+    if (grunt.file.exists(BUILD))
+      grunt.file.delete(BUILD)
+    grunt.file.mkdir(BUILD)
   })
 
   grunt.registerTask('deploy', 'Deploy to server', [
@@ -116,7 +121,7 @@ module.exports = function(grunt){
     'stylus',
     'copy',
     'babel',
-    'views',
+    'page',
     'blog',
     'embed',
     'jshint'
@@ -135,14 +140,14 @@ module.exports = function(grunt){
       grunt.config.set('blog.src', path)
     break
     case 'template': // force a full generation
-      grunt.config.set('views.src', null)
+      grunt.config.set('page.src', null)
       grunt.config.set('blog.src', null)
     break
     case 'blog_template':
       grunt.config.set('blog.src', null)
     break
-    case 'views':
-      grunt.config.set('views.src', path)
+    case 'page':
+      grunt.config.set('page.src', path)
     break
     case 'stylusCommon':
       grunt.config.set('stylus.src', null)
