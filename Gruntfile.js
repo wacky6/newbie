@@ -1,7 +1,8 @@
+'use strict'
 
 const join = require('path').join
 
-const BUILD = 'build'
+const BUILD = 'build/'
     , BUILD_BLOG = join(BUILD,  'blog')
 
 const PAGE = 'page/'
@@ -11,7 +12,7 @@ module.exports = function(grunt){
 
   grunt.initConfig({
     page: {
-      files:     [join(PAGE, '*.tmpl'), '!'+join(PAGE, '_*.tmpl')],
+      files:     [join(PAGE, '**/*.tmpl'), '!'+join(PAGE, '**/_*.tmpl')],
       outputDir: BUILD
     },
     blog: {   // configuration for blog related tasks!
@@ -44,22 +45,13 @@ module.exports = function(grunt){
         options: {
             sourceMap: true,
             presets: ['es2015'],
-            plugins:[]
+            plugins: []
         },
         files: [{ expand:true, cwd: PAGE, src: ['**/*.js', '!*.min.js'], dest: BUILD }]
       }
     },
-    jshint: {
-      node: {
-        files: {src: ['*.js', 'lib/**/*.js']},
-        options: {
-          asi:    true,
-          node:   true,
-          eqeqeq: true,
-          esnext: true,
-          laxbreak: true
-        }
-      }
+    eslint: {
+      target: ['*.js', 'lib/**/*.js', 'route/**/*.js']
     },
     watch: {
       options: {spawn: false, event: ['added', 'changed']},
@@ -74,10 +66,6 @@ module.exports = function(grunt){
       external: {
           files: ['external/**/*'],
           tasks: ['copy']
-      },
-      node: {
-        files: ['*.js'],
-        tasks: ['jshint:node']
       },
       webjs: {
         files: [join(PAGE, '**/*.js')],
@@ -102,7 +90,7 @@ module.exports = function(grunt){
     }
   })
 
-  grunt.loadNpmTasks('grunt-contrib-jshint')
+  grunt.loadNpmTasks('grunt-eslint')
   grunt.loadNpmTasks('grunt-babel')
   grunt.loadNpmTasks('grunt-embed')
   grunt.loadNpmTasks('grunt-contrib-watch')
@@ -124,11 +112,11 @@ module.exports = function(grunt){
     'page',
     'blog',
     'embed',
-    'jshint'
+    'eslint'
   ])
 
 
-  grunt.event.on('watch', function(action, path, target){
+  grunt.event.on('watch', (action, path, target)=>{
     switch (target) {
     case 'node':
       grunt.config.set('jshint.node.src', path)
@@ -157,6 +145,8 @@ module.exports = function(grunt){
     break
     case 'external':
       grunt.config.set('copy.external.src', path)
+    break
+    default:
     break
     }
   })

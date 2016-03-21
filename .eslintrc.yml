@@ -1,0 +1,87 @@
+env:
+    es6: true
+    amd: true
+    node: true
+    commonjs: true
+extends:  eslint:recommended
+rules:
+    no-ex-assign: warn
+    comma-dangle:
+        - error
+        - only-multiline
+    no-cond-assign:
+        - error
+        - except-parens
+    no-extra-parens:  warn
+    no-constant-condition: warn
+    array-callback-return: warn
+    block-scoped-var: error
+    consistent-return: off
+    curly:
+        - warn
+        - multi
+        - consistent
+    default-case: warn
+    dot-location:
+        - warn
+        - property
+    dot-notation:
+        - warn
+        - allowPattern: "^([A-Z]+)$"
+    eqeqeq: warn
+    no-alert: error
+    no-caller: error
+    guard-for-in: off
+    no-div-regex: warn
+    no-eq-null:   error
+    no-eval:      error
+    no-extra-bind: warn
+    no-floating-decimal: error
+    no-implied-eval: error
+    no-invalid-this: off
+    no-iterator:     error
+    no-labels:       error
+    no-loop-func:    warn
+    no-lone-blocks:  warn
+    no-new-wrappers: warn
+    no-new:          warn
+    no-proto:        error
+    no-self-assign:  error
+    no-self-compare: error
+    no-useless-call: warn
+    no-with:         error
+    no-undef:        warn
+    radix:
+        - error
+        - always
+    wrap-iife:       warn
+    strict:
+        - error
+        - global
+    no-path-concat:  warn
+    no-unused-vars:
+        - error
+        -
+            varsIgnorePattern: "^_"
+            args: none
+    block-spacing:
+        - error
+        - always
+    comma-spacing:
+        - error
+    no-array-constructor: error
+    no-mixed-spaces-and-tabs: error
+    no-new-object: error
+    no-spaced-func: error
+    operator-linebreak:
+        - error
+        - before
+    quotes:
+        - error
+        - single
+        - avoid-escape
+    semi:
+        - error
+        - never
+    no-var: warn
+    prefer-arrow-callback: warn

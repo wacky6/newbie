@@ -1,9 +1,6 @@
 'use strict'
 
-/*jshint -W040 */   // supress warning: possible strict violation
-
 const winston = require('winston')
-    , conf = require('../conf-loader')
     , swig = require('../lib/swig-loader')
 
 function getErrorPage(code) {
@@ -36,16 +33,16 @@ function* routeError(next) {
         time:    (new Date()).toISOString(),
     })
 
-    if (this.accepts('html') && !this.query.debug) {
-        try {
-            this.response.body = yield swig.coRenderFile( getErrorPage(this.status), params )
-        }catch(e){
-            this.response.body = yield swig.coRenderFile( getErrorPage(500), params )
-        }
-    }else{
+    if (!this.accepts('html') || this.query.debug) {
         this.response.body = Object.assign({error: this.response.status}, params)
+        return
     }
 
+    try {
+        this.response.body = yield swig.coRenderFile( getErrorPage(this.status), params )
+    }catch(e){
+        this.response.body = yield swig.coRenderFile( getErrorPage(500), params )
+    }
 }
 
 module.exports = routeError
