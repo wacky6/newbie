@@ -1,21 +1,22 @@
 {
   "name": "newbie",
-  "version": "0.1.0",
+  "version": "0.7.0",
   "description": "My (Wackish) Website",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server"
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@wacky6.vicp.cc:2233/git/website"
+    "url": "https://github.com/wacky6/newbie"
   },
   "keywords": [
-    "personal",
-    "website"
+    "website",
+    "node"
   ],
   "author": "wacky6",
-  "license": "CC-BY-NC-ND-4.0",
+  "license": "CC-BY-NC-SA-4.0",
   "dependencies": {
     "autoprefixer": "^6.3.3",
     "babel": "^6.5.2",
@@ -40,6 +41,7 @@
     "postcss": "^5.0.19",
     "sax": "^1.1.4",
     "spdy": "^3.0.0",
+    "stylus": "^0.54.2",
     "swig": "^1.4.2",
     "winston": "^2.1.1"
   }
