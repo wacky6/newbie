@@ -13,7 +13,7 @@ const cmpStrLength = (a, b) => {
 }
 
 function parseDirectives() {
-    let re_directive_separator = /\B(?=#|\/)/g
+    let re_directive_separator = /(?=#|\/)/g
     return window.getHash()
                  .split( re_directive_separator )
                  .filter( (s) => s.length>1 )

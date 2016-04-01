@@ -20,6 +20,7 @@ body
 
 article
     text-align: center
+    min-width: initial !important
     h2
         margin 1em auto
     p
@@ -30,13 +31,12 @@ article
         text-decoration: none
 
 @media screen and (min-width: $px-tablet)
-    html
+    body
         font-size: 133%
 
 @media screen and (min-width: $px-desktop)
-    html
-        font-size: 167%
     body
+        font-size: 167%
         .main
             margin-right: 0
             flex-grow: initial
