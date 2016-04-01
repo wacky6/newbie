@@ -114,16 +114,12 @@ module.exports = function(grunt){
   ])
 
   grunt.registerTask('dev', 'Development Environment', [
+      'init',
       'watch'
   ])
 
   grunt.registerTask('deploy', 'Deploy to server', [
-    'clean',
-    'stylus',
-    'copy',
-    'babel',
-    'page',
-    'blog',
+    'init',
     'embed',
     'eslint'
   ])
