@@ -9,6 +9,8 @@ $header-height = 2.85rem
 .dark
     color: $color.gray.normal
     background-color: alpha($color.gray.darken-3, $bg-alpha)
+    a&, a&:visited
+        color: $color.gray.lighten-1
     &:hover, &:focus
         color: $color.gray.lighten-2
     &:active, &[aria-checked='true'], &[aria-selected='true']
@@ -38,9 +40,9 @@ body
         box-sizing: border-box
         background-color: $color.gray.darken-4
         box-shadow: 0 .5em 1em #000
-    .main
-        article
-            margin: 0 auto
+article
+    margin: 0 auto
+    max-width: 60ch
 
 .placeholder
     visibility: hidden
@@ -58,7 +60,7 @@ body
     h3
         margin: 1em auto
 
-.checkbox
+.checkbox, .button
     white-space: nowrap
     text-decoration: none
     border: none
@@ -71,6 +73,9 @@ body
     &:before
         margin-right: .3em
         vertical-align: baseline
+
+.checkbox
+    &:before
         opacity: .2
     &:hover, &:active
         &:before
@@ -78,6 +83,16 @@ body
     &[aria-checked='true'], &[aria-selected='true']
         &:before
             opacity: .9
+
+.button
+    &:before
+        opacity: .5
+    &:hover
+        &:before
+            opacity: .8
+    &:active
+        &:before
+            opacity: 1
 
 @media screen and (min-width: $px-small)
     .ctrl:not(.sm)
@@ -110,7 +125,7 @@ body
             bottom:   0
             left:     0
             margin-top: 0
-    .checkbox
+    .checkbox, .button
         transition: background-color .3s, color .3s
         &:before
             transition: opacity .3s
@@ -129,9 +144,9 @@ body
             padding-horz: 8ch
             box-shadow: 0 0 8ch #000
             background-color: rgba(0,0,0,0.9)
-        article
-            max-width: 70ch
-            min-width: 70ch
+    article
+        max-width: 70ch
+        min-width: 70ch
 
 @media screen and (min-width: $px-large)
     html

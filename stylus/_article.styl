@@ -11,7 +11,6 @@ $table-strip-color-even = alpha($color.gray.darken-4, $bg-alpha)
 $table-strip-color-odd  = transparent
 
 article
-    max-width: 60ch
     padding-horz: 1ch
     h1
         text-align: center
@@ -34,15 +33,6 @@ article
         color: inherit
     strong
         font-weight: bolder
-    blockquote
-        margin-vert: .5em
-        margin-horz: $box-horz-outer-spacing
-        padding-vert: .5em
-        padding-horz: $box-horz-inner-spacing
-        background-color: alpha($color.gray.darken-3, $bg-alpha)
-        font-family: serif
-        p
-            margin: 0
     hr
         color: $color.gray.normal
         margin: 3em auto
@@ -137,6 +127,27 @@ article
         font-size: .8em
         opacity: .8
 
+    blockquote
+        margin-vert: .5em
+        margin-horz: 0
+        padding-vert: .5em
+        padding-horz: $box-horz-inner-spacing
+        background-color: alpha($color.gray.darken-3, $bg-alpha)
+        font-family: serif
+        p
+            margin: 0
+        ul, ol
+            border: none
+            background-color: transparent
+            list-style: initial
+            list-style-position: inside
+            li
+                padding: initial
+                border-bottom: initial
+
+    tt, code, kbd, samp
+        font-family: Consolas, monospace
+
 @media screen and (min-width: $px-tablet)
     article
         padding-vert: 1em
@@ -162,6 +173,8 @@ article
             margin-horz: $box-horz-outer-spacing
         img
             max-width: 90%
+        blockquote
+            margin-horz: $box-horz-outer-spacing
 
 @media screen and (min-width: $px-desktop)
     article
@@ -171,7 +184,3 @@ article
                 padding-horz: ($box-horz-inner-spacing*1.5)
     img
         max-width: 80%
-
-@media screen and (min-width: $px-large)
-    article
-        max-width: 70ch
