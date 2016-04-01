@@ -121,47 +121,17 @@ body
     html
         letter-spacing: 0.02em
     body
-        display: flex
-        flex-direction: row
-        justify-content: flex-start
-        align-items: flex-start
-        margin-top: 0
-        margin-bottom: $footer-reserved-height
-        min-height: "calc(100vh - %s)" % $footer-reserved-height
-        header
-            order: 1
-            position: initial
-            left: initial
-            top: initial
-            width: initial
-            display: block
-            padding: 1em 2ch
-            background: transparent
-            box-shadow: initial
-            .banner
-                display: inline-block
-                text-align: left
-                margin-bottom: .5em
-                margin-top:    0
-            nav
-                a, a:visited
-                    display: block
-                    min-width: 8ch
-                    color: $color.gray.lighten-2
-                    &:hover
-                        background-color: rgba(0,0,0,0.2)
-                    &:active, &[aria-pressed]
-                        background-color: rgba(0,0,0,0.4)
+        justify-content: space-around
         .main
-            order: 2
-            margin-top: 0
-            flex-grow: 1
-            align-self: stretch
             background: transparent
-            margin-right: 8ch
+            flex-basis: initial
+            padding-bottom: 3em
+            padding-horz: 8ch
+            box-shadow: 0 0 8ch #000
+            background-color: rgba(0,0,0,0.9)
         article
-            background-color: rgba(0,0,0,0.8)
-            box-shadow: .5em .5em 1em #000
+            max-width: 70ch
+            min-width: 70ch
 
 @media screen and (min-width: $px-large)
     html
