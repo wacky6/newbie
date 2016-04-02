@@ -8,6 +8,8 @@ window.urlencode = urlencode
 
 window.prependQZoneShareLink
 
+window.printPDF = printPDF
+
 /* getHash()       => URL hash
  * setHash(str)    */
 window.getHash = getHash
@@ -61,6 +63,12 @@ function urlencode(obj) {
     for (let key in obj)
         arr.push(key+'='+encodeURIComponent(obj[key]||''))
     return arr.join('&')
+}
+
+function printPDF() {
+    $('html').classList.add('pdf')
+    window.print()
+    $('html').classList.remove('pdf')
 }
 
 function setHash(str, newState) {
