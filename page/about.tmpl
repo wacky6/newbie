@@ -1,20 +1,21 @@
 {# dest: about/index.html #}
+
+{%- import "_common.tmpl" as common -%}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-{% include "_meta.tmpl" %}
+{{ common.meta() }}
 <meta name="description" content="Jiewei Qian, student at NJUPT; Tech-savvy, Anime &amp; Game Otaku, Infant Developer; used ID includes: wacky6, std::weak">
 <meta name="keywords" content="Jiewei Qian, wacky6, about, 关于">
 <title>About | Jw.Q</title>
-{% include "_head.tmpl" %}
+{{ common.head() }}
 <link rel="stylesheet" href="about.css" data-embed>
-<script>window.setCurrentNavItem('intro')</script>
 </head>
 
 <body>
-
-{% include "_nav.tmpl" %}
+{{ common.header("about") }}
 
 <div role="main" class="main">
 <article>
@@ -171,9 +172,9 @@
 
 </div>
 
+{{ common.footer() }}
+{{ common.analytics() }}
 
-{% include "_footer.tmpl" %}
-{% include "_analytics.tmpl" %}
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",

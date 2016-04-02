@@ -1,20 +1,20 @@
+{%- import "_common.tmpl" as common -%}
+
 <!DOCTYPE html>
 <html>
 
 <head>
-{% include "_meta.tmpl" %}
+{{ common.meta() }}
 <meta name="description" content="Jiewei Qian's blog posts.">
 <meta name="keywords" content="blog, articles, Jiewei Qian">
 <title>Blogs | Jw.Q</title>
-{% include "_head.tmpl" %}
+{{ common.head() }}
 <link rel="stylesheet" href="blog-index.css" data-embed>
 <link rel="prefetch" href="/hljs-css/railscasts.css">
-<script>window.setCurrentNavItem('blog')</script>
 </head>
 
 <body>
-
-{% include "_nav.tmpl" %}
+{{ common.header("blog") }}
 
 <div role="main" class="main">
 <article>
@@ -68,8 +68,7 @@
 </article>
 </div>
 
-{% include "_footer.tmpl" %}
-{% include "_analytics.tmpl" %}
+{{ common.footer() }}
 
 <script>
     'use strict'
@@ -89,6 +88,8 @@
     }
 </script>
 <script src="blog-index.js" data-embed></script>
+
+{{ common.analytics() }}
 
 </body>
 

@@ -1,9 +1,12 @@
 {# dest: 404.html #}
+
+{%- import "_common.tmpl" as common -%}
+
 <!DOCTYPE html>
 <html>
 
 <head>
-{% include "_meta.tmpl" %}
+{{ common.meta() }}
 <meta name="robots" content="noindex, nofollow, noodp, narchive">
 <title>Oops, Page not found.</title>
 <link rel="stylesheet" href="/base.css">
@@ -31,8 +34,8 @@
     </article>
 </div>
 
-{% include "_footer.tmpl" %}
-{% include "_analytics.tmpl" %}
+{{ common.footer() }}
+{{ common.analytics() }}
 
 </body>
 

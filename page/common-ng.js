@@ -13,12 +13,6 @@ window.prependQZoneShareLink
 window.getHash = getHash
 window.setHash = setHash
 
-/* setCurrentNavItem(navId)
- * set navId's state to active, providing visual cue of current page
- * navId is set in <nav>'s <a nav-id="xxx">  */
-window.setCurrentNavItem = setCurrentNavItem
-
-
 /* el.toggleState(attr) => true/false
  * toggle attribute true/false, * used with aria-{state}
  * if attr does not exist, it is set to 'true'  */
@@ -97,14 +91,6 @@ function HTMLElement_attr(key, value) {
         this.setAttribute(key, value)
         return this
     }
-}
-
-function setCurrentNavItem(navId) {
-    document.addEventListener('DOMContentLoaded', ()=>{
-        var el = $(`nav [nav-id="${navId}"]`)
-        if (el)
-            el.attr('active', 'active')
-    })
 }
 
 })()

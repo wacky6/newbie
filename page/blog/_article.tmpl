@@ -1,23 +1,23 @@
+{%- import "_common.tmpl" as common -%}
+
 <!DOCTYPE html>
 <html>
 
 <head>
-{% include "_meta.tmpl" %}
+{{ common.meta() }}
 {% if !robots %}<meta name="robots" content="noindex, nofollow">{% endif %}
 <meta name="description" content="{{description|safe}}">
 <meta name="keywords" content="{{keywords|join(', ')|safe}}">
 <title>{{title}} | Jw.Q</title>
-{% include "_head.tmpl" %}
+{{ common.head() }}
 <link rel="stylesheet" href="/hljs-css/railscasts.css">
-<script>window.setCurrentNavItem('blog')</script>
 {%- for _ in bubbles%}
 {{_|safe}}
 {%- endfor %}
 </head>
 
 <body>
-
-{% include "_nav.tmpl" %}
+{{ common.header("blog") }}
 
 <div role="main" class="main">
 <article>
@@ -25,8 +25,8 @@
 </article>
 </div>
 
-{% include "_footer.tmpl" %}
-{% include "_analytics.tmpl" %}
+{{ common.footer() }}
+{{ common.analytics() }}
 
 </body>
 
