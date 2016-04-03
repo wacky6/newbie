@@ -1,5 +1,4 @@
 [](~
-    title: 'ES6/New JS: Background'
     ctime: 2016-03-29
     mtime: 2016-04-03
     tags:  JavaScript
@@ -14,9 +13,13 @@
 ES6/New JS: Background
 ===
 
-最近，几个学弟学妹来问我如何学习JavaScript。然而，适合初学者的ES6资源并不多（阮一峰大神的书虽然好，但对初学者来说还是缺了一些东西）。很多书籍和资料还是针对ES5甚至ES3的。虽然内容完整，但在ES6的时代，具有相当的误导性：一是让人感觉JS有许多坑、有不少不合理的设计；二是不实用，学的不是将来用到的（无论是找工作还是自己写着玩）。三是把JavaScript和HTML捆绑着学（虽然确实应该这样），但现在JavaScript（ECMAScript）的应用不仅仅在浏览器里。另外，大多ES6的资料是英文的，考虑到某邮的平均英语水平，硬塞这些资料肯定不合适。
+最近，几个学弟学妹来问我如何学习JavaScript。然而，适合初学者的ES6资源并不多（阮一峰大神的书虽然好，但对初学者来说还是缺了一些东西）。
 
-所以我就开坑这篇（系列）文章。内容为JavaScript（ECMAScript）这门语言，不会过多涉及HTML和Web开发的内容。
+很多书籍和资料还是针对ES5甚至ES3的。虽然内容完整，但在ES6的时代，具有相当的误导性：一是让人感觉JS有许多坑、有不少不合理的设计；二是不实用，学的不是将来用到的（无论是找工作还是自己写着玩）。三是把JavaScript和HTML捆绑着学（虽然确实应该这样），但现在JavaScript（ECMAScript）的应用不仅仅在浏览器里。
+
+另外，大多ES6的资料是英文的，考虑到某邮的平均英语水平，硬塞这些资料肯定不合适。
+
+所以我就开坑这篇（系列）文章。内容为JavaScript（ECMAScript）这门语言，不会过多涉及HTML和Web开发的内容。内容假设读者了解Java或C/C++的知识。
 
 <a href="#table-of-content" class="icon-angle-double-right dark button">到目录</a>
 
