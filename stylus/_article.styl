@@ -42,30 +42,30 @@ article
         border-style: solid
     p
         margin: 1.33em 0
+
+    table, ul, ul, pre code
+        margin-vert: 1em
+        margin-horz: 0
+        border: 1pt solid $box-border-color
+        border-radius: $box-border-radius
+        box-sizing: border-box
+        padding: $box-vert-inner-spacing ($box-horz-inner-spacing/2)
+
     pre
         overflow-y: visible
         overflow-x: auto
         padding: 1pt
         margin-vert: 1em
-        margin-horz: 0
         code
-            padding: $box-vert-inner-spacing ($box-horz-inner-spacing/2)
+            margin-vert: 0
             background-color: alpha($box-bg-color, $bg-alpha)
-            border-radius: $box-border-radius
-            border: 1pt solid $box-border-color
             display: inline-block
-            box-sizing: border-box
             min-width: 100%
 
     table
-        margin: 0
-        border: 1pt solid $box-border-color
+        padding: 0
         border-collapse: collapse
         border-spacing: 0
-        border-radius: $box-border-radius
-        box-sizing: border-box
-        margin-vert: 1em
-        margin-horz: 0
         width:  100%
         thead
             border-bottom: 2pt solid $box-border-color
@@ -101,19 +101,17 @@ article
                     border: none
 
     ul, ol
-        margin: 0
-        border: 1pt solid $box-border-color
         list-style: none
         padding: 0
         background-color: alpha($box-bg-color, $bg-alpha)
         li
-            padding-vert: ($box-vert-inner-spacing*0.75)
-            padding-horz: ($box-horz-inner-spacing*0.75)
+            padding: (0.75*$box-vert-inner-spacing) $box-vert-inner-spacing
             border-bottom: 1pt solid $box-border-color
             &:last-child
                 border-bottom: none
         border-radius: $box-border-radius
         ul, ol
+            margin: 0
             border: none
             background-color: transparent
             li
@@ -131,15 +129,16 @@ article
         opacity: .8
 
     blockquote
-        margin-vert: .5em
+        margin-vert: 1em
         margin-horz: 0
-        padding-vert: .5em
+        padding-vert: $box-vert-inner-spacing
         padding-horz: $box-horz-inner-spacing
         background-color: alpha($color.gray.darken-3, $bg-alpha)
         font-family: serif
         p
             margin: 0
         ul, ol
+            margin: 0
             border: none
             background-color: transparent
             list-style: initial
@@ -157,16 +156,7 @@ article
         padding-horz: 1em
         h2, h3
             margin: 3em 0 1em 0
-        pre
-            code
-                margin-vert: 0
-                margin-horz: $box-horz-outer-spacing
-                padding-vert: $box-vert-inner-spacing
-                padding-horz: $box-horz-inner-spacing
-                min-width: 'calc(100% - %s)' % ($box-horz-inner-spacing + $box-horz-outer-spacing)
         ul, ol
-            margin-vert: 0
-            margin-horz: $box-horz-outer-spacing
             li
                 padding-vert: $box-vert-inner-spacing
                 padding-horz: $box-horz-inner-spacing
