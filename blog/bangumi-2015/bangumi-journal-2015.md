@@ -46,6 +46,7 @@ article ul {
    display: block;
    background-color: inherit;
    margin: 1em 0;
+   padding-left: 0;
 }
 article ul li {
 	display: inline-block;

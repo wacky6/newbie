@@ -43,13 +43,10 @@ article
     p
         margin: 1.33em 0
 
-    table, ul, ul, pre code
-        margin-vert: 1em
-        margin-horz: 0
+    table, ul.box, ul.box, pre code
         border: 1pt solid $box-border-color
         border-radius: $box-border-radius
         box-sizing: border-box
-        padding: $box-vert-inner-spacing ($box-horz-inner-spacing/2)
 
     pre
         overflow-y: visible
@@ -58,11 +55,13 @@ article
         margin-vert: 1em
         code
             margin-vert: 0
+            padding: $box-vert-inner-spacing ($box-horz-inner-spacing/2)
             background-color: alpha($box-bg-color, $bg-alpha)
             display: inline-block
             min-width: 100%
 
     table
+        margin-vert: 1em
         padding: 0
         border-collapse: collapse
         border-spacing: 0
@@ -101,23 +100,33 @@ article
                     border: none
 
     ul, ol
-        list-style: none
-        padding: 0
-        background-color: alpha($box-bg-color, $bg-alpha)
+        list-style-position: outside
+        padding-left: 3ch
         li
-            padding: (0.75*$box-vert-inner-spacing) $box-vert-inner-spacing
-            border-bottom: 1pt solid $box-border-color
-            &:last-child
-                border-bottom: none
-        border-radius: $box-border-radius
-        ul, ol
-            margin: 0
-            border: none
-            background-color: transparent
+            margin: .5em 0
+        &.box
+            list-style: none
+            padding: 0
+            background-color: alpha($box-bg-color, $bg-alpha)
             li
-                border-bottom: none
-        &.borderless
-            border: none
+                margin: 0
+                padding-vert: (0.75*$box-vert-inner-spacing)
+                padding-horz: (0.75*$box-horz-inner-spacing)
+                border-bottom: 1pt solid $box-border-color
+                &:last-child
+                    border-bottom: none
+            &.multiline
+                li
+                    padding-top:    1em
+                    padding-bottom: 2em
+            ul, ol
+                margin: 0
+                border: none
+                background-color: transparent
+                li
+                    border-bottom: none
+            &.borderless
+                border: none
     img
         display: block
         margin-vert: 0
@@ -139,13 +148,16 @@ article
             margin: 0
         ul, ol
             margin: 0
-            border: none
-            background-color: transparent
-            list-style: initial
-            list-style-position: inside
-            li
-                padding: initial
-                border-bottom: initial
+        &.note
+            &:before
+                content: "Note:"
+                display: block
+                font-weight: $font-weight-bold
+                position: relative
+                left: "-%s" % ($box-horz-inner-spacing / 2)
+            background-color: $color.gray.darken-4
+            p~p
+                margin-top: 1em
 
     tt, code, kbd, samp
         font-family: Consolas, monospace
@@ -157,23 +169,25 @@ article
         h2, h3
             margin: 3em 0 1em 0
         ul, ol
-            li
-                padding-vert: $box-vert-inner-spacing
-                padding-horz: $box-horz-inner-spacing
-            ul, ol
-                margin: 0
-        .panel
-            margin-horz: $box-horz-outer-spacing
+            &.box
+                li
+                    padding-horz: $box-horz-inner-spacing
         img
             max-width: 90%
         blockquote
             margin-horz: $box-horz-outer-spacing
+            &.note
+                margin-horz: 0
+                padding-horz: ($box-horz-inner-spacing + $box-horz-outer-spacing)
+                &:before
+                    left: "-%s" % (($box-horz-inner-spacing + $box-horz-outer-spacing) / 2)
 
 @media screen and (min-width: $px-desktop)
     article
         padding-horz: 2em
         ul, ol
-            li
-                padding-horz: ($box-horz-inner-spacing*1.5)
+            &.box
+                li
+                    padding-horz: ($box-horz-inner-spacing*1.5)
     img
         max-width: 80%
