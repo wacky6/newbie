@@ -6,7 +6,7 @@
     description: 'Learn ECMAScript 6: Some background information of ECMAScript 6, the "new" JavaScript.'
     brief: |
             学ECMAScript 6，新时代的JavaScript。
-            
+
             JS、ES6的背景
 ~)
 
@@ -101,5 +101,7 @@ JavaScript最早由网景公司提出，作为在浏览器中使用的客户端�
 
 [](< #table-of-content >)
 ## 文章列表
-这个坑还没开始填呢（说不定就弃坑了）🙃。
 
+1. [Hello World与基本类型](../es6-basis-1/)
+
+其它坑还没开始填呢（说不定就弃坑了）🙃。
