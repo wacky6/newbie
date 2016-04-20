@@ -28,17 +28,17 @@
     </div>
 
     {%- macro postEntry(m) %}
-    <li class="post-entry" itemscope itemid="{{m.name}}/" itemtype="http://schema.org/Blog">
+    <li class="post-entry" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
         <div class="title">
-            <h2>
-                <a class="title-link" itemprop="headline"
+            <h2 itemprop="headline">
+                <a class="title-link" itemprop="url"
                     href="{{m.name}}/" title="{{m.title}}"
                     {%- if !m.robots -%} nofollow {%- endif %}
                  >
                     {{m.title}}
                 </a>
             </h2>
-            <time class="ctime secondary" itemprop="dateCreated" datetime="{{m.ctime|ISOString}}">{{m.ctime|date}}</time>
+            <time class="ctime secondary" itemprop="datePublished" datetime="{{m.ctime|ISOString}}">{{m.ctime|date}}</time>
             <meta class="tags" content="{{m.tags}}" />
             <meta class="mtime" itemprop="dateModified" content="{{m.mtime|ISOString}}" />
         </div>
@@ -53,7 +53,8 @@
     </li>
     {% endmacro -%}
 
-    <ul class='panel post-list box multiline' role="article">
+    <ul class='panel post-list box multiline' role="article"
+        itemscope itemtype="http://schema.org/Blog">
     {%- for $ in articles %}
         {{- postEntry($) -}}
     {% endfor -%}
