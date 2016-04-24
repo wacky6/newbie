@@ -40,18 +40,3 @@ spdy.createServer(
     Object.assign(conf.tls, {}),
     app.callback()
 ).listen(conf.httpsPort || 443)
-
-
-
-
-/* HTTP -> HTTPS redirection */
-koa()
-    .route( helmet.xssFilter() )
-    .route( helmet.frameguard('deny') )
-    .route( helmet.noSniff() )
-    .route( helmet.csp({   // no resources should present on 30x redirection
-        directives: { defaultSrc: ["'none'"] },
-        setAllHeaders: false
-    }) )
-    .route( 'koa-force-ssl', conf.httpsPort || 443 )
-    .listen(conf.httpPort || 80)
