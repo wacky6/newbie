@@ -31,7 +31,9 @@ let app = koa()
     .route( 'koa-static', join(conf.root, 'build'), {maxage: conf.maxAge} )
 
 /* Server creation */
-spdy.createServer(
-    Object.assign(conf.tls, {}),
-    app.callback()
+conf.addSecureContext(
+    spdy.createServer(
+        Object.assign(conf.tls, {}),
+        app.callback()
+    )
 ).listen(conf.httpsPort || 443)
