@@ -1,6 +1,6 @@
 {
   "name": "newbie",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "My (Wackish) Website",
   "main": "server.js",
   "scripts": {
@@ -32,11 +32,10 @@
     "grunt-embed": "github:sandra0503/grunt-embed#a534a91886bb4e87e0cfb6c29af863619c7e5ea7",
     "grunt-eslint": "^18.0.0",
     "is-generator-function": "^1.0.3",
-    "koa": "^0.21.0",
+    "koa": "^1.0.0",
     "koa-compress": "^1.0.8",
-    "koa-force-ssl": "0.0.5",
     "koa-helmet": "^1.0.0",
-    "koa-static": "^1.4.9",
+    "koa-static": "^2.0.0",
     "pipe-through": "^1.0.0",
     "postcss": "^5.0.19",
     "sax": "^1.1.4",
