@@ -30,12 +30,7 @@ let app = koa()
     .route( './route/rewrite', /^\/(About|Blog)\//, (path)=>path.toLowerCase(), 'Canonicalization' )
     .route( 'koa-static', join(conf.root, 'build'), {maxage: conf.maxAge} )
 
-/* server creation
- *
- * route.app                   koa app initialized in "app-init.js"
- * route.tls                   tls options initialized in "app-init.js"
- * route.tls.extend(svrOpts)   extends `route.tls`, return extended object
- */
+/* Server creation */
 spdy.createServer(
     Object.assign(conf.tls, {}),
     app.callback()
