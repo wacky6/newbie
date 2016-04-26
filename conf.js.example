@@ -40,5 +40,13 @@ module.exports =  {
            ca:   [ './intermediate/pem' ]
        },
        ...
+    },
+    /* public pins */
+    pkp: {
+        includeSubdomains: false,
+        maxAge:  24*60*60*90*1000,   // time in milliseconds
+        sha256s: ['active', 'backups', ...],
+        reportUri:  'http://report-hpkp.com/...',
+        reportOnly: false
     }
 }
