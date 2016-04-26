@@ -6,7 +6,7 @@ const NOT_BE_FOUND_INNER_HTML = `
 `
 
 document.addEventListener('DOMContentLoaded', function(){
-    let $ = (sel, ctx) => document.querySelector(sel, ctx)
+    let $ = (sel) => document.querySelector(sel)
     let writeInnerHTML = ()=> {
         $('#not-be-found').innerHTML = NOT_BE_FOUND_INNER_HTML
         $('#suki-desu').removeEventListener('click', writeInnerHTML)
