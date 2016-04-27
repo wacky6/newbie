@@ -25,7 +25,6 @@ if (conf.sni) {
     let ctxs = []    // array of SecureContext options
     for (let hostnameDecl in conf.sni)
         hostnameDecl.split(/\s*,\s*/).forEach( (hostname)=>{
-            winston.info(`load SNI: ${hostname}`)
             ctxs.push({
                 hostname: hostname,
                 options:  {
@@ -36,7 +35,10 @@ if (conf.sni) {
             })
         })
     conf.addSecureContext = (tlsServer) => {
-        ctxs.forEach( (ctx) => tlsServer.addContext(ctx.hostname, ctx.options) )
+        ctxs.forEach( (ctx) => {
+            winston.info(`load SNI: ${ctx.hostname}`)
+            tlsServer.addContext(ctx.hostname, ctx.options)
+        } )
         return tlsServer
     }
 }else{
