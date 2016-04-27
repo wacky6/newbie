@@ -25,20 +25,20 @@ body
     flex-direction: column
     justify-content: space-between
     min-height: "calc( 100vh - %s)" % @margin-top
-    header
-        display: flex
-        flex-direction: row
-        align-items: center
-        justify-content: space-between
-        padding: .25em 1ch .25em 1ch
-        position: fixed
-        z-index: 99
-        left: 0
-        top:  0
-        width: 100%
-        box-sizing: border-box
-        background-color: $color.gray.darken-4
-        box-shadow: 0 .5em 1em #000
+header
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+    padding: .25em 1ch .25em 1ch
+    position: fixed
+    z-index: 99
+    left: 0
+    top:  0
+    width: 100%
+    box-sizing: border-box
+    background-color: $color.gray.darken-4
+    box-shadow: 0 .5em 1em #000
 article
     margin: 0 auto
     max-width: 60ch
@@ -93,13 +93,7 @@ article
         &:before
             opacity: 1
 
-@media screen and (min-width: $px-small)
-    .ctrl:not(.sm)
-        display: none
-
 @media screen and (min-width: $px-tablet)
-    .ctrl:not(.md)
-        display: none
     html
         background-image: url("/bg1.jpg")
         background-position: center
@@ -132,8 +126,6 @@ article
         margin-horz: $box-horz-outer-spacing
 
 @media screen and (min-width: $px-desktop)
-    .ctrl:not(.lg)
-        display: none
     html
         letter-spacing: 0.02em
     body
@@ -158,8 +150,11 @@ article
         font-size: 230%
 
 @media print
+    header
+        display: none
     .ctrl
         display: none !important
     body
+        margin-top: 0
         .main
             padding-top: 0

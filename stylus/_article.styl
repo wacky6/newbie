@@ -192,3 +192,25 @@ article
                     padding-horz: ($box-horz-inner-spacing*1.5)
     img
         max-width: 80%
+
+@media print
+    article
+        span, strong
+            color: $color.black.normal !important
+        ul, ol
+            &.box
+                background-color: transparent
+        pre
+            code
+                background-color: $color.gray.lighten-3
+        blockquote, blockquote.note
+            background-color: $color.gray.lighten-2
+        table.striped
+            thead
+                tr
+                    background-color: $color.gray.lighten-3
+            tbody
+                tr:nth-child(even)
+                    background-color: $color.gray.lighten-3
+                tr:nth-child(odd)
+                    background-color: $color.gray.lighten-4

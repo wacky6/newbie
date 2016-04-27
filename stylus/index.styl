@@ -79,7 +79,7 @@ header
         .banner
             display: block
 
-@media screen and (orientation: landscape)
+@media (orientation: landscape)
     body
         flex-direction: row
         justify-content: space-around
@@ -102,3 +102,10 @@ header
 @media screen and (max-height: 720px)
     header
         font-size: 1rem
+
+@media print
+    header
+        nav
+            *, *.visited
+                background-color: inherit
+                color: $color.black.normal !important
