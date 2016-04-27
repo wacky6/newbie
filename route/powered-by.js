@@ -14,9 +14,7 @@ function poweredBy(override) {
             yield next
         }
     }catch(e){
-        return function*(next){
-            yield next
-        }
+        return undefined
     }
 }
 
