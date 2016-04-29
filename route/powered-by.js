@@ -1,14 +1,15 @@
 'use strict'
 
 const {readFileSync} = require('fs')
-    , {version} = require('process').version
     , {join} = require('path')
     , {root} = require('../conf-loader')
 
+const nodeVersion = require('process').version
+
 function poweredBy(override) {
     try{
-        let pkg = JSON.parse( readFileSync( join(root, 'package.json') ) )
-        let poweredByStr = override || `${pkg.name}/${pkg.version}@${nodeVersion}`
+        let {name, version} = JSON.parse( readFileSync( join(root, 'package.json') ) )
+        let poweredByStr = override || `${name}/${version}@${nodeVersion}`
         return function*(next){
             this.set('X-Powered-By', poweredByStr)
             yield next
