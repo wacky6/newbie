@@ -67,6 +67,10 @@ module.exports = function(grunt){
           files: ['external/**/*'],
           tasks: ['copy']
       },
+      page_resource: {
+          files: [join(PAGE, '**/*'), '!'+join(PAGE)+'/**/*.{tmpl,js}'],
+          tasks: ['copy']
+      },
       webjs: {
         files: [join(PAGE, '**/*.js')],
         tasks: ['babel:webjs']
@@ -76,7 +80,7 @@ module.exports = function(grunt){
         tasks: ['blog']
       },
       page: {
-        files: [join(PAGE, '*.tmpl'), '!'+join(PAGE, '_*.tmpl')],
+        files: [join(PAGE, '**/*.tmpl'), '!'+join(PAGE, '**/_*.tmpl')],
         tasks: ['page']
       },
       blog_template: {
@@ -84,7 +88,7 @@ module.exports = function(grunt){
         tasks: ['blog']
       },
       template: {
-        files: [join(PAGE, '_*.tmpl')],
+        files: [join(PAGE, '**/_*.tmpl')],
         tasks: ['blog', 'page']
       }
     }
@@ -153,7 +157,10 @@ module.exports = function(grunt){
       grunt.config.set('stylus.src', path)
     break
     case 'external':
-      grunt.config.set('copy.external.src', path)
+      grunt.config.set('copy.external.src', null)
+    break
+    case 'page_resource':
+      grunt.config.set('copy.page_resource.src', null)
     break
     default:
     break
