@@ -14,10 +14,7 @@ module.exports = function(koa) {
      *  opts: constructor arguments
      */
 
-    // TODO: refactor _opts to rest parameter when node supports it!
-    koa.prototype.route = function(name, _opts) {
-        const opts = Array.prototype.slice.call(arguments, 1)
-
+    koa.prototype.route = function(name, ...opts) {
         if (typeof name === 'string')
             return this.route( require(name), ...opts )
         if (isGenerator(name))

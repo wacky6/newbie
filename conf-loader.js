@@ -1,17 +1,15 @@
 'use strict'
 
-const readFileSync = require('fs').readFileSync
+const {readFileSync} = require('fs')
+    , {resolve} = require('path')
     , winston = require('winston')
-    , resolve = require('path').resolve
 
 const DEFAULT_CONF = {
     stsAge: 181*24*60*60*1000,
     maxAge: 24*60*60*1000
 }
 
-const conf = Object.assign(DEFAULT_CONF, require('./conf'))
-
-conf.root = __dirname
+const conf = Object.assign(DEFAULT_CONF, require('./conf'), {root: __dirname})
 
 // read TLS certificates
 if (conf.tls) {

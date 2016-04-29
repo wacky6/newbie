@@ -1,8 +1,11 @@
 {
   "name": "newbie",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "My (Wackish) Website",
   "main": "server.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server"
