@@ -12,6 +12,8 @@
 <title>About | Jw.Q</title>
 {{ common.head() }}
 <link rel="stylesheet" href="about.css" data-embed>
+<script src="about.js" data-embed>
+</script>
 </head>
 
 <body>
@@ -162,13 +164,18 @@
         <ul class="contact-list box">
             <li><a class="icon-github-circled" title="wacky6 @ github" href="https://github.com/wacky6">wacky6</a></li>
             <li><a class="icon-steam" title="std::weak @ steam" href="http://steamcommunity.com/profiles/76561198136518480">std::weak</a></li>
-            <li><a class="icon-wechat" title="std-weak @ wechat">std-weak</a></li>
+            <li><a class="icon-wechat" id="wechat-qr-code" title="std-weak @ wechat">std-weak</a></li>
             <li><a class="icon-renren" title="Jw.Q @ Renren" href="http://www.renren.com/335657284">Jiewei Qian</a></li>
             <li><a class="icon-mail-alt" title="wacky6@qq.com" href="mailto: wacky6@qq.com">wacky6@qq.com</a></li>
+            <li><a class="icon-yen" id="alipay-qr-code" title="客官赏点零花钱呗" role="button" aria-pressed="false">支付宝 (Alipay)</a></li>
         </ul>
     </section>
 
 </article>
+
+<div class="overlay" role="dialog" aria-hidden="true">
+    <div class="content"></div>
+</div>
 
 </div>
 

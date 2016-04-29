@@ -93,6 +93,34 @@ article
         &:before
             opacity: 1
 
+.overlay
+    position: fixed
+    z-index:  98
+    top:  0
+    left: 0
+    width: 100%
+    height: "calc(100% - %s)" % $footer-reserved-height
+    background-color: alpha($color.black.normal, 0.8)
+    display: flex
+    align-items: center
+    justify-content: center
+    overflow: hidden
+    &[aria-hidden="true"]
+        display: none
+    .content
+        padding: 2em
+        margin:  2em
+        background-color: alpha($color.gray.lighten-4, 0.9)
+        box-shadow: .5em .5em 2em $color.gray.darken-1
+        color: $color.black.normal
+        img
+            display: block
+            margin:  0 auto
+        .title
+            margin-top: 1rem
+            font-size:  1.6em
+            text-align: center
+
 @media screen and (min-width: $px-tablet)
     html
         background-image: url("/bg1.jpg")
