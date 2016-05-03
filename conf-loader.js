@@ -11,6 +11,9 @@ const DEFAULT_CONF = {
 
 const conf = Object.assign(DEFAULT_CONF, require('./conf'), {root: __dirname})
 
+if (conf.dev)
+    conf.maxAge = 0
+
 // read TLS certificates
 if (conf.tls) {
     conf.tls.ca   = readPEM(conf.tls.ca)
