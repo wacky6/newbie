@@ -38,31 +38,46 @@ const OVERLAY = {
     document.addEventListener('DOMContentLoaded', ()=>{
         let curActive
         let overlay = $('.overlay')
-        overlay._.events({
-            click: (ev)=>{
-                overlay.toggleState('aria-hidden')
-                if (curActive)
-                    curActive.toggleState('aria-pressed')
-                curActive = null
+        const closeOverlay = ()=>{
+            overlay.setAttribute('aria-hidden', 'true')
+            if (curActive)
+                curActive.setAttribute('aria-pressed', 'false')
+            curActive = null
+        }
+        const showOverlay = (decl)=>{
+            if (decl.href && window.navigator.userAgent.match(/mobile/i)) {
+                window.open(decl.href)
+                return false
+            }else{
+                let initiator = $(decl.selector)
+                initiator.setAttribute('aria-pressed', 'true')
+                curActive = initiator
+                overlay.querySelector('.content').innerHTML = decl.html
+                overlay.setAttribute('aria-hidden', 'false')
+                return true
             }
-        })
+        }
+        overlay._.events({ click: ()=>{
+            closeOverlay()
+            history.pushState({}, undefined, window.location)
+        } })
         for (let i in OVERLAY) {
             const decl = OVERLAY[i]
             const initiator = $(decl.selector)
             if (initiator) {
-                initiator._.events({
-                    click: ()=>{
-                        if (decl.href && window.navigator.userAgent.match(/mobile/i)) {
-                            window.open(decl.href)
-                        }else{
-                            initiator.toggleState('aria-pressed')
-                            curActive = initiator
-                            overlay.querySelector('.content').innerHTML = decl.html
-                            overlay.toggleState('aria-hidden')
-                        }
-                    }
-                })
+                initiator._.events({ click: ()=>{
+                    let shoudPushState = showOverlay(decl)
+                    if (shouldPushState)
+                        history.pushState({overlay: decl}, undefined, window.location)
+                } })
             }
+        }
+        window.onpopstate = ()=>{
+            let state = history.state
+            if (state && state.overlay)
+                showOverlay(state.overlay)
+            else
+                closeOverlay()
         }
     })
 })()
