@@ -3,6 +3,11 @@ module.exports =  {
     /* enable/disable koa-static cache, koa-swig cache */
     cache:  true,
 
+    /* https port, default: 443 */
+    httpsPort: 4430,
+
+    /* https bind address, default: '::' */
+    httpsAddr: '::1'
 
     /* TLS/SNI configuration
      *
