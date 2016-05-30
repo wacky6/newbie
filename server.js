@@ -28,7 +28,9 @@ let app = koa()
     .route( 'koa-compress' )
     .route( './route/powered-by' )
     .route( './route/error-page' )
-    .route( './route/rewrite', /^\/(About|Blog)\//, (path)=>path.toLowerCase(), 'Canonicalization' )
+    .route( './route/redirect', '//www.', '//', 'Canonicalization' )
+    .route( './route/redirect', '//std-aries.xyz/', '//wacky.one/', 'Change-Domain-Name' )
+    .route( './route/redirect', /\/(About|Blog)\//, (path)=>path.toLowerCase(), 'Canonicalization' )
     .route( 'koa-static', join(conf.root, 'build'), {maxage: conf.maxAge} )
 
 /* Server creation */

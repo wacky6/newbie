@@ -33,7 +33,7 @@ function prependQZoneShareLink() {
         desc:      '@个人站',        /*默认分享理由(可选)*/
         title:     document.title,  /*分享标题(可选)*/
         summary:   $('meta[name=description]').content || ' ',     /*分享摘要(可选)*/
-        site:      'Blog @ '+(location.hostname||'std-aries.xyz'), /*分享来源 如：腾讯网(可选)*/
+        site:      'Blog @ '+(location.hostname||'wacky.one'), /*分享来源 如：腾讯网(可选)*/
         pics:      ($('img') || {src:''}).src,                     /*分享图片的路径(可选)*/
         style:     '203',
         width:     98,
