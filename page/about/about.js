@@ -25,7 +25,7 @@ const OVERLAY = {
     },
     'wechat': {
         selector: '#wechat-qr-code',
-        href:     'https://weixin.qq.com/r/ZEuYgCjElnXprWzj9x52',
+        href:     'http://weixin.qq.com/r/ZEuYgCjElnXprWzj9x52',
         html: `
             <img class="qr-code" src='wechat-qr-code.png' alt="std-weak's we-chat QR Code"></img>
             <div class="title">别忘了告诉我你是谁</div>
