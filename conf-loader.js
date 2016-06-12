@@ -2,7 +2,7 @@
 
 const {readFileSync} = require('fs')
     , {resolve} = require('path')
-    , winston = require('winston')
+    , {isString, isArray} = require('util')
 
 const DEFAULT_CONF = {
     stsAge: 181*24*60*60*1000,
@@ -10,6 +10,8 @@ const DEFAULT_CONF = {
 }
 
 const conf = Object.assign(DEFAULT_CONF, require('./conf'), {root: __dirname})
+
+const concat = (acc, cur) => acc.concat(cur)
 
 if (conf.dev)
     conf.maxAge = 0
@@ -21,37 +23,12 @@ if (conf.tls) {
     conf.tls.cert = readPEM(conf.tls.cert)
 }
 
-// export SNI contextify function
-if (conf.sni) {
-    let ctxs = []    // array of SecureContext options
-    for (let hostnameDecl in conf.sni)
-        hostnameDecl.split(/\s*,\s*/).forEach( (hostname)=>{
-            ctxs.push({
-                hostname: hostname,
-                options:  {
-                    ca:   readPEM(conf.sni[hostnameDecl].ca),
-                    key:  readPEM(conf.sni[hostnameDecl].key),
-                    cert: readPEM(conf.sni[hostnameDecl].cert),
-                }
-            })
-        })
-    conf.addSecureContext = (tlsServer) => {
-        ctxs.forEach( (ctx) => {
-            winston.info(`load SNI: ${ctx.hostname}`)
-            tlsServer.addContext(ctx.hostname, ctx.options)
-        } )
-        return tlsServer
-    }
-}else{
-    conf.addSecureContext = (tlsServer)=>tlsServer
-}
-
 module.exports = conf
 
 function readPEM(path) {
     if (typeof path === 'string')
-        return readFileSync(resolve(__dirname, path), 'utf8')
+        return readFileSync( resolve(__dirname, path) )
     if (path instanceof Array)
-        return path.map( readPEM )
+        return path.map( readPEM ).reduce( concat )
     return undefined
 }
