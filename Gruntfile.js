@@ -36,7 +36,7 @@ module.exports = function(grunt){
     },
     embed: {
       all: {
-        options: { threshold: 0, deleteEmbeddedFiles: true },
+        options: { threshold: 0, deleteEmbeddedFiles: false },
         files: [{ expand:true, cwd: BUILD, src: ['**/*.html'], dest: BUILD }]
       }
     },
