@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="/base.css">
 <script src="/bliss.min.js"></script>
 <script src="/common-ng.js"></script>
+{% if includeAnalyticsCode %}<script src="/analytics.js" defer></script>{% endif %}
 <link rel="stylesheet" href="/font-icons.css">
 <link rel="icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -43,17 +44,4 @@
 <footer>
   <a class="copyright" href="https://github.com/wacky6">Jw.Q (C) 2014-2016, CC BY-NC-SA-4.0</a>
 </footer>
-{%- endmacro -%}
-
-
-
-{%- macro analytics() -%}
-{%- if includeAnalyticsCode -%}
-<script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-72435418-1', 'auto');
-    ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-{%- endif -%}
 {%- endmacro -%}
