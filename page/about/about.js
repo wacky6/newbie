@@ -66,7 +66,7 @@ const OVERLAY = {
             const initiator = $(decl.selector)
             if (initiator) {
                 initiator._.events({ click: ()=>{
-                    let shoudPushState = showOverlay(decl)
+                    let shouldPushState = showOverlay(decl)
                     if (shouldPushState)
                         history.pushState({overlay: decl}, undefined, window.location)
                 } })
