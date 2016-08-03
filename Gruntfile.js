@@ -71,6 +71,10 @@ module.exports = function(grunt){
           files: [join(PAGE, '**/*'), '!'+join(PAGE)+'/**/*.{tmpl,js}'],
           tasks: ['copy']
       },
+      node: {
+        files: ['*.js', 'lib/**/*.js', 'route/**/*.js'],
+        tasks: ['eslint']
+      },
       webjs: {
         files: [join(PAGE, '**/*.js')],
         tasks: ['babel:webjs']
@@ -124,15 +128,14 @@ module.exports = function(grunt){
 
   grunt.registerTask('deploy', 'Deploy to server', [
     'init',
-    'embed',
-    'eslint'
+    'embed'
   ])
 
 
   grunt.event.on('watch', (action, path, target)=>{
     switch (target) {
     case 'node':
-      grunt.config.set('jshint.node.src', path)
+      grunt.config.set('eslint.target', [path])
     break
     case 'webjs':
       grunt.config.set('babel.dist.src', path)
