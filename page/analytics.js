@@ -1,6 +1,6 @@
 'use strict'
 window.addEventListener('load', function() {
-    var noAnalytics = localStorage && localStorage.getItem('no-analytics')
+    var noAnalytics = window.localStorage && window.localStorage.getItem('no-analytics')
     var doNotTrack  =    navigator.doNotTrack === 'yes'
                       || navigator.doNotTrack === '1'
                       || navigator.msDoNotTrack === '1'
