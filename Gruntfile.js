@@ -1,6 +1,7 @@
 'use strict'
 
 const join = require('path').join
+const basename = require('path').basename
 
 const BUILD = 'build/'
     , BUILD_BLOG = join(BUILD,  'blog')
@@ -28,10 +29,16 @@ module.exports = function(grunt){
     },
     copy: {
       external: {
-          files: [{expand: true, cwd: 'external/', src: ['**/*'], dest: BUILD}]
+        expand: true,
+        cwd: 'external/',
+        src: ['**/*'],
+        dest: BUILD
       },
       page_resource: {
-          files: [{expand: true, cwd: PAGE, src: ['**/*', '!**/*.tmpl', '!**/*.js'], dest: BUILD}]
+        expand: true,
+        cwd: PAGE,
+        src: ['**/*', '!**/*.tmpl', '!**/*.js'],
+        dest: BUILD
       }
     },
     embed: {
@@ -65,11 +72,11 @@ module.exports = function(grunt){
       },
       external: {
           files: ['external/**/*'],
-          tasks: ['copy']
+          tasks: ['copy:external']
       },
       page_resource: {
           files: [join(PAGE, '**/*'), '!'+join(PAGE)+'/**/*.{tmpl,js}'],
-          tasks: ['copy']
+          tasks: ['copy:page_resource']
       },
       node: {
         files: ['*.js', 'lib/**/*.js', 'route/**/*.js'],
@@ -160,10 +167,10 @@ module.exports = function(grunt){
       grunt.config.set('stylus.src', path)
     break
     case 'external':
-      grunt.config.set('copy.external.src', null)
+      grunt.config.set('copy.external.src', basename(path, grunt.config.get('copy.external.cwd')) )
     break
     case 'page_resource':
-      grunt.config.set('copy.page_resource.src', null)
+      grunt.config.set('copy.page_resource.src', basename(path, grunt.config.get('copy.page_resource.cwd')) )
     break
     default:
     break
