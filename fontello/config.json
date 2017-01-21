@@ -545,6 +545,12 @@
       "css": "angle-double-down",
       "code": 59481,
       "src": "fontawesome"
+    },
+    {
+      "uid": "531359183f9fedb14b23666f1308591f",
+      "css": "telegram",
+      "code": 62150,
+      "src": "fontawesome"
     }
   ]
 }

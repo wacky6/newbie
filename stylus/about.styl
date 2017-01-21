@@ -3,62 +3,9 @@
 @require "_color-palette.styl"
 @require "_constants.styl"
 
-$tl-node-radius = .25em
-$tl-node-horz-margin = .25em
-$tl-node-border-width = .25em
-$tl-stem-width = .04em
-
 article
     strong
         font-weight: $font-weight-base-2
-
-.timeline
-    margin-top:  0
-    list-style-type: none
-    padding: 0
-    background-color: transparent
-    border: none
-    li, .entry
-        position: relative
-        margin:  0 1em
-        border: none
-        border-left: $tl-stem-width solid $color.green.accent-1
-        $vert-padding = .75em
-        padding: $vert-padding 1em
-        &:before
-            position: absolute
-            top:  $vert-padding + $tl-node-border-width
-            left: "-%s" % ($tl-node-horz-margin + $tl-node-border-width + $tl-node-radius + $tl-stem-width/2)
-            content: " "
-            width:   $tl-node-radius * 2
-            height:  $tl-node-radius * 2
-            $targ-height = $line-height * 1em
-            $half-height = $tl-node-radius + $tl-node-border-width
-            margin:  (($targ-height - 2*$half-height)/2) $tl-node-horz-margin
-            border-radius: $tl-node-radius + $tl-node-border-width
-            border: $tl-node-border-width solid #000
-            background-color: $color.red.accent-2
-            // background-clip: padding-box
-            vertical-align: middle
-            transition: border-radius .5s
-        .location, .entity
-            font-size: 1em
-            transition: color .5s
-        .title, .desc, .time
-            letter-spacing: .03em
-        .title
-            font-size: .8em
-            opacity: .8
-        .desc
-            font-size: .8em
-        .time
-            font-size: .75em
-            opacity: .8
-        &:hover
-            &:before
-                border-radius: 0
-            .location, .entity
-                color: $color.green.accent-1
 
 .contact-list
     list-style: none
@@ -102,9 +49,6 @@ article
     cursor: pointer
 
 @media screen and (min-width: $px-tablet)
-    .timeline
-        li, .entry
-            padding: 1em 1em
     .contact-list
         li
             &:hover
@@ -114,18 +58,8 @@ article
                     transition: color .5s
 
 @media screen and (min-width: $px-desktop)
-    .timeline
-        li, .entry
-            padding: 1em 1em
     .donation-list
         display: inline-block
         li
             a:hover
                 color: $color.amber.lighten-1
-
-@media print
-    .timeline
-        li, .entry
-            border-left: none
-            &:before
-                display: none
