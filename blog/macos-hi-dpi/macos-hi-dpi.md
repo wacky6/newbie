@@ -121,187 +121,189 @@ RDM用来切换屏幕分辨率，在这里找安装包：[RDM Binary Release](ht
 <script>
 'use strict'
 ;(function(){
-    var PLACEHOLDER = '1920 1080, 1600 900'
-    var STYLE_FORM = { display: 'inline-block' }
-    var STYLE_LABEL = { display: 'block' }
-    var STYLE_FIELD_NAME_INLINE = { display: 'inline-block', width: '10ch', textAlign: 'right', marginRight: '1ch' }
-    var STYLE_BUTTON = { display: 'block', height: '2em', padding: '0 2ch', margin: '.5em auto', textAlign: 'center', cursor: 'pointer' }
-    var STYLE_RESOLUTION_LIST = { width: '40ch', maxWidth: '100%' }
 
-    function $(sel) {
-        return document.querySelector(sel)
+var PLACEHOLDER = '1920 1080, 1600 900'
+var STYLE_FORM = { display: 'inline-block' }
+var STYLE_LABEL = { display: 'block' }
+var STYLE_FIELD_NAME_INLINE = { display: 'inline-block', width: '10ch', textAlign: 'right', marginRight: '1ch' }
+var STYLE_BUTTON = { display: 'block', height: '2em', padding: '0 2ch', margin: '.5em auto', textAlign: 'center', cursor: 'pointer' }
+var STYLE_RESOLUTION_LIST = { width: '40ch', maxWidth: '100%' }
+
+function $(sel) {
+    return document.querySelector(sel)
+}
+
+function createStyleString(style) {
+    function camelCaseToHyphen(str) { return str.replace(/[A-Z]/, function(r) { return '-'+r.toLowerCase() }) }
+    var decls = []
+    for (var key in style)
+        decls.push( camelCaseToHyphen(key) + ':' + style[key] )
+    return decls.join('; ')
+}
+
+function $el(decl, refs, models) {
+    refs = refs || {}
+    models = models || {}
+
+    var tag = decl.tag || 'div'
+    var html = decl.html
+    var children = decl.children || []
+    var classes = decl.class || decl.classes || []
+    var attrs = decl.attrs || {}
+    var ref = decl.ref
+    var model = decl.model
+    var style = decl.style || {}
+
+    var el = document.createElement(tag)
+
+    if (classes)
+        attrs.class = typeof classes === 'string' ? classes : classes.join(' ')
+
+    if (style)
+        attrs.style = createStyleString(style)
+
+    for (var key in attrs)
+        el.setAttribute(key, String(attrs[key]))
+
+    if (html)
+        el.innerHTML = html
+    else
+        children.forEach( function(child){ el.appendChild( $el(child, refs, models) ) } )
+
+    if (ref)
+        refs[ref] = el
+
+    if (model)
+        el.addEventListener('input', function(e) { models[model] = e.target.value } )
+
+    return el
+}
+
+function saveAsFile(blob, filename) {
+    if (navigator.msSaveBlob) {
+        navigator.msSaveBlob(blob, filename)
+    } else {
+        var link = document.createElement('a')
+        var url = URL.createObjectURL(blob)
+        link.setAttribute('href', url)
+        link.setAttribute('download', filename)
+        link.style.display = 'none'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
     }
+}
 
-    function createStyleString(style) {
-        function camelCaseToHyphen(str) { return str.replace(/[A-Z]/, function(r) { return '-'+r.toLowerCase() }) }
-        var decls = []
-        for (var key in style)
-            decls.push( camelCaseToHyphen(key) + ':' + style[key] )
-        return decls.join('; ')
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('onekey-gen: injecting')
 
-    function $el(decl, refs, models) {
-        refs = refs || {}
-        models = models || {}
+    var refs = {}, models = {}
 
-        var tag = decl.tag || 'div'
-        var html = decl.html
-        var children = decl.children || []
-        var classes = decl.class || decl.classes || []
-        var attrs = decl.attrs || {}
-        var ref = decl.ref
-        var model = decl.model
-        var style = decl.style || {}
-
-        var el = document.createElement(tag)
-
-        if (classes)
-            attrs.class = typeof classes === 'string' ? classes : classes.join(' ')
-
-        if (style)
-            attrs.style = createStyleString(style)
-
-        for (var key in attrs)
-            el.setAttribute(key, String(attrs[key]))
-
-        if (html)
-            el.innerHTML = html
-        else
-            children.forEach( function(child){ el.appendChild( $el(child, refs, models) ) } )
-
-        if (ref)
-            refs[ref] = el
-
-        if (model)
-            el.addEventListener('input', function(e) { models[model] = e.target.value } )
-
-        return el
-    }
-
-    function saveAsFile(blob, filename) {
-        if (navigator.msSaveBlob) {
-            navigator.msSaveBlob(blob, filename)
-        } else {
-            var link = document.createElement('a')
-            var url = URL.createObjectURL(blob)
-            link.setAttribute('href', url)
-            link.setAttribute('download', filename)
-            link.style.display = 'none'
-            document.body.appendChild(link)
-            link.click()
-            document.body.removeChild(link)
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('onekey-gen: injecting')
-
-        var refs = {}, models = {}
-
-        // initialize
-        $('#onekey-gen').appendChild( $el({
-            tag: 'form',
-            style: STYLE_FORM,
-            children: [
-                { tag: 'label',
-                  style: STYLE_LABEL,
-                  children: [
-                      { tag: 'span', style: STYLE_FIELD_NAME_INLINE, html: 'VendorID' },
-                      { tag: 'input', model: 'vid', attrs: { placeholder: '10ac', type: 'text', maxlength: 4 } }
-                  ]
-                },
-                { tag: 'label',
-                  style: STYLE_LABEL,
-                  children: [
-                      { tag: 'span', style: STYLE_FIELD_NAME_INLINE, html: 'ProductID' },
-                      { tag: 'input', model: 'pid', attrs: { placeholder: 'a0c4', type: 'text', maxlength: 4 } }
-                  ]
-                },
-                { tag: 'label',
-                  style: STYLE_LABEL,
-                  children: [
-                      { tag: 'span', style: STYLE_FIELD_NAME_INLINE, html: '分辨率' },
-                      { tag: 'input', model: 'resolution', style: STYLE_RESOLUTION_LIST, attrs: { placeholder: PLACEHOLDER } }
-                  ]
-                },
-                { tag: 'button',
-                  ref: 'generate',
-                  style: STYLE_BUTTON,
-                  html: '生成&amp;下载配置'
-                }
-            ]
-        }, refs, models) )
-
-        function generatePlist(vid, pid, resolutions) {
-            function getResolutionBase64(w, h) {
-                var buf = new ArrayBuffer(16)
-                var view = new DataView(buf)
-                view.setUint32(0, Number(w))
-                view.setUint32(4, Number(h))
-                view.setUint32(8, 1)
-                view.setUint32(12, 0x00200000)
-                return btoa(String.fromCharCode.apply(null, new Uint8Array(buf)))
+    // initialize
+    $('#onekey-gen').appendChild( $el({
+        tag: 'form',
+        style: STYLE_FORM,
+        children: [
+            { tag: 'label',
+              style: STYLE_LABEL,
+              children: [
+                  { tag: 'span', style: STYLE_FIELD_NAME_INLINE, html: 'VendorID' },
+                  { tag: 'input', model: 'vid', attrs: { placeholder: '10ac', type: 'text', maxlength: 4 } }
+              ]
+            },
+            { tag: 'label',
+              style: STYLE_LABEL,
+              children: [
+                  { tag: 'span', style: STYLE_FIELD_NAME_INLINE, html: 'ProductID' },
+                  { tag: 'input', model: 'pid', attrs: { placeholder: 'a0c4', type: 'text', maxlength: 4 } }
+              ]
+            },
+            { tag: 'label',
+              style: STYLE_LABEL,
+              children: [
+                  { tag: 'span', style: STYLE_FIELD_NAME_INLINE, html: '分辨率' },
+                  { tag: 'input', model: 'resolution', style: STYLE_RESOLUTION_LIST, attrs: { placeholder: PLACEHOLDER } }
+              ]
+            },
+            { tag: 'button',
+              ref: 'generate',
+              style: STYLE_BUTTON,
+              html: '生成&amp;下载配置'
             }
+        ]
+    }, refs, models) )
 
-            var result = ''
-            function L(str) { return result = result + str + '\n' }
-            L('<?xml version="1.0" encoding="UTF-8"?>')
-            L('<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">')
-            L('<!-- Generated Using: ' + window.location.href + ' -->')
-            L('<!-- By wacky6 -->')
-            L('<plist version="1.0">')
-            L('<dict>')
-            L('    <key>DisplayVendorID</key>')
-            L('    <integer>' + Number(vid).toString(10) + '</integer>')
-            L('    <key>DisplayProductID</key>')
-            L('    <integer>' + Number(pid).toString(10) + '</integer>')
-            L('    <key>scale-resolutions</key>')
-            L('    <array>')
-
-            resolutions.forEach( function(res) {
-                L('        <data>' + getResolutionBase64(res[0], res[1]) + '</data>    <!-- ' + res[0] + 'x' + res[1] + ' -->')
-                L('        <data>' + getResolutionBase64(res[0]*2, res[1]*2) + '</data>')
-            } )
-
-            L('    </array>')
-            L('</dict>')
-            L('</plist>')
-
-            return result
+    function generatePlist(vid, pid, resolutions) {
+        function getResolutionBase64(w, h) {
+            var buf = new ArrayBuffer(16)
+            var view = new DataView(buf)
+            view.setUint32(0, Number(w))
+            view.setUint32(4, Number(h))
+            view.setUint32(8, 1)
+            view.setUint32(12, 0x00200000)
+            return btoa(String.fromCharCode.apply(null, new Uint8Array(buf)))
         }
 
-        refs.generate.addEventListener('click', function(e) {
-            e.preventDefault()
+        var result = ''
+        function L(str) { return result = result + str + '\n' }
+        L('<?xml version="1.0" encoding="UTF-8"?>')
+        L('<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">')
+        L('<!-- Generated Using: ' + window.location.href + ' -->')
+        L('<!-- By wacky6 -->')
+        L('<plist version="1.0">')
+        L('<dict>')
+        L('    <key>DisplayVendorID</key>')
+        L('    <integer>' + Number(vid).toString(10) + '</integer>')
+        L('    <key>DisplayProductID</key>')
+        L('    <integer>' + Number(pid).toString(10) + '</integer>')
+        L('    <key>scale-resolutions</key>')
+        L('    <array>')
 
-            var re_hex = /^[0-9a-z]+$/
-            var re_resolution = /^([0-9]+\s+[0-9]+\s*,\s*)*[0-9]+\s+[0-9]+$/
+        resolutions.forEach( function(res) {
+            L('        <data>' + getResolutionBase64(res[0], res[1]) + '</data>    <!-- ' + res[0] + 'x' + res[1] + ' -->')
+            L('        <data>' + getResolutionBase64(res[0]*2, res[1]*2) + '</data>')
+        } )
 
-            var _vid = (models.vid || '').toLowerCase()
-            var _pid = (models.pid || '').toLowerCase()
-            var _resolution = models.resolution || ''
+        L('    </array>')
+        L('</dict>')
+        L('</plist>')
 
-            // check input
-            if ( ! re_hex.test(_vid) )
-                return alert('VendorID格式不正确')
+        return result
+    }
 
-            if ( ! re_hex.test(_pid) )
-                return alert('ProductID格式不正确')
+    refs.generate.addEventListener('click', function(e) {
+        e.preventDefault()
 
-            if ( ! re_resolution.test(_resolution) )
-                return alert('分辨率列表格式不正确。请用英文逗号分隔多个分辨率。')
+        var re_hex = /^[0-9a-z]+$/
+        var re_resolution = /^([0-9]+\s+[0-9]+\s*,\s*)*[0-9]+\s+[0-9]+$/
 
-            var vid = parseInt(_vid, 16)
-            var pid = parseInt(_pid, 16)
-            var resolutions = _resolution.split(/\s*[,]\s*/g).map( function(s){ return s.split(/\s+/).map( Number ) } )
+        var _vid = (models.vid || '').toLowerCase()
+        var _pid = (models.pid || '').toLowerCase()
+        var _resolution = models.resolution || ''
 
-            var conf = generatePlist(vid, pid, resolutions)
-            var blob = new Blob( [conf], { type: 'application/x-plist' } )
-            var filename = 'DisplayProductID-' + Number(pid).toString(16)
+        // check input
+        if ( ! re_hex.test(_vid) )
+            return alert('VendorID格式不正确')
 
-            saveAsFile(blob, filename)
+        if ( ! re_hex.test(_pid) )
+            return alert('ProductID格式不正确')
 
-            alert('配置文件已下载为：'+filename)
-        })
+        if ( ! re_resolution.test(_resolution) )
+            return alert('分辨率列表格式不正确。请用英文逗号分隔多个分辨率。')
+
+        var vid = parseInt(_vid, 16)
+        var pid = parseInt(_pid, 16)
+        var resolutions = _resolution.split(/\s*[,]\s*/g).map( function(s){ return s.split(/\s+/).map( Number ) } )
+
+        var conf = generatePlist(vid, pid, resolutions)
+        var blob = new Blob( [conf], { type: 'application/x-plist' } )
+        var filename = 'DisplayProductID-' + Number(pid).toString(16)
+
+        saveAsFile(blob, filename)
+
+        alert('配置文件已下载为：'+filename)
     })
+})
+
 })();
 </script>
