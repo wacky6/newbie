@@ -12,7 +12,7 @@ html
                  "文泉驿正黑",
                  "SimSun",
                  "宋体";
-    font-weight: $font-weight-base
+    font-weight: $font-weight-base-m
     overflow-x: hidden
     margin:  0
     padding: 0
@@ -52,6 +52,10 @@ h1
     color: $color.gray.lighten-5
 h2, h3
     color: $color.gray.lighten-4
+
+@media screen and (min-width: $px-desktop)
+    html
+        font-weight: $font-weight-base
 
 @media print
     html
