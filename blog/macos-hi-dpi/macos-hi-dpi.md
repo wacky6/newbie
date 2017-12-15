@@ -16,6 +16,8 @@ macOS开启外接显示器HiDPI
 ## TL;DR
 [一键生成HiDPI配置](#one-key)
 
+**须使用DP；HDMI无效**
+
 ### 1. 打开系统HiDPI (在终端运行）
 ```bash
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool YES
