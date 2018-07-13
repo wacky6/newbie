@@ -7,8 +7,8 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server"
+    "dev": "grunt dev",
+    "build": "grunt deploy"
   },
   "repository": {
     "type": "git",
