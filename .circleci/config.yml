@@ -1,0 +1,46 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+
+version: 2
+jobs:
+  build:    # build is equivalent to build_and_deploy
+    docker:
+      - image: circleci/node:9
+
+    environment:
+      SSH_OPTS: 'UserKnownHostsFile=.circleci/ssh_hosts'
+      BUILD_PREFIX: 'newbie'
+      PRODUCTION_HOST: 'root@wacky.one'
+      PRODUCTION_TARGET: '/publish/newbie/build'
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: yarn build
+
+      - add_ssh_keys:
+          fingerprints:
+            "2e:c9:8e:a0:44:60:27:9f:c0:11:1f:50:cf:0f:f2:4d"
+
+      - run:
+          name: Push to server
+          command: |
+            BUNDLE=${BUILD_PREFIX}-$(git rev-parse --short HEAD)-circle-${CIRCLE_BUILD_NUM}
+            tar -C build -zcf - ./ | ssh -o ${SSH_OPTS} ${PRODUCTION_HOST} "mkdir -p /tmp/${BUNDLE}/ && tar -C /tmp/${BUNDLE}/ -zxvf - && cp -vr /tmp/${BUNDLE}/* ${PRODUCTION_TARGET} && rm -rf /tmp/${BUNDLE}"
