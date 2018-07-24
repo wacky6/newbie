@@ -3,20 +3,20 @@
     mtime: 2017-01-21
     tags: 其它
     keywords: macOS, OS X, HiDPI, external monitor
-    description: 开启macOS外接显示器HiDPI。
+    description: 通过修改 plist 开启 macOS 外接显示器 HiDPI。
     brief: |
-        通过修改plist来开启macOS外接显示器的HiDPI。
+        通过修改 plist 来开启 macOS 外接显示器的 HiDPI 功能。
 
-        RMBP 13 (Early 15)、Dell P2416D测试成功。
+        DisplayPort 下 Dell P2416D、Dell P1418D 测试成功。
 ~)
 
-macOS开启外接显示器HiDPI
+macOS 开启外接显示器 HiDPI
 ===
 
 ## TL;DR
 [一键生成HiDPI配置](#one-key)
 
-**须使用DP；HDMI无效**
+**须使用 DisplayPort；HDMI 无效果**
 
 ### 1. 打开系统HiDPI (在终端运行）
 ```bash
@@ -25,7 +25,7 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 
 ### 2. 获得显示器信息
 
-获得显示器的VendorID和ProductID（制造商ID、产品ID），在终端运行：
+获得显示器的 VendorID 和 ProductID （制造商ID 和 产品ID），在终端运行：
 
 ```bash
 ioreg -lw0 | grep IODisplayPrefsKey | grep -o '/[^/]\+"$'
@@ -38,12 +38,12 @@ ioreg -lw0 | grep IODisplayPrefsKey | grep -o '/[^/]\+"$'
 /AppleDisplay-10ac-a0c4"
 ```
 
-这条指令的输出会有多个，注意识别你想要调整的显示器。第一条`AppleBacklightDisplay-610-a029`是MBP的内置显示屏。第二个是外接显示器。（当然，也可以合上MBP屏幕，这样只会输出正在使用的外接显示器）
+这条指令的输出会有多个，注意识别你想要调整的显示器。第一条`AppleBacklightDisplay-610-a029`是MBP的内置显示屏。第二个是外接显示器。（当然，也可以合上 MBP 屏幕，这样只会输出正在使用的外接显示器）
 
 关注`AppleDisplay-**-**`，`-`分隔了两个十六进制数。第一个为VendorID，第二个为ProductID。以我的环境为例：VendorID为`10ac`，ProductID为`a0c4`。（机智的小伙伴发现这是一台Dell P2416D）
 
 ### 3. 制作配置
-水果的plist格式是xml变体，你可以手动写配置文件，也可以用文末的一键生成器。
+水果的 plist 是 xml 变体，你可以手动写配置文件，也可以用文末的一键生成器。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -95,12 +95,12 @@ sudo chown root:wheel ${CONF}
 ```
 
 ### 5. 安装Retina Display Manager
-RDM用来切换屏幕分辨率，在这里找安装包：[RDM Binary Release](http://avi.alkalay.net/software/RDM/)
+RDM 用来切换屏幕分辨率，在这里找安装包：[RDM Binary Release](http://avi.alkalay.net/software/RDM/)
 
-如果使用macOS Serria，需要允许任意来源的应用，参见：[macOS安装任意来源应用](http://osxdaily.com/2016/09/27/allow-apps-from-anywhere-macos-gatekeeper/)。
+如果使用 macOS Serria，需要允许任意来源的应用，参见：[macOS安装任意来源应用](http://osxdaily.com/2016/09/27/allow-apps-from-anywhere-macos-gatekeeper/)。
 
 ### 6. 重启！用RDM切换分辨率
-重启后运行RDM，在任务栏中找到RDM的logo，点开来切换分辨率。带有⚡️标识的为HiDPI分辨率。
+重启后运行 RDM，在任务栏中找到 RDM 的 logo，点开来切换分辨率。带有⚡️标识的为 HiDPI 分辨率。
 ![RDM Screenshot](./RDM-screenshot.png)
 
 
@@ -109,7 +109,7 @@ RDM用来切换屏幕分辨率，在这里找安装包：[RDM Binary Release](ht
 
 生成后，在终端中按照 [上面的指令](#copy-conf) 把配置文件拷贝到系统目录。
 
-<div class="hint">需要IE 9+，Chrome，Firefox，Safari</div><div id="onekey-gen"></div>
+<div class="hint">需要 IE 9+，Chrome，Firefox，Safari</div><div id="onekey-gen"></div>
 
 <style>
 .hint {
