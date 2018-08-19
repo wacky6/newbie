@@ -33,6 +33,7 @@ function fetchWithTimeout(url, timeout) {
 }
 
 try {
+    let probeStartAt = Date.now()
     fetchWithTimeout(INSTAGRAM_LINK, TIMEOUT).then(
         resp => {
             // check response code
@@ -42,6 +43,7 @@ try {
                     .filter(el => el.tagName.toLowerCase() === 'a')
                     .forEach(el => { el.href = INSTAGRAM_LINK })
                 window.ga && window.ga('send', 'event', 'Connectivity', 'instagram', 'success')
+                window.ga && window.ga('send', 'timing', 'Connectivity', 'instagram_resp_time', Date.now() - probeStartAt)
             }
         },
         error => {
