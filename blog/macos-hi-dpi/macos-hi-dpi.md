@@ -279,6 +279,8 @@ document.addEventListener('DOMContentLoaded', function() {
     refs.generate.addEventListener('click', function(e) {
         e.preventDefault()
 
+        window.ga && window.ga('send', 'event', 'Features', 'hidpi-conf-generate')
+
         var re_hex = /^[0-9a-z]+$/
         var re_resolution = /^([0-9]+\s+[0-9]+\s*,\s*)*[0-9]+\s+[0-9]+$/
 

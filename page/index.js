@@ -8,6 +8,8 @@ const NOT_BE_FOUND_INNER_HTML = `
 document.addEventListener('DOMContentLoaded', function(){
     let $ = (sel) => document.querySelector(sel)
     let writeInnerHTML = ()=> {
+        window.ga && window.ga('send', 'event', 'Features', 'kimi-ga-suki-desu')
+
         $('#not-be-found').innerHTML = NOT_BE_FOUND_INNER_HTML
         $('#suki-desu').removeEventListener('click', writeInnerHTML)
     }
