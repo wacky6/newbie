@@ -1,13 +1,13 @@
 [](~
     ctime: 2017-01-21
-    mtime: 2017-01-21
+    mtime: 2018-11-15
     tags: 其它
     keywords: macOS, OS X, HiDPI, external monitor
     description: 通过修改 plist 开启 macOS 外接显示器 HiDPI。
     brief: |
         通过修改 plist 来开启 macOS 外接显示器的 HiDPI 功能。
 
-        DisplayPort 下 Dell P2416D、Dell P1418D 测试成功。
+        DisplayPort 下 Dell P2416D、Dell P2418D 测试成功。
 ~)
 
 macOS 开启外接显示器 HiDPI
@@ -17,6 +17,17 @@ macOS 开启外接显示器 HiDPI
 [一键生成HiDPI配置](#one-key)
 
 **须使用 DisplayPort；HDMI 无效果**
+
+**对以下系统和显示配置有效：**
+
+* macOS 10.12 Sierra
+* macOS 10.13 High Sierra
+* macOS 10.14 Mojave
+
+
+* Dell P2416D, DisplayPort, 1920x1080 HiDPI
+* Dell P2418D, DisplayPort, 1920x1080 HiDPI
+
 
 ### 1. 打开系统HiDPI (在终端运行）
 ```bash
@@ -106,6 +117,7 @@ RDM 用来切换屏幕分辨率，在这里找安装包：[RDM Binary Release](h
 ### 存在的问题
 用本文的方式开启 HiDPI，合上 Mac 屏幕，外接显示器黑屏。将外接显示器分辨率切换到屏幕原始分辨率后可以正常地仅使用外接显示器，原因未知。因对我的工作方式没有影响，没有继续研究下去。
 
+系统大版本更新后（如 High Sierra 到 Mojave），需要重新生成配置文件。
 
 [](< #one-key >)
 ## 一键生成
