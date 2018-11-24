@@ -4,14 +4,46 @@
 @require "_nav.styl"
 
 #suki-desu
+    margin-top: 1em
+    padding-top: 1em
     color: $color.blue.lighten-3
+    .title
+        display: flex
+        flex-direction: row
+        justify-content: center
+        align-items: center
+    svg
+        fill: $color.light-blue.lighten-4
+        transform: scale(0.9)
+        margin-right: .5ch
     &:hover, &:active, &[aria-pressed="true"]
         color: $color.blue.lighten-2
+        svg
+            fill: $color.blue.lighten-2
 
-#not-be-found
+#heartbeat
+    font-size: 1rem
+    .content-wrap
+        width: 260pt
+        text-align: left
     h3
-        font-size: 2rem
+        font-size: 80%
+        font-weight: inherit
+        margin-bottom: 2em
+        ruby rt
+            font-size: 90%
+    ruby rt
+        font-size: 80%
+    i, emph
         font-weight: bolder
+        margin-left: 1ch
+        margin-right: 1ch
+    code
+        display: block
+        margin: 0
+        white-space: pre
+        color: $color.blue.lighten-3
+        font-size: 75%
 
 // for mobile
 body
@@ -40,14 +72,16 @@ header
         text-align: center
         font-weight: bolder
     nav
-        font-weight: $font-weight-base-2
+        font-weight: $font-weight-base
         max-width: 20ch
+        min-width: 12ch
         margin:  0 auto
-        *, *:visited
+        a
             display: block
             line-height: 2
+        a, a:visited
             color: $color.gray.lighten-2
-            &:hover
+        a:hover
                 color: $color.white.normal
 .carousal
     position: relative
@@ -98,6 +132,9 @@ header
         margin-bottom: 0
         .content
             display: flex
+    #suki-desu
+        .title
+            justify-content: flex-start
 
 @media screen and (max-height: 720px)
     header

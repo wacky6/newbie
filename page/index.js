@@ -1,27 +1,39 @@
 'use strict'
 ;(function(){
 
-const NOT_BE_FOUND_INNER_HTML = `
-    <h3>Not.Be.Found</h3>
+const HEARTBEAT_INNER_HTML = `
+    <div class="content-wrap">
+        <h3 class="regards">
+            <ruby>致尚未发现的<emph>你</emph>，<rt>Dedicated to <i>the one</i> yet to be discovered,</rt></ruby>
+        </h3>
+
+        <code>170a21e    @    258_6515    /    e11bd - 2c5</code>
+    </div>
 `
 
 document.addEventListener('DOMContentLoaded', function(){
-    let $ = (sel) => document.querySelector(sel)
-    let writeInnerHTML = ()=> {
-        window.ga && window.ga('send', 'event', 'Features', 'kimi-ga-suki-desu')
+    const $ = (sel) => document.querySelector(sel)
+    const writeInnerHTML = ()=> {
+        window.ga && window.ga('send', 'event', 'Features', 'heartbeat')
 
-        $('#not-be-found').innerHTML = NOT_BE_FOUND_INNER_HTML
+        $('#heartbeat').innerHTML = HEARTBEAT_INNER_HTML
         $('#suki-desu').removeEventListener('click', writeInnerHTML)
     }
 
-    $('#suki-desu').addEventListener('click', ()=>{
+    const toggleState = () => {
         $('#suki-desu').toggleState('aria-pressed')
         $('.carousal .content').toggleState('aria-hidden')
-        $('#not-be-found').toggleState('aria-hidden')
-    })
+        $('#heartbeat').toggleState('aria-hidden')
+    }
 
-    $('#suki-desu').addEventListener('click', writeInnerHTML)
+    $('#suki-desu').addEventListener('click', toggleState)
 
+    if (window.location.hash.indexOf('#heartbeat') >= 0) {
+        writeInnerHTML()
+        toggleState()
+    } else {
+        $('#suki-desu').addEventListener('click', writeInnerHTML)
+    }
 })
 
 HTMLElement.prototype.toggleState = function(attr) {
