@@ -162,6 +162,7 @@ auth_basic_user_file "/etc/nginx/conf.d/.htpasswd";
 | metrics.nkg.  | 监控 / [netdata](https://github.com/firehol/netdata) |
 | torrent.nkg.  | 下载姬 / [docktorrent](https://github.com/kfei/docktorrent) |
 |               | 录屏姬 / [hikaru](https://github.com/wacky6/hikaru) |
+| amqp.nkg.     | 弹幕姬消息队列 / [rabbitmq](https://hub.docker.com/_/rabbitmq/) |
 |               | DDNS / [cf-ddns](https://github.com/wacky6/cf-ddns) |
 |               | 存储中转 / [minio](https://github.com/minio/minio) |
 | *.ovl.        | 怪蜀黍网络 / [tinc-config](https://github.com/wacky6/tinc-config) |
