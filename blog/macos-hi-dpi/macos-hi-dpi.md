@@ -16,8 +16,6 @@ macOS 开启外接显示器 HiDPI
 ## TL;DR
 [一键生成HiDPI配置](#one-key)
 
-**须使用 DisplayPort；HDMI 无效果**
-
 **对以下系统和显示配置有效：**
 
 * macOS 10.12 Sierra
@@ -27,6 +25,7 @@ macOS 开启外接显示器 HiDPI
 
 * Dell P2416D, DisplayPort, 1920x1080 HiDPI
 * Dell P2418D, DisplayPort, 1920x1080 HiDPI
+* Acer XB241YU, HDMI, 1920x1080 HiDPI
 
 
 ### 1. 打开系统HiDPI (在终端运行）
