@@ -25,15 +25,34 @@
     font-size: 1rem
     .content-wrap
         width: 260pt
-        text-align: left
+        text-align: center
+    ruby rt
+        font-size: 90%
     h3
         font-size: 80%
         font-weight: inherit
         margin-bottom: 2em
-        ruby rt
-            font-size: 90%
-    ruby rt
+    .text-wrap
         font-size: 80%
+        margin-top: 1em
+        margin-bottom: 4em
+        height: 3em
+        box-sizing: content-box
+        p
+            margin: 0
+            transition: opacity 1s
+        .text
+            opacity: 1
+        .origin
+            color: #ffccd6    // sakura pink (#ffb7c5) variant
+            letter-spacing: .5ch
+            opacity: 0
+            transform: translateY(-100%)
+        &:hover
+            .text
+                opacity: 0
+            .origin
+                opacity: 1
     i, emph
         font-weight: bolder
         margin-left: 1ch

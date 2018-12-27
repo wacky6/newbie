@@ -7,6 +7,16 @@ const HEARTBEAT_INNER_HTML = `
             <ruby>致尚未发现的<emph>你</emph>，<rt>Dedicated to <i>the one</i> yet to be discovered,</rt></ruby>
         </h3>
 
+        <div class="text-wrap">
+            <p class="text">
+                <ruby>想<emph>贴近</emph>一些。<rt>for <emph>your</emph> lonely heart.</rt></ruby>
+            </p>
+
+            <p class="origin">
+                <ruby>我还未了解这样的恋爱<rt>こんな恋知らないから</rt></ruby>
+            </p>
+        </div>
+
         <code>170a21e    @    258_6515    /    e11bd - 2c5</code>
     </div>
 `
