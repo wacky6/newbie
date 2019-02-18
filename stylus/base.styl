@@ -19,12 +19,19 @@ $header-height = 2.85rem
 h1,h2,h3
     font-weight: bolder
 
+html
+    background-image: url("/bg3.jpg")
+    background-position: 17% 50%
+    background-repeat: no-repeat
+    background-attachment: fixed
+    background-size: cover
 body
     margin-top: $header-height
     display: flex
     flex-direction: column
     justify-content: space-between
     min-height: "calc( 100vh - %s)" % @margin-top
+    background-color: rgba(0,0,0,0.7)
 header
     display: flex
     flex-direction: row
@@ -133,11 +140,7 @@ article
 
 @media screen and (min-width: $px-tablet)
     html
-        background-image: url("/bg3.jpg")
         background-position: center
-        background-repeat: no-repeat
-        background-attachment: fixed
-        background-size: cover
     body
         display: flex
         flex-direction: row
@@ -148,7 +151,6 @@ article
         margin-bottom: $footer-reserved-height
         .main
             flex-basis: 100%
-            background-color: rgba(0,0,0,0.7)
         .overlay
             height: "calc(100% - %s)" % $footer-reserved-height
         footer
@@ -170,8 +172,8 @@ article
         letter-spacing: 0.02em
     body
         justify-content: space-around
+        background: transparent
         .main
-            background: transparent
             flex-basis: initial
             padding-bottom: 3em
             padding-horz: 8ch
