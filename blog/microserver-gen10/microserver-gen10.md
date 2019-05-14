@@ -48,6 +48,7 @@ a {
 * \- CPU 不可换，性能较弱
 * \- 没有 Intel 信仰加成
 * \- 目前没有 ESXi 官方虚拟化支持
+* \- PCIe Gen3 x8 对显卡（加速卡）炼丹的支持不完善
 * \- **慎入**企业级硬盘
 * \- 早期 BIOS 过热保护算法疑似有问题，需要更新 BIOS 固件
 
@@ -173,14 +174,15 @@ auth_basic_user_file "/etc/nginx/conf.d/.htpasswd";
 | 前缀           | 服务                |
 |---------------|---------------------|
 | metrics.nkg.  | 监控 / [netdata](https://github.com/firehol/netdata) |
-| torrent.nkg.  | 下载姬 / [docktorrent](https://github.com/kfei/docktorrent) |
 |               | 录屏姬 + 超级弹幕姬 / [hikaru](https://github.com/wacky6/hikaru) |
 | amqp.nkg.     | 弹幕姬消息队列 / [rabbitmq](https://hub.docker.com/_/rabbitmq/) |
-|               | DDNS / [cf-ddns](https://github.com/wacky6/cf-ddns) |
+| *.ovl.        | 怪蜀黍网络 / [tinc-config](https://github.com/wacky6/tinc-config) <br> 提供 NAT 穿透和流量转发，允许远程访问 |
+| frp.          | 怪蜀黍网络（备用） / [frp](https://github.com/fatedier/frp) <br> 提供流量转发，通过公网服务器允许远程访问<br> tinc 的备用方案 |
 |               | 存储中转 / [minio](https://github.com/minio/minio) |
-| *.ovl.        | 怪蜀黍网络 / [tinc-config](https://github.com/wacky6/tinc-config) |
 |               | 容器化作业环境 / servant 计划中 |
 |               | 遗传算法型后期姬 / 计划中 |
+| ~~torrent.nkg.~~  | ~~下载姬 / [docktorrent](https://github.com/kfei/docktorrent)~~：<br> 南京电信停止提供家用公网IPv4，故无法使用 <br> 下载姬将仅在需要购买云服务器实例 |
+|               | ~~DDNS / [cf-ddns](https://github.com/wacky6/cf-ddns)~~ <br> 南京电信停止提供家用公网IPv4，DDNS无意义 |
 
 如果你有更有趣的想法，欢迎和我分享，交友链接：[wacky6](https://github.com/wacky6/)
 
@@ -233,6 +235,7 @@ Backblaze 是美国一家提供云备份服务的厂商，其系统专门为数�
 | 2017 年末  | x230i 在持续运行一年半后内核故障，存储服务不可用  | 需要人工重置电源；因软件依赖，DDNS同时失效，远程访问故障持续一周 |
 | 2018 年初  | 江苏电信网络提速，上传达 20Mbps                | 公网IP分配不稳定；大量数据访问变得可行 |
 | 2018 年中  | 购入 Gen10，整合 x230i 和开发板的全部功能       | 第三代存储姬；正在发现更多的坑中…… |
+| 2019 年初  | 配置 frp 提供备用外网访问                     | tinc 疑似有导致内存损坏的 bug，长期运行可能会停止响应 |
 
 
 [](< @visibility: hidden >)
