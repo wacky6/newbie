@@ -104,4 +104,4 @@
 
 上述过程的实现可以在 [wacky6/gt-crack](https://github.com/wacky6/gt-crack) 获取，遵循 GPL-3.0 协议。轨迹生成的代码没有完全公开，因为公开后必然引起通过率衰减。
 
-<p style="margin-top: 3em; text-align: right;"><a style="text-decoration: none;" title="wacky6/hikaru" href="https://github.com/wacky6/hikaru/"><ruby>Hikaru / 🌟<rt>今でもあなたはわたしの光 </rt></ruby></a></p>
+<p style="margin-top: 3em; text-align: right;"><a style="text-decoration: none;" title="wacky6/hikaru" href="https://github.com/wacky6/hikaru/"><ruby>Hikaru / 🌟<rt>君は私の光。 </rt></ruby></a></p>
