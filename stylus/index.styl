@@ -34,25 +34,29 @@
         margin-bottom: 2em
     .text-wrap
         font-size: 80%
-        margin-top: 1em
-        margin-bottom: 4em
-        height: 3em
+        margin-top: 0
+        margin-bottom: 3em
+        padding-top: 1em
+        padding-bottom: 1em
+        height: 5em
         box-sizing: content-box
         p
             margin: 0
-            transition: opacity 1s
+            transition: opacity 1s, filter 1s
         .text
             opacity: 1
         .origin
             color: #ffccd6    // sakura pink (#ffb7c5) variant
             letter-spacing: .5ch
-            opacity: 0
+            opacity: 0.75
+            filter: blur(3px)
             transform: translateY(-100%)
         &:hover
             .text
                 opacity: 0
             .origin
                 opacity: 1
+                filter: blur(0px)
     i, emph
         font-weight: bolder
         margin-left: 1ch
