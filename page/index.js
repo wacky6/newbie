@@ -18,6 +18,8 @@ const HEARTBEAT_INNER_HTML = `
         </div>
 
         <code>170a21e    @    258_6515    /    e11bd - 2c5</code>
+
+        <code>🎂  130df62  /  Y   🎂</code>
     </div>
 `
 
