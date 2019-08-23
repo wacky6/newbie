@@ -1,6 +1,6 @@
 [](~
     ctime: 2017-01-21
-    mtime: 2018-11-15
+    mtime: 2019-08-23
     tags: 其它
     keywords: macOS, OS X, HiDPI, external monitor
     description: 通过修改 plist 开启 macOS 外接显示器 HiDPI。
@@ -32,6 +32,8 @@ macOS 开启外接显示器 HiDPI
 ```bash
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool YES
 ```
+
+如果使用 4K 或更高分辨率的显示器，macOS 很可能原生支持 HiDPI，建议直接从 [5. 下载 RDM](#rdm) 尝试选择 HiDPI 分辨率。如无法启用或没有合适的分辨率，再使用配置文件。
 
 ### 2. 获得显示器信息
 
@@ -88,7 +90,7 @@ ioreg -lw0 | grep IODisplayPrefsKey | grep -o '/[^/]\+"$'
 把上面这串二进制数进行Base64编码，可以得到：`AAAHgAAABDgAAAABACAAAA==`和`AAAPAAAACHAAAAABACAAAA==`。把这个字符串填到对应的`<data>`标签内。
 
 
-[](< #copy-conf >)
+[](< #copy-conf    @margin-top: -1em    @padding-top: 3em >)
 ### 4. 复制配置到系统目录
 ```bash
 # OS X 10.11及以上
@@ -96,14 +98,21 @@ DIR=/System/Library/Displays/Contents/Resources/Overrides
 # OS X 10.10及以下
 DIR=/System/Library/Displays/Overrides
 
-# 把 ${VID} 和 ${PID} 替换成上面获得的VendorID和ProductID
+# ${VendorID} 和 ${ProductID} 为上面获得的 VendorID 和 ProductID
+# 比如 P2416D，下面两行分别是：VID=10ac 和 PID=a0c4
+VID=${VendorID}
+PID=${ProductID}
+
 CONF=${DIR}/DisplayVendorID-${VID}/DisplayProductID-${PID}
 
-sudo mkdir -p ${DIR}
-sudo cp 配置文件 ${CONF}
+sudo mkdir -p $( dirname ${CONF} )
+
+# 以下面生成的 P2416D 配置，下载到用户(wacky)的下载文件夹，下面一行是：
+# sudo cp /Users/wacky/Downloads/DisplayProductID-a0c4 ${CONF}
+sudo cp <配置文件路径> ${CONF}
 sudo chown root:wheel ${CONF}
 ```
-
+[](< #rdm    @margin-top: -1em    @padding-top: 3em >)
 ### 5. 安装Retina Display Manager
 RDM 用来切换屏幕分辨率，在这里找安装包：[RDM Binary Release](http://avi.alkalay.net/software/RDM/)
 
@@ -118,7 +127,7 @@ RDM 用来切换屏幕分辨率，在这里找安装包：[RDM Binary Release](h
 
 系统大版本更新后（如 High Sierra 到 Mojave），需要重新生成配置文件。
 
-[](< #one-key >)
+[](< #one-key    @margin-top: -1em    @padding-top: 3em >)
 ## 一键生成
 
 生成后，在终端中按照 [上面的指令](#copy-conf) 把配置文件拷贝到系统目录。
@@ -143,7 +152,7 @@ var STYLE_FORM = { display: 'inline-block' }
 var STYLE_LABEL = { display: 'block' }
 var STYLE_FIELD_NAME_INLINE = { display: 'inline-block', width: '10ch', textAlign: 'right', marginRight: '1ch' }
 var STYLE_BUTTON = { display: 'block', height: '2em', padding: '0 2ch', margin: '.5em auto', textAlign: 'center', cursor: 'pointer' }
-var STYLE_RESOLUTION_LIST = { width: '40ch', maxWidth: '100%' }
+var STYLE_RESOLUTION_LIST = { width: '32ch', maxWidth: '100%' }
 
 function $(sel) {
     return document.querySelector(sel)
