@@ -7,7 +7,7 @@ const HEARTBEAT_INNER_HTML = `
             <ruby>尚未发现的<emph>你</emph>也一定，<rt>Dedicated to <i>the one</i> yet to be discovered,</rt></ruby>
         </h3>
 
-        <div class="text-wrap">
+        <div class="text-wrap" onclick="">
             <p class="text">
                 <ruby><emph>光辉</emph>耀目。<rt>for your <emph>lonely</emph> heart.</rt></ruby>
             </p>
