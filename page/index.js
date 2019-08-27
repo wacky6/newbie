@@ -13,7 +13,7 @@ const HEARTBEAT_INNER_HTML = `
             </p>
 
             <p class="origin">
-                <ruby>尚未了解这样的恋爱<rt>こんな恋知らないから</rt></ruby>
+                <ruby>还未了解这样的恋爱<rt>こんな恋知らないから</rt></ruby>
             </p>
         </div>
 
