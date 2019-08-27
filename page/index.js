@@ -4,22 +4,20 @@
 const HEARTBEAT_INNER_HTML = `
     <div class="content-wrap">
         <h3 class="regards">
-            <ruby>致尚未发现的<emph>你</emph>，<rt>Dedicated to <i>the one</i> yet to be discovered,</rt></ruby>
+            <ruby>尚未发现的<emph>你</emph>也一定，<rt>Dedicated to <i>the one</i> yet to be discovered,</rt></ruby>
         </h3>
 
         <div class="text-wrap">
             <p class="text">
-                <ruby>想<emph>贴近</emph>一些。<rt>for <emph>your</emph> lonely heart.</rt></ruby>
+                <ruby><emph>光辉</emph>耀目。<rt>for your <emph>lonely</emph> heart.</rt></ruby>
             </p>
 
             <p class="origin">
-                <ruby>我还未了解这样的恋爱<rt>こんな恋知らないから</rt></ruby>
+                <ruby>尚未了解这样的恋爱<rt>こんな恋知らないから</rt></ruby>
             </p>
         </div>
 
-        <code>170a21e    @    258_6515    /    e11bd - 2c5</code>
-
-        <code>🎂  130df62  /  Y   🎂</code>
+        <code>🎂  <span class="hint">0x</span>130df62   🎂</code>
     </div>
 `
 
