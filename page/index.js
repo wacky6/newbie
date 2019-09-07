@@ -34,6 +34,12 @@ document.addEventListener('DOMContentLoaded', function(){
         $('#suki-desu').toggleState('aria-pressed')
         $('.carousal .content').toggleState('aria-hidden')
         $('#heartbeat').toggleState('aria-hidden')
+
+        if ($('#heartbeat').getAttribute('aria-hidden') === 'true') {
+            setTimeout(_ => {
+                window.location.hash = '#'
+            }, 100)
+        }
     }
 
     $('#suki-desu').addEventListener('click', toggleState)

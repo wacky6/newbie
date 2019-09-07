@@ -7,9 +7,9 @@
 
 <head>
 {{ common.meta() }}
-<meta name="description" content="Jiewei Qian, ANU and NJUPT Alumni; Tech-savvy, Anime &amp; Game Otaku, Infant Developer; used ID includes: wacky6, std::weak">
+<meta name="description" content="Jiewei Qian：即将成为 Noogler，想要成为软件开发者，技术宅，偶尔摄影、看动漫、打游戏。澳大利亚国立大学及南京邮电大学毕业生。">
 <meta name="keywords" content="Jiewei Qian, wacky6, about, 关于">
-<title>About | Jw.Q</title>
+<title>关于我 | Jw.Q</title>
 {{ common.head() }}
 <link rel="stylesheet" href="about.css" data-embed>
 <link rel="prefetch" href="alipay-qr-code.png">
@@ -20,23 +20,41 @@
 <body>
 {{ common.header("about") }}
 
+{%- macro google_color_text() -%}
+<span style="color:#4687f1">N</span><span style="color:#e6463b">o</span><span style="color:#f9bb29">o</span><span style="color:#4687f1">g</span><span style="color:#3fa756">l</span><span style="color:#e6463b">e</span><span style="color:#f9bb29">r</span>
+{%- endmacro -%}
+
 <div role="main" class="main">
 <article>
-    <h1>About Me</h1>
+    <h1>关于我</h1>
     <section class="bio">
     <p>
-        <a href="http://www.anu.edu.au/" title="the Australian National University">@ANU</a> CECS Master; <a href="http://www.njupt.edu.cn/" title="Nanjing University of Posts and Telecommunications">@NJUPT</a> graduate<br>
-        Sometime a <strong style="color:#dd94ff;">{Perfectionist, Paranoid}</strong> <br>
-        <strong style="color:#71ff96;">Tech Savvy</strong> <br>
-        Ocassionally <span style="color:#ffee58;">shoot photos</span>, <strong style="color:#05c0ff;">PS addictive</strong> <br>
-        <strong style="color:#39ffb7;">Game</strong>, <strong style="color:#f4b8ff;">Anime</strong>, <strong style="color:#88acff">Technology</strong> Otaku<br>
-        Product of <strong style="color:#84dcff;">Nanjing, China</strong> <br>
-        Alias: <strong style="color:#b9f6ca;">std::weak</strong>, <strong style="color:#ccff90;">wacky6</strong> (pre-2013).
+        即将成为 <a href="https://about.google/" title="Software Engineer @ Google">{{ google_color_text() }}</a> 软件工程师 <br>
+        <strong style="color:#71ff96;">技术宅</strong>：Geek并耿直 <br>
+        有时是 <strong style="color:#dd94ff;">{完美主义者，强迫症患者}</strong> <br>
+        偶尔 <span style="color:#ffee58;">摄影</span>、<strong style="color:#05c0ff;">搞后期</strong> <br>
+        也会 <strong style="color:#f4b8ff;">看动漫</strong>、<span style="color:#39ffb7;">打游戏</span>
+
+    <p>
+        <strong style="color:#84dcff;">蓝鲸人</strong>（南京），也许以后是海龟 <br>
+        <a href="https://www.anu.edu.au/" title="the Australian National University" style="color:#aaccdc">@澳村国立</a> 和 <a href="http://www.njupt.edu.cn/" title="Nanjing University of Posts and Telecommunications" style="color:#829ce3">@皇家邮电</a> 毕业生<br>
+        和 <a href="https://www.nju.edu.cn" style="color:#ec46e6" title="Nanjing University">@南哪儿</a> 有点缘分
+    </p>
+
+    <p></p>
+        也叫 <strong style="color:#ccff90;">wacky6</strong>、<span style="color:#b9f6ca;">std::weak</span>
+    </p>
+    </section>
+
+    <section class="clannad" style="margin-top: 4em">
+    <p class="the-answer" style="color: #c4c4c4">
+      有些事情，明知无能为力，但也一定全力以赴：<br>
+      <span style="margin-left: 3ch"><strong style="color: #eb2832">热爱</strong>、<strong style="color: #f9b1c0">喜欢</strong> 还有 <a href="/#heartbeat" title="总有一份喜欢无处安放" style="color: #aac4ef"><strong style="color: #afcdfd">你</strong></a></span>
     </p>
     </section>
 
     <section class="contact">
-        <h2>Find me</h2>
+        <h2>找到我</h2>
         <ul class="contact-list box">
             <li><a class="icon-github-circled" title="wacky6 @ github" href="https://github.com/wacky6">wacky6</a></li>
             <li><a class="icon-steam" title="wacky6 @ steam" href="http://steamcommunity.com/id/wacky6">"WaCkY</a></li>
@@ -47,7 +65,7 @@
     </section>
 
     <section class="donation">
-        <h2>Donation</h2>
+        <h2>投喂我</h2>
         <div class="layout">
             <div class="avatar-box">
                 <img class="avatar" src="cc-cat.gif"></img>
@@ -70,53 +88,6 @@
 {{ common.footer() }}
 
 <script src="about.js" data-embed></script>
-
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "AboutPage",
-  "breadcrumb": "关于",
-  "dateCreated":  "2015-07-10",
-  "dateModified": "2017-06-23",
-  "license":      "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-  "mainEntity":{
-    "@type": "Person",
-    "name": "Jiewei Qian",
-    "alternateName": "钱颉伟",
-    "gender": "Male",
-    "birthDate": "1995-04-18",
-    "birthPlace": {
-      "@type": "City",
-      "name": "Nanjing"
-    },
-    "jobTitle": "Student",
-    "email": "mailto:qjw@wacky.one",
-    "url": "https://wacky.one/",
-    "nationality": {
-      "@type": "Country",
-      "name":  "China"
-    },
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name":  "Nanjing University of Posts and Telecommunications",
-      "alternateName": "南京邮电大学",
-      "sameAs": "http://www.njupt.edu.cn/"
-    },
-    "memberOf": {
-      "@type": "Organization",
-      "name":  "NJUPT Science Association of Computer College",
-      "alternativeName": "南京邮电大学 计算机软件学院科协",
-      "sameAs": "http://www.nuptsacc.com"
-    },
-    "alumniOf": {
-      "@type": "HighSchool",
-      "name":  "High School Affiliated to Nanjing Normal University",
-      "alternateName": "南京师范大学附属中学",
-      "sameAs": "http://www.nsfz.net/"
-    }
-  }
-}
-</script>
 
 </body>
 
