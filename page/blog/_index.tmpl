@@ -38,7 +38,6 @@
                     {{m.title}}
                 </a>
             </h2>
-            <time class="ctime secondary" itemprop="datePublished" datetime="{{m.ctime|ISOString}}">{{m.ctime|date}}</time>
             <meta class="tags" content="{{m.tags}}" />
             <meta class="mtime" itemprop="dateModified" content="{{m.mtime|ISOString}}" />
         </div>
@@ -49,6 +48,7 @@
             <a class="icon-angle-double-right continue-reading" href="{{m.name}}/"
                title="{{m.title}}" {%- if !m.robots -%} nofollow {%- endif %}
             >继续阅读</a>
+            <span class="ctime secondary"><time itemprop="datePublished" datetime="{{m.ctime|ISOString}}">{{m.ctime|date}}</time></span>
         </div>
     </li>
     {% endmacro -%}
