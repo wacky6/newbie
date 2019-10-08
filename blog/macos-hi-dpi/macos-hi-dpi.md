@@ -14,20 +14,22 @@ macOS 开启外接显示器 HiDPI
 ===
 
 ## TL;DR
-[一键生成HiDPI配置](#one-key)
+先完成 [准备工作](#prepare)，[一键生成HiDPI配置](#one-key)，然后 [拷贝配置文件到系统目录](#copy-conf)。
 
-**对以下系统和显示配置有效：**
+**对以下系统和显示器有效：**
 
 * macOS 10.12 Sierra
 * macOS 10.13 High Sierra
 * macOS 10.14 Mojave
+* macOS 10.15 Catalina
 
 
 * Dell P2416D, DisplayPort, 1920x1080 HiDPI
 * Dell P2418D, DisplayPort, 1920x1080 HiDPI
 * Acer XB241YU, HDMI, 1920x1080 HiDPI
 
-
+[](< #prepare    @margin-top: -1em    @padding-top: 3em >)
+## 0x1 准备工作：
 ### 1. 打开系统HiDPI (在终端运行）
 ```bash
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool YES
@@ -35,7 +37,27 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 
 如果使用 4K 或更高分辨率的显示器，macOS 很可能原生支持 HiDPI，建议直接从 [5. 下载 RDM](#rdm) 尝试选择 HiDPI 分辨率。如无法启用或没有合适的分辨率，再使用配置文件。
 
-### 2. 获得显示器信息
+### 2. 禁用SIP (macOS 10.11及以上)
+macOS 10.11 El Capitan 开始默认启用 System Integrity Protection (SIP) 防止系统文件被修改。因为配置文件需要放在系统文件夹中，要禁用 SIP。
+
+开机或重启时按下 *Command + R* 组合键，进入 macOS 恢复模式，在屏幕上方的菜单中选择 *Utlities > Terminal* 打开终端，输入并执行：
+```bash
+csrutil disable
+```
+
+然后重启系统。进行下面的步骤。如果需要启用 SIP，按照以上步骤进入恢复模式，输入并执行 `csrutil enable`
+
+### 3. 关闭系统目录写保护 (macOS 10.15)
+macOS 10.15 Cataline 开始系统目录默认为只读模式，禁用 SIP 以后，仍需开放文件系统写入权限。
+
+在终端中输入并执行：
+```bash
+sudo mount -uw /
+```
+
+`-u` 选项表示修改已挂在文件系统的模式，`-w`选项表示将模式改为可读写 (read-write)，`/`为根目录即系统挂载点。
+
+## 0x2 获得显示器信息
 
 获得显示器的 VendorID 和 ProductID （制造商ID 和 产品ID），在终端运行：
 
@@ -54,7 +76,7 @@ ioreg -lw0 | grep IODisplayPrefsKey | grep -o '/[^/]\+"$'
 
 关注`AppleDisplay-**-**`，`-`分隔了两个十六进制数。第一个为VendorID，第二个为ProductID。以我的环境为例：VendorID为`10ac`，ProductID为`a0c4`。（机智的小伙伴发现这是一台Dell P2416D）
 
-### 3. 制作配置
+## 0x3 制作配置
 水果的 plist 是 xml 变体，你可以手动写配置文件，也可以用文末的一键生成器。
 
 ```xml
@@ -91,7 +113,7 @@ ioreg -lw0 | grep IODisplayPrefsKey | grep -o '/[^/]\+"$'
 
 
 [](< #copy-conf    @margin-top: -1em    @padding-top: 3em >)
-### 4. 复制配置到系统目录
+## 0x4 拷贝配置到系统目录
 ```bash
 # OS X 10.11及以上
 DIR=/System/Library/Displays/Contents/Resources/Overrides
@@ -113,19 +135,19 @@ sudo cp <配置文件路径> ${CONF}
 sudo chown root:wheel ${CONF}
 ```
 [](< #rdm    @margin-top: -1em    @padding-top: 3em >)
-### 5. 安装Retina Display Manager
+## 0x5 安装 Retina Display Manager
 RDM 用来切换屏幕分辨率，在这里找安装包：[RDM Binary Release](http://avi.alkalay.net/software/RDM/)
 
 如果使用 macOS Serria，需要允许任意来源的应用，参见：[macOS安装任意来源应用](http://osxdaily.com/2016/09/27/allow-apps-from-anywhere-macos-gatekeeper/)。
 
-### 6. 重启！用RDM切换分辨率
-重启后运行 RDM，在任务栏中找到 RDM 的 logo，点开来切换分辨率。带有⚡️标识的为 HiDPI 分辨率。
+## 0x6 重启！用RDM切换分辨率
+重启后运行 RDM，在任务栏中找到 RDM 的图标，单击打开分辨率选单。带有⚡️标识的为 HiDPI 分辨率。
 ![RDM Screenshot](./RDM-screenshot.png)
 
-### 存在的问题
+## 存在的问题
 用本文的方式开启 HiDPI，合上 Mac 屏幕，外接显示器黑屏。将外接显示器分辨率切换到屏幕原始分辨率后可以正常地仅使用外接显示器，原因未知。因对我的工作方式没有影响，没有继续研究下去。
 
-系统大版本更新后（如 High Sierra 到 Mojave），需要重新生成配置文件。
+系统大版本更新后（如 High Sierra 到 Mojave），需要重新拷贝配置文件。
 
 [](< #one-key    @margin-top: -1em    @padding-top: 3em >)
 ## 一键生成
