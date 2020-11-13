@@ -37,25 +37,6 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 
 如果使用 4K 或更高分辨率的显示器，macOS 很可能原生支持 HiDPI，建议直接从 [5. 下载 RDM](#rdm) 尝试选择 HiDPI 分辨率。如无法启用或没有合适的分辨率，再使用配置文件。
 
-### 2. 禁用SIP (macOS 10.11及以上)
-macOS 10.11 El Capitan 开始默认启用 System Integrity Protection (SIP) 防止系统文件被修改。因为配置文件需要放在系统文件夹中，要禁用 SIP。
-
-开机或重启时按下 *Command + R* 组合键，进入 macOS 恢复模式，在屏幕上方的菜单中选择 *Utlities > Terminal* 打开终端，输入并执行：
-```bash
-csrutil disable
-```
-
-然后重启系统。进行下面的步骤。如果需要启用 SIP，按照以上步骤进入恢复模式，输入并执行 `csrutil enable`
-
-### 3. 关闭系统目录写保护 (macOS 10.15)
-macOS 10.15 Cataline 开始系统目录默认为只读模式，禁用 SIP 以后，仍需开放文件系统写入权限。
-
-在终端中输入并执行：
-```bash
-sudo mount -uw /
-```
-
-`-u` 选项表示修改已挂在文件系统的模式，`-w`选项表示将模式改为可读写 (read-write)，`/`为根目录即系统挂载点。
 
 ## 0x2 获得显示器信息
 
@@ -113,12 +94,12 @@ ioreg -lw0 | grep IODisplayPrefsKey | grep -o '/[^/]\+"$'
 
 
 [](< #copy-conf    @margin-top: -1em    @padding-top: 3em >)
-## 0x4 拷贝配置到系统目录
+## 0x4 拷贝配置到对应目录
 ```bash
 # OS X 10.11及以上
-DIR=/System/Library/Displays/Contents/Resources/Overrides
+DIR=/Library/Displays/Contents/Resources/Overrides
 # OS X 10.10及以下
-DIR=/System/Library/Displays/Overrides
+DIR=/Library/Displays/Overrides
 
 # ${VendorID} 和 ${ProductID} 为上面获得的 VendorID 和 ProductID
 # 比如 P2416D，下面两行分别是：VID=10ac 和 PID=a0c4
