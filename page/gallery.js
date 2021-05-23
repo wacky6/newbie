@@ -16,11 +16,11 @@ function fetchWithTimeout(url, timeout) {
             reject(new Error('Timeout'))
         }, TIMEOUT)
 
-        fetch(INSTAGRAM_PROBE).then(
-            resp => {
+        fetch(INSTAGRAM_PROBE, {mode: 'no-cors'}).then(
+            _ => {
                 clearTimeout(timeout)
                 timeout = null
-                resolve(resp)
+                resolve(true)
             },
             err => {
                 if (timeout) {
@@ -35,16 +35,13 @@ function fetchWithTimeout(url, timeout) {
 try {
     let probeStartAt = Date.now()
     fetchWithTimeout(INSTAGRAM_LINK, TIMEOUT).then(
-        resp => {
-            // check response code
-            if (resp.ok) {
-                // masquerade all lofter links
-                Array.prototype.slice.call(document.getElementsByClassName(JSREF_CLASS))
-                    .filter(el => el.tagName.toLowerCase() === 'a')
-                    .forEach(el => { el.href = INSTAGRAM_LINK })
-                window.ga && window.ga('send', 'event', 'Connectivity', 'instagram', 'success')
-                window.ga && window.ga('send', 'timing', 'Connectivity', 'instagram_resp_time', Date.now() - probeStartAt)
-            }
+        _ => {
+            // masquerade all lofter links
+            Array.prototype.slice.call(document.getElementsByClassName(JSREF_CLASS))
+                .filter(el => el.tagName.toLowerCase() === 'a')
+                .forEach(el => { el.href = INSTAGRAM_LINK })
+            window.ga && window.ga('send', 'event', 'Connectivity', 'instagram', 'success')
+            window.ga && window.ga('send', 'timing', 'Connectivity', 'instagram_resp_time', Date.now() - probeStartAt)
         },
         error => {
             window.ga && window.ga('send', 'event', 'Connectivity', 'instagram', 'failure')
