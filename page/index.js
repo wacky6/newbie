@@ -9,7 +9,7 @@ const HEARTBEAT_INNER_HTML = `
 
         <div class="text-wrap" onclick="">
             <p class="text">
-                <ruby>正在这个世界<emph>闪闪发光</emph>。<rt>for your <emph>lonely heart</emph>.</rt></ruby>
+                <ruby>正在这个世界<emph>闪闪发光</emph>。<rt>for your <emph>lonely heart</emph>:</rt></ruby>
             </p>
         </div>
     </div>
