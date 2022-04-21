@@ -20,6 +20,7 @@ window.addEventListener('load', function() {
         s =  document.createElement('script')
         s.setAttribute('src', '//www.googletagmanager.com/gtag/js?id=G-E2RBFS2JSW')
         s.setAttribute('async', 'async')
+        document.body.appendChild(s)
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
