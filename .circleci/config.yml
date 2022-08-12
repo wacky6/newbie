@@ -12,7 +12,7 @@ jobs:
     environment:
       SSH_OPTS: 'UserKnownHostsFile=.circleci/ssh_hosts'
       BUILD_PREFIX: 'newbie'
-      PRODUCTION_HOST: 'root@wacky.one'
+      PRODUCTION_HOST: 'root@lax-6.wacky.one'
       PRODUCTION_TARGET: '/publish/newbie/build'
 
     working_directory: ~/repo
