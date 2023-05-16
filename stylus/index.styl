@@ -36,18 +36,21 @@
             margin-right: .5ch
         ruby rt
             font-size: 1rem
+        // hardcoded color calculation:
+        // String.fromCharCode( Math.round(rgb_channel_val / 255 * 26) + 65 )
         .life
-            color: $color.green.normal
+            color: #f5276b
         .pronoun
-            color: $color.red.normal
+            color: #9c58d7
             rt
-                color: $color.blue.normal
+                color: #ebb027
         .dest
-            color: $color.purple.lighten-2
+            color: #27ebb0
             rt
-                color: inherit
+                color: #58d79c
         .tsuzuku
-            color: $color.amber.normal
+            color: $color.blue.lighten-2
+            font-size: 1.75em
 
 // for mobile
 body
