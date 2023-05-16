@@ -3,7 +3,8 @@
 
 const HEARTBEAT_INNER_HTML = `
     <div class="content-wrap">
-      <span class="life">Life</span><span>will take</span>
+      <span class="life">Life</span>
+      <span>takes</span>
       <span><ruby class="pronoun">me<rt>you</rt></ruby></span>
       <span>→</span>
       <span><ruby class="dest">there<rt>here</rt></ruby></span>
