@@ -7,7 +7,7 @@ version: 2
 jobs:
   build:    # build is equivalent to build_and_deploy
     docker:
-      - image: circleci/node:9
+      - image: cimg/node:20.1.0
 
     environment:
       SSH_OPTS: 'UserKnownHostsFile=.circleci/ssh_hosts'
@@ -37,7 +37,7 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            "2e:c9:8e:a0:44:60:27:9f:c0:11:1f:50:cf:0f:f2:4d"
+            "61:54:b0:ff:63:03:47:c0:a0:3f:73:68:6e:7f:43:de"
 
       - run:
           name: Push to server
