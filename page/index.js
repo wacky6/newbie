@@ -6,7 +6,7 @@ const HEARTBEAT_INNER_HTML = `
       <span class="life">Life</span>
       <span>takes</span>
       <span><ruby class="pronoun">me<rt>you</rt></ruby></span>
-      <span>→</span>
+      <span class="path">⤨</span>
       <span><ruby class="dest">there<rt>here</rt></ruby></span>
       <span class="tsuzuku">𝄇</span>
     </div>

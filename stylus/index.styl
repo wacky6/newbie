@@ -34,6 +34,12 @@
         span
             margin-left: .5ch
             margin-right: .5ch
+        ruby
+            display: flex
+            flex-direction: column-reverse
+            align-items: center
+            justify-content: center
+            flex-wrap: nowrap
         ruby rt
             font-size: 1rem
         // hardcoded color calculation:
@@ -44,13 +50,15 @@
             color: #9c58d7
             rt
                 color: #ebb027
+        .path
+            font-size: 1.8em
         .dest
             color: #27ebb0
             rt
                 color: #58d79c
         .tsuzuku
             color: $color.blue.lighten-2
-            font-size: 1.75em
+            font-size: 1.8em
 
 // for mobile
 body
